@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider, useAuth } from './context/AuthContext'
@@ -5,18 +6,27 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import Layout from './components/layout/Layout'
 import AdminLayout from './components/layout/AdminLayout'
 
-import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import StudyDestinationsPage from './pages/StudyDestinationsPage'
-import FMCPilotPage from './pages/FMCPilotPage'
-import ContactPage from './pages/ContactPage'
-import LoginPage from './pages/LoginPage'
-import AdminHomePage from './pages/admin/AdminHomePage'
-import LeadsPage from './pages/admin/LeadsPage'
+// Each page is its own separate JS chunk — only loaded when the user visits that route
+const HomePage = lazy(() => import('./pages/HomePage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage'))
+const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const LoginPage = lazy(() => import('./pages/LoginPage'))
+const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
+const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="w-6 h-6 border-2 border-navy border-t-transparent rounded-full animate-spin" />
+    </div>
+  )
+}
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth()
-  if (isLoading) return <div className="min-h-screen bg-navy flex items-center justify-center text-white/50 text-sm">Loading...</div>
+  if (isLoading) return <PageLoader />
   if (!user) return <Navigate to="/login" replace />
   return <>{children}</>
 }
@@ -26,28 +36,30 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Toaster position="bottom-right" />
-        <Routes>
-          {/* Public website */}
-          <Route element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/destinations" element={<StudyDestinationsPage />} />
-            <Route path="/fmc-pilot" element={<FMCPilotPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Route>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Public website */}
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/destinations" element={<StudyDestinationsPage />} />
+              <Route path="/fmc-pilot" element={<FMCPilotPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Route>
 
-          {/* Auth */}
-          <Route path="/login" element={<LoginPage />} />
+            {/* Auth */}
+            <Route path="/login" element={<LoginPage />} />
 
-          {/* Admin portal */}
-          <Route
-            path="/admin"
-            element={<RequireAuth><AdminLayout /></RequireAuth>}
-          >
-            <Route index element={<AdminHomePage />} />
-            <Route path="leads" element={<LeadsPage />} />
-          </Route>
-        </Routes>
+            {/* Admin portal */}
+            <Route
+              path="/admin"
+              element={<RequireAuth><AdminLayout /></RequireAuth>}
+            >
+              <Route index element={<AdminHomePage />} />
+              <Route path="leads" element={<LeadsPage />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </AuthProvider>
   )
