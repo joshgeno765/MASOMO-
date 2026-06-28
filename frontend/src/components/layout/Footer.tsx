@@ -1,0 +1,60 @@
+import { Link } from 'react-router-dom'
+
+export default function Footer() {
+  return (
+    <footer className="bg-navy text-white/60">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">
+                MN
+              </div>
+              <span className="text-white font-bold text-lg">
+                Masomo <span className="text-brand-gold-light">Now</span>
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed max-w-xs mb-4">
+              International education consultancy helping students from Rwanda, DR Congo, and Djibouti access world-class institutions abroad — with a focus on Canadian francophone pathways.
+            </p>
+            <div className="flex gap-2 text-xs">
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇷🇼 Kigali</span>
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇰🇪 Nairobi</span>
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigate</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/" className="text-sm hover:text-brand-gold-light transition-colors">Home</Link>
+              <Link to="/about" className="text-sm hover:text-brand-gold-light transition-colors">About Us</Link>
+              <Link to="/destinations" className="text-sm hover:text-brand-gold-light transition-colors">Study Destinations</Link>
+              <Link to="/fmc-pilot" className="text-sm hover:text-brand-gold-light transition-colors">🇨🇦 FMC Pilot Program</Link>
+              <Link to="/contact" className="text-sm hover:text-brand-gold-light transition-colors">Contact</Link>
+              <Link to="/contact" className="text-sm hover:text-brand-gold-light transition-colors">Book Consultation</Link>
+            </div>
+          </div>
+
+          {/* Destinations */}
+          <div>
+            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">Destinations</h4>
+            <div className="flex flex-col gap-2 text-sm">
+              <Link to="/fmc-pilot" className="hover:text-brand-gold-light transition-colors">🇨🇦 Canada (FMC Pilot)</Link>
+              <span>🇬🇧 United Kingdom</span>
+              <span>🇦🇺 Australia</span>
+              <span>🇺🇸 United States</span>
+              <span>🇳🇿 New Zealand</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
+          <span>© 2026 Masomo Now. All rights reserved.</span>
+          <span className="text-white/30">info@masomonow.com</span>
+        </div>
+      </div>
+    </footer>
+  )
+}

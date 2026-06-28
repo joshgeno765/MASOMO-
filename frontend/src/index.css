@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-gold text-navy font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-light transition-colors duration-150 inline-flex items-center gap-2 text-sm;
+  }
+  .btn-outline {
+    @apply border border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:border-white/60 transition-colors duration-150 text-sm;
+  }
+}

@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── USERS (all platform accounts) ───────────────────────────────────────────
+// role: ADMIN | COUNSELOR | STUDENT
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      String   @default("STUDENT")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  student   Student?
+  counselor Counselor?
+
+  @@map("users")
+}
+
+// ─── LEADS (CRM pipeline) ────────────────────────────────────────────────────
+// status: NEW | CONTACTED | CONSULTATION_SCHEDULED | APPLICATION_STARTED | CONVERTED | CLOSED
+model Lead {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  email               String
+  phone               String
+  country             String?
+  destinationInterest String
+  message             String?
+  status              String   @default("NEW")
+  assignedCounselorId Int?
+  notes               String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  appointments Appointment[]
+  auditLogs    AuditLog[]
+
+  @@map("leads")
+}
+
+// ─── STUDENTS ────────────────────────────────────────────────────────────────
+// status: ACTIVE | INACTIVE | ENROLLED | DEFERRED
+model Student {
+  id             Int      @id @default(autoincrement())
+  userId         Int      @unique
+  user           User     @relation(fields: [userId], references: [id])
+  firstName      String
+  lastName       String
+  dateOfBirth    DateTime?
+  nationality    String?
+  phone          String?
+  highestEdu     String?
+  institution    String?
+  gpa            String?
+  graduationYear Int?
+  destCountry    String?
+  program        String?
+  intake         String?
+  status         String   @default("ACTIVE")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  applications  Application[]
+  appointments  Appointment[]
+  notifications Notification[]
+
+  @@map("students")
+}
+
+// ─── COUNSELORS ──────────────────────────────────────────────────────────────
+model Counselor {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  firstName String
+  lastName  String
+  phone     String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointments Appointment[]
+
+  @@map("counselors")
+}
+
+// ─── APPOINTMENTS ─────────────────────────────────────────────────────────────
+// type: INITIAL_CONSULTATION | FOLLOW_UP | VISA_PREP | PRE_DEPARTURE
+// status: SCHEDULED | CONFIRMED | COMPLETED | CANCELLED | NO_SHOW
+model Appointment {
+  id          Int      @id @default(autoincrement())
+  leadId      Int?
+  lead        Lead?    @relation(fields: [leadId], references: [id])
+  studentId   Int?
+  student     Student? @relation(fields: [studentId], references: [id])
+  counselorId Int?
+  counselor   Counselor? @relation(fields: [counselorId], references: [id])
+  scheduledAt DateTime
+  duration    Int      @default(30)
+  type        String   @default("INITIAL_CONSULTATION")
+  status      String   @default("SCHEDULED")
+  notes       String?
+  destination String?
+  program     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("appointments")
+}
+
+// ─── APPLICATIONS (Phase 2+) ─────────────────────────────────────────────────
+// status: DRAFT | AWAITING_DOCUMENTS | READY_FOR_SUBMISSION | SUBMITTED | UNDER_REVIEW | OFFER_RECEIVED | ACCEPTED | REJECTED
+model Application {
+  id         Int      @id @default(autoincrement())
+  studentId  Int
+  student    Student  @relation(fields: [studentId], references: [id])
+  university String
+  program    String
+  intake     String
+  tuition    Float?
+  status     String   @default("DRAFT")
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("applications")
+}
+
+// ─── NOTIFICATIONS ───────────────────────────────────────────────────────────
+model Notification {
+  id        Int      @id @default(autoincrement())
+  studentId Int
+  student   Student  @relation(fields: [studentId], references: [id])
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+// ─── AUDIT LOGS ──────────────────────────────────────────────────────────────
+model AuditLog {
+  id          Int      @id @default(autoincrement())
+  leadId      Int?
+  lead        Lead?    @relation(fields: [leadId], references: [id])
+  action      String
+  oldValue    String?
+  newValue    String?
+  performedBy String?
+  createdAt   DateTime @default(now())
+
+  @@map("audit_logs")
+}
