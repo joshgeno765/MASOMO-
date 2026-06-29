@@ -20,6 +20,8 @@ app.use(helmet())
 const allowedOrigins = [
   'http://localhost:5173',
   'https://masomojoshua.netlify.app',
+  'https://masomonow.com',
+  'https://www.masomonow.com',
   process.env.FRONTEND_URL,
 ].filter(Boolean) as string[]
 
