@@ -41,7 +41,8 @@ export default function HomePage() {
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-2xl">
-            Study abroad and work,<br />
+            Study and work<br />
+            abroad,<br />
             without the guesswork
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
