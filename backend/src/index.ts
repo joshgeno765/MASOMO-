@@ -4,8 +4,10 @@ import helmet from 'helmet'
 import dotenv from 'dotenv'
 import { rateLimit } from 'express-rate-limit'
 
+import bcrypt from 'bcryptjs'
 import leadsRouter from './routes/leads'
 import authRouter from './routes/auth'
+import prisma from './lib/prisma'
 
 dotenv.config()
 
@@ -60,10 +62,25 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 })
 
 // ── Start ─────────────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`\n🚀 Masomo Now API running on http://localhost:${PORT}`)
-  console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`)
-  console.log(`   Health check: http://localhost:${PORT}/health\n`)
-})
+async function start() {
+  // Always ensure the admin account exists on startup
+  try {
+    const hash = await bcrypt.hash('Admin@Masomo2025', 10)
+    await prisma.user.upsert({
+      where: { email: 'admin@masomonow.com' },
+      update: { password: hash },
+      create: { email: 'admin@masomonow.com', password: hash, role: 'ADMIN' },
+    })
+    console.log('Admin account ready')
+  } catch (e) {
+    console.error('Failed to seed admin:', e)
+  }
+
+  app.listen(PORT, () => {
+    console.log(`Masomo Now API running on port ${PORT}`)
+  })
+}
+
+start()
 
 export default app
