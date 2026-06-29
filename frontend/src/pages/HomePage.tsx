@@ -42,8 +42,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-2xl">
             Study and work<br />
-            abroad,<br />
-            without the guesswork
+            abroad, without the guesswork
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
             We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Canada, UK, Australia and beyond.
