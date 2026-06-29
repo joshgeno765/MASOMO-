@@ -20,9 +20,12 @@ export default function Navbar() {
           <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">
             MN
           </div>
-          <span className="text-white font-bold text-lg">
-            Masomo <span className="text-brand-gold-light">Now</span>
-          </span>
+          <div>
+            <span className="text-white font-bold text-lg">
+              Masomo <span className="text-brand-gold-light">Now</span>
+            </span>
+            <p className="text-white/40 text-[10px] leading-none tracking-widest uppercase">Sky is the limit</p>
+          </div>
         </Link>
 
         {/* Desktop links */}
