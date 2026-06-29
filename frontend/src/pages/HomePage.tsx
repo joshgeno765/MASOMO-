@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 const services = [
   { title: 'University Selection', desc: 'We match you with institutions that fit your academic background, career goals, and budget — including FMC-eligible French-language schools in Canada.' },
   { title: 'Application Management', desc: 'We prepare, review, and submit your applications — tracking every status update until you have an offer letter.' },
-  { title: 'Visa & Study Permit', desc: 'Our team guides you through Canadian, UK, and Australian visas — including the Francophone Minority Communities (FMC) study permit pathway.' },
+  {
+    title: 'Visa & Study Permit',
+    desc: 'Our Regulated Canadian Immigration Consultants (RCICs), licensed by the College of Immigration and Citizenship Consultants (CICC), guide you through Canadian study permits — including the FMC pathway — as well as UK and Australian visas.',
+    link: 'https://rcic.link/r731358',
+    linkLabel: 'Verify our RCIC credentials →',
+  },
   { title: 'SOP & Essay Writing', desc: 'Strong personal statements get admissions. We help you craft compelling essays that reflect your authentic story — in French or English.' },
   { title: 'Pre-Departure Support', desc: 'Accommodation, insurance, flights, and orientation — we prepare you for day one so landing abroad isn\'t a shock.' },
   { title: 'Post-Arrival Support', desc: 'Settling in, opening a bank account, finding part-time work — we stay with you after you land.' },
@@ -58,6 +63,16 @@ export default function HomePage() {
               <div key={s.title} className="border-t border-gray-200 pt-5">
                 <h3 className="font-bold text-navy mb-2">{s.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                {'link' in s && (
+                  <a
+                    href={s.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 text-brand-blue text-xs font-bold hover:underline"
+                  >
+                    {s.linkLabel}
+                  </a>
+                )}
               </div>
             ))}
           </div>
