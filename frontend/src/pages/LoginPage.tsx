@@ -21,8 +21,9 @@ export default function LoginPage() {
     try {
       await login(email, password)
       navigate('/admin', { replace: true })
-    } catch {
-      toast.error('Invalid email or password')
+    } catch (err: unknown) {
+      const msg = (err as { response?: { data?: { error?: string } } })?.response?.data?.error
+      toast.error(msg || 'Could not reach server — check your connection')
     } finally {
       setSubmitting(false)
     }

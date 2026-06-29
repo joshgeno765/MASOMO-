@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import dotenv from 'dotenv'
+import { execSync } from 'child_process'
 import { rateLimit } from 'express-rate-limit'
 
 import bcrypt from 'bcryptjs'
@@ -47,6 +48,20 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Masomo Now API', version: '1.0.0' })
 })
 
+// Temporary diagnostic endpoint — shows DB state without exposing sensitive data
+app.get('/debug', async (_req, res) => {
+  try {
+    const userCount = await prisma.user.count()
+    const admin = await prisma.user.findUnique({
+      where: { email: 'admin@masomonow.com' },
+      select: { id: true, email: true, role: true, isActive: true, createdAt: true },
+    })
+    res.json({ db: 'connected', userCount, admin: admin ?? 'NOT FOUND' })
+  } catch (e) {
+    res.status(500).json({ db: 'error', error: String(e) })
+  }
+})
+
 app.use('/api/auth', authRouter)
 app.use('/api/leads', leadsRouter)
 
@@ -63,7 +78,16 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 async function start() {
-  // Always ensure the admin account exists on startup
+  // 1. Run database migrations (creates tables if they don't exist)
+  try {
+    execSync('./node_modules/.bin/prisma migrate deploy', { stdio: 'inherit' })
+    console.log('Database migrations applied')
+  } catch (e) {
+    console.error('Migration failed:', e)
+    // Do not exit — tables may already exist from a previous run
+  }
+
+  // 2. Ensure admin account always exists with the correct password
   try {
     const hash = await bcrypt.hash('Admin@Masomo2025', 10)
     await prisma.user.upsert({
@@ -73,7 +97,7 @@ async function start() {
     })
     console.log('Admin account ready')
   } catch (e) {
-    console.error('Failed to seed admin:', e)
+    console.error('Failed to create admin user:', e)
   }
 
   app.listen(PORT, () => {

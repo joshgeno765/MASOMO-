@@ -18,13 +18,16 @@ router.post('/login', async (req: Request, res: Response) => {
     const { email, password } = loginSchema.parse(req.body)
 
     const user = await prisma.user.findUnique({ where: { email } })
-    if (!user || !user.isActive) {
-      return res.status(401).json({ success: false, error: 'Invalid credentials' })
+    if (!user) {
+      return res.status(401).json({ success: false, error: 'No account found with that email' })
+    }
+    if (!user.isActive) {
+      return res.status(401).json({ success: false, error: 'Account is inactive' })
     }
 
     const valid = await bcrypt.compare(password, user.password)
     if (!valid) {
-      return res.status(401).json({ success: false, error: 'Invalid credentials' })
+      return res.status(401).json({ success: false, error: 'Incorrect password' })
     }
 
     const token = jwt.sign(
