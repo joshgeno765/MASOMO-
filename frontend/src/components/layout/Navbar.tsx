@@ -22,7 +22,7 @@ export default function Navbar() {
           </div>
           <span className="text-white font-bold text-lg">
             Masomo <span className="text-brand-gold-light">Now</span>
-            <span className="ml-2 text-xs font-normal tracking-widest uppercase text-white">Sky is the limit</span>
+            <span className="ml-2 font-bold text-white">Sky is the beginning</span>
           </span>
         </Link>
 
