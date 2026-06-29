@@ -8,11 +8,11 @@ build/
 **/dist/
 backend/dist/
 
-# Environment files
+# Environment files — .env.production is committed (contains only public build-time URLs)
 .env
 .env.local
-.env.production
 **/.env
+**/.env.local
 
 # Database files
 *.db
