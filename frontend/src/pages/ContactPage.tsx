@@ -92,8 +92,6 @@ export default function ContactPage() {
 
             <a
               href="https://wa.me/17788468953"
-              target="_blank"
-              rel="noopener noreferrer"
               className="block w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 rounded-lg transition-colors text-sm text-center"
             >
               Chat on WhatsApp
