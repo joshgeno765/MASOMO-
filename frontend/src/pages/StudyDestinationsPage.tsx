@@ -2,84 +2,61 @@ import { Link } from 'react-router-dom'
 
 const destinations = [
   {
-    flag: '🇨🇦',
-    name: 'Canada',
-    tagline: 'Top choice for francophone students from Africa',
-    fmc: true,
+    flag: '🇮🇪',
+    name: 'Ireland',
+    tagline: 'English-speaking gateway to the European Union',
     facts: [
-      { label: 'Universities', value: '120+' },
-      { label: 'Post-Study Work', value: 'Up to 3 years (PGWP)' },
-      { label: 'FMC Pilot', value: 'Available' },
-      { label: 'Language', value: 'English & French' },
+      { label: 'Partner Schools', value: '2' },
+      { label: 'Post-Study Work', value: '2 years (Stamp 1G)' },
+      { label: 'Language', value: 'English' },
+      { label: 'Location', value: 'Dublin' },
     ],
-    desc: 'Canada is the top destination for students from Rwanda, DRC, and Djibouti. The Francophone Minority Communities (FMC) Student Pilot offers a dedicated, priority-processed study permit for francophone students to study at French-language institutions outside Quebec.',
-    pros: ['FMC pilot pathway for francophone students', 'Post-Graduation Work Permit (up to 3 years)', 'Pathway to permanent residence', 'Safe, multicultural country', 'High quality of life'],
-    link: '/fmc-pilot',
-    linkLabel: 'Learn About the FMC Pilot →',
+    schools: [
+      { name: 'DCU — Dublin City University', type: 'Public Research University' },
+      { name: 'Griffith College', type: 'Private College' },
+    ],
+    desc: 'Ireland is one of the only English-speaking countries in the EU, making it a strategic choice for African students seeking a globally recognised degree with access to European job markets. Dublin is home to the European headquarters of Google, Meta, and Apple.',
+    pros: ['English-language EU country', '2-year post-study work permit (Stamp 1G)', 'Access to European job market', 'World-class tech and business sector', 'Welcoming to international students'],
+    link: '/contact',
+    linkLabel: 'Enquire About Ireland →',
   },
   {
-    flag: '🇬🇧',
-    name: 'United Kingdom',
-    tagline: 'World-ranked universities',
-    fmc: false,
+    flag: '🇩🇪',
+    name: 'Germany',
+    tagline: "Europe's largest economy — English programs available",
     facts: [
-      { label: 'Universities', value: '130+' },
-      { label: 'Post-Study Work', value: '2 years (Graduate Visa)' },
-      { label: 'Top Programs', value: 'Business, Law, Medicine' },
-      { label: 'Language', value: 'English' },
+      { label: 'Partner Schools', value: '3' },
+      { label: 'Post-Study Work', value: '18 months (Job Seeker Visa)' },
+      { label: 'Language', value: 'English programs available' },
+      { label: 'Location', value: 'Berlin & other cities' },
     ],
-    desc: 'The UK is home to some of the world\'s most prestigious universities including Oxford, Cambridge, and Imperial College. The 2-year Graduate Visa lets you work in the UK after completing your degree.',
-    pros: ['1–2 year degree programs (faster)', '2-year post-study work visa', 'World-class reputation', 'Diverse student community', 'Strong alumni networks'],
+    schools: [
+      { name: 'CBS — University of Applied Sciences', type: 'Private University of Applied Sciences' },
+      { name: 'BSBI — Berlin School of Business & Innovation', type: 'Private Institution' },
+      { name: 'Gisma University of Applied Sciences', type: 'Private University of Applied Sciences' },
+    ],
+    desc: 'Germany is Europe\'s strongest economy and a top destination for international students. Our three partner institutions offer fully English-taught business and management programs, making Germany accessible without needing to learn German first.',
+    pros: ['3 partner institutions in major cities', '18-month job seeker visa after graduation', 'Strong engineering & business job market', 'English-taught programs available', 'Central EU location'],
     link: '/contact',
-    linkLabel: 'Enquire About UK',
+    linkLabel: 'Enquire About Germany →',
   },
   {
-    flag: '🇦🇺',
-    name: 'Australia',
-    tagline: 'Work while you study',
-    fmc: false,
+    flag: '🇵🇱',
+    name: 'Poland',
+    tagline: 'Affordable European education in Warsaw',
     facts: [
-      { label: 'Universities', value: '40+' },
-      { label: 'Post-Study Work', value: '2–4 years' },
-      { label: 'Work Rights', value: '48 hrs/fortnight during studies' },
-      { label: 'Language', value: 'English' },
+      { label: 'Partner Schools', value: '1' },
+      { label: 'Post-Study Work', value: '1 year' },
+      { label: 'Language', value: 'English programs available' },
+      { label: 'Location', value: 'Warsaw' },
     ],
-    desc: 'Australia offers excellent education quality with generous post-study work rights. You can work up to 48 hours per fortnight while studying and stay 2–4 years after graduation depending on your qualification level.',
-    pros: ['Work during studies (48 hrs/fortnight)', 'Long post-study work period', 'High quality of life', 'Strong economy and job market', 'Great for engineering & health programs'],
-    link: '/contact',
-    linkLabel: 'Enquire About Australia',
-  },
-  {
-    flag: '🇺🇸',
-    name: 'United States',
-    tagline: 'Home of Ivy League institutions',
-    fmc: false,
-    facts: [
-      { label: 'Institutions', value: '4,000+' },
-      { label: 'Post-Study Work', value: '1–3 years (OPT)' },
-      { label: 'Top Programs', value: 'STEM, Business, Medicine' },
-      { label: 'Language', value: 'English' },
+    schools: [
+      { name: 'Vistula University', type: 'Private University — Warsaw' },
     ],
-    desc: 'The US has the largest and most diverse higher education system in the world. With 4,000+ institutions, there is an option for every academic level and budget. STEM graduates benefit from an extended 3-year OPT work permit.',
-    pros: ['World\'s most recognised degrees', 'STEM OPT extension (3 years)', 'Large scholarship opportunities', 'Strong research programs', 'Diverse campus culture'],
+    desc: 'Poland offers EU-recognised degrees at significantly lower tuition fees and living costs than Western Europe. Vistula University in Warsaw is one of Poland\'s most internationally active institutions, with a strong track record of enrolling students from Africa.',
+    pros: ['Among the most affordable EU tuitions', 'Lower cost of living vs. Western Europe', 'EU-recognised degrees', 'English-taught programs', 'Growing economy and job market'],
     link: '/contact',
-    linkLabel: 'Enquire About USA',
-  },
-  {
-    flag: '🇳🇿',
-    name: 'New Zealand',
-    tagline: 'Safe, affordable, high quality',
-    fmc: false,
-    facts: [
-      { label: 'Universities', value: '8 public' },
-      { label: 'Post-Study Work', value: 'Up to 3 years' },
-      { label: 'Work Rights', value: '20 hrs/week during studies' },
-      { label: 'Language', value: 'English' },
-    ],
-    desc: 'New Zealand is a safe, welcoming country with high-quality education. It\'s an increasingly popular destination for students seeking an alternative to Australia or the UK, with similar standards at lower costs.',
-    pros: ['More affordable than Australia & UK', 'Safe and welcoming environment', 'Work 20 hrs/week during studies', 'Post-study work visa up to 3 years', 'High quality of life'],
-    link: '/contact',
-    linkLabel: 'Enquire About New Zealand',
+    linkLabel: 'Enquire About Poland →',
   },
 ]
 
@@ -109,11 +86,6 @@ export default function StudyDestinationsPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h2 className="font-serif text-2xl text-navy">{d.name}</h2>
-                    {d.fmc && (
-                      <span className="text-xs font-bold text-brand-gold border border-brand-gold px-2.5 py-0.5 rounded">
-                        FMC Eligible
-                      </span>
-                    )}
                   </div>
                   <p className="text-gray-500 text-sm mt-1">{d.tagline}</p>
                 </div>
@@ -127,16 +99,29 @@ export default function StudyDestinationsPage() {
 
               {/* Body */}
               <div className="grid md:grid-cols-3 gap-10">
-                {/* Key facts */}
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Key Facts</h3>
-                  <div className="space-y-2.5">
-                    {d.facts.map((f) => (
-                      <div key={f.label} className="flex justify-between gap-4 border-b border-gray-100 pb-2.5">
-                        <span className="text-sm text-gray-500">{f.label}</span>
-                        <span className="text-sm font-semibold text-navy text-right">{f.value}</span>
-                      </div>
-                    ))}
+                {/* Key facts + Partner Schools */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Key Facts</h3>
+                    <div className="space-y-2.5">
+                      {d.facts.map((f) => (
+                        <div key={f.label} className="flex justify-between gap-4 border-b border-gray-100 pb-2.5">
+                          <span className="text-sm text-gray-500">{f.label}</span>
+                          <span className="text-sm font-semibold text-navy text-right">{f.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Partner Schools</h3>
+                    <ul className="space-y-2.5">
+                      {d.schools.map((s) => (
+                        <li key={s.name} className="border-b border-gray-100 pb-2.5">
+                          <div className="text-sm font-semibold text-navy">{s.name}</div>
+                          <div className="text-xs text-gray-400 mt-0.5">{s.type}</div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 

@@ -189,12 +189,12 @@ export default function ContactPage() {
                       className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white"
                     >
                       <option value="">Where would you like to study?</option>
-                      <option>Canada — FMC Pilot (French programs)</option>
-                      <option>Canada — Regular pathway</option>
-                      <option>United Kingdom</option>
-                      <option>Australia</option>
-                      <option>United States</option>
-                      <option>New Zealand</option>
+                      <option>Ireland — DCU (Dublin City University)</option>
+                      <option>Ireland — Griffith College</option>
+                      <option>Germany — CBS University of Applied Sciences</option>
+                      <option>Germany — BSBI (Berlin School of Business & Innovation)</option>
+                      <option>Germany — Gisma University of Applied Sciences</option>
+                      <option>Poland — Vistula University</option>
                       <option>Not sure — need guidance</option>
                     </select>
                   </div>
