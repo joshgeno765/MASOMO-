@@ -69,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <div className="border-t border-gray-200 pt-4">
                   <div className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Rwanda Office</div>
-                  <div className="font-semibold text-navy">+250 700 000 000</div>
+                  <div className="font-semibold text-navy">+1 778 846 8953</div>
                   <div className="text-gray-500 text-sm mt-0.5">Mon–Fri, 8am–6pm CAT</div>
                 </div>
                 <div className="border-t border-gray-200 pt-4">
@@ -90,12 +90,14 @@ export default function ContactPage() {
               <div className="text-xs text-gray-400 mt-3">CAT = Central Africa Time (Kigali)</div>
             </div>
 
-            <button
-              onClick={() => toast.success('Opening WhatsApp...')}
-              className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 rounded-lg transition-colors text-sm"
+            <a
+              href="https://wa.me/17788468953"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 rounded-lg transition-colors text-sm text-center"
             >
               Chat on WhatsApp
-            </button>
+            </a>
           </div>
 
           {/* Form */}
