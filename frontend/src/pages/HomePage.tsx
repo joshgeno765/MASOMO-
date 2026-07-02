@@ -15,11 +15,10 @@ const services = [
 ]
 
 const destinations = [
-  { flag: '🇨🇦', name: 'Canada', unis: '120+ universities', fmc: true, to: '/fmc-pilot' },
-  { flag: '🇬🇧', name: 'United Kingdom', unis: '130+ universities', fmc: false, to: '/destinations' },
-  { flag: '🇦🇺', name: 'Australia', unis: '40+ universities', fmc: false, to: '/destinations' },
-  { flag: '🇺🇸', name: 'United States', unis: '4,000+ institutions', fmc: false, to: '/destinations' },
-  { flag: '🇳🇿', name: 'New Zealand', unis: '8 universities', fmc: false, to: '/destinations' },
+  { flag: '🇨🇦', name: 'Canada', detail: 'FMC Pilot pathway', fmc: true, to: '/fmc-pilot' },
+  { flag: '🇮🇪', name: 'Ireland', detail: 'DCU · Griffith College', fmc: false, to: '/destinations' },
+  { flag: '🇩🇪', name: 'Germany', detail: 'CBS · BSBI · Gisma', fmc: false, to: '/destinations' },
+  { flag: '🇵🇱', name: 'Poland', detail: 'Vistula University', fmc: false, to: '/destinations' },
 ]
 
 const testimonials = [
@@ -45,7 +44,7 @@ export default function HomePage() {
             abroad, without guesswork
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-            We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Canada, UK, Australia and beyond.
+            We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Ireland, Germany, Poland, or Canada.
           </p>
           <div className="flex gap-3 flex-wrap">
             <Link to="/contact" className="btn-primary">Get Free Consultation</Link>
@@ -59,22 +58,36 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl text-navy mb-12">How we help you get there</h2>
           <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
-            {services.map((s) => (
-              <div key={s.title} className="border-t border-gray-200 pt-5">
-                <h3 className="font-bold text-navy mb-2">{s.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                {'link' in s && (
-                  <a
-                    href={s.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-3 text-brand-blue text-xs font-bold hover:underline"
-                  >
-                    {s.linkLabel}
-                  </a>
-                )}
-              </div>
-            ))}
+            {services.map((s) => {
+              const isRCIC = s.title === 'Visa & Study Permit'
+              return (
+                <div
+                  key={s.title}
+                  className={isRCIC
+                    ? 'border-t-2 border-brand-gold pt-5 bg-brand-gold/5 rounded-b-lg px-4 pb-4 -mx-4'
+                    : 'border-t border-gray-200 pt-5'
+                  }
+                >
+                  {isRCIC && (
+                    <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded mb-2">
+                      RCIC Licensed
+                    </span>
+                  )}
+                  <h3 className="font-bold text-navy mb-2">{s.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                  {'link' in s && (
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-3 text-brand-blue text-xs font-bold hover:underline"
+                    >
+                      {s.linkLabel}
+                    </a>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -101,7 +114,7 @@ export default function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl text-navy mb-10">Where we send students</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {destinations.map((d) => (
               <Link
                 key={d.name}
@@ -110,7 +123,7 @@ export default function HomePage() {
               >
                 <div className="text-3xl mb-2">{d.flag}</div>
                 <div className="font-semibold text-navy text-sm">{d.name}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{d.unis}</div>
+                <div className="text-gray-400 text-xs mt-0.5">{d.detail}</div>
                 {d.fmc && <div className="text-xs text-brand-gold font-bold mt-1.5">FMC eligible</div>}
               </Link>
             ))}
