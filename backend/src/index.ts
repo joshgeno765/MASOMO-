@@ -8,6 +8,7 @@ import { rateLimit } from 'express-rate-limit'
 import bcrypt from 'bcryptjs'
 import leadsRouter from './routes/leads'
 import authRouter from './routes/auth'
+import usersRouter from './routes/users'
 import prisma from './lib/prisma'
 
 dotenv.config()
@@ -66,6 +67,7 @@ app.get('/debug', async (_req, res) => {
 
 app.use('/api/auth', authRouter)
 app.use('/api/leads', leadsRouter)
+app.use('/api/users', usersRouter)
 
 // 404 handler
 app.use((_req, res) => {
