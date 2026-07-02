@@ -35,17 +35,20 @@ export default function AboutPage() {
           <div>
             <h2 className="font-serif text-3xl text-navy mb-5">Where we started</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Masomo Now was founded after watching too many brilliant students from Rwanda, DRC, and Djibouti give up on studying abroad — not because they lacked talent or ambition, but because the process was opaque, expensive, and overwhelming.
+              Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a Canadian education consultancy headquartered in Vancouver, BC, founded by education professionals with deep personal and professional experience in the Canadian system.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              ELIMU has spent years connecting students from Africa and the Middle East to Canadian colleges and universities. As we saw growing demand from francophone students in Rwanda, DR Congo, and Djibouti — students who faced unique barriers around language, immigration pathways, and destination choices — we launched Masomo Now to serve them directly.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We built a consultancy that is radically transparent: clear costs, honest timelines, and a team that stays with you from first inquiry to arrival day. Our Rwanda office means you work with counselors who understand your context.
+              Masomo Now expands ELIMU's proven model to francophone Africa: end-to-end support from university selection to post-arrival settlement, backed by a licensed immigration team and a network of partner institutions in Canada, Ireland, Germany, and Poland.
             </p>
           </div>
           <div className="space-y-5">
             <div className="border-l-4 border-brand-gold pl-5 py-1">
               <h3 className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">Mission</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                To make international education accessible to every ambitious Rwandan and francophone African student, regardless of background.
+                To make international education accessible to every ambitious francophone African student, regardless of background — with the same end-to-end support ELIMU has delivered for years.
               </p>
             </div>
             <div className="border-l-4 border-brand-gold pl-5 py-1">
@@ -58,25 +61,66 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ELIMU Credentials */}
+      <section className="py-16 px-6 bg-navy">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Our Foundation</p>
+          <h2 className="font-serif text-2xl text-white mb-10">Backed by ELIMU International Education Connections</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="border-t border-white/20 pt-5">
+              <div className="text-brand-gold font-bold text-sm mb-1">Vancouver, BC — Canada</div>
+              <p className="text-white/60 text-sm leading-relaxed">Head office. Founded by Canadians with lived experience in the Canadian education system.</p>
+            </div>
+            <div className="border-t border-white/20 pt-5">
+              <div className="text-brand-gold font-bold text-sm mb-1">RCIC Licensed</div>
+              <p className="text-white/60 text-sm leading-relaxed">Licensed immigration consultant authorized by IRCC to submit study permit applications on behalf of students.</p>
+            </div>
+            <div className="border-t border-white/20 pt-5">
+              <div className="text-brand-gold font-bold text-sm mb-1">CRA Registered</div>
+              <p className="text-white/60 text-sm leading-relaxed">Incorporated and registered in Canada under the Canada Revenue Agency. A trusted, accountable organization.</p>
+            </div>
+            <div className="border-t border-white/20 pt-5">
+              <div className="text-brand-gold font-bold text-sm mb-1">End-to-End Support</div>
+              <p className="text-white/60 text-sm leading-relaxed">From first inquiry to airport pickup and settlement in Canada — we stay with every student through their full journey.</p>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-white/50">
+            <span>ELIMU International Education Connections</span>
+            <span className="hidden sm:inline">·</span>
+            <span>info@elimunow.com</span>
+            <span className="hidden sm:inline">·</span>
+            <span>+1 780 512 7513</span>
+          </div>
+        </div>
+      </section>
+
       {/* Offices */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl text-navy mb-8">Where we operate</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="border-t-2 border-brand-gold pt-5">
+              <div className="flex items-center gap-2 mb-1">
+                <span>🇨🇦</span>
+                <h3 className="font-bold text-navy">Vancouver, BC — Canada</h3>
+                <span className="text-xs text-brand-gold font-bold ml-1">ELIMU HQ</span>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">Head office of ELIMU International. Our Canadian base for immigration, licensing, and institutional partnerships.</p>
+            </div>
             <div className="border-t-2 border-navy pt-5">
               <div className="flex items-center gap-2 mb-1">
                 <span>🇷🇼</span>
                 <h3 className="font-bold text-navy">Kigali, Rwanda</h3>
-                <span className="text-xs text-brand-gold font-bold ml-1">Primary Office</span>
+                <span className="text-xs text-brand-gold font-bold ml-1">Masomo Now Office</span>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">Our main office serving Rwanda and francophone Africa. Contact us at info@masomonow.com</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Our francophone Africa desk. Serving Rwanda, DR Congo, and Djibouti. Contact: info@masomonow.com</p>
             </div>
             <div className="border-t-2 border-gray-300 pt-5">
               <div className="flex items-center gap-2 mb-1">
                 <span>🇰🇪</span>
                 <h3 className="font-bold text-navy">Nairobi, Kenya</h3>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">Regional office for East Africa operations.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">ELIMU coordinating office for East Africa. Serving Kenya, Uganda, Tanzania, and Ethiopia.</p>
             </div>
           </div>
         </div>
