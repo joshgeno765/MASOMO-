@@ -59,4 +59,29 @@ export async function closeLead(id: number) {
   return res.data
 }
 
+// ── Admin — Users ─────────────────────────────────────────────────────────────
+
+export interface StaffUser {
+  id: number
+  email: string
+  role: 'ADMIN' | 'COUNSELOR'
+  isActive: boolean
+  createdAt: string
+}
+
+export async function getUsers(): Promise<ApiResponse<StaffUser[]>> {
+  const res = await api.get<ApiResponse<StaffUser[]>>('/api/users')
+  return res.data
+}
+
+export async function createUser(email: string, password: string, role: 'ADMIN' | 'COUNSELOR'): Promise<ApiResponse<StaffUser>> {
+  const res = await api.post<ApiResponse<StaffUser>>('/api/users', { email, password, role })
+  return res.data
+}
+
+export async function toggleUserActive(id: number, isActive: boolean): Promise<ApiResponse<StaffUser>> {
+  const res = await api.patch<ApiResponse<StaffUser>>(`/api/users/${id}`, { isActive })
+  return res.data
+}
+
 export default api

@@ -15,6 +15,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
 const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
 const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
+const UsersPage = lazy(() => import('./pages/admin/UsersPage'))
 
 function PageLoader() {
   return (
@@ -57,6 +58,7 @@ export default function App() {
             >
               <Route index element={<AdminHomePage />} />
               <Route path="leads" element={<LeadsPage />} />
+              <Route path="users" element={<UsersPage />} />
             </Route>
           </Routes>
         </Suspense>
