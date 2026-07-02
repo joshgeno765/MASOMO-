@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express'
 import { z } from 'zod'
 import prisma from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
+import { sendNewLeadEmail } from '../lib/email'
 
 const router = Router()
 
@@ -46,6 +47,9 @@ router.post('/', async (req: Request, res: Response) => {
         performedBy: 'public_form',
       },
     })
+
+    // Fire-and-forget — never block the student's form response
+    sendNewLeadEmail(lead).catch((err) => console.error('Email failed:', err))
 
     return res.status(201).json({
       success: true,
