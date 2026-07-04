@@ -1,6 +1,5 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const TO = 'info@masomonow.com'
 const FROM = 'Masomo Now <notifications@masomonow.com>'
 
@@ -13,6 +12,8 @@ export async function sendNewLeadEmail(lead: {
   message?: string | null
 }) {
   if (!process.env.RESEND_API_KEY) return
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
 
   await resend.emails.send({
     from: FROM,
