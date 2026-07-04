@@ -11,10 +11,14 @@ const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage'))
 const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
+const UniversitiesPage = lazy(() => import('./pages/UniversitiesPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
 const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
 const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
+const ConsultationsPage = lazy(() => import('./pages/admin/ConsultationsPage'))
 const UsersPage = lazy(() => import('./pages/admin/UsersPage'))
 
 function PageLoader() {
@@ -45,6 +49,9 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/destinations" element={<StudyDestinationsPage />} />
               <Route path="/fmc-pilot" element={<FMCPilotPage />} />
+              <Route path="/universities" element={<UniversitiesPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/consultation" element={<ConsultationPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Route>
 
@@ -58,6 +65,7 @@ export default function App() {
             >
               <Route index element={<AdminHomePage />} />
               <Route path="leads" element={<LeadsPage />} />
+              <Route path="consultations" element={<ConsultationsPage />} />
               <Route path="users" element={<UsersPage />} />
             </Route>
           </Routes>

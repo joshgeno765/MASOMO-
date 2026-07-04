@@ -161,7 +161,7 @@ export default function StudyDestinationsPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-3xl text-white mb-3">Not sure which country is right for you?</h2>
           <p className="text-white/70 mb-8">Our Rwanda-based counselors will help you choose based on your goals, budget, and language preference.</p>
-          <Link to="/contact" className="btn-primary">Book Free Consultation</Link>
+          <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>
         </div>
       </section>
     </>

@@ -31,9 +31,11 @@ export default function Footer() {
               <Link to="/" className="text-sm hover:text-brand-gold-light transition-colors">Home</Link>
               <Link to="/about" className="text-sm hover:text-brand-gold-light transition-colors">About Us</Link>
               <Link to="/destinations" className="text-sm hover:text-brand-gold-light transition-colors">Study Destinations</Link>
+              <Link to="/universities" className="text-sm hover:text-brand-gold-light transition-colors">Universities</Link>
+              <Link to="/services" className="text-sm hover:text-brand-gold-light transition-colors">Services</Link>
               <Link to="/fmc-pilot" className="text-sm hover:text-brand-gold-light transition-colors">🇨🇦 FMC Pilot Program</Link>
               <Link to="/contact" className="text-sm hover:text-brand-gold-light transition-colors">Contact</Link>
-              <Link to="/contact" className="text-sm hover:text-brand-gold-light transition-colors">Book Consultation</Link>
+              <Link to="/consultation" className="text-sm hover:text-brand-gold-light transition-colors">Book Consultation</Link>
             </div>
           </div>
 

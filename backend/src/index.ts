@@ -9,6 +9,7 @@ import bcrypt from 'bcryptjs'
 import leadsRouter from './routes/leads'
 import authRouter from './routes/auth'
 import usersRouter from './routes/users'
+import appointmentsRouter from './routes/appointments'
 import prisma from './lib/prisma'
 
 dotenv.config()
@@ -68,6 +69,7 @@ app.get('/debug', async (_req, res) => {
 app.use('/api/auth', authRouter)
 app.use('/api/leads', leadsRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/appointments', appointmentsRouter)
 
 // 404 handler
 app.use((_req, res) => {

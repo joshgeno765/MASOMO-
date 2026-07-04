@@ -76,3 +76,34 @@ export interface User {
   email: string
   role: string
 }
+
+export type AppointmentStatus = 'SCHEDULED' | 'CONFIRMED' | 'COMPLETED' | 'CANCELLED' | 'NO_SHOW'
+
+export interface Appointment {
+  id: number
+  leadId?: number
+  studentId?: number
+  counselorId?: number
+  scheduledAt: string
+  duration: number
+  type: string
+  status: AppointmentStatus
+  notes?: string
+  destination?: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface AppointmentWithLead extends Appointment {
+  lead?: Lead
+}
+
+export interface ConsultationFormData {
+  name: string
+  email: string
+  phone: string
+  country: string
+  destinationInterest: string
+  scheduledAt: string
+  notes: string
+}

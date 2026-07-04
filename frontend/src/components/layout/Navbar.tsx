@@ -8,6 +8,8 @@ export default function Navbar() {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
     { to: '/destinations', label: 'Destinations' },
+    { to: '/universities', label: 'Universities' },
+    { to: '/services', label: 'Services' },
     { to: '/fmc-pilot', label: 'FMC Pilot' },
     { to: '/contact', label: 'Contact' },
   ]
@@ -46,7 +48,7 @@ export default function Navbar() {
           ))}
           <li className="ml-2">
             <Link
-              to="/contact"
+              to="/consultation"
               className="bg-brand-gold text-navy font-bold text-sm px-4 py-2 rounded-md hover:bg-brand-gold-light transition-all"
             >
               Book Consultation →
@@ -83,7 +85,7 @@ export default function Navbar() {
               </NavLink>
             ))}
             <Link
-              to="/contact"
+              to="/consultation"
               onClick={() => setMobileOpen(false)}
               className="mt-2 text-center bg-brand-gold text-navy font-bold text-sm px-4 py-2.5 rounded-md"
             >

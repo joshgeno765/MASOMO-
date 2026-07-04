@@ -47,7 +47,7 @@ export default function HomePage() {
             We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Ireland, Germany, Poland, or Canada.
           </p>
           <div className="flex gap-3 flex-wrap">
-            <Link to="/contact" className="btn-primary">Get Free Consultation</Link>
+            <Link to="/consultation" className="btn-primary">Get Free Consultation</Link>
             <Link to="/fmc-pilot" className="btn-outline">FMC Pilot Program</Link>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
           <p className="text-white/70 mb-8 text-base">
             Book a free 30-minute consultation with one of our Rwanda-based counselors.
           </p>
-          <Link to="/contact" className="btn-primary">Book Free Consultation</Link>
+          <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>
         </div>
       </section>
     </>

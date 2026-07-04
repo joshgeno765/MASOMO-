@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { InquiryFormData, ApiResponse, Lead, LeadStatus } from '../types'
+import { InquiryFormData, ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData } from '../types'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
@@ -22,6 +22,11 @@ export async function submitInquiry(data: InquiryFormData): Promise<ApiResponse<
 
 export async function healthCheck(): Promise<{ status: string }> {
   const res = await api.get('/health')
+  return res.data
+}
+
+export async function bookConsultation(data: ConsultationFormData): Promise<ApiResponse<Appointment>> {
+  const res = await api.post<ApiResponse<Appointment>>('/api/appointments', data)
   return res.data
 }
 
@@ -81,6 +86,18 @@ export async function createUser(email: string, password: string, role: 'ADMIN' 
 
 export async function toggleUserActive(id: number, isActive: boolean): Promise<ApiResponse<StaffUser>> {
   const res = await api.patch<ApiResponse<StaffUser>>(`/api/users/${id}`, { isActive })
+  return res.data
+}
+
+// ── Admin — Consultations ─────────────────────────────────────────────────────
+
+export async function getAppointments(params?: { status?: AppointmentStatus; page?: number }) {
+  const res = await api.get<ApiResponse<AppointmentWithLead[]>>('/api/appointments', { params })
+  return res.data
+}
+
+export async function updateAppointment(id: number, data: Partial<Pick<Appointment, 'status' | 'notes' | 'scheduledAt'>>) {
+  const res = await api.patch<ApiResponse<Appointment>>(`/api/appointments/${id}`, data)
   return res.data
 }
 

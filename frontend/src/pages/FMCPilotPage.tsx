@@ -180,7 +180,7 @@ export default function FMCPilotPage() {
             Book a free consultation with our Rwanda team. We'll tell you exactly if you qualify and what your next step is.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link to="/contact" className="btn-primary">Book Free Consultation</Link>
+            <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>
             <a
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/fmc-student-pilot/eligibility.html"
               target="_blank"

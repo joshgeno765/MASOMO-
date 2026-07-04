@@ -166,7 +166,7 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-3xl text-white mb-3">Talk to a real counselor</h2>
           <p className="text-white/70 mb-8">No scripts, no sales pitch. Just honest advice about your next step — from our Rwanda team.</p>
-          <Link to="/contact" className="btn-primary">Book Free Consultation</Link>
+          <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>
         </div>
       </section>
     </>
