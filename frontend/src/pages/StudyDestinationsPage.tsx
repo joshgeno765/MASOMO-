@@ -58,6 +58,25 @@ const destinations = [
     link: '/consultation',
     linkLabel: 'Enquire About Poland →',
   },
+  {
+    flag: '🇺🇸',
+    name: 'United States',
+    tagline: 'A community-college pathway into the Seattle tech corridor',
+    facts: [
+      { label: 'Partner Schools', value: '2' },
+      { label: 'Post-Study Work', value: 'OPT — 12 months (+24 for STEM)' },
+      { label: 'Language', value: 'English' },
+      { label: 'Location', value: 'Kirkland & Seattle, WA' },
+    ],
+    schools: [
+      { name: 'Lake Washington Institute of Technology', type: 'Public Technical College — Kirkland, WA' },
+      { name: 'Seattle Colleges', type: 'Public Community College District — Seattle, WA' },
+    ],
+    desc: 'Our two Washington State partners sit minutes from downtown Seattle — home to Amazon, Microsoft, and one of the world\'s busiest tech job markets. Both offer accredited two-year degrees and certificates, with clear transfer pathways into four-year bachelor\'s programs, at a fraction of the cost of direct university enrollment.',
+    pros: ['Direct pathway into the Seattle tech corridor', 'Lower tuition than direct 4-year enrollment', 'Clear transfer pathways to bachelor\'s degrees', 'OPT work authorization after graduation', 'No TOEFL/IELTS required at LWTech (free placement test)'],
+    link: '/consultation',
+    linkLabel: 'Enquire About the United States →',
+  },
 ]
 
 export default function StudyDestinationsPage() {

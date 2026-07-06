@@ -204,6 +204,8 @@ export default function ConsultationPage() {
                   <option>Germany — BSBI (Berlin School of Business & Innovation)</option>
                   <option>Germany — Gisma University of Applied Sciences</option>
                   <option>Poland — Vistula University</option>
+                  <option>USA — Lake Washington Institute of Technology</option>
+                  <option>USA — Seattle Colleges</option>
                   <option>Canada — FMC Student Pilot</option>
                   <option>Not sure — need guidance</option>
                 </select>

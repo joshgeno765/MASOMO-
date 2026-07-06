@@ -1,45 +1,106 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const universities = [
-  { flag: '🇮🇪', country: 'Ireland', name: 'DCU — Dublin City University', type: 'Public Research University', city: 'Dublin', photo: '/images/stock/ireland-campus.jpg',
-    desc: 'One of Ireland\'s leading research universities, with strong ties to Dublin\'s tech and business sector.' },
-  { flag: '🇮🇪', country: 'Ireland', name: 'Griffith College', type: 'Private College', city: 'Dublin', photo: '/images/stock/ireland-campus.jpg',
-    desc: 'A private third-level college known for flexible programs in business, law, and computing.' },
-  { flag: '🇩🇪', country: 'Germany', name: 'CBS — University of Applied Sciences', type: 'Private University of Applied Sciences', city: 'Cologne', photo: '/images/stock/germany-campus.jpg',
-    desc: 'Business-focused university of applied sciences offering fully English-taught programs.' },
-  { flag: '🇩🇪', country: 'Germany', name: 'BSBI — Berlin School of Business & Innovation', type: 'Private Institution', city: 'Berlin', photo: '/images/stock/germany-campus.jpg',
-    desc: 'International student body with programs designed around Berlin\'s startup and innovation economy.' },
-  { flag: '🇩🇪', country: 'Germany', name: 'Gisma University of Applied Sciences', type: 'Private University of Applied Sciences', city: 'Berlin / Potsdam', photo: '/images/stock/germany-campus.jpg',
-    desc: 'Career-focused business and management degrees taught entirely in English.' },
-  { flag: '🇵🇱', country: 'Poland', name: 'Vistula University', type: 'Private University', city: 'Warsaw', photo: '/images/stock/poland-campus.jpg',
-    desc: 'One of Poland\'s most internationally active institutions, with a strong track record enrolling African students.' },
+interface School {
+  flag: string
+  country: string
+  name: string
+  type: string
+  city: string
+  photo: string | null
+  website: string
+  facts: string[]
+}
+
+const schools: School[] = [
+  {
+    flag: '🇮🇪', country: 'Ireland', name: 'DCU — Dublin City University', type: 'Public Research University', city: 'Dublin',
+    photo: '/images/schools/dcu.jpg', website: 'https://www.dcu.ie',
+    facts: ['20,000+ students, incl. 3,800+ international from 90+ countries', '96% graduate employment rate — #1 in Ireland', 'Five faculties: Business, Engineering & Computing, Science & Health, Humanities, Education'],
+  },
+  {
+    flag: '🇮🇪', country: 'Ireland', name: 'Griffith College', type: 'Private College', city: 'Dublin',
+    photo: '/images/schools/griffith.jpg', website: 'https://www.griffith.ie',
+    facts: ["Ireland's largest independent third-level college, founded 1974", '~8,000 students, incl. 1,400+ from 77+ countries', 'Business, law, journalism, computing & design programs'],
+  },
+  {
+    flag: '🇩🇪', country: 'Germany', name: 'CBS International Business School', type: 'Private University of Applied Sciences', city: 'Cologne',
+    photo: '/images/schools/cbs.jpg', website: 'https://www.cbs.de/en',
+    facts: ['Founded 1993, part of the Klett Group', 'First German university with IACBE accreditation', '~3,000 students from 75+ nations, 130+ partner universities'],
+  },
+  {
+    flag: '🇩🇪', country: 'Germany', name: 'BSBI — Berlin School of Business & Innovation', type: 'Private Institution', city: 'Berlin',
+    photo: '/images/schools/bsbi.jpg', website: 'https://www.berlinsbi.com',
+    facts: ['Campuses in Berlin, Hamburg, Paris & Barcelona', 'Recognised UN PRME Champion 2024–25', 'English-taught, entrepreneurship-focused business programs'],
+  },
+  {
+    flag: '🇩🇪', country: 'Germany', name: 'Gisma University of Applied Sciences', type: 'Private University of Applied Sciences', city: 'Berlin / Potsdam',
+    photo: null, website: 'https://www.gisma.com',
+    facts: ['Founded 1999; campuses in Potsdam & Berlin', 'Rare triple accreditation: AMBA, BGA and CIM', 'Double-degree option with Kingston University London'],
+  },
+  {
+    flag: '🇵🇱', country: 'Poland', name: 'Vistula University', type: 'Private University', city: 'Warsaw',
+    photo: '/images/schools/vistula.jpg', website: 'https://vistula.edu.pl/en',
+    facts: ['Founded 1991, campus in Ursynów, Warsaw', '12,000+ students from 100+ nationalities', 'ACCA, CIMA & CEEMAN accredited programs'],
+  },
+  {
+    flag: '🇺🇸', country: 'United States', name: 'Lake Washington Institute of Technology', type: 'Public Technical College', city: 'Kirkland, WA',
+    photo: '/images/schools/lwtech.jpg', website: 'https://www.lwtech.edu',
+    facts: ['15 miles from downtown Seattle, on Lake Washington', '100+ degrees & certificates across 44 fields', 'STEM-designated programs qualify for extended OPT'],
+  },
+  {
+    flag: '🇺🇸', country: 'United States', name: 'Seattle Colleges', type: 'Public Community College District', city: 'Seattle, WA',
+    photo: '/images/schools/seattle-colleges.jpg', website: 'https://www.seattlecolleges.edu',
+    facts: ["Washington State's largest community college district", 'North, Central & South Seattle Colleges — 1,000+ intl. students/year', 'All 3 colleges ranked Top 40 "Leading Associate\'s Institutions"'],
+  },
 ]
 
-function FlipCard({ u }: { u: typeof universities[number] }) {
+function FlipCard({ s }: { s: School }) {
   const [revealed, setRevealed] = useState(false)
   return (
-    <button
-      onClick={() => setRevealed((r) => !r)}
-      className="group relative w-full aspect-[4/3] border-2 border-navy rounded-xl overflow-hidden text-left hover:border-brand-gold transition-colors md:[perspective:1000px]"
-    >
+    <div className="group relative w-full aspect-[4/3] border-2 border-navy rounded-xl overflow-hidden hover:border-brand-gold transition-colors md:[perspective:1000px]">
       {/* Front */}
-      <div className={`absolute inset-0 transition-opacity duration-200 md:group-hover:opacity-0 ${revealed ? 'opacity-0' : 'opacity-100'}`}>
-        <img src={u.photo} alt={`${u.city}, ${u.country}`} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/20" />
+      <button
+        onClick={() => setRevealed(true)}
+        className={`absolute inset-0 w-full text-left transition-opacity duration-200 md:opacity-100 md:pointer-events-auto md:group-hover:opacity-0 md:group-hover:pointer-events-none ${revealed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      >
+        {s.photo ? (
+          <>
+            <img src={s.photo} alt={`${s.name}, ${s.city}`} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/20" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-navy" />
+        )}
         <div className="relative h-full flex flex-col items-center justify-center gap-3 p-6">
-          <span className="text-5xl">{u.flag}</span>
-          <h3 className="font-serif text-lg text-white text-center">{u.name}</h3>
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-gold">{u.country}</span>
+          <span className="text-5xl">{s.flag}</span>
+          <h3 className="font-serif text-lg text-white text-center">{s.name}</h3>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-gold">{s.country}</span>
           <span className="text-[11px] text-white/60 md:hidden mt-2">Tap for details</span>
         </div>
-      </div>
+      </button>
       {/* Back */}
-      <div className={`absolute inset-0 bg-brand-gold p-6 flex flex-col justify-center transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="text-xs font-bold uppercase tracking-wide text-navy/60 mb-1">{u.type} · {u.city}</div>
-        <p className="text-sm text-navy leading-relaxed font-medium">{u.desc}</p>
+      <div className={`absolute inset-0 bg-brand-gold p-5 flex flex-col justify-center transition-opacity duration-200 md:opacity-0 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto ${revealed ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <button onClick={() => setRevealed(false)} className="absolute top-2 right-3 text-navy/50 hover:text-navy md:hidden text-lg leading-none">✕</button>
+        <div className="text-xs font-bold uppercase tracking-wide text-navy/60 mb-2">{s.type} · {s.city}</div>
+        <ul className="space-y-1 mb-3">
+          {s.facts.map((f) => (
+            <li key={f} className="text-xs text-navy leading-snug flex gap-1.5">
+              <span className="font-bold flex-shrink-0">—</span>{f}
+            </li>
+          ))}
+        </ul>
+        <a
+          href={s.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="text-xs font-bold text-navy border-b border-navy w-fit hover:border-b-2"
+        >
+          Visit official website ↗
+        </a>
       </div>
-    </button>
+    </div>
   )
 }
 
@@ -62,8 +123,13 @@ export default function UniversitiesPage() {
 
       {/* Flip card grid */}
       <section className="py-16 px-6 bg-brand-gold-light/10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {universities.map((u) => (<FlipCard key={u.name} u={u} />))}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {schools.map((s) => (<FlipCard key={s.name} s={s} />))}
+          </div>
+          <p className="text-xs text-gray-400 mt-8 text-center">
+            Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain).
+          </p>
         </div>
       </section>
 
