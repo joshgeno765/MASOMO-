@@ -8,9 +8,7 @@ export default function Navbar() {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
     { to: '/destinations', label: 'Destinations' },
-    { to: '/universities', label: 'Universities' },
     { to: '/services', label: 'Services' },
-    { to: '/fmc-pilot', label: 'FMC Pilot' },
   ]
 
   return (

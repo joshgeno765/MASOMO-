@@ -11,7 +11,6 @@ const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage'))
 const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
-const UniversitiesPage = lazy(() => import('./pages/UniversitiesPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
@@ -48,7 +47,7 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/destinations" element={<StudyDestinationsPage />} />
               <Route path="/fmc-pilot" element={<FMCPilotPage />} />
-              <Route path="/universities" element={<UniversitiesPage />} />
+              <Route path="/universities" element={<Navigate to="/destinations" replace />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/consultation" element={<ConsultationPage />} />
               <Route path="/contact" element={<Navigate to="/consultation" replace />} />

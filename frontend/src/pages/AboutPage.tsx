@@ -8,13 +8,6 @@ const values = [
   { num: '04', title: 'Care', desc: 'We remember you\'re a person, not an application number. Every student gets real attention.' },
 ]
 
-const team = [
-  { initials: 'JA', name: 'John Agak', role: 'Founder & Director', bio: '10+ years in international education consulting. Specialising in Canada and UK pathways.' },
-  { initials: 'TM', name: 'Tuyishime', role: 'Rwanda Office Lead', bio: 'Based in Kigali. Specialist in the FMC pilot and francophone student pathways to Canada.' },
-  { initials: 'AN', name: 'Amina Njoroge', role: 'Senior Counselor', bio: 'UK specialist. MSc from University of Edinburgh. Expert in UK student visa applications.' },
-  { initials: 'BO', name: 'Brian Omondi', role: 'Visa Specialist', bio: 'High first-attempt approval rate across Canada and Australia.' },
-]
-
 const seminars = [
   { src: '/images/seminars/seminar-3.jpg', caption: 'Information session at a partner secondary school — walking students through the FMC pathway to Canada.' },
   { src: '/images/seminars/seminar-5.jpg', caption: 'Students respond to a live poll during a school seminar on studying abroad.' },
@@ -141,19 +134,11 @@ export default function AboutPage() {
 
       {/* Team */}
       <section className="py-20 px-6 bg-navy">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-4xl text-white mb-3">Meet the counselors</h2>
-          <p className="text-white/60 text-lg mb-12">Our team has personal experience studying abroad and deep knowledge of francophone student pathways.</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div key={member.name} className="bg-white/5 border-2 border-white/10 rounded-xl p-5">
-                <div className="w-14 h-14 rounded-full bg-brand-gold flex items-center justify-center font-extrabold text-navy text-lg mb-4">{member.initials}</div>
-                <div className="font-bold text-white">{member.name}</div>
-                <div className="text-brand-gold text-xs font-semibold mt-0.5 mb-2">{member.role}</div>
-                <p className="text-white/50 text-xs leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-serif text-4xl text-white mb-5">Our team</h2>
+          <p className="text-white/70 text-lg leading-relaxed">
+            Masomo Now is run by a small, hands-on team based in Kigali and Vancouver — backed by ELIMU's licensed immigration consultants. We keep it lean on purpose, so every student gets direct attention from someone who actually knows their file, not a call center.
+          </p>
         </div>
       </section>
 
