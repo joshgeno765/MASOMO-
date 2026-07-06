@@ -24,24 +24,74 @@ const EMPTY_FORM: ConsultationFormData = {
   notes: '',
 }
 
-function minSelectableDate(): string {
-  const d = new Date()
-  d.setDate(d.getDate() + 1)
-  return d.toISOString().slice(0, 10)
-}
-
 function formatHour(hour: number): string {
   const period = hour >= 12 ? 'PM' : 'AM'
   const h12 = hour % 12 === 0 ? 12 : hour % 12
   return `${h12}:00 ${period}`
 }
 
+function toDateKey(d: Date): string {
+  return d.toISOString().slice(0, 10)
+}
+
+function FloatingField({ label, name, value, onChange, type = 'text', required }: {
+  label: string; name: string; value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  type?: string; required?: boolean
+}) {
+  const [focused, setFocused] = useState(false)
+  const floated = focused || value.length > 0
+  return (
+    <div className="relative">
+      <input
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        required={required}
+        className="peer w-full border border-gray-300 rounded-xl px-4 pt-5 pb-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
+      />
+      <label
+        className={`absolute left-4 transition-all pointer-events-none text-gray-400 ${
+          floated ? 'top-1.5 text-[10px] font-semibold uppercase tracking-wide' : 'top-3.5 text-sm'
+        }`}
+      >
+        {label}{required && ' *'}
+      </label>
+    </div>
+  )
+}
+
+function weekDays(offsetWeeks: number): Date[] {
+  const today = new Date()
+  const monday = new Date(today)
+  const dayOfWeek = today.getDay()
+  const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek
+  monday.setDate(today.getDate() + diffToMonday + offsetWeeks * 7)
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(monday)
+    d.setDate(monday.getDate() + i)
+    return d
+  })
+}
+
+function isPastOrToday(d: Date): boolean {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  return d <= today
+}
+
 export default function ConsultationPage() {
   const [form, setForm] = useState<ConsultationFormData>(EMPTY_FORM)
+  const [weekOffset, setWeekOffset] = useState(0)
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  const days = useMemo(() => weekDays(weekOffset), [weekOffset])
 
   const window = useMemo(() => {
     if (!date) return null
@@ -60,8 +110,8 @@ export default function ConsultationPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(e.target.value)
+  const handleSelectDay = (d: Date) => {
+    setDate(toDateKey(d))
     setTime('')
   }
 
@@ -102,191 +152,139 @@ export default function ConsultationPage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* App-style card */}
       <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-5 gap-14">
-
-          {/* Slot info */}
-          <div className="md:col-span-2 space-y-8">
-            <div>
-              <h2 className="font-bold text-navy text-lg mb-5">Available slots</h2>
-              <div className="space-y-5">
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Mon / Wed / Fri</div>
-                  <div className="font-semibold text-navy">9am – 12pm CAT</div>
-                </div>
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Tue / Thu</div>
-                  <div className="font-semibold text-navy">2pm – 5pm CAT</div>
-                </div>
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">Saturday</div>
-                  <div className="font-semibold text-navy">10am – 1pm CAT</div>
-                </div>
+        <div className="max-w-xl mx-auto bg-white border border-gray-200 rounded-3xl shadow-sm p-8">
+          {submitted ? (
+            <div className="py-6 text-center">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+                <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <p className="text-xs text-gray-400 mt-4">CAT = Central Africa Time (Kigali). Closed Sundays.</p>
+              <h3 className="font-serif text-2xl text-navy mb-2">Consultation booked</h3>
+              <p className="text-gray-600 mb-6">
+                Thank you, <strong>{form.name}</strong>. We'll confirm your slot by email at <strong>{form.email}</strong> shortly.
+              </p>
+              <button
+                onClick={() => { setForm(EMPTY_FORM); setDate(''); setTime(''); setSubmitted(false) }}
+                className="btn-primary"
+              >
+                Book Another Consultation
+              </button>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <FloatingField label="Full Name" name="name" value={form.name} onChange={handleChange} required />
+              <FloatingField label="Email" name="email" type="email" value={form.email} onChange={handleChange} required />
+              <FloatingField label="Phone" name="phone" value={form.phone} onChange={handleChange} required />
 
-            <a
-              href="https://wa.me/17788468953"
-              className="block w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 rounded-lg transition-colors text-sm text-center"
-            >
-              Prefer to chat now? WhatsApp us
-            </a>
-          </div>
-
-          {/* Form */}
-          <div className="md:col-span-3">
-            {submitted ? (
-              <div className="py-10 text-center">
-                <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
-                  <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="font-serif text-2xl text-navy mb-2">Consultation booked</h3>
-                <p className="text-gray-600 mb-6">
-                  Thank you, <strong>{form.name}</strong>. We'll confirm your slot by email at <strong>{form.email}</strong> shortly.
-                </p>
-                <button
-                  onClick={() => { setForm(EMPTY_FORM); setDate(''); setTime(''); setSubmitted(false) }}
-                  className="btn-primary"
-                >
-                  Book Another Consultation
-                </button>
+              <div>
+                <select name="country" value={form.country} onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white text-gray-700">
+                  <option value="">Select country</option>
+                  <option>Rwanda</option><option>DR Congo</option><option>Djibouti</option>
+                  <option>Kenya</option><option>Uganda</option><option>Tanzania</option>
+                  <option>Cameroon</option><option>Senegal</option><option>Côte d'Ivoire</option><option>Other</option>
+                </select>
               </div>
-            ) : (
-              <>
-                <h2 className="font-bold text-navy text-lg mb-6">Your Details</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name <span className="text-red-500">*</span></label>
-                      <input
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Your full name"
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email <span className="text-red-500">*</span></label>
-                      <input
-                        name="email"
-                        type="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="you@email.com"
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone <span className="text-red-500">*</span></label>
-                      <input
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        placeholder="+250 700 000 000"
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Country</label>
-                      <select
-                        name="country"
-                        value={form.country}
-                        onChange={handleChange}
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white"
-                      >
-                        <option value="">Select country</option>
-                        <option>Rwanda</option>
-                        <option>DR Congo</option>
-                        <option>Djibouti</option>
-                        <option>Kenya</option>
-                        <option>Uganda</option>
-                        <option>Tanzania</option>
-                        <option>Cameroon</option>
-                        <option>Senegal</option>
-                        <option>Côte d'Ivoire</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
+              <div>
+                <select name="destinationInterest" value={form.destinationInterest} onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white text-gray-700">
+                  <option value="">Where would you like to study?</option>
+                  <option>Ireland — DCU (Dublin City University)</option>
+                  <option>Ireland — Griffith College</option>
+                  <option>Germany — CBS University of Applied Sciences</option>
+                  <option>Germany — BSBI (Berlin School of Business & Innovation)</option>
+                  <option>Germany — Gisma University of Applied Sciences</option>
+                  <option>Poland — Vistula University</option>
+                  <option>Canada — FMC Student Pilot</option>
+                  <option>Not sure — need guidance</option>
+                </select>
+              </div>
 
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Study Destination <span className="text-red-500">*</span></label>
-                    <select
-                      name="destinationInterest"
-                      value={form.destinationInterest}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white"
+              {/* Segmented control */}
+              <div>
+                <div className="flex bg-gray-100 rounded-full p-1 mb-4">
+                  {[0, 1].map((w) => (
+                    <button
+                      type="button"
+                      key={w}
+                      onClick={() => { setWeekOffset(w); setDate(''); setTime('') }}
+                      className={`flex-1 py-2 rounded-full text-sm font-semibold transition-colors ${
+                        weekOffset === w ? 'bg-navy text-white' : 'text-gray-500'
+                      }`}
                     >
-                      <option value="">Where would you like to study?</option>
-                      <option>Ireland — DCU (Dublin City University)</option>
-                      <option>Ireland — Griffith College</option>
-                      <option>Germany — CBS University of Applied Sciences</option>
-                      <option>Germany — BSBI (Berlin School of Business & Innovation)</option>
-                      <option>Germany — Gisma University of Applied Sciences</option>
-                      <option>Poland — Vistula University</option>
-                      <option>Canada — FMC Student Pilot</option>
-                      <option>Not sure — need guidance</option>
-                    </select>
-                  </div>
+                      {w === 0 ? 'This Week' : 'Next Week'}
+                    </button>
+                  ))}
+                </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Preferred Date <span className="text-red-500">*</span></label>
-                      <input
-                        type="date"
-                        min={minSelectableDate()}
-                        value={date}
-                        onChange={handleDateChange}
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Preferred Time <span className="text-red-500">*</span></label>
-                      <select
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                        disabled={!date || !window}
-                        className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white disabled:bg-gray-50 disabled:text-gray-400"
+                {/* Day chips */}
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                  {days.map((d) => {
+                    const key = toDateKey(d)
+                    const disabled = isPastOrToday(d) || SLOT_WINDOWS[d.getDay()] === null
+                    const isSelected = key === date
+                    return (
+                      <button
+                        type="button"
+                        key={key}
+                        disabled={disabled}
+                        onClick={() => handleSelectDay(d)}
+                        className={`flex-shrink-0 w-14 py-2.5 rounded-xl text-center transition-colors ${
+                          isSelected ? 'bg-navy text-white'
+                          : disabled ? 'bg-gray-50 text-gray-300 cursor-not-allowed'
+                          : 'bg-gray-100 text-gray-700 hover:bg-brand-gold/20'
+                        }`}
                       >
-                        <option value="">{date && !window ? 'Closed on Sundays' : 'Select time'}</option>
+                        <div className="text-[10px] font-semibold uppercase">{d.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                        <div className="text-sm font-bold">{d.getDate()}</div>
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Time chips */}
+                {date && (
+                  <div className="mt-4">
+                    {!window ? (
+                      <p className="text-sm text-gray-400">Closed Sundays — pick another day.</p>
+                    ) : (
+                      <div className="flex flex-wrap gap-2">
                         {timeOptions.map((h) => (
-                          <option key={h} value={h}>{formatHour(parseInt(h))} CAT</option>
+                          <button
+                            type="button"
+                            key={h}
+                            onClick={() => setTime(h)}
+                            className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
+                              time === h ? 'bg-navy text-white border-navy' : 'border-gray-300 text-gray-600 hover:border-navy'
+                            }`}
+                          >
+                            {formatHour(parseInt(h))}
+                          </button>
                         ))}
-                      </select>
-                    </div>
+                      </div>
+                    )}
                   </div>
+                )}
+              </div>
 
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Anything we should know?</label>
-                    <textarea
-                      name="notes"
-                      value={form.notes}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Tell us about your education background and goals..."
-                      className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all resize-none"
-                    />
-                  </div>
+              <textarea name="notes" value={form.notes} onChange={handleChange} rows={3}
+                placeholder="Anything we should know?"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all resize-none" />
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-navy hover:bg-brand-blue text-white font-bold py-3.5 rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {loading ? 'Booking...' : 'Book Consultation →'}
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
+              <button type="submit" disabled={loading}
+                className="w-full bg-navy hover:bg-brand-blue text-white font-bold py-3.5 rounded-full transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                {loading ? 'Booking...' : 'Book Consultation →'}
+              </button>
+
+              <a href="https://wa.me/17788468953" className="block text-center text-sm font-semibold text-[#25D366] hover:underline">
+                Prefer to chat now? WhatsApp us
+              </a>
+            </form>
+          )}
         </div>
       </section>
     </>

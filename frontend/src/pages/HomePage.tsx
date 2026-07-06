@@ -27,69 +27,73 @@ const testimonials = [
   { name: 'Jean-Pierre M.', dest: 'Collège Boréal, Ontario', quote: 'I came from DRC and didn\'t think studying in Canada was possible. Masomo Now found the FMC pilot for me — now I\'m studying in French in Ontario.' },
 ]
 
+const seminarPreview = [
+  '/images/seminars/seminar-3.jpg',
+  '/images/seminars/seminar-2.jpg',
+  '/images/seminars/seminar-5.jpg',
+]
+
 export default function HomePage() {
   return (
     <>
-      {/* FMC banner */}
       <div className="bg-brand-gold text-navy text-center py-2.5 px-4 text-sm font-semibold">
         Francophone students from Rwanda, DRC & Djibouti may qualify for Canada's FMC Student Pilot —{' '}
         <Link to="/fmc-pilot" className="underline font-bold hover:text-navy/70">Learn more</Link>
       </div>
 
-      {/* Hero */}
-      <section className="bg-navy py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-2xl">
-            Study and work<br />
-            abroad, without guesswork
-          </h1>
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-            We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Ireland, Germany, Poland, or Canada.
-          </p>
-          <div className="flex gap-3 flex-wrap">
-            <Link to="/consultation" className="btn-primary">Get Free Consultation</Link>
-            <Link to="/fmc-pilot" className="btn-outline">FMC Pilot Program</Link>
+      {/* Hero — full-bleed photo, split content */}
+      <section className="relative overflow-hidden">
+        <img
+          src="/images/stock/students-group.jpg"
+          alt="Students collaborating on their study-abroad applications"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
+        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center py-24 px-6">
+          <div>
+            <h1 className="font-serif text-4xl md:text-5xl text-white leading-tight mb-6">
+              Study and work abroad, without guesswork
+            </h1>
+            <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
+              We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus in Ireland, Germany, Poland, or Canada.
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              <Link to="/consultation" className="bg-brand-gold hover:bg-brand-gold-light text-navy font-bold px-6 py-3 rounded-full transition-colors">Get Free Consultation</Link>
+              <Link to="/fmc-pilot" className="border border-white/30 text-white font-bold px-6 py-3 rounded-full hover:bg-white/10 transition-colors">FMC Pilot Program</Link>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-start md:justify-end">
+            {destinations.map((d) => (
+              <Link key={d.name} to={d.to} className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 py-2 text-sm text-white flex items-center gap-2 transition-colors backdrop-blur-sm">
+                <span>{d.flag}</span>{d.name}
+                {d.fmc && <span className="text-brand-gold text-xs font-bold">FMC</span>}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-12">How we help you get there</h2>
-          <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
-            {services.map((s) => {
-              const isRCIC = s.title === 'Visa & Study Permit'
-              return (
-                <div
-                  key={s.title}
-                  className={isRCIC
-                    ? 'border-t-2 border-brand-gold pt-5 bg-brand-gold/5 rounded-b-lg px-4 pb-4 -mx-4'
-                    : 'border-t border-gray-200 pt-5'
-                  }
-                >
-                  {isRCIC && (
-                    <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded mb-2">
-                      RCIC Licensed
-                    </span>
-                  )}
-                  <h3 className="font-bold text-navy mb-2">{s.title}</h3>
+      {/* Services — alternating rows */}
+      <section>
+        {services.map((s, i) => {
+          const isRCIC = s.title === 'Visa & Study Permit'
+          return (
+            <div key={s.title} className={`px-6 py-10 ${i % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}>
+              <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
+                <div className="md:w-56 flex-shrink-0">
+                  {isRCIC && <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full mb-1">RCIC Licensed</span>}
+                  <h3 className="font-serif text-xl text-navy">{s.title}</h3>
+                </div>
+                <div className="flex-1">
                   <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
                   {'link' in s && (
-                    <a
-                      href={s.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-3 text-brand-blue text-xs font-bold hover:underline"
-                    >
-                      {s.linkLabel}
-                    </a>
+                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-brand-blue text-xs font-bold hover:underline">{s.linkLabel}</a>
                   )}
                 </div>
-              )
-            })}
-          </div>
-        </div>
+              </div>
+            </div>
+          )
+        })}
       </section>
 
       {/* FMC Spotlight */}
@@ -97,47 +101,46 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="border-l-4 border-brand-gold pl-6 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Featured Pathway</p>
-            <h2 className="font-serif text-2xl text-navy mb-3">
-              FMC Student Pilot — Canada
-            </h2>
+            <h2 className="font-serif text-2xl text-navy mb-3">FMC Student Pilot — Canada</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, and Djibouti. Study at French-language institutions across Canada with priority processing and a clear route to permanent residence.
             </p>
-            <Link to="/fmc-pilot" className="text-brand-blue text-sm font-bold hover:underline">
-              Learn about the FMC Pilot →
-            </Link>
+            <Link to="/fmc-pilot" className="text-brand-blue text-sm font-bold hover:underline">Learn about the FMC Pilot →</Link>
           </div>
         </div>
       </section>
 
-      {/* Destinations */}
+      {/* Seminars teaser — real photos from the field */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-10">Where we send students</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {destinations.map((d) => (
-              <Link
-                key={d.name}
-                to={d.to}
-                className="border border-gray-200 rounded-lg p-4 hover:border-navy transition-colors"
-              >
-                <div className="text-3xl mb-2">{d.flag}</div>
-                <div className="font-semibold text-navy text-sm">{d.name}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{d.detail}</div>
-                {d.fmc && <div className="text-xs text-brand-gold font-bold mt-1.5">FMC eligible</div>}
-              </Link>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-3 gap-2">
+            {seminarPreview.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt="Masomo Now / ELIMU seminar with students in Kenya"
+                className={`w-full h-40 object-cover rounded-lg ${i === 1 ? 'mt-6' : ''}`}
+              />
             ))}
           </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">On the ground</p>
+            <h2 className="font-serif text-3xl text-navy mb-4">We show up in person, not just online</h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways to Canada, Ireland, Germany, and Poland face to face, alongside partners like Northern Lights College.
+            </p>
+            <Link to="/about#seminars" className="text-brand-blue text-sm font-bold hover:underline">See our recent seminars →</Link>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials — horizontal scroll cards */}
       <section className="py-20 px-6 bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-12">From our students</h2>
-          <div className="grid md:grid-cols-3 gap-10">
+          <h2 className="font-serif text-3xl text-navy mb-10">From our students</h2>
+          <div className="flex gap-5 overflow-x-auto pb-2">
             {testimonials.map((t) => (
-              <div key={t.name}>
+              <div key={t.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
                 <p className="text-gray-700 text-sm leading-relaxed italic mb-5">"{t.quote}"</p>
                 <div className="font-semibold text-navy text-sm">{t.name}</div>
                 <div className="text-gray-400 text-xs mt-0.5">{t.dest}</div>
@@ -147,14 +150,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-6 bg-navy">
-        <div className="max-w-2xl mx-auto text-center">
+      {/* CTA — full-bleed photo */}
+      <section className="relative overflow-hidden py-20 px-6">
+        <img src="/images/stock/graduation.jpg" alt="Graduates celebrating" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-navy/85" />
+        <div className="relative max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-3xl text-white mb-3">Ready to start?</h2>
-          <p className="text-white/70 mb-8 text-base">
-            Book a free 30-minute consultation with one of our Rwanda-based counselors.
-          </p>
-          <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>
+          <p className="text-white/70 mb-8 text-base">Book a free 30-minute consultation with one of our Rwanda-based counselors.</p>
+          <Link to="/consultation" className="bg-brand-gold hover:bg-brand-gold-light text-navy font-bold px-8 py-3.5 rounded-full transition-colors inline-block">Book Free Consultation</Link>
         </div>
       </section>
     </>
