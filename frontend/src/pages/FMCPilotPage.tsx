@@ -45,7 +45,7 @@ export default function FMCPilotPage() {
               A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, Djibouti, and other French-speaking countries — to study at French-language institutions across Canada outside Quebec.
             </p>
             <div className="flex gap-3 flex-wrap">
-              <Link to="/contact" className="btn-primary">Check My Eligibility</Link>
+              <Link to="/consultation" className="btn-primary">Check My Eligibility</Link>
               <a
                 href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/fmc-student-pilot/eligibility.html"
                 target="_blank"

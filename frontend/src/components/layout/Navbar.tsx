@@ -11,7 +11,6 @@ export default function Navbar() {
     { to: '/universities', label: 'Universities' },
     { to: '/services', label: 'Services' },
     { to: '/fmc-pilot', label: 'FMC Pilot' },
-    { to: '/contact', label: 'Contact' },
   ]
 
   return (

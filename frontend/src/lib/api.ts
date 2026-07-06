@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { InquiryFormData, ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData } from '../types'
+import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData } from '../types'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
@@ -14,11 +14,6 @@ api.interceptors.request.use((config) => {
 })
 
 // ── Public ────────────────────────────────────────────────────────────────────
-
-export async function submitInquiry(data: InquiryFormData): Promise<ApiResponse<Lead>> {
-  const res = await api.post<ApiResponse<Lead>>('/api/leads', data)
-  return res.data
-}
 
 export async function healthCheck(): Promise<{ status: string }> {
   const res = await api.get('/health')

@@ -17,7 +17,7 @@ const destinations = [
     ],
     desc: 'Ireland is one of the only English-speaking countries in the EU, making it a strategic choice for African students seeking a globally recognised degree with access to European job markets. Dublin is home to the European headquarters of Google, Meta, and Apple.',
     pros: ['English-language EU country', '2-year post-study work permit (Stamp 1G)', 'Access to European job market', 'World-class tech and business sector', 'Welcoming to international students'],
-    link: '/contact',
+    link: '/consultation',
     linkLabel: 'Enquire About Ireland →',
   },
   {
@@ -37,7 +37,7 @@ const destinations = [
     ],
     desc: 'Germany is Europe\'s strongest economy and a top destination for international students. Our three partner institutions offer fully English-taught business and management programs, making Germany accessible without needing to learn German first.',
     pros: ['3 partner institutions in major cities', '18-month job seeker visa after graduation', 'Strong engineering & business job market', 'English-taught programs available', 'Central EU location'],
-    link: '/contact',
+    link: '/consultation',
     linkLabel: 'Enquire About Germany →',
   },
   {
@@ -55,7 +55,7 @@ const destinations = [
     ],
     desc: 'Poland offers EU-recognised degrees at significantly lower tuition fees and living costs than Western Europe. Vistula University in Warsaw is one of Poland\'s most internationally active institutions, with a strong track record of enrolling students from Africa.',
     pros: ['Among the most affordable EU tuitions', 'Lower cost of living vs. Western Europe', 'EU-recognised degrees', 'English-taught programs', 'Growing economy and job market'],
-    link: '/contact',
+    link: '/consultation',
     linkLabel: 'Enquire About Poland →',
   },
 ]

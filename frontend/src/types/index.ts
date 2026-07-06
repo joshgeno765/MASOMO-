@@ -48,15 +48,6 @@ export interface Lead {
   updatedAt: string
 }
 
-export interface InquiryFormData {
-  name: string
-  email: string
-  phone: string
-  country: string
-  destinationInterest: string
-  message: string
-}
-
 export interface ApiResponse<T> {
   success: boolean
   data?: T

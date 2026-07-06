@@ -14,7 +14,6 @@ const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
 const UniversitiesPage = lazy(() => import('./pages/UniversitiesPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
 const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
 const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
@@ -52,7 +51,7 @@ export default function App() {
               <Route path="/universities" element={<UniversitiesPage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/consultation" element={<ConsultationPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<Navigate to="/consultation" replace />} />
             </Route>
 
             {/* Auth */}

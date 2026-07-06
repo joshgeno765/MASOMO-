@@ -146,9 +146,14 @@ export default function ConsultationPage() {
           <h1 className="font-serif text-4xl md:text-5xl text-white mb-4 max-w-xl">
             Book your free consultation
           </h1>
-          <p className="text-white/70 text-lg max-w-xl">
+          <p className="text-white/70 text-lg max-w-xl mb-6">
             Pick a date and time that works for you — a Rwanda-based counselor will call you to talk through your options.
           </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
+            <span>info@masomonow.com</span>
+            <span>+1 778 846 8953</span>
+            <span>Kigali, Rwanda — also serving DRC &amp; Djibouti</span>
+          </div>
         </div>
       </section>
 
