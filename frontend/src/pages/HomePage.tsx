@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Button from '../components/ui/Button'
 
 const testimonials = [
   { name: 'Amara M.', dest: 'BCIT, British Columbia', quote: 'Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I\'m now in Vancouver.' },
@@ -17,7 +18,7 @@ export default function HomePage() {
     <>
       <div className="bg-brand-gold text-navy text-center py-2.5 px-4 text-sm font-semibold">
         Francophone students from Rwanda, DRC & Djibouti may qualify for Canada's FMC Student Pilot —{' '}
-        <Link to="/fmc-pilot" className="underline font-bold hover:text-navy/70">Learn more</Link>
+        <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-navy/70">Learn more</Link>
       </div>
 
       {/* Hero — full-bleed photo */}
@@ -35,10 +36,11 @@ export default function HomePage() {
           <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
             Masomo Now is the francophone Africa division of ELIMU International Education Connections — a licensed Canadian education consultancy with partner institutions across Canada, Ireland, Germany, and Poland.
           </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link to="/consultation" className="bg-brand-gold hover:bg-brand-gold-light text-navy font-bold px-6 py-3 rounded-full transition-colors inline-block">Get Free Consultation</Link>
-            <Link to="/about" className="text-white/80 text-sm font-bold hover:text-white hover:underline">Learn more about ELIMU →</Link>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <Button to="/pathway-finder" variant="primary">Find Your Pathway →</Button>
+            <Button to="/consultation" variant="outline">Get Free Consultation</Button>
           </div>
+          <Link to="/about" className="block mt-4 text-white/80 text-sm font-bold hover:text-white hover:underline">Learn more about ELIMU →</Link>
         </div>
       </section>
 

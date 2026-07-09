@@ -98,3 +98,28 @@ export interface ConsultationFormData {
   scheduledAt: string
   notes: string
 }
+
+export interface PathwayQuizAnswers {
+  homeCountry: string
+  languagePreference: 'French' | 'English' | 'Both / Not sure'
+  fieldOfInterest: 'Technical / Trades' | 'Business & Management' | 'University / Academic' | 'Not sure yet'
+  budget: 'Most affordable option' | 'Budget flexible' | 'Not sure'
+  timeline: 'As soon as possible' | 'Within the next year' | 'Just exploring'
+}
+
+export interface PathwayMatchResultPayload {
+  country: string
+  schools: string[]
+  isFmcPathway: boolean
+}
+
+export interface PathwayFinderSubmission {
+  name: string
+  email: string
+  phone: string
+  country?: string
+  destinationInterest: string
+  message?: string
+  quizAnswers: PathwayQuizAnswers
+  matchedResult: PathwayMatchResultPayload
+}

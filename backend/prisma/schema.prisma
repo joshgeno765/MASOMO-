@@ -37,6 +37,7 @@ model Lead {
   status              String   @default("NEW")
   assignedCounselorId Int?
   notes               String?
+  quizAnswers         String?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
 

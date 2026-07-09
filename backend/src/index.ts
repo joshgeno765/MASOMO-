@@ -10,6 +10,7 @@ import leadsRouter from './routes/leads'
 import authRouter from './routes/auth'
 import usersRouter from './routes/users'
 import appointmentsRouter from './routes/appointments'
+import pathwayFinderRouter from './routes/pathwayFinder'
 import prisma from './lib/prisma'
 
 dotenv.config()
@@ -70,6 +71,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/leads', leadsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/appointments', appointmentsRouter)
+app.use('/api/pathway-finder', pathwayFinderRouter)
 
 // 404 handler
 app.use((_req, res) => {

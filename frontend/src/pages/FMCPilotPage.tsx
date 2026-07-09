@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { FMC_ELIGIBLE_COUNTRIES, FMC_INSTITUTIONS } from '../data/destinations'
+import Button from '../components/ui/Button'
 
 const eligibilityPoints = [
   { title: 'Francophone country of origin', desc: 'You must be a citizen or resident of a francophone country — including Rwanda, DR Congo, Djibouti, Cameroon, Côte d\'Ivoire, Senegal, and others.' },
@@ -12,14 +14,6 @@ const benefits = [
   { title: 'Dedicated support pathway', desc: 'The pilot connects francophone students with institutions that have specific support structures for French-speaking international students.' },
   { title: 'Study outside Quebec', desc: 'Access world-class French-language education in Ontario, New Brunswick, Manitoba, and other provinces.' },
   { title: 'Pathway to permanent residence', desc: 'Graduating from a French-language program outside Quebec strengthens your Express Entry profile under francophone immigration streams.' },
-]
-
-const institutions = [
-  { province: 'Ontario', schools: ['Université de l\'Ontario français (UOF)', 'Collège Boréal', 'La Cité collégiale', 'Université d\'Ottawa (French programs)'] },
-  { province: 'New Brunswick', schools: ['Université de Moncton', 'Collège communautaire du Nouveau-Brunswick (CCNB)'] },
-  { province: 'Manitoba', schools: ['Université de Saint-Boniface'] },
-  { province: 'Alberta', schools: ['Campus Saint-Jean (University of Alberta)'] },
-  { province: 'Nova Scotia', schools: ['Université Sainte-Anne'] },
 ]
 
 const steps = [
@@ -45,7 +39,7 @@ export default function FMCPilotPage() {
               A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, Djibouti, and other French-speaking countries — to study at French-language institutions across Canada outside Quebec.
             </p>
             <div className="flex gap-3 flex-wrap">
-              <Link to="/consultation" className="btn-primary">Check My Eligibility</Link>
+              <Button to="/pathway-finder?ref=fmc-pilot" variant="primary">Check My Eligibility</Button>
               <a
                 href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/fmc-student-pilot/eligibility.html"
                 target="_blank"
@@ -84,7 +78,7 @@ export default function FMCPilotPage() {
             If you are from Rwanda, DR Congo, Djibouti, Cameroon, Côte d'Ivoire, Senegal, or any other French-speaking country — and you want to study in French in Canada — this pilot was built for you.
           </p>
           <div className="flex flex-wrap gap-2">
-            {['Rwanda', 'DR Congo', 'Djibouti', 'Cameroon', 'Senegal', "Côte d'Ivoire", 'Mali', 'Burkina Faso', 'Gabon', 'Togo'].map((c) => (
+            {FMC_ELIGIBLE_COUNTRIES.map((c) => (
               <span key={c} className="border border-gray-300 rounded px-3 py-1 text-sm text-gray-700">{c}</span>
             ))}
           </div>
@@ -130,12 +124,12 @@ export default function FMCPilotPage() {
             French-language colleges and universities across Canada (outside Quebec) that participate in the FMC pilot. We'll help you find the right fit.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {institutions.map((group) => (
+            {FMC_INSTITUTIONS.map((group) => (
               <div key={group.province}>
                 <h3 className="font-bold text-navy text-sm uppercase tracking-wide mb-3 border-b border-gray-200 pb-2">{group.province}</h3>
                 <ul className="space-y-2">
                   {group.schools.map((school) => (
-                    <li key={school} className="text-sm text-gray-600">{school}</li>
+                    <li key={school.name} className="text-sm text-gray-600">{school.name}</li>
                   ))}
                 </ul>
               </div>

@@ -46,6 +46,60 @@ export async function sendNewLeadEmail(lead: {
   })
 }
 
+export async function sendNewPathwayResultEmail(lead: {
+  name: string
+  email: string
+  phone: string
+  country?: string | null
+  destinationInterest: string
+  quizAnswers: {
+    homeCountry: string
+    languagePreference: string
+    fieldOfInterest: string
+    budget: string
+    timeline: string
+  }
+}) {
+  if (!process.env.RESEND_API_KEY) return
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
+  const { quizAnswers: q } = lead
+
+  await resend.emails.send({
+    from: FROM,
+    to: TO,
+    subject: `New Pathway Finder match — ${lead.name}`,
+    html: `
+      <div style="font-family:sans-serif;max-width:560px;margin:0 auto;padding:24px">
+        <div style="background:#0B2545;padding:20px 24px;border-radius:8px 8px 0 0">
+          <span style="color:#F5C842;font-weight:800;font-size:14px;letter-spacing:1px">MASOMO NOW</span>
+          <p style="color:white;margin:6px 0 0;font-size:18px;font-weight:600">New Pathway Finder Match</p>
+        </div>
+        <div style="border:1px solid #e5e7eb;border-top:none;padding:24px;border-radius:0 0 8px 8px">
+          <table style="width:100%;border-collapse:collapse;font-size:14px">
+            <tr><td style="padding:8px 0;color:#6b7280;width:150px">Name</td><td style="padding:8px 0;font-weight:600;color:#0B2545">${lead.name}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Email</td><td style="padding:8px 0;border-top:1px solid #f3f4f6"><a href="mailto:${lead.email}" style="color:#2563eb">${lead.email}</a></td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Phone</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${lead.phone}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Country</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${lead.country || '—'}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Matched Pathway</td><td style="padding:8px 0;border-top:1px solid #f3f4f6;font-weight:600;color:#0B2545">${lead.destinationInterest}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Home Country</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.homeCountry}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Language Preference</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.languagePreference}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Field of Interest</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.fieldOfInterest}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Budget</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.budget}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Timeline</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.timeline}</td></tr>
+          </table>
+          <div style="margin-top:20px">
+            <a href="https://masomojoshua.netlify.app/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
+              View in Dashboard →
+            </a>
+          </div>
+        </div>
+        <p style="color:#9ca3af;font-size:12px;margin-top:16px;text-align:center">Masomo Now · info@masomonow.com</p>
+      </div>
+    `,
+  })
+}
+
 export async function sendNewAppointmentEmail(appointment: {
   name: string
   email: string

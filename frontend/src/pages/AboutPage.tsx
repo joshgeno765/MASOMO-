@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import Button from '../components/ui/Button'
 
 const values = [
   { num: '01', title: 'Transparency', desc: 'No hidden fees. No vague timelines. We tell you exactly what to expect and when.' },
@@ -147,7 +148,7 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-4xl text-navy mb-4">Talk to a real counselor</h2>
           <p className="text-gray-600 text-lg mb-8">No scripts, no sales pitch. Just honest advice about your next step.</p>
-          <Link to="/consultation" className="inline-block bg-navy hover:bg-brand-blue text-white font-extrabold px-8 py-4 rounded-lg transition-colors text-lg">Book Free Consultation</Link>
+          <Button to="/consultation">Book Free Consultation</Button>
         </div>
       </section>
     </>

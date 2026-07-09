@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData } from '../types'
+import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData, PathwayFinderSubmission } from '../types'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
@@ -22,6 +22,11 @@ export async function healthCheck(): Promise<{ status: string }> {
 
 export async function bookConsultation(data: ConsultationFormData): Promise<ApiResponse<Appointment>> {
   const res = await api.post<ApiResponse<Appointment>>('/api/appointments', data)
+  return res.data
+}
+
+export async function submitPathwayResult(data: PathwayFinderSubmission): Promise<ApiResponse<Lead>> {
+  const res = await api.post<ApiResponse<Lead>>('/api/pathway-finder', data)
   return res.data
 }
 

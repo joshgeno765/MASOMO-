@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 import { bookConsultation } from '../lib/api'
 import { ConsultationFormData } from '../types'
+import FloatingField from '../components/ui/FloatingField'
+import Button from '../components/ui/Button'
 
 // Matches the slots listed on the Contact page (CAT = Central Africa Time, Kigali)
 const SLOT_WINDOWS: Record<number, { start: number; end: number } | null> = {
@@ -32,36 +34,6 @@ function formatHour(hour: number): string {
 
 function toDateKey(d: Date): string {
   return d.toISOString().slice(0, 10)
-}
-
-function FloatingField({ label, name, value, onChange, type = 'text', required }: {
-  label: string; name: string; value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  type?: string; required?: boolean
-}) {
-  const [focused, setFocused] = useState(false)
-  const floated = focused || value.length > 0
-  return (
-    <div className="relative">
-      <input
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        required={required}
-        className="peer w-full border border-gray-300 rounded-xl px-4 pt-5 pb-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
-      />
-      <label
-        className={`absolute left-4 transition-all pointer-events-none text-gray-400 ${
-          floated ? 'top-1.5 text-[10px] font-semibold uppercase tracking-wide' : 'top-3.5 text-sm'
-        }`}
-      >
-        {label}{required && ' *'}
-      </label>
-    </div>
-  )
 }
 
 function weekDays(offsetWeeks: number): Date[] {
@@ -287,10 +259,9 @@ export default function ConsultationPage() {
                 placeholder="Anything we should know?"
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all resize-none" />
 
-              <button type="submit" disabled={loading}
-                className="w-full bg-navy hover:bg-brand-blue text-white font-bold py-3.5 rounded-full transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+              <Button type="submit" fullWidth loading={loading}>
                 {loading ? 'Booking...' : 'Book Consultation →'}
-              </button>
+              </Button>
 
               <p className="flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
