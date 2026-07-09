@@ -1,3 +1,9 @@
+export type PathwayCategory =
+  | 'Associate & UT Programs'
+  | 'High School, Upgrading & Language Proficiency'
+  | 'Degrees & Diplomas'
+  | 'Trades & Apprenticeship'
+
 export interface School {
   name: string
   type: string
@@ -6,6 +12,9 @@ export interface School {
   website: string
   programTags?: ('technical' | 'business' | 'academic')[]
   costTier?: 'budget-friendly'
+  pathwayCategories?: PathwayCategory[]
+  intlRequirements?: string
+  intlRequirementsSource?: string
 }
 
 export interface Country {
@@ -36,11 +45,36 @@ export const northAmerica: Country[] = [
       { label: 'Location', value: 'British Columbia & Alberta' },
     ],
     schools: [
-      { name: 'BCIT — British Columbia Institute of Technology', type: 'Public Polytechnic Institute', city: 'Burnaby, BC', photo: '/images/schools/bcit.jpg', website: 'https://www.bcit.ca', programTags: ['technical'] },
-      { name: 'TRU — Thompson Rivers University', type: 'Public University', city: 'Kamloops, BC', photo: '/images/schools/tru.jpg', website: 'https://www.tru.ca', programTags: ['academic'] },
-      { name: 'University of Lethbridge', type: 'Public University', city: 'Lethbridge, AB', photo: '/images/schools/lethbridge.jpg', website: 'https://www.ulethbridge.ca', programTags: ['academic'] },
-      { name: 'Northern Lights College', type: 'Public College', city: 'Dawson Creek, BC', photo: null, website: 'https://www.nlc.bc.ca', programTags: ['technical'], costTier: 'budget-friendly' },
-      { name: 'North Island College', type: 'Public College', city: 'Comox Valley, BC', photo: null, website: 'https://www.nic.bc.ca', programTags: ['technical'], costTier: 'budget-friendly' },
+      {
+        name: 'BCIT — British Columbia Institute of Technology', type: 'Public Polytechnic Institute', city: 'Burnaby, BC', photo: '/images/schools/bcit.jpg', website: 'https://www.bcit.ca', programTags: ['technical'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'English proficiency tiered by program: typically IELTS 6.5 overall (no band below 5.5), TOEFL iBT 86, PTE 60, or Duolingo 120. Program-specific admission requirements (grades/prerequisites) apply beyond English.',
+        intlRequirementsSource: 'https://www.bcit.ca/admission/entrance-requirements/english-language-proficiency/',
+      },
+      {
+        name: 'TRU — Thompson Rivers University', type: 'Public University', city: 'Kamloops, BC', photo: '/images/schools/tru.jpg', website: 'https://www.tru.ca', programTags: ['academic'],
+        pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 88, PTE 58, or Duolingo 125 — or enter TRU\'s own English for Academic Purposes (EAP) program and work up to direct-entry level. Minimum 73% in Grade 12 English for degree programs (67% for diploma/certificate); minimum age 17.',
+        intlRequirementsSource: 'https://www.tru.ca/truworld/new-students/before-you-leave-home/english-requirements.html',
+      },
+      {
+        name: 'University of Lethbridge', type: 'Public University', city: 'Lethbridge, AB', photo: '/images/schools/lethbridge.jpg', website: 'https://www.ulethbridge.ca', programTags: ['academic'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
+        intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 86, PTE 61, or Duolingo 120 — or complete the university\'s own English for Academic Purposes (EAP) Advanced Level. Minimum secondary school average varies by country (commonly around 65%).',
+        intlRequirementsSource: 'https://www.ulethbridge.ca/ross/admissions/elp',
+      },
+      {
+        name: 'Northern Lights College', type: 'Public College', city: 'Dawson Creek, BC', photo: null, website: 'https://www.nlc.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
+        pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'IELTS 6.0 overall (no band below 5.5), TOEFL iBT 78, or Duolingo 110 — or complete NLC\'s own in-house English as a Second Language (EASL) pathway program.',
+        intlRequirementsSource: 'https://www.nlc.bc.ca/schedule/admissions-regulations/',
+      },
+      {
+        name: 'North Island College', type: 'Public College', city: 'Comox Valley, BC', photo: null, website: 'https://www.nic.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
+        pathwayCategories: ['Associate & UT Programs', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'IELTS 6.0 overall (no band below 5.5) for most programs, higher for select limited-entry programs — or complete an approved English program through one of NIC\'s partner language schools.',
+        intlRequirementsSource: 'https://www.nic.bc.ca/admissions/international-students/admission-requirements/english-requirements.html',
+      },
     ],
     desc: 'Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot\'s francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia and Alberta — from Metro Vancouver\'s tech corridor to smaller regional colleges with a lower cost of living.',
     pros: ['Post-Graduation Work Permit — up to 3 years', 'A recognised pathway toward permanent residence', 'Strong co-op and trades programs (BCIT)', "TRU's guaranteed tuition model locks in your rate for your whole program", 'Lower cost of living at regional colleges (Northern Lights, North Island)'],
@@ -148,6 +182,9 @@ export const FMC_ELIGIBLE_COUNTRIES: string[] = [
 export interface FmcInstitution {
   name: string
   programTags: ('technical' | 'academic')[]
+  pathwayCategories?: PathwayCategory[]
+  intlRequirements?: string
+  intlRequirementsSource?: string
 }
 
 export interface FmcProvinceGroup {
@@ -159,35 +196,80 @@ export const FMC_INSTITUTIONS: FmcProvinceGroup[] = [
   {
     province: 'Ontario',
     schools: [
-      { name: "Université de l'Ontario français (UOF)", programTags: ['academic'] },
-      { name: 'Collège Boréal', programTags: ['technical'] },
-      { name: 'La Cité collégiale', programTags: ['technical'] },
-      { name: "Université d'Ottawa (French programs)", programTags: ['academic'] },
+      {
+        name: "Université de l'Ontario français (UOF)", programTags: ['academic'],
+        pathwayCategories: ['Degrees & Diplomas'],
+        intlRequirements: 'French proficiency required: DELF B2 (min. 70%), TFI 700+/990, TEF 600+/900, or TCF 450+/699.',
+        intlRequirementsSource: 'https://uofinternational.ca/je-veux-etudier-a-luof/conditions-dadmission',
+      },
+      {
+        name: 'Collège Boréal', programTags: ['technical'],
+        pathwayCategories: ['Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'Approved French test required (TEF or TCF); the FMC Student Pilot specifically requires Canadian Language Benchmark (CLB) level 5 or higher in all four skills. Application fee $350 CAD.',
+        intlRequirementsSource: 'https://collegeboreal.ca/en/future-students/international-applicants/francophone-minority-communities-student-pilot-fmcsp/',
+      },
+      {
+        name: 'La Cité collégiale', programTags: ['technical'],
+        pathwayCategories: ['Associate & UT Programs', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'French test required: TCF minimum 375 (Compréhension écrite) or TEF minimum 352 (Compréhension écrite). Application fee $350 CAD; FMC pathway requires a tuition deposit.',
+        intlRequirementsSource: 'https://www.collegelacite.ca/tests-de-francais',
+      },
+      {
+        name: "Université d'Ottawa (French programs)", programTags: ['academic'],
+        pathwayCategories: ['Degrees & Diplomas'],
+        intlRequirements: 'French proficiency required unless 3+ years of French-medium schooling completed (DR Congo and Djibouti are on the exemption list; Rwanda is not): DALF C1/C2, DELF B2 (min. 16/25 in Production écrite), TCF B2, or TEF B2.',
+        intlRequirementsSource: 'https://www.uottawa.ca/study/undergraduate-studies/language-requirements',
+      },
     ],
   },
   {
     province: 'New Brunswick',
     schools: [
-      { name: 'Université de Moncton', programTags: ['academic'] },
-      { name: 'Collège communautaire du Nouveau-Brunswick (CCNB)', programTags: ['technical'] },
+      {
+        name: 'Université de Moncton', programTags: ['academic'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
+        intlRequirements: 'French proficiency required unless native French speaker — commonly cited minimum is level B1 on the TFI (or equivalent TCF/DALF/TEF level). Non-refundable application fee $300 CAD.',
+        intlRequirementsSource: 'https://www.umoncton.ca/processus-d%E2%80%99admission-pour-%C3%A9tudiants-internationaux',
+      },
+      {
+        name: 'Collège communautaire du Nouveau-Brunswick (CCNB)', programTags: ['technical'],
+        pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Trades & Apprenticeship'],
+        intlRequirements: 'French test required unless 3+ years of francophone schooling: TFI 700 minimum, TCF Canada level B2, TEF Canada level B2, DELF B2, or DALF C1. $100 CAD processing fee plus a mandatory CCNB admission test.',
+        intlRequirementsSource: 'https://ccnb.ca/admission-et-inscription/etudiants-internationaux/',
+      },
     ],
   },
   {
     province: 'Manitoba',
     schools: [
-      { name: 'Université de Saint-Boniface', programTags: ['academic'] },
+      {
+        name: 'Université de Saint-Boniface', programTags: ['academic'],
+        pathwayCategories: ['Degrees & Diplomas'],
+        intlRequirements: 'Approved French test required of all international applicants, including francophone-country nationals: DELF B2, DALF C1, TCF B2, or TEF B2. Test results must be original and less than 2 years old.',
+        intlRequirementsSource: 'https://ustboniface.ca/tests-de-francais-normalises-internationaux',
+      },
     ],
   },
   {
     province: 'Alberta',
     schools: [
-      { name: 'Campus Saint-Jean (University of Alberta)', programTags: ['academic'] },
+      {
+        name: 'Campus Saint-Jean (University of Alberta)', programTags: ['academic'],
+        pathwayCategories: ['Associate & UT Programs', 'Degrees & Diplomas'],
+        intlRequirements: 'French proficiency required (primary language of instruction): completion of Alberta French 30-1/30-2 or equivalent, 4 years of full-time French study, or a diploma from a French-medium institution. FMC pilot requires a $150 CAD application fee plus a tuition deposit.',
+        intlRequirementsSource: 'https://www.ualberta.ca/en/campus-saint-jean/programs/international/francophone-minority-communities-student-pilot.html',
+      },
     ],
   },
   {
     province: 'Nova Scotia',
     schools: [
-      { name: 'Université Sainte-Anne', programTags: ['academic'] },
+      {
+        name: 'Université Sainte-Anne', programTags: ['academic'],
+        pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
+        intlRequirements: 'For the FMC Student Pilot specifically: TEF or TCF level 5. Application fee $150 CAD for international applicants.',
+        intlRequirementsSource: 'https://www.usainteanne.ca/futurs-etudiants/etudiants-internationaux/avant-de-venir-au-canada/ppecfsm',
+      },
     ],
   },
 ]

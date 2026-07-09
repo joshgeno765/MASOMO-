@@ -55,6 +55,7 @@ export async function sendNewPathwayResultEmail(lead: {
   quizAnswers: {
     homeCountry: string
     languagePreference: string
+    studyGoal: string
     fieldOfInterest: string
     budget: string
     timeline: string
@@ -84,6 +85,7 @@ export async function sendNewPathwayResultEmail(lead: {
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Matched Pathway</td><td style="padding:8px 0;border-top:1px solid #f3f4f6;font-weight:600;color:#0B2545">${lead.destinationInterest}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Home Country</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.homeCountry}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Language Preference</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.languagePreference}</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Study Goal</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.studyGoal}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Field of Interest</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.fieldOfInterest}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Budget</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.budget}</td></tr>
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Timeline</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.timeline}</td></tr>

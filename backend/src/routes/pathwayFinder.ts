@@ -9,6 +9,7 @@ const router = Router()
 const quizAnswersSchema = z.object({
   homeCountry: z.string().min(1),
   languagePreference: z.enum(['French', 'English', 'Both / Not sure']),
+  studyGoal: z.enum(['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship', 'Not sure yet']),
   fieldOfInterest: z.enum(['Technical / Trades', 'Business & Management', 'University / Academic', 'Not sure yet']),
   budget: z.enum(['Most affordable option', 'Budget flexible', 'Not sure']),
   timeline: z.enum(['As soon as possible', 'Within the next year', 'Just exploring']),

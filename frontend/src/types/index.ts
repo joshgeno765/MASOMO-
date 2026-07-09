@@ -99,9 +99,17 @@ export interface ConsultationFormData {
   notes: string
 }
 
+export type StudyGoal =
+  | 'Associate & UT Programs'
+  | 'High School, Upgrading & Language Proficiency'
+  | 'Degrees & Diplomas'
+  | 'Trades & Apprenticeship'
+  | 'Not sure yet'
+
 export interface PathwayQuizAnswers {
   homeCountry: string
   languagePreference: 'French' | 'English' | 'Both / Not sure'
+  studyGoal: StudyGoal
   fieldOfInterest: 'Technical / Trades' | 'Business & Management' | 'University / Academic' | 'Not sure yet'
   budget: 'Most affordable option' | 'Budget flexible' | 'Not sure'
   timeline: 'As soon as possible' | 'Within the next year' | 'Just exploring'

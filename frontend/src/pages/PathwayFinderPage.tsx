@@ -14,6 +14,13 @@ const HOME_COUNTRIES = ['Rwanda', 'DR Congo', 'Djibouti', 'Kenya', 'Uganda', 'Ta
 const QUESTIONS: { key: keyof PathwayQuizAnswers; question: string; options: string[] }[] = [
   { key: 'homeCountry', question: 'Which country are you applying from?', options: HOME_COUNTRIES },
   { key: 'languagePreference', question: 'Which language do you want to study in?', options: ['French', 'English', 'Both / Not sure'] },
+  { key: 'studyGoal', question: 'What would you like to study?', options: [
+    'Associate & UT Programs',
+    'High School, Upgrading & Language Proficiency',
+    'Degrees & Diplomas',
+    'Trades & Apprenticeship',
+    'Not sure yet',
+  ] },
   { key: 'fieldOfInterest', question: 'What field are you interested in?', options: ['Technical / Trades', 'Business & Management', 'University / Academic', 'Not sure yet'] },
   { key: 'budget', question: 'What matters most for your budget?', options: ['Most affordable option', 'Budget flexible', 'Not sure'] },
   { key: 'timeline', question: 'When are you hoping to start?', options: ['As soon as possible', 'Within the next year', 'Just exploring'] },
@@ -120,7 +127,7 @@ export default function PathwayFinderPage() {
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Pathway Finder</p>
           <h1 className="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
-            Answer 5 questions. See your real matched pathway.
+            Answer 6 questions. See your real matched pathway.
           </h1>
           <p className="text-white/70 text-lg">
             No guesswork — this matches your answers against our actual partner schools and eligibility criteria.
@@ -205,6 +212,12 @@ export default function PathwayFinderPage() {
                   ))}
                 </ul>
 
+                {answers.studyGoal && answers.studyGoal !== 'Not sure yet' && (
+                  <p className="text-xs text-gray-400 mb-4">
+                    You're looking to study: <span className="font-semibold text-navy">{answers.studyGoal}</span>
+                  </p>
+                )}
+
                 <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Matched schools</h3>
                 <div className="grid gap-3 mb-2">
                   {result.matchedSchools.map((s) => (
@@ -216,9 +229,26 @@ export default function PathwayFinderPage() {
                           Visit official website ↗
                         </a>
                       )}
+                      {s.intlRequirements && (
+                        <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                          <span className="font-semibold text-gray-600">International admission requirements: </span>
+                          {s.intlRequirements}
+                          {s.intlRequirementsSource && (
+                            <>
+                              {' '}
+                              <a href={s.intlRequirementsSource} target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">
+                                (source ↗)
+                              </a>
+                            </>
+                          )}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
+                <p className="text-xs text-gray-400 mt-3">
+                  Requirements shown are general guidelines from each school's official site — your counselor will confirm the exact requirements for your specific program.
+                </p>
               </Card>
 
               {result.alternateCountry && result.alternateSchools && result.alternateSchools.length > 0 && (
