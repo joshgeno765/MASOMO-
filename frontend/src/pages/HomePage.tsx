@@ -48,6 +48,7 @@ export default function HomePage() {
             <p className="text-gray-600 leading-relaxed mb-4">
               Our Regulated Canadian Immigration Consultants (RCICs), licensed by the College of Immigration and Citizenship Consultants (CICC), guide you through Canadian study permits — including the FMC pathway — as well as UK and Australian visas.
             </p>
+            <p className="text-xs text-gray-400 font-mono mb-3">License R731358 — RCIC-IRB-L3</p>
             <a href="https://rcic.link/r731358" target="_blank" rel="noopener noreferrer" className="text-brand-blue text-sm font-bold hover:underline">Verify our RCIC credentials →</a>
           </div>
           <div className="bg-white border border-gray-200 rounded-2xl p-8">
