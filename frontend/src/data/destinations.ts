@@ -15,6 +15,8 @@ export interface School {
   pathwayCategories?: PathwayCategory[]
   intlRequirements?: string
   intlRequirementsSource?: string
+  videoId?: string
+  videoTitle?: string
 }
 
 export interface Country {
@@ -50,30 +52,35 @@ export const northAmerica: Country[] = [
         pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'English proficiency tiered by program: typically IELTS 6.5 overall (no band below 5.5), TOEFL iBT 86, PTE 60, or Duolingo 120. Program-specific admission requirements (grades/prerequisites) apply beyond English.',
         intlRequirementsSource: 'https://www.bcit.ca/admission/entrance-requirements/english-language-proficiency/',
+        videoId: 'CKl8mhU_eR0', videoTitle: 'BCIT | Burnaby Campus Tour',
       },
       {
         name: 'TRU — Thompson Rivers University', type: 'Public University', city: 'Kamloops, BC', photo: '/images/schools/tru.jpg', website: 'https://www.tru.ca', programTags: ['academic'],
         pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 88, PTE 58, or Duolingo 125 — or enter TRU\'s own English for Academic Purposes (EAP) program and work up to direct-entry level. Minimum 73% in Grade 12 English for degree programs (67% for diploma/certificate); minimum age 17.',
         intlRequirementsSource: 'https://www.tru.ca/truworld/new-students/before-you-leave-home/english-requirements.html',
+        videoId: '6jc9QVVUC8Q', videoTitle: 'TRU Campus Tour 2024',
       },
       {
         name: 'University of Lethbridge', type: 'Public University', city: 'Lethbridge, AB', photo: '/images/schools/lethbridge.jpg', website: 'https://www.ulethbridge.ca', programTags: ['academic'],
         pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
         intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 86, PTE 61, or Duolingo 120 — or complete the university\'s own English for Academic Purposes (EAP) Advanced Level. Minimum secondary school average varies by country (commonly around 65%).',
         intlRequirementsSource: 'https://www.ulethbridge.ca/ross/admissions/elp',
+        videoId: 'FXM84Z2bK-U', videoTitle: 'ULethbridge: Experience for Everyone',
       },
       {
         name: 'Northern Lights College', type: 'Public College', city: 'Dawson Creek, BC', photo: null, website: 'https://www.nlc.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
         pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.0 overall (no band below 5.5), TOEFL iBT 78, or Duolingo 110 — or complete NLC\'s own in-house English as a Second Language (EASL) pathway program.',
         intlRequirementsSource: 'https://www.nlc.bc.ca/schedule/admissions-regulations/',
+        videoId: '9gjCytEE-ro', videoTitle: 'Ask Our Students: Five Reasons International Students Should Study at NLC',
       },
       {
         name: 'North Island College', type: 'Public College', city: 'Comox Valley, BC', photo: null, website: 'https://www.nic.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
         pathwayCategories: ['Associate & UT Programs', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.0 overall (no band below 5.5) for most programs, higher for select limited-entry programs — or complete an approved English program through one of NIC\'s partner language schools.',
         intlRequirementsSource: 'https://www.nic.bc.ca/admissions/international-students/admission-requirements/english-requirements.html',
+        videoId: 'aZ38Ejp_F2I', videoTitle: 'North Island College International',
       },
     ],
     desc: 'Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot\'s francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia and Alberta — from Metro Vancouver\'s tech corridor to smaller regional colleges with a lower cost of living.',

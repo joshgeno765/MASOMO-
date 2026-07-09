@@ -1,8 +1,15 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Country, School, northAmerica, europe, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
+import VideoEmbed from '../components/ui/VideoEmbed'
 
-function SchoolCard({ s }: { s: School }) {
+interface ActiveVideo {
+  videoId: string
+  title: string
+}
+
+function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVideo) => void }) {
   return (
     <div className="relative h-40 rounded-lg overflow-hidden border border-gray-200">
       {s.photo ? (
@@ -16,20 +23,30 @@ function SchoolCard({ s }: { s: School }) {
       <div className="relative h-full flex flex-col justify-end p-3">
         <div className="font-semibold text-white text-sm leading-tight">{s.name}</div>
         <div className="text-[11px] text-white/60 mb-1.5">{s.type} · {s.city}</div>
-        <a
-          href={s.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
-        >
-          Visit official website ↗
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={s.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
+          >
+            Visit official website ↗
+          </a>
+          {s.videoId && (
+            <button
+              onClick={() => onPlayVideo({ videoId: s.videoId!, title: s.videoTitle ?? s.name })}
+              className="text-[11px] font-bold text-white w-fit border-b border-white/50 hover:border-white"
+            >
+              ▶ Watch video
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )
 }
 
-function CountryBlock({ d }: { d: Country }) {
+function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveVideo) => void }) {
   return (
     <div className="py-12">
       {/* Header */}
@@ -48,7 +65,7 @@ function CountryBlock({ d }: { d: Country }) {
 
       {/* Partner school photo cards */}
       <div className={`grid gap-4 mb-10 ${d.schools.length >= 3 ? 'md:grid-cols-3' : d.schools.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-sm'}`}>
-        {d.schools.map((s) => (<SchoolCard key={s.name} s={s} />))}
+        {d.schools.map((s) => (<SchoolCard key={s.name} s={s} onPlayVideo={onPlayVideo} />))}
       </div>
 
       {/* Body */}
@@ -94,6 +111,8 @@ function CountryBlock({ d }: { d: Country }) {
 }
 
 export default function StudyDestinationsPage() {
+  const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null)
+
   return (
     <>
       {/* Hero */}
@@ -108,6 +127,16 @@ export default function StudyDestinationsPage() {
         </div>
       </section>
 
+      {/* General "what awaits you abroad" video */}
+      <section className="py-16 px-6 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
+          <h2 className="font-serif text-3xl text-navy mb-6">See what studying in Canada is really like</h2>
+          <VideoEmbed videoId="qfzYhUgz9cs" title="Study in Canada — A world of possibilities awaits (EduCanada)" />
+          <p className="text-xs text-gray-400 mt-4">Official Government of Canada / EduCanada video.</p>
+        </div>
+      </section>
+
       {/* North America */}
       <section className="pt-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -117,7 +146,7 @@ export default function StudyDestinationsPage() {
       </section>
       <section className="px-6">
         <div className="max-w-6xl mx-auto divide-y divide-gray-200">
-          {northAmerica.map((d) => (<CountryBlock key={d.name} d={d} />))}
+          {northAmerica.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} />))}
         </div>
       </section>
 
@@ -130,7 +159,7 @@ export default function StudyDestinationsPage() {
       </section>
       <section className="px-6">
         <div className="max-w-6xl mx-auto divide-y divide-gray-200">
-          {europe.map((d) => (<CountryBlock key={d.name} d={d} />))}
+          {europe.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} />))}
         </div>
       </section>
 
@@ -158,13 +187,31 @@ export default function StudyDestinationsPage() {
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-3xl text-white mb-3">Not sure which country is right for you?</h2>
-          <p className="text-white/70 mb-8">Answer 5 quick questions and we'll match you to a real pathway based on your goals, budget, and language preference.</p>
+          <p className="text-white/70 mb-8">Answer 6 quick questions and we'll match you to a real pathway based on your goals, budget, and language preference.</p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Button to="/pathway-finder" variant="primary">Find Your Pathway →</Button>
             <Button to="/consultation" variant="outline">Book Free Consultation</Button>
           </div>
         </div>
       </section>
+
+      {/* Video lightbox */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-6"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div className="w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
+            <VideoEmbed videoId={activeVideo.videoId} title={activeVideo.title} />
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="mt-4 text-white text-sm font-semibold hover:underline"
+            >
+              ✕ Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   )
 }
