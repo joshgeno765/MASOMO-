@@ -83,11 +83,12 @@ export default function AboutPage() {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl text-navy mb-8">Where we operate</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
               ['🇨🇦', 'Vancouver, BC — Canada', 'ELIMU HQ'],
-              ['🇷🇼', 'Kigali, Rwanda', 'Masomo Now Office'],
               ['🇰🇪', 'Nairobi, Kenya', ''],
+              ['🇷🇼', 'Kigali, Rwanda', 'Masomo Now Office'],
+              ['🇪🇹', 'Jijiga, Ethiopia', ''],
             ].map(([flag, name, tag]) => (
               <div key={name} className="border-2 border-navy/10 rounded-xl p-5">
                 <div className="text-3xl mb-2">{flag}</div>

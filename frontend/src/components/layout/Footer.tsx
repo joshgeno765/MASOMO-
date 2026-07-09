@@ -18,9 +18,10 @@ export default function Footer() {
             <p className="text-sm leading-relaxed max-w-xs mb-4">
               International education consultancy helping students from Rwanda, DR Congo, and Djibouti access world-class institutions abroad — with a focus on Canadian francophone pathways.
             </p>
-            <div className="flex gap-2 text-xs">
-              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇷🇼 Kigali</span>
+            <div className="flex gap-2 text-xs flex-wrap">
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇰🇪 Nairobi</span>
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇷🇼 Kigali</span>
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇪🇹 Jijiga</span>
             </div>
           </div>
 
