@@ -33,9 +33,12 @@ export default function HomePage() {
             Study and work abroad, without guesswork
           </h1>
           <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-            We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus.
+            Masomo Now is the francophone Africa division of ELIMU International Education Connections — a licensed Canadian education consultancy with partner institutions across Canada, Ireland, Germany, and Poland.
           </p>
-          <Link to="/consultation" className="bg-brand-gold hover:bg-brand-gold-light text-navy font-bold px-6 py-3 rounded-full transition-colors inline-block">Get Free Consultation</Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link to="/consultation" className="bg-brand-gold hover:bg-brand-gold-light text-navy font-bold px-6 py-3 rounded-full transition-colors inline-block">Get Free Consultation</Link>
+            <Link to="/about" className="text-white/80 text-sm font-bold hover:text-white hover:underline">Learn more about ELIMU →</Link>
+          </div>
         </div>
       </section>
 
