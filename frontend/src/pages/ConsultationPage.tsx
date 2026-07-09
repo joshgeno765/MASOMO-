@@ -207,6 +207,11 @@ export default function ConsultationPage() {
                   <option>USA — Lake Washington Institute of Technology</option>
                   <option>USA — Seattle Colleges</option>
                   <option>Canada — FMC Student Pilot</option>
+                  <option>Canada — BCIT</option>
+                  <option>Canada — TRU (Thompson Rivers University)</option>
+                  <option>Canada — University of Lethbridge</option>
+                  <option>Canada — Northern Lights College</option>
+                  <option>Canada — North Island College</option>
                   <option>Not sure — need guidance</option>
                 </select>
               </div>
