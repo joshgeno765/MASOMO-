@@ -29,6 +29,7 @@ function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVide
             href={s.website}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Visit ${s.name} official website`}
             className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
           >
             Visit official website ↗
