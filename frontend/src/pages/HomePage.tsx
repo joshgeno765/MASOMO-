@@ -96,17 +96,15 @@ export default function HomePage() {
         subtitle="We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus."
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
+        height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
         <Button to="/services" variant="outline">Explore Our Services</Button>
         <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
-          🛂 RCIC Licensed — R731358
+          🛂 RCIC Licensed
         </span>
-        <div className="w-full max-w-md bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 mt-1">
-          <p className="text-white/90 text-xs leading-relaxed">
-            Masomo Now is the francophone Africa division of <strong>ELIMU International Education Connections</strong>, a licensed Canadian education consultancy.
-          </p>
-          <Link to="/about" className="text-brand-gold-light text-xs font-bold hover:underline mt-1 inline-block">Learn more about ELIMU →</Link>
-        </div>
+        <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
+          🎓 Learn about ELIMU →
+        </Link>
       </PhotoHero>
 
       <TextImageSplit
