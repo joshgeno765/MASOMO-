@@ -4,6 +4,7 @@ import { bookConsultation } from '../lib/api'
 import { ConsultationFormData } from '../types'
 import FloatingField from '../components/ui/FloatingField'
 import Button from '../components/ui/Button'
+import PhotoHero from '../components/ui/PhotoHero'
 
 // Matches the slots listed on the Contact page (CAT = Central Africa Time, Kigali)
 const SLOT_WINDOWS: Record<number, { start: number; end: number } | null> = {
@@ -112,22 +113,20 @@ export default function ConsultationPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl text-white mb-4 max-w-xl">
-            Book your free consultation
-          </h1>
-          <p className="text-white/70 text-lg max-w-xl mb-6">
-            Pick a date and time that works for you — a Rwanda-based counselor will call you to talk through your options.
-          </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
-            <span>info@masomonow.com</span>
-            <span>+1 778 846 8953</span>
-            <span>Kigali, Rwanda — also serving DRC &amp; Djibouti</span>
-          </div>
+      <PhotoHero
+        image="/images/seminars/seminar-2.jpg"
+        alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
+        eyebrow="Book a Consultation"
+        title="Book your free consultation"
+        subtitle="Pick a date and time that works for you — a Rwanda-based counselor will call you to talk through your options."
+        height="h-[55vh] min-h-[380px] max-h-[520px]"
+      >
+        <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
+          <span>info@masomonow.com</span>
+          <span>+1 778 846 8953</span>
+          <span>Kigali, Rwanda — also serving DRC &amp; Djibouti</span>
         </div>
-      </section>
+      </PhotoHero>
 
       {/* App-style card */}
       <section className="py-16 px-6">

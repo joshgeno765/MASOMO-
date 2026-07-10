@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom'
 import Button from '../components/ui/Button'
+import PhotoHero from '../components/ui/PhotoHero'
+import TextImageSplit from '../components/ui/TextImageSplit'
+import IconFeatureRow from '../components/ui/IconFeatureRow'
+import CardGridSection from '../components/ui/CardGridSection'
+import FactsBand from '../components/ui/FactsBand'
+import ScrollCarouselModal from '../components/ui/ScrollCarouselModal'
 
 const testimonials = [
   { name: 'Amara M.', dest: 'BCIT, British Columbia', quote: 'Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I\'m now in Vancouver.' },
@@ -7,10 +13,34 @@ const testimonials = [
   { name: 'Jean-Pierre M.', dest: 'Collège Boréal, Ontario', quote: 'I came from DRC and didn\'t think studying in Canada was possible. Masomo Now found the FMC pilot for me — now I\'m studying in French in Ontario.' },
 ]
 
-const seminarPreview = [
-  '/images/seminars/seminar-3.jpg',
-  '/images/seminars/seminar-2.jpg',
-  '/images/seminars/seminar-5.jpg',
+const whyMasomoNow = [
+  {
+    image: '/images/seminars/seminar-3.jpg',
+    title: 'RCIC Licensed Team',
+    body: 'Our Regulated Canadian Immigration Consultants (RCICs) are licensed by the College of Immigration and Citizenship Consultants (CICC) — License R731358, RCIC-IRB-L3. They guide you through Canadian study permits, including the FMC pathway, as well as UK and Australian visas.',
+  },
+  {
+    image: '/images/seminars/seminar-4.jpg',
+    title: 'Francophone FMC Pathway',
+    body: 'A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, and Djibouti. Study at French-language institutions across Canada with priority processing and a clear route to permanent residence.',
+  },
+  {
+    image: '/images/seminars/seminar-2.jpg',
+    title: 'On The Ground In East Africa',
+    body: 'Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.',
+  },
+  {
+    image: '/images/schools/bcit.jpg',
+    title: 'Real Partner Institutions',
+    body: 'We work with 13 partner schools across Canada, the United States, Ireland, Germany, and Poland — every one a real, verified institution with real programs, not a placeholder listing.',
+  },
+]
+
+const destinationCards = [
+  { image: '/images/schools/bcit.jpg', title: 'Canada', subtitle: '5 partner schools', linkLabel: 'Explore', linkTo: '/destinations' },
+  { image: '/images/schools/lwtech.jpg', title: 'United States', subtitle: '2 partner schools', linkLabel: 'Explore', linkTo: '/destinations' },
+  { image: '/images/schools/dcu.jpg', title: 'Ireland', subtitle: '2 partner schools', linkLabel: 'Explore', linkTo: '/destinations' },
+  { image: '/images/schools/cbs.jpg', title: 'Germany', subtitle: '3 partner schools', linkLabel: 'Explore', linkTo: '/destinations' },
 ]
 
 export default function HomePage() {
@@ -21,75 +51,65 @@ export default function HomePage() {
         <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-navy/70">Learn more</Link>
       </div>
 
-      {/* Hero — full-bleed photo */}
-      <section className="relative overflow-hidden">
-        <img
-          src="/images/seminars/seminar-3.jpg"
-          alt="A Masomo Now / ELIMU seminar with students in Kenya"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/50" />
-        <div className="relative max-w-2xl mx-auto md:mx-0 md:ml-[10%] py-24 px-6">
-          <h1 className="font-serif text-4xl md:text-5xl text-white leading-tight mb-6">
-            Study and work abroad, without guesswork
-          </h1>
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-            Masomo Now is the francophone Africa division of ELIMU International Education Connections — a licensed Canadian education consultancy with partner institutions across Canada, Ireland, Germany, and Poland.
-          </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-            <Button to="/pathway-finder" variant="primary">Find Your Pathway →</Button>
-            <Button to="/consultation" variant="outline">Get Free Consultation</Button>
-          </div>
-          <Link to="/about" className="block mt-4 text-white/80 text-sm font-bold hover:text-white hover:underline">Learn more about ELIMU →</Link>
-        </div>
-      </section>
+      <PhotoHero
+        image="/images/seminars/seminar-3.jpg"
+        alt="A Masomo Now / ELIMU seminar with students in Kenya"
+        eyebrow="Masomo Now — ELIMU International Education Connections"
+        title="Study and work abroad, without guesswork"
+        subtitle="We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus."
+        ctaLabel="Find Your Pathway →"
+        ctaTo="/pathway-finder"
+      />
 
-      {/* Why Masomo Now — RCIC + Francophone/FMC */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          <div className="bg-white border border-gray-200 rounded-2xl p-8">
-            <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full mb-4">RCIC Licensed</span>
-            <h2 className="font-serif text-2xl text-navy mb-3">Licensed visa &amp; study permit support</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Our Regulated Canadian Immigration Consultants (RCICs), licensed by the College of Immigration and Citizenship Consultants (CICC), guide you through Canadian study permits — including the FMC pathway — as well as UK and Australian visas.
-            </p>
-            <p className="text-xs text-gray-400 font-mono mb-3">License R731358 — RCIC-IRB-L3</p>
-            <a href="https://rcic.link/r731358" target="_blank" rel="noopener noreferrer" className="text-brand-blue text-sm font-bold hover:underline">Verify our RCIC credentials →</a>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-2xl p-8">
-            <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full mb-4">Featured Pathway</span>
-            <h2 className="font-serif text-2xl text-navy mb-3">FMC Student Pilot — Canada</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, and Djibouti. Study at French-language institutions across Canada with priority processing and a clear route to permanent residence.
-            </p>
-            <Link to="/fmc-pilot" className="text-brand-blue text-sm font-bold hover:underline">Learn about the FMC Pilot →</Link>
-          </div>
-        </div>
-      </section>
+      <TextImageSplit
+        image="/images/seminars/seminar-4.jpg"
+        alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
+        title="Welcome to Masomo Now"
+        imageSide="left"
+        cta={<Link to="/about" className="text-brand-blue text-sm font-bold hover:underline">Learn more about ELIMU →</Link>}
+      >
+        <p>Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a licensed Canadian education consultancy headquartered in Vancouver, BC.</p>
+        <p>We serve students directly from Rwanda, DR Congo, and Djibouti — backed by a licensed immigration team and real partner institutions in Canada, Ireland, Germany, and Poland.</p>
+      </TextImageSplit>
 
-      {/* Seminars teaser — real photos from the field */}
-      <section className="py-20 px-6 bg-gray-50 border-t border-b border-gray-200">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="grid grid-cols-3 gap-2">
-            {seminarPreview.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt="Masomo Now / ELIMU seminar with students in Kenya"
-                className={`w-full h-40 object-cover rounded-lg ${i === 1 ? 'mt-6' : ''}`}
-              />
-            ))}
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">On the ground</p>
-            <h2 className="font-serif text-3xl text-navy mb-4">We show up in person, not just online</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.
-            </p>
-            <Link to="/about#seminars" className="text-brand-blue text-sm font-bold hover:underline">See our recent seminars →</Link>
-          </div>
-        </div>
-      </section>
+      <IconFeatureRow
+        title="Why Masomo Now"
+        features={[
+          { icon: '🛂', title: 'RCIC Licensed', description: 'Licensed visa & study permit support for Canada, UK, and Australia.' },
+          { icon: '🍁', title: 'FMC Pathway', description: 'A dedicated francophone route to studying in Canada.' },
+          { icon: '📍', title: 'On The Ground', description: 'In-person seminars across East Africa, not just online.' },
+          { icon: '🤝', title: 'End-to-End Support', description: 'From first inquiry to arrival on campus.' },
+        ]}
+      />
+
+      <CardGridSection
+        eyebrow="Where you could study"
+        title="Explore your destination"
+        cards={destinationCards}
+        columns={4}
+      />
+
+      <ScrollCarouselModal eyebrow="More about us" title="What makes Masomo Now different" items={whyMasomoNow} />
+
+      <TextImageSplit
+        image="/images/seminars/seminar-5.jpg"
+        alt="Students respond to a live poll during a school seminar on studying abroad"
+        title="We show up in person, not just online"
+        imageSide="right"
+        cta={<Link to="/about#seminars" className="text-brand-blue text-sm font-bold hover:underline">See our recent seminars →</Link>}
+      >
+        <p>Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.</p>
+      </TextImageSplit>
+
+      <FactsBand
+        dark
+        facts={[
+          { value: '13', label: 'Partner Schools' },
+          { value: '5', label: 'Study Destinations' },
+          { value: '3', label: 'Countries We Serve' },
+          { value: 'RCIC', label: 'Licensed Immigration Team' },
+        ]}
+      />
 
       {/* Recent students */}
       <section className="py-20 px-6">
@@ -103,6 +123,18 @@ export default function HomePage() {
                 <div className="text-gray-400 text-xs mt-0.5">{t.dest}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-6 bg-navy text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-serif text-3xl text-white mb-3">Ready to get started?</h2>
+          <p className="text-white/70 mb-8">Book a free consultation and we'll tell you exactly what your next step should be.</p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Button to="/consultation" variant="primary">Book Free Consultation</Button>
+            <Button to="/pathway-finder" variant="outline">Find Your Pathway →</Button>
           </div>
         </div>
       </section>

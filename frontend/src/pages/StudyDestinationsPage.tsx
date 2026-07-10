@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Country, School, northAmerica, europe, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
+import PhotoHero from '../components/ui/PhotoHero'
 
 interface ActiveVideo {
   videoId: string
@@ -115,17 +116,13 @@ export default function StudyDestinationsPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl text-white mb-4 max-w-xl">
-            Where will you study abroad?
-          </h1>
-          <p className="text-white/70 text-lg max-w-xl">
-            We work with students from Rwanda, DR Congo, and Djibouti to secure admission at top institutions across five countries.
-          </p>
-        </div>
-      </section>
+      <PhotoHero
+        image="/images/schools/tru.jpg"
+        alt="Thompson Rivers University campus entrance"
+        eyebrow="Study Destinations"
+        title="Where will you study abroad?"
+        subtitle="We work with students from Rwanda, DR Congo, and Djibouti to secure admission at top institutions across five countries."
+      />
 
       {/* General "what awaits you abroad" video */}
       <section className="py-16 px-6 bg-gray-50 border-b border-gray-200">

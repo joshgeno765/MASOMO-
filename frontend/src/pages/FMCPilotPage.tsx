@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { FMC_ELIGIBLE_COUNTRIES, FMC_INSTITUTIONS } from '../data/destinations'
 import Button from '../components/ui/Button'
+import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const eligibilityPoints = [
-  { title: 'Francophone country of origin', desc: 'You must be a citizen or resident of a francophone country — including Rwanda, DR Congo, Djibouti, Cameroon, Côte d\'Ivoire, Senegal, and others.' },
-  { title: 'Accepted at a participating institution', desc: 'You must have an acceptance letter from a designated FMC-eligible college or university in Canada outside Quebec.' },
-  { title: 'French-language program', desc: 'Your program of study must be delivered primarily in French at the participating institution.' },
-  { title: 'Standard IRCC requirements', desc: 'You must also meet the standard requirements: proof of finances, health clearance, character, and intent to leave Canada after studies.' },
+  { icon: '🌍', title: 'Francophone country of origin', description: 'You must be a citizen or resident of a francophone country — including Rwanda, DR Congo, Djibouti, Cameroon, Côte d\'Ivoire, Senegal, and others.' },
+  { icon: '🎓', title: 'Accepted at a participating institution', description: 'You must have an acceptance letter from a designated FMC-eligible college or university in Canada outside Quebec.' },
+  { icon: '🗣️', title: 'French-language program', description: 'Your program of study must be delivered primarily in French at the participating institution.' },
+  { icon: '📋', title: 'Standard IRCC requirements', description: 'You must also meet the standard requirements: proof of finances, health clearance, character, and intent to leave Canada after studies.' },
 ]
 
 const benefits = [
@@ -28,8 +29,14 @@ export default function FMCPilotPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-start">
+      <section className="relative overflow-hidden py-20 px-6">
+        <img
+          src="/images/seminars/seminar-4.jpg"
+          alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy/90" />
+        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-start">
           <div>
             <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Canada Study Permit</p>
             <h1 className="font-serif text-4xl md:text-5xl text-white leading-tight mb-5">
@@ -86,20 +93,11 @@ export default function FMCPilotPage() {
       </section>
 
       {/* Eligibility */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-3">Eligibility criteria</h2>
-          <p className="text-gray-500 mb-10">You must meet all of the following to apply through the FMC Student Pilot.</p>
-          <div className="grid md:grid-cols-2 gap-x-14 gap-y-8">
-            {eligibilityPoints.map((p) => (
-              <div key={p.title} className="border-t border-gray-200 pt-5">
-                <h3 className="font-bold text-navy mb-2">{p.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="pt-16 px-6 text-center">
+        <h2 className="font-serif text-3xl text-navy mb-2 max-w-6xl mx-auto">Eligibility criteria</h2>
+        <p className="text-gray-500 max-w-6xl mx-auto">You must meet all of the following to apply through the FMC Student Pilot.</p>
+      </div>
+      <IconFeatureRow features={eligibilityPoints} />
 
       {/* Benefits */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">

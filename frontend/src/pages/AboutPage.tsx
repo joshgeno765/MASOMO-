@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Button from '../components/ui/Button'
+import PhotoHero from '../components/ui/PhotoHero'
+import TextImageSplit from '../components/ui/TextImageSplit'
+import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const values = [
   { num: '01', title: 'Transparency', desc: 'No hidden fees. No vague timelines. We tell you exactly what to expect and when.' },
@@ -28,56 +31,33 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero — full-bleed photo */}
-      <section className="relative overflow-hidden">
-        <img
-          src="/images/seminars/seminar-2.jpg"
-          alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative max-w-4xl mx-auto text-center py-24 px-6">
-          <h1 className="font-serif text-5xl md:text-6xl text-white leading-tight mb-6">Built to help you <span className="text-brand-gold">get there</span></h1>
-          <p className="text-white/80 text-xl max-w-xl mx-auto">Masomo Now was founded to remove the barriers that stop talented Rwandan and francophone African students from accessing world-class education abroad.</p>
-        </div>
-      </section>
+      <PhotoHero
+        image="/images/seminars/seminar-2.jpg"
+        alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
+        eyebrow="About Masomo Now"
+        title="Built to help you get there"
+        subtitle="Masomo Now was founded to remove the barriers that stop talented Rwandan and francophone African students from accessing world-class education abroad."
+      />
 
-      {/* Story — text + photo */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-serif text-3xl text-navy mb-6">Where we started</h2>
-            <p className="text-gray-600 leading-relaxed mb-4 text-lg">
-              Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a Canadian education consultancy headquartered in Vancouver, BC.
-            </p>
-            <p className="text-gray-600 leading-relaxed text-lg">
-              As we saw growing demand from francophone students in Rwanda, DR Congo, and Djibouti, we launched Masomo Now to serve them directly — backed by a licensed immigration team and partner institutions in Canada, Ireland, Germany, and Poland.
-            </p>
-          </div>
-          <img
-            src="/images/seminars/seminar-4.jpg"
-            alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
-            className="w-full h-80 object-cover rounded-2xl"
-          />
-        </div>
-      </section>
+      <TextImageSplit
+        image="/images/seminars/seminar-4.jpg"
+        alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
+        title="Where we started"
+        imageSide="right"
+      >
+        <p>Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a Canadian education consultancy headquartered in Vancouver, BC.</p>
+        <p>As we saw growing demand from francophone students in Rwanda, DR Congo, and Djibouti, we launched Masomo Now to serve them directly — backed by a licensed immigration team and partner institutions in Canada, Ireland, Germany, and Poland.</p>
+      </TextImageSplit>
 
-      {/* Credentials — navy/gold blocks */}
-      <section>
-        {[
-          ['Vancouver, BC — Canada', 'Head office. Founded by Canadians with lived experience in the Canadian education system.'],
-          ['RCIC Licensed', 'Licensed immigration consultant authorized by IRCC to submit study permit applications on behalf of students.'],
-          ['CRA Registered', 'Incorporated and registered in Canada under the Canada Revenue Agency.'],
-          ['End-to-End Support', 'From first inquiry to airport pickup and settlement in Canada.'],
-        ].map(([title, desc], i) => (
-          <div key={title} className={`px-8 md:px-14 py-10 ${i % 2 === 0 ? 'bg-navy' : 'bg-brand-gold'}`}>
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-2 md:gap-10">
-              <h3 className={`font-serif text-xl md:w-64 flex-shrink-0 ${i % 2 === 0 ? 'text-brand-gold' : 'text-navy'}`}>{title}</h3>
-              <p className={`leading-relaxed ${i % 2 === 0 ? 'text-white/70' : 'text-navy/70'}`}>{desc}</p>
-            </div>
-          </div>
-        ))}
-      </section>
+      <IconFeatureRow
+        title="Our credentials"
+        features={[
+          { icon: '🇨🇦', title: 'Vancouver, BC', description: 'Head office, founded by Canadians with lived experience in the Canadian education system.' },
+          { icon: '🛂', title: 'RCIC Licensed', description: 'Authorized by IRCC to submit study permit applications on behalf of students.' },
+          { icon: '📋', title: 'CRA Registered', description: 'Incorporated and registered in Canada under the Canada Revenue Agency.' },
+          { icon: '🤝', title: 'End-to-End Support', description: 'From first inquiry to airport pickup and settlement in Canada.' },
+        ]}
+      />
 
       {/* Offices */}
       <section className="py-16 px-6">
