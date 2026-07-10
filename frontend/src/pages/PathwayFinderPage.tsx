@@ -294,6 +294,9 @@ export default function PathwayFinderPage() {
                     <Button type="submit" fullWidth loading={submitting}>
                       {submitting ? 'Saving...' : 'Save My Pathway →'}
                     </Button>
+                    <p className="text-center text-[11px] text-gray-400">
+                      By saving, you agree to our <Link to="/privacy" className="underline hover:text-navy">Privacy Policy</Link>.
+                    </p>
                   </form>
                 )}
               </Card>

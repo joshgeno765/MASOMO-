@@ -53,7 +53,11 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
           <span>© 2026 Masomo Now. All rights reserved.</span>
-          <span className="text-white/30">info@masomonow.com</span>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="hover:text-brand-gold-light transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-brand-gold-light transition-colors">Terms of Use</Link>
+            <span className="text-white/30">info@masomonow.com</span>
+          </div>
         </div>
       </div>
     </footer>
