@@ -93,7 +93,7 @@ export default function HomePage() {
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
         eyebrow="Masomo Now — ELIMU International Education Connections"
         title="Study and work abroad, without guesswork"
-        subtitle="We guide students from Rwanda, DR Congo, and Djibouti through every step — from choosing the right university to landing on campus."
+        subtitle="Backed by ELIMU International Education Connections, a licensed Canadian consultancy, we guide students from Rwanda, DR Congo, and Djibouti from first inquiry to landing on campus."
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
         height="h-[75vh] min-h-[520px] max-h-[700px]"
