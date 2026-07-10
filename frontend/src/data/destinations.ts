@@ -41,10 +41,10 @@ export const northAmerica: Country[] = [
     region: 'North America',
     languages: ['English', 'French'],
     facts: [
-      { label: 'Partner Schools', value: '5' },
+      { label: 'Partner Schools', value: '8' },
       { label: 'Post-Study Work', value: 'PGWP — up to 3 years' },
       { label: 'Language', value: 'English (French via FMC Pilot)' },
-      { label: 'Location', value: 'British Columbia & Alberta' },
+      { label: 'Location', value: 'British Columbia, Alberta, Saskatchewan & Ontario' },
     ],
     schools: [
       {
@@ -82,8 +82,26 @@ export const northAmerica: Country[] = [
         intlRequirementsSource: 'https://www.nic.bc.ca/admissions/international-students/admission-requirements/english-requirements.html',
         videoId: 'aZ38Ejp_F2I', videoTitle: 'North Island College International',
       },
+      {
+        name: 'Saskatchewan Polytechnic', type: 'Public Polytechnic Institute', city: 'Saskatoon, SK', photo: null, website: 'https://saskpolytech.ca', programTags: ['technical'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'IELTS 6.5 overall (no band below 5.0), TOEFL iBT 81, PTE 63, or Duolingo 110 for most programs (competitive programs such as nursing require higher scores) — or complete the University of Regina\'s EAP 100/101 or The Language Gallery Canada\'s pathway program.',
+        intlRequirementsSource: 'https://saskpolytech.ca/admissions/admission-requirements/english-language-proficiency-requirements.aspx',
+      },
+      {
+        name: 'Fanshawe College', type: 'Public College', city: 'London, ON', photo: null, website: 'https://www.fanshawec.ca', programTags: ['technical'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
+        intlRequirements: 'IELTS 6.0 overall (no band below 5.5), TOEFL iBT 79, PTE 53, or Duolingo 105 (no score below 95) for standard diploma/advanced diploma programs — or complete Fanshawe\'s own English for Academic Purposes (EAP) program.',
+        intlRequirementsSource: 'https://www.fanshawec.ca/admission-finance/before-applying/admission-requirements/english-requirements',
+      },
+      {
+        name: 'University Canada West', type: 'Private University', city: 'Vancouver, BC', photo: null, website: 'https://www.ucanwest.ca', programTags: ['business'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
+        intlRequirements: 'IELTS 6.5 overall (no band below 6.0) or TOEFL iBT 88 for direct entry into undergraduate and MBA programs — or complete UCW\'s own University Access Program (UAP) for students who fall short of direct entry.',
+        intlRequirementsSource: 'https://www.ucanwest.ca/admissions/english-proficiency',
+      },
     ],
-    desc: 'Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot\'s francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia and Alberta — from Metro Vancouver\'s tech corridor to smaller regional colleges with a lower cost of living.',
+    desc: 'Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot\'s francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia, Alberta, Saskatchewan, and Ontario — from Metro Vancouver\'s tech corridor to smaller regional colleges with a lower cost of living.',
     pros: ['Post-Graduation Work Permit — up to 3 years', 'A recognised pathway toward permanent residence', 'Strong co-op and trades programs (BCIT)', "TRU's guaranteed tuition model locks in your rate for your whole program", 'Lower cost of living at regional colleges (Northern Lights, North Island)'],
     link: '/consultation',
     linkLabel: 'Enquire About Canada →',
