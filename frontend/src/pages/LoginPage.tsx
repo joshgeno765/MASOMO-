@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
+import Button from '../components/ui/Button'
 
 export default function LoginPage() {
   const { login, user, isLoading } = useAuth()
@@ -30,47 +31,69 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-navy flex items-center justify-center px-4">
-      <div className="w-full max-w-sm">
-        <div className="mb-8">
-          <div className="flex items-center gap-2.5 mb-6">
-            <div className="w-8 h-8 bg-brand-gold rounded flex items-center justify-center font-extrabold text-navy text-sm">MN</div>
-            <span className="text-white font-bold text-base">Masomo Now</span>
-          </div>
-          <h1 className="font-serif text-2xl text-white mb-1">Staff sign in</h1>
-          <p className="text-white/40 text-sm">Admin and counselor access only</p>
+    <div className="min-h-screen flex">
+      {/* Photo panel */}
+      <div className="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden">
+        <img
+          src="/images/seminars/seminar-1.webp"
+          alt="A Masomo Now / ELIMU seminar with students in Kenya"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
+        <div className="relative flex flex-col justify-end h-full px-12 pb-16 max-w-xl">
+          <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">Masomo Now — Staff Portal</p>
+          <h1 className="font-serif text-3xl lg:text-4xl text-white leading-tight mb-4">
+            Guiding students from Rwanda, DR Congo, and Djibouti to campuses abroad
+          </h1>
+          <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white w-fit">
+            🛂 RCIC Licensed
+          </span>
         </div>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-semibold text-white/70 mb-1.5">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@masomonow.com"
-              autoFocus
-              className="w-full bg-white/10 border border-white/20 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-brand-gold transition-colors"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-white/70 mb-1.5">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full bg-white/10 border border-white/20 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-brand-gold transition-colors"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full bg-brand-gold hover:bg-brand-gold-light text-navy font-bold py-2.5 rounded-lg transition-colors disabled:opacity-60 mt-2 text-sm"
-          >
-            {submitting ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
+      {/* Form panel */}
+      <div className="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center bg-white px-6 py-12">
+        <div className="w-full max-w-sm">
+          <Link to="/" className="flex items-center gap-2.5 mb-10">
+            <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">MN</div>
+            <span className="text-navy font-bold text-lg">Masomo Now</span>
+          </Link>
+
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">Staff Access</p>
+          <h2 className="font-serif text-3xl text-navy mb-1">Sign in</h2>
+          <p className="text-gray-500 text-sm mb-8">Admin and counselor access only</p>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@masomonow.com"
+                autoFocus
+                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+              />
+            </div>
+            <Button type="submit" disabled={submitting} fullWidth className="mt-2">
+              {submitting ? 'Signing in...' : 'Sign In'}
+            </Button>
+          </form>
+
+          <Link to="/" className="block text-center text-sm text-gray-400 hover:text-navy mt-8 transition-colors">
+            ← Back to masomonow.com
+          </Link>
+        </div>
       </div>
     </div>
   )
