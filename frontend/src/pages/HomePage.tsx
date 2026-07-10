@@ -69,12 +69,13 @@ const networkItems = [
 
 const partnerMarquee = [
   'BCIT', 'TRU', 'University of Lethbridge', 'Northern Lights College', 'North Island College',
+  'Saskatchewan Polytechnic', 'Fanshawe College', 'University Canada West',
   'Lake Washington Institute of Technology', 'Seattle Colleges', 'DCU', 'Griffith College',
   'CBS International Business School', 'BSBI', 'Gisma University of Applied Sciences', 'Vistula University',
 ]
 
 const realFacts = [
-  { value: '13', label: 'Partner Schools' },
+  { value: '16', label: 'Partner Schools' },
   { value: '5', label: 'Study Destinations' },
   { value: '3', label: 'Countries We Serve' },
   { value: 'RCIC', label: 'Licensed Immigration Team' },
