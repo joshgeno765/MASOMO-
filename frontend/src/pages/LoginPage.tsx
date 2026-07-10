@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
 import Button from '../components/ui/Button'
+import { northAmerica, europe } from '../data/destinations'
+
+const partnerSchools = [...northAmerica, ...europe].flatMap((country) => country.schools.map((s) => s.name))
 
 export default function LoginPage() {
   const { login, user, isLoading } = useAuth()
@@ -61,7 +64,7 @@ export default function LoginPage() {
 
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">Staff Access</p>
           <h2 className="font-serif text-3xl text-navy mb-1">Sign in</h2>
-          <p className="text-gray-500 text-sm mb-8">Admin and counselor access only</p>
+          <p className="text-gray-500 text-sm mb-8">Masomo Now team access only</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -93,6 +96,13 @@ export default function LoginPage() {
           <Link to="/" className="block text-center text-sm text-gray-400 hover:text-navy mt-8 transition-colors">
             ← Back to masomonow.com
           </Link>
+
+          <div className="mt-10 pt-6 border-t border-gray-100">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3 text-center">Our Partner Schools</p>
+            <p className="text-xs text-gray-400 text-center leading-relaxed">
+              {partnerSchools.join(' · ')}
+            </p>
+          </div>
         </div>
       </div>
     </div>
