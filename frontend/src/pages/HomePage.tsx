@@ -128,12 +128,12 @@ export default function HomePage() {
               <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
               <h2 className="font-serif text-3xl text-navy mb-4">See what studying abroad actually looks like</h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-6">
-                We don't just tell you about campus life in Canada — we show you. This is the official Government of Canada / EduCanada look at what studying and living there is really like, from classrooms to community.
+                We don't just tell you about campus life in Canada — we show you. This is a real look inside TRU — Thompson Rivers University in Kamloops, BC, one of our partner schools — from classrooms to campus life.
               </p>
               <Link to="/destinations" className="text-brand-blue text-sm font-bold hover:underline">Watch real campus videos for every partner school →</Link>
             </div>
             <div>
-              <VideoEmbed videoId="qfzYhUgz9cs" title="Study in Canada — A world of possibilities awaits (EduCanada)" autoplay />
+              <VideoEmbed videoId="6jc9QVVUC8Q" title="TRU Campus Tour 2024" autoplay />
             </div>
           </div>
         </section>
