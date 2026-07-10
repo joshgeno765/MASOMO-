@@ -44,9 +44,9 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <Link to="/fmc-pilot" className="hover:text-brand-gold-light transition-colors">🇨🇦 Canada (FMC Pilot)</Link>
               <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇺🇸 United States</Link>
-              <span>🇬🇧 United Kingdom</span>
-              <span>🇦🇺 Australia</span>
-              <span>🇳🇿 New Zealand</span>
+              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇮🇪 Ireland</Link>
+              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇩🇪 Germany</Link>
+              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇵🇱 Poland</Link>
             </div>
           </div>
         </div>

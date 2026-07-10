@@ -19,3 +19,22 @@
     @apply border border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:border-white/60 transition-colors duration-150 text-sm;
   }
 }
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .chev {
+  transform: rotate(180deg);
+}
