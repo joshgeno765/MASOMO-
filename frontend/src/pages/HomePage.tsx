@@ -16,40 +16,40 @@ const testimonials = [
 
 const whyMasomoNow = [
   {
-    image: '/images/seminars/seminar-3.jpg',
+    image: '/images/seminars/seminar-3-thumb.webp',
     title: 'RCIC Licensed Team',
     body: 'Our Regulated Canadian Immigration Consultants (RCICs) are licensed by the College of Immigration and Citizenship Consultants (CICC) — License R731358, RCIC-IRB-L3. They guide you through Canadian study permits, including the FMC pathway, as well as UK and Australian visas.',
   },
   {
-    image: '/images/seminars/seminar-4.jpg',
+    image: '/images/seminars/seminar-4-thumb.webp',
     title: 'Francophone FMC Pathway',
     body: 'A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, and Djibouti. Study at French-language institutions across Canada with priority processing and a clear route to permanent residence.',
   },
   {
-    image: '/images/seminars/seminar-2.jpg',
+    image: '/images/seminars/seminar-2-thumb.webp',
     title: 'On The Ground In East Africa',
     body: 'Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.',
   },
   {
-    image: '/images/schools/bcit.jpg',
+    image: '/images/schools/bcit-thumb.webp',
     title: 'Real Partner Institutions',
     body: 'We work with 13 partner schools across Canada, the United States, Ireland, Germany, and Poland — every one a real, verified institution with real programs, not a placeholder listing.',
   },
 ]
 
 const destinationShowcase = [
-  { flag: '🇨🇦', name: 'Canada', image: '/images/schools/bcit.jpg', count: '5 partner schools' },
-  { flag: '🇺🇸', name: 'United States', image: '/images/schools/lwtech.jpg', count: '2 partner schools' },
-  { flag: '🇮🇪', name: 'Ireland', image: '/images/schools/dcu.jpg', count: '2 partner schools' },
-  { flag: '🇩🇪', name: 'Germany', image: '/images/schools/cbs.jpg', count: '3 partner schools' },
-  { flag: '🇵🇱', name: 'Poland', image: '/images/schools/vistula.jpg', count: '1 partner school' },
+  { flag: '🇨🇦', name: 'Canada', image: '/images/schools/bcit-thumb.webp', count: '5 partner schools' },
+  { flag: '🇺🇸', name: 'United States', image: '/images/schools/lwtech-thumb.webp', count: '2 partner schools' },
+  { flag: '🇮🇪', name: 'Ireland', image: '/images/schools/dcu-thumb.webp', count: '2 partner schools' },
+  { flag: '🇩🇪', name: 'Germany', image: '/images/schools/cbs-thumb.webp', count: '3 partner schools' },
+  { flag: '🇵🇱', name: 'Poland', image: '/images/schools/vistula-thumb.webp', count: '1 partner school' },
 ]
 
 const whoWeHelp = [
-  { photo: '/images/seminars/seminar-3.jpg', title: 'Recent High School Graduates', description: 'Undergraduate-track programs plus English/French upgrading and language-proficiency pathways for students moving straight from secondary school.' },
-  { photo: '/images/schools/lwtech.jpg', title: 'University Transfer Students', description: 'Associate degree and university-transfer (UT) programs that let you start close to home and transfer credits into a full degree abroad.' },
-  { photo: '/images/schools/tru.jpg', title: 'Degree & Diploma Seekers', description: 'Full diploma and bachelor\'s degree programs across our partner institutions in Canada, the US, Ireland, Germany, and Poland.' },
-  { photo: '/images/schools/bcit.jpg', title: 'Trades & Apprenticeship', description: 'Hands-on technical and trades programs with strong co-op placement, including at BCIT and Northern Lights College.' },
+  { photo: '/images/seminars/seminar-3-thumb.webp', title: 'Recent High School Graduates', description: 'Undergraduate-track programs plus English/French upgrading and language-proficiency pathways for students moving straight from secondary school.' },
+  { photo: '/images/schools/lwtech-thumb.webp', title: 'University Transfer Students', description: 'Associate degree and university-transfer (UT) programs that let you start close to home and transfer credits into a full degree abroad.' },
+  { photo: '/images/schools/tru-thumb.webp', title: 'Degree & Diploma Seekers', description: 'Full diploma and bachelor\'s degree programs across our partner institutions in Canada, the US, Ireland, Germany, and Poland.' },
+  { photo: '/images/schools/bcit-thumb.webp', title: 'Trades & Apprenticeship', description: 'Hands-on technical and trades programs with strong co-op placement, including at BCIT and Northern Lights College.' },
 ]
 
 const networkItems = [
@@ -85,11 +85,11 @@ export default function HomePage() {
     <>
       <div className="bg-brand-gold text-navy text-center py-2.5 px-4 text-sm font-semibold">
         Francophone students from Rwanda, DRC & Djibouti may qualify for Canada's FMC Student Pilot —{' '}
-        <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-navy/70">Learn more</Link>
+        <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-navy/70">Check your FMC Student Pilot eligibility</Link>
       </div>
 
       <PhotoHero
-        images={['/images/seminars/seminar-2.jpg', '/images/seminars/seminar-3.jpg', '/images/seminars/seminar-4.jpg']}
+        images={['/images/seminars/seminar-2.webp', '/images/seminars/seminar-3.webp', '/images/seminars/seminar-4.webp']}
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
         eyebrow="Masomo Now — ELIMU International Education Connections"
         title="Study and work abroad, without guesswork"
@@ -108,7 +108,7 @@ export default function HomePage() {
       </PhotoHero>
 
       <TextImageSplit
-        image="/images/seminars/seminar-4.jpg"
+        image="/images/seminars/seminar-4.webp"
         alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
         title="Welcome to Masomo Now"
         imageSide="left"
@@ -125,7 +125,7 @@ export default function HomePage() {
         <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">What awaits you abroad</p>
               <h2 className="font-serif text-3xl text-navy mb-4">See what studying abroad actually looks like</h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-6">
                 We don't just tell you about campus life in Canada — we show you. This is a real look inside TRU — Thompson Rivers University in Kamloops, BC, one of our partner schools — from classrooms to campus life.
@@ -161,7 +161,7 @@ export default function HomePage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {destinationShowcase.map((d) => (
                 <Link key={d.name} to="/destinations" className="group relative rounded-lg overflow-hidden h-72 block">
-                  <img src={d.image} alt={d.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={d.image} alt={d.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
                   <div className="absolute bottom-0 p-5">
                     <p className="text-xs font-semibold uppercase mb-1">{d.flag}</p>
@@ -181,13 +181,13 @@ export default function HomePage() {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-12">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Who We Help</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Who We Help</p>
               <h2 className="font-serif text-3xl text-navy">Support for every stage</h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {whoWeHelp.map((w) => (
                 <div key={w.title} className="border border-gray-200 rounded-xl p-7 hover:border-brand-gold/50 transition-colors">
-                  <img src={w.photo} alt="" className="w-14 h-14 rounded-lg object-cover mb-4" />
+                  <img src={w.photo} alt="" loading="lazy" className="w-14 h-14 rounded-lg object-cover mb-4" />
                   <h3 className="font-bold text-navy text-lg mb-2">{w.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{w.description}</p>
                   <Link to="/pathway-finder" className="text-sm font-semibold text-brand-blue hover:underline">Find your pathway →</Link>
@@ -201,7 +201,7 @@ export default function HomePage() {
       <ScrollCarouselModal eyebrow="More about us" title="What makes Masomo Now different" items={whyMasomoNow} />
 
       <TextImageSplit
-        image="/images/seminars/seminar-5.jpg"
+        image="/images/seminars/seminar-5.webp"
         alt="Students respond to a live poll during a school seminar on studying abroad"
         title="We show up in person, not just online"
         imageSide="right"
@@ -214,7 +214,7 @@ export default function HomePage() {
       <Reveal>
         <section className="py-16 px-6 border-t border-b border-gray-200">
           <div className="max-w-4xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Our Network</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Our Network</p>
             <h2 className="font-serif text-3xl text-navy mb-10">Part of a real, verified network</h2>
             <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
               {networkItems.map((item, i) => (
@@ -235,7 +235,7 @@ export default function HomePage() {
 
       {/* Partner marquee */}
       <section className="py-14 border-y border-gray-200 overflow-hidden bg-gray-50">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Our Real Partner Institutions</p>
+        <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-500 mb-8">Our Real Partner Institutions</p>
         <div className="flex whitespace-nowrap marquee-track">
           {[0, 1].map((rep) => (
             <div key={rep} className="flex items-center gap-14 pr-14" aria-hidden={rep === 1}>
@@ -262,7 +262,7 @@ export default function HomePage() {
                 <div key={t.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
                   <p className="text-gray-700 text-sm leading-relaxed italic mb-5">"{t.quote}"</p>
                   <div className="font-semibold text-navy text-sm">{t.name}</div>
-                  <div className="text-gray-400 text-xs mt-0.5">{t.dest}</div>
+                  <div className="text-gray-500 text-xs mt-0.5">{t.dest}</div>
                 </div>
               ))}
             </div>

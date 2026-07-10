@@ -13,11 +13,11 @@ const values = [
 ]
 
 const seminars = [
-  { src: '/images/seminars/seminar-3.jpg', caption: 'Information session at a partner secondary school — walking students through the FMC pathway to Canada.' },
-  { src: '/images/seminars/seminar-5.jpg', caption: 'Students respond to a live poll during a school seminar on studying abroad.' },
-  { src: '/images/seminars/seminar-2.jpg', caption: 'International Education & Career Symposium — Nairobi, Kenya, in partnership with Northern Lights College.' },
-  { src: '/images/seminars/seminar-4.jpg', caption: 'Walking families through the route from British Columbia\'s Northern Lights College campuses to a study permit.' },
-  { src: '/images/seminars/seminar-1.jpg', caption: 'Our counselors follow up with students one-on-one after every seminar.' },
+  { src: '/images/seminars/seminar-3.webp', caption: 'Information session at a partner secondary school — walking students through the FMC pathway to Canada.' },
+  { src: '/images/seminars/seminar-5-thumb.webp', caption: 'Students respond to a live poll during a school seminar on studying abroad.' },
+  { src: '/images/seminars/seminar-2-thumb.webp', caption: 'International Education & Career Symposium — Nairobi, Kenya, in partnership with Northern Lights College.' },
+  { src: '/images/seminars/seminar-4-thumb.webp', caption: 'Walking families through the route from British Columbia\'s Northern Lights College campuses to a study permit.' },
+  { src: '/images/seminars/seminar-1-thumb.webp', caption: 'Our counselors follow up with students one-on-one after every seminar.' },
 ]
 
 export default function AboutPage() {
@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <>
       <PhotoHero
-        image="/images/seminars/seminar-2.jpg"
+        image="/images/seminars/seminar-2.webp"
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
         eyebrow="About Masomo Now"
         title="Built to help you get there"
@@ -40,7 +40,7 @@ export default function AboutPage() {
       />
 
       <TextImageSplit
-        image="/images/seminars/seminar-4.jpg"
+        image="/images/seminars/seminar-4.webp"
         alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
         title="Where we started"
         imageSide="right"
@@ -73,7 +73,7 @@ export default function AboutPage() {
               <div key={name} className="border-2 border-navy/10 rounded-xl p-5">
                 <div className="text-3xl mb-2">{flag}</div>
                 <h3 className="font-bold text-navy">{name}</h3>
-                {tag && <span className="text-xs text-brand-gold font-bold">{tag}</span>}
+                {tag && <span className="text-xs text-brand-gold-dark font-bold">{tag}</span>}
               </div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
       {/* Seminars & Events — real photo gallery */}
       <section id="seminars" className="py-20 px-6 bg-gray-50 border-t border-b border-gray-200 scroll-mt-16">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">On the ground</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">On the ground</p>
           <h2 className="font-serif text-4xl text-navy mb-3">Our seminars &amp; events</h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl">
             Before a student ever books a consultation online, many of them meet us in person — at a school assembly, a community hall, or a symposium alongside partners like Northern Lights College.
@@ -106,7 +106,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {seminars.map((s, i) => (
               <figure key={s.src} className={`overflow-hidden rounded-xl ${i === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-                <img src={s.src} alt={s.caption} className={`w-full object-cover ${i === 0 ? 'h-full min-h-[20rem]' : 'h-48'}`} />
+                <img src={s.src} alt={s.caption} loading="lazy" className={`w-full object-cover ${i === 0 ? 'h-full min-h-[20rem]' : 'h-48'}`} />
                 <figcaption className="bg-white px-4 py-3 text-xs text-gray-500 leading-relaxed">{s.caption}</figcaption>
               </figure>
             ))}

@@ -48,21 +48,21 @@ export const northAmerica: Country[] = [
     ],
     schools: [
       {
-        name: 'BCIT — British Columbia Institute of Technology', type: 'Public Polytechnic Institute', city: 'Burnaby, BC', photo: '/images/schools/bcit.jpg', website: 'https://www.bcit.ca', programTags: ['technical'],
+        name: 'BCIT — British Columbia Institute of Technology', type: 'Public Polytechnic Institute', city: 'Burnaby, BC', photo: '/images/schools/bcit-thumb.webp', website: 'https://www.bcit.ca', programTags: ['technical'],
         pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'English proficiency tiered by program: typically IELTS 6.5 overall (no band below 5.5), TOEFL iBT 86, PTE 60, or Duolingo 120. Program-specific admission requirements (grades/prerequisites) apply beyond English.',
         intlRequirementsSource: 'https://www.bcit.ca/admission/entrance-requirements/english-language-proficiency/',
         videoId: 'CKl8mhU_eR0', videoTitle: 'BCIT | Burnaby Campus Tour',
       },
       {
-        name: 'TRU — Thompson Rivers University', type: 'Public University', city: 'Kamloops, BC', photo: '/images/schools/tru.jpg', website: 'https://www.tru.ca', programTags: ['academic'],
+        name: 'TRU — Thompson Rivers University', type: 'Public University', city: 'Kamloops, BC', photo: '/images/schools/tru-thumb.webp', website: 'https://www.tru.ca', programTags: ['academic'],
         pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 88, PTE 58, or Duolingo 125 — or enter TRU\'s own English for Academic Purposes (EAP) program and work up to direct-entry level. Minimum 73% in Grade 12 English for degree programs (67% for diploma/certificate); minimum age 17.',
         intlRequirementsSource: 'https://www.tru.ca/truworld/new-students/before-you-leave-home/english-requirements.html',
         videoId: '6jc9QVVUC8Q', videoTitle: 'TRU Campus Tour 2024',
       },
       {
-        name: 'University of Lethbridge', type: 'Public University', city: 'Lethbridge, AB', photo: '/images/schools/lethbridge.jpg', website: 'https://www.ulethbridge.ca', programTags: ['academic'],
+        name: 'University of Lethbridge', type: 'Public University', city: 'Lethbridge, AB', photo: '/images/schools/lethbridge-thumb.webp', website: 'https://www.ulethbridge.ca', programTags: ['academic'],
         pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
         intlRequirements: 'IELTS 6.5 overall (no band below 6.0), TOEFL iBT 86, PTE 61, or Duolingo 120 — or complete the university\'s own English for Academic Purposes (EAP) Advanced Level. Minimum secondary school average varies by country (commonly around 65%).',
         intlRequirementsSource: 'https://www.ulethbridge.ca/ross/admissions/elp',
@@ -101,8 +101,8 @@ export const northAmerica: Country[] = [
       { label: 'Location', value: 'Kirkland & Seattle, WA' },
     ],
     schools: [
-      { name: 'Lake Washington Institute of Technology', type: 'Public Technical College', city: 'Kirkland, WA', photo: '/images/schools/lwtech.jpg', website: 'https://www.lwtech.edu', programTags: ['technical'], costTier: 'budget-friendly' },
-      { name: 'Seattle Colleges', type: 'Public Community College District', city: 'Seattle, WA', photo: '/images/schools/seattle-colleges.jpg', website: 'https://www.seattlecolleges.edu', programTags: ['technical'], costTier: 'budget-friendly' },
+      { name: 'Lake Washington Institute of Technology', type: 'Public Technical College', city: 'Kirkland, WA', photo: '/images/schools/lwtech-thumb.webp', website: 'https://www.lwtech.edu', programTags: ['technical'], costTier: 'budget-friendly' },
+      { name: 'Seattle Colleges', type: 'Public Community College District', city: 'Seattle, WA', photo: '/images/schools/seattle-colleges-thumb.webp', website: 'https://www.seattlecolleges.edu', programTags: ['technical'], costTier: 'budget-friendly' },
     ],
     desc: 'Our two Washington State partners sit minutes from downtown Seattle — home to Amazon, Microsoft, and one of the world\'s busiest tech job markets. Both offer accredited two-year degrees and certificates, with clear transfer pathways into four-year bachelor\'s programs, at a fraction of the cost of direct university enrollment.',
     pros: ['Direct pathway into the Seattle tech corridor', 'Lower tuition than direct 4-year enrollment', 'Clear transfer pathways to bachelor\'s degrees', 'OPT work authorization after graduation', 'No TOEFL/IELTS required at LWTech (free placement test)'],
@@ -125,8 +125,8 @@ export const europe: Country[] = [
       { label: 'Location', value: 'Dublin' },
     ],
     schools: [
-      { name: 'DCU — Dublin City University', type: 'Public Research University', city: 'Dublin', photo: '/images/schools/dcu.jpg', website: 'https://www.dcu.ie', programTags: ['academic'] },
-      { name: 'Griffith College', type: 'Private College', city: 'Dublin', photo: '/images/schools/griffith.jpg', website: 'https://www.griffith.ie', programTags: ['academic'] },
+      { name: 'DCU — Dublin City University', type: 'Public Research University', city: 'Dublin', photo: '/images/schools/dcu-thumb.webp', website: 'https://www.dcu.ie', programTags: ['academic'] },
+      { name: 'Griffith College', type: 'Private College', city: 'Dublin', photo: '/images/schools/griffith-thumb.webp', website: 'https://www.griffith.ie', programTags: ['academic'] },
     ],
     desc: 'Ireland is one of the only English-speaking countries in the EU, making it a strategic choice for African students seeking a globally recognised degree with access to European job markets. Dublin is home to the European headquarters of Google, Meta, and Apple.',
     pros: ['English-language EU country', '2-year post-study work permit (Stamp 1G)', 'Access to European job market', 'World-class tech and business sector', 'Welcoming to international students'],
@@ -146,8 +146,8 @@ export const europe: Country[] = [
       { label: 'Location', value: 'Berlin & other cities' },
     ],
     schools: [
-      { name: 'CBS International Business School', type: 'Private University of Applied Sciences', city: 'Cologne', photo: '/images/schools/cbs.jpg', website: 'https://www.cbs.de/en', programTags: ['business'] },
-      { name: 'BSBI — Berlin School of Business & Innovation', type: 'Private Institution', city: 'Berlin', photo: '/images/schools/bsbi.jpg', website: 'https://www.berlinsbi.com', programTags: ['business'] },
+      { name: 'CBS International Business School', type: 'Private University of Applied Sciences', city: 'Cologne', photo: '/images/schools/cbs-thumb.webp', website: 'https://www.cbs.de/en', programTags: ['business'] },
+      { name: 'BSBI — Berlin School of Business & Innovation', type: 'Private Institution', city: 'Berlin', photo: '/images/schools/bsbi-thumb.webp', website: 'https://www.berlinsbi.com', programTags: ['business'] },
       { name: 'Gisma University of Applied Sciences', type: 'Private University of Applied Sciences', city: 'Berlin / Potsdam', photo: null, website: 'https://www.gisma.com', programTags: ['business'] },
     ],
     desc: 'Germany is Europe\'s strongest economy and a top destination for international students. Our three partner institutions offer fully English-taught business and management programs, making Germany accessible without needing to learn German first.',
@@ -168,7 +168,7 @@ export const europe: Country[] = [
       { label: 'Location', value: 'Warsaw' },
     ],
     schools: [
-      { name: 'Vistula University', type: 'Private University', city: 'Warsaw', photo: '/images/schools/vistula.jpg', website: 'https://vistula.edu.pl/en', programTags: ['academic'], costTier: 'budget-friendly' },
+      { name: 'Vistula University', type: 'Private University', city: 'Warsaw', photo: '/images/schools/vistula-thumb.webp', website: 'https://vistula.edu.pl/en', programTags: ['academic'], costTier: 'budget-friendly' },
     ],
     desc: 'Poland offers EU-recognised degrees at significantly lower tuition fees and living costs than Western Europe. Vistula University in Warsaw is one of Poland\'s most internationally active institutions, with a strong track record of enrolling students from Africa.',
     pros: ['Among the most affordable EU tuitions', 'Lower cost of living vs. Western Europe', 'EU-recognised degrees', 'English-taught programs', 'Growing economy and job market'],

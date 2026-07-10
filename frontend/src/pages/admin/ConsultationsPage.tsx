@@ -17,7 +17,7 @@ const STATUS_COLORS: Record<AppointmentStatus, string> = {
   SCHEDULED: 'text-blue-600',
   CONFIRMED: 'text-purple-600',
   COMPLETED: 'text-green-600',
-  CANCELLED: 'text-gray-400',
+  CANCELLED: 'text-gray-500',
   NO_SHOW: 'text-red-500',
 }
 
@@ -72,7 +72,7 @@ function AppointmentModal({ appointment, onClose, onSave }: {
         <div className="px-6 py-4 border-b border-gray-200 flex items-start justify-between">
           <div>
             <h2 className="font-semibold text-navy">{appointment.lead?.name ?? 'Unknown'}</h2>
-            <p className="text-gray-400 text-sm">{appointment.lead?.email} · {appointment.lead?.phone}</p>
+            <p className="text-gray-500 text-sm">{appointment.lead?.email} · {appointment.lead?.phone}</p>
           </div>
           <button onClick={onClose} className="text-gray-300 hover:text-gray-500 text-lg leading-none mt-0.5">✕</button>
         </div>
@@ -87,7 +87,7 @@ function AppointmentModal({ appointment, onClose, onSave }: {
               { label: 'Booked on', value: new Date(appointment.createdAt).toLocaleDateString() },
             ].map((f) => (
               <div key={f.label}>
-                <div className="text-xs text-gray-400 mb-0.5">{f.label}</div>
+                <div className="text-xs text-gray-500 mb-0.5">{f.label}</div>
                 <div className="font-medium text-navy">{f.value}</div>
               </div>
             ))}
@@ -95,7 +95,7 @@ function AppointmentModal({ appointment, onClose, onSave }: {
 
           {appointment.lead?.message && (
             <div className="border-l-2 border-gray-200 pl-3">
-              <div className="text-xs text-gray-400 mb-1">Original inquiry</div>
+              <div className="text-xs text-gray-500 mb-1">Original inquiry</div>
               <p className="text-sm text-gray-600">{appointment.lead.message}</p>
             </div>
           )}
@@ -189,7 +189,7 @@ export default function ConsultationsPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="font-serif text-2xl text-navy">Consultations</h1>
-        <p className="text-gray-400 text-sm mt-1">{total} total</p>
+        <p className="text-gray-500 text-sm mt-1">{total} total</p>
       </div>
 
       {/* Filters */}
@@ -201,7 +201,7 @@ export default function ConsultationsPage() {
             className={`px-3 py-2 text-sm transition-colors border-b-2 -mb-px ${
               statusFilter === s
                 ? 'border-navy text-navy font-semibold'
-                : 'border-transparent text-gray-400 hover:text-gray-700'
+                : 'border-transparent text-gray-500 hover:text-gray-700'
             }`}
           >
             {s === 'ALL' ? 'All' : STATUS_LABELS[s]}
@@ -212,15 +212,15 @@ export default function ConsultationsPage() {
       {/* Table */}
       <div className="border border-gray-200 rounded-lg overflow-hidden">
         {loading ? (
-          <div className="text-center py-12 text-gray-400 text-sm bg-white">Loading...</div>
+          <div className="text-center py-12 text-gray-500 text-sm bg-white">Loading...</div>
         ) : appointments.length === 0 ? (
-          <div className="text-center py-12 text-gray-400 text-sm bg-white">No consultations found</div>
+          <div className="text-center py-12 text-gray-500 text-sm bg-white">No consultations found</div>
         ) : (
           <table className="w-full text-sm bg-white">
             <thead className="border-b border-gray-200">
               <tr>
                 {['Name', 'Contact', 'Destination', 'Scheduled For', 'Status', ''].map((h) => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-400">{h}</th>
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -230,7 +230,7 @@ export default function ConsultationsPage() {
                   <td className="px-4 py-3 font-semibold text-navy">{a.lead?.name ?? '—'}</td>
                   <td className="px-4 py-3 text-gray-500">
                     <div>{a.lead?.email}</div>
-                    <div className="text-xs text-gray-400">{a.lead?.phone}</div>
+                    <div className="text-xs text-gray-500">{a.lead?.phone}</div>
                   </td>
                   <td className="px-4 py-3 text-gray-600 max-w-[140px] truncate">{a.destination || '—'}</td>
                   <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{new Date(a.scheduledAt).toLocaleString()}</td>
@@ -238,7 +238,7 @@ export default function ConsultationsPage() {
                   <td className="px-4 py-3">
                     <button
                       onClick={() => setSelected(a)}
-                      className="text-xs text-gray-400 hover:text-navy transition-colors"
+                      className="text-xs text-gray-500 hover:text-navy transition-colors"
                     >
                       Open
                     </button>

@@ -43,7 +43,7 @@ function LeadModal({ lead, onClose, onSave }: {
         <div className="px-6 py-4 border-b border-gray-200 flex items-start justify-between">
           <div>
             <h2 className="font-semibold text-navy">{lead.name}</h2>
-            <p className="text-gray-400 text-sm">{lead.email} · {lead.phone}</p>
+            <p className="text-gray-500 text-sm">{lead.email} · {lead.phone}</p>
           </div>
           <button onClick={onClose} className="text-gray-300 hover:text-gray-500 text-lg leading-none mt-0.5">✕</button>
         </div>
@@ -58,7 +58,7 @@ function LeadModal({ lead, onClose, onSave }: {
               { label: 'Updated', value: new Date(lead.updatedAt).toLocaleDateString() },
             ].map((f) => (
               <div key={f.label}>
-                <div className="text-xs text-gray-400 mb-0.5">{f.label}</div>
+                <div className="text-xs text-gray-500 mb-0.5">{f.label}</div>
                 <div className="font-medium text-navy">{f.value}</div>
               </div>
             ))}
@@ -66,7 +66,7 @@ function LeadModal({ lead, onClose, onSave }: {
 
           {lead.message && (
             <div className="border-l-2 border-gray-200 pl-3">
-              <div className="text-xs text-gray-400 mb-1">Message</div>
+              <div className="text-xs text-gray-500 mb-1">Message</div>
               <p className="text-sm text-gray-600">{lead.message}</p>
             </div>
           )}
@@ -159,7 +159,7 @@ export default function LeadsPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="font-serif text-2xl text-navy">Leads</h1>
-        <p className="text-gray-400 text-sm mt-1">{total} total</p>
+        <p className="text-gray-500 text-sm mt-1">{total} total</p>
       </div>
 
       {/* Filters */}
@@ -171,7 +171,7 @@ export default function LeadsPage() {
             className={`px-3 py-2 text-sm transition-colors border-b-2 -mb-px ${
               statusFilter === s
                 ? 'border-navy text-navy font-semibold'
-                : 'border-transparent text-gray-400 hover:text-gray-700'
+                : 'border-transparent text-gray-500 hover:text-gray-700'
             }`}
           >
             {s === 'ALL' ? `All (${totalCount})` : `${LEAD_STATUS_LABELS[s]} (${counts[s] ?? 0})`}
@@ -193,15 +193,15 @@ export default function LeadsPage() {
       {/* Table */}
       <div className="border border-gray-200 rounded-lg overflow-hidden">
         {loading ? (
-          <div className="text-center py-12 text-gray-400 text-sm bg-white">Loading...</div>
+          <div className="text-center py-12 text-gray-500 text-sm bg-white">Loading...</div>
         ) : leads.length === 0 ? (
-          <div className="text-center py-12 text-gray-400 text-sm bg-white">No leads found</div>
+          <div className="text-center py-12 text-gray-500 text-sm bg-white">No leads found</div>
         ) : (
           <table className="w-full text-sm bg-white">
             <thead className="border-b border-gray-200">
               <tr>
                 {['Name', 'Contact', 'Country', 'Destination', 'Status', 'Date', ''].map((h) => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-400">{h}</th>
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -211,18 +211,18 @@ export default function LeadsPage() {
                   <td className="px-4 py-3 font-semibold text-navy">{lead.name}</td>
                   <td className="px-4 py-3 text-gray-500">
                     <div>{lead.email}</div>
-                    <div className="text-xs text-gray-400">{lead.phone}</div>
+                    <div className="text-xs text-gray-500">{lead.phone}</div>
                   </td>
                   <td className="px-4 py-3 text-gray-600">{lead.country || '—'}</td>
                   <td className="px-4 py-3 text-gray-600 max-w-[140px] truncate">{lead.destinationInterest}</td>
                   <td className="px-4 py-3"><StatusLabel status={lead.status} /></td>
-                  <td className="px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
+                  <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
                     {new Date(lead.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3">
                     <button
                       onClick={() => setSelectedLead(lead)}
-                      className="text-xs text-gray-400 hover:text-navy transition-colors"
+                      className="text-xs text-gray-500 hover:text-navy transition-colors"
                     >
                       Open
                     </button>

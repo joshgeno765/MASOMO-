@@ -28,7 +28,7 @@ export default function ScrollCarouselModal({ eyebrow, title, items }: { eyebrow
                   onClick={() => setActive(item)}
                   className="flex-shrink-0 w-56 text-left rounded-xl overflow-hidden border border-white/10 hover:border-brand-gold/50 transition-colors"
                 >
-                  <img src={item.image} alt={item.title} className="w-full h-40 object-cover" />
+                  <img src={item.image} alt={item.title} loading="lazy" className="w-full h-40 object-cover" />
                   <div className="p-4 bg-white/5">
                     <h3 className="text-white font-semibold text-sm">{item.title}</h3>
                     <span className="text-brand-gold-light text-xs font-bold">Read more →</span>
@@ -45,7 +45,7 @@ export default function ScrollCarouselModal({ eyebrow, title, items }: { eyebrow
           <div className="w-full max-w-md bg-white rounded-2xl p-8" onClick={(e) => e.stopPropagation()}>
             <h3 className="font-serif text-2xl text-navy mb-4">{active.title}</h3>
             <p className="text-gray-600 leading-relaxed">{active.body}</p>
-            <button onClick={() => setActive(null)} className="mt-6 text-sm font-semibold text-gray-400 hover:text-navy">
+            <button onClick={() => setActive(null)} className="mt-6 text-sm font-semibold text-gray-500 hover:text-navy">
               ✕ Close
             </button>
           </div>

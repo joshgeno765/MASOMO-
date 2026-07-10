@@ -31,7 +31,7 @@ export default function FMCPilotPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-20 px-6">
         <img
-          src="/images/seminars/seminar-4.jpg"
+          src="/images/seminars/seminar-4.webp"
           alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -133,7 +133,7 @@ export default function FMCPilotPage() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-gray-400 mt-8">
+          <p className="text-sm text-gray-500 mt-8">
             This list is regularly updated. {' '}
             <a
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/fmc-student-pilot/eligibility.html"

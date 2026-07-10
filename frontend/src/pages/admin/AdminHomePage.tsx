@@ -31,7 +31,7 @@ export default function AdminHomePage() {
       {/* Header */}
       <div className="mb-10">
         <h1 className="font-serif text-2xl text-navy">Dashboard</h1>
-        <p className="text-gray-400 text-sm mt-1">{user?.email}</p>
+        <p className="text-gray-500 text-sm mt-1">{user?.email}</p>
       </div>
 
       {/* Metrics row */}
@@ -44,7 +44,7 @@ export default function AdminHomePage() {
         ].map((m, i) => (
           <div key={m.label} className={`px-6 py-5 bg-white ${i < 3 ? 'border-r border-gray-200' : ''}`}>
             <div className="text-2xl font-bold text-navy">{loading ? '—' : m.value}</div>
-            <div className="text-xs text-gray-400 mt-1">{m.label}</div>
+            <div className="text-xs text-gray-500 mt-1">{m.label}</div>
           </div>
         ))}
       </div>
@@ -77,15 +77,15 @@ export default function AdminHomePage() {
           </div>
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             {loading ? (
-              <div className="px-4 py-6 text-gray-400 text-sm bg-white">Loading...</div>
+              <div className="px-4 py-6 text-gray-500 text-sm bg-white">Loading...</div>
             ) : leads.length === 0 ? (
-              <div className="px-4 py-6 text-gray-400 text-sm bg-white">No leads yet</div>
+              <div className="px-4 py-6 text-gray-500 text-sm bg-white">No leads yet</div>
             ) : (
               leads.map((lead, i) => (
                 <div key={lead.id} className={`flex items-center justify-between px-4 py-3 bg-white ${i < leads.length - 1 ? 'border-b border-gray-100' : ''}`}>
                   <div>
                     <div className="text-sm font-semibold text-navy">{lead.name}</div>
-                    <div className="text-xs text-gray-400">{lead.destinationInterest}</div>
+                    <div className="text-xs text-gray-500">{lead.destinationInterest}</div>
                   </div>
                   <div className={`flex items-center gap-1.5 ${LEAD_STATUS_COLORS[lead.status]}`}>
                     <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${LEAD_STATUS_DOT[lead.status]}`} />

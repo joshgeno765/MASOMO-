@@ -55,7 +55,7 @@ export default function UsersPage() {
       <div className="flex items-center justify-between mb-10">
         <div>
           <h1 className="font-serif text-2xl text-navy">Team Accounts</h1>
-          <p className="text-gray-400 text-sm mt-1">Manage counselor and admin login access</p>
+          <p className="text-gray-500 text-sm mt-1">Manage counselor and admin login access</p>
         </div>
         <button
           onClick={() => setShowForm((v) => !v)}
@@ -113,9 +113,9 @@ export default function UsersPage() {
 
       <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
         {loading ? (
-          <div className="px-6 py-8 text-gray-400 text-sm">Loading...</div>
+          <div className="px-6 py-8 text-gray-500 text-sm">Loading...</div>
         ) : users.length === 0 ? (
-          <div className="px-6 py-8 text-gray-400 text-sm">No accounts yet</div>
+          <div className="px-6 py-8 text-gray-500 text-sm">No accounts yet</div>
         ) : (
           users.map((user, i) => (
             <div
@@ -124,15 +124,15 @@ export default function UsersPage() {
             >
               <div>
                 <div className="font-semibold text-navy text-sm">{user.email}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{user.role}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{user.role}</div>
               </div>
               <div className="flex items-center gap-4">
-                <span className={`text-xs font-semibold px-2 py-0.5 rounded ${user.isActive ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-400'}`}>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded ${user.isActive ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
                   {user.isActive ? 'Active' : 'Inactive'}
                 </span>
                 <button
                   onClick={() => handleToggle(user)}
-                  className="text-xs text-gray-400 hover:text-navy transition-colors"
+                  className="text-xs text-gray-500 hover:text-navy transition-colors"
                 >
                   {user.isActive ? 'Deactivate' : 'Activate'}
                 </button>

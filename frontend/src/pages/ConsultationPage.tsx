@@ -115,7 +115,7 @@ export default function ConsultationPage() {
   return (
     <>
       <PhotoHero
-        image="/images/seminars/seminar-2.jpg"
+        image="/images/seminars/seminar-2.webp"
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
         eyebrow="Book a Consultation"
         title="Book your free consultation"
@@ -234,7 +234,7 @@ export default function ConsultationPage() {
                 {date && (
                   <div className="mt-4">
                     {!window ? (
-                      <p className="text-sm text-gray-400">Closed Sundays — pick another day.</p>
+                      <p className="text-sm text-gray-500">Closed Sundays — pick another day.</p>
                     ) : (
                       <div className="flex flex-wrap gap-2">
                         {timeOptions.map((h) => (
@@ -263,7 +263,7 @@ export default function ConsultationPage() {
                 {loading ? 'Booking...' : 'Book Consultation →'}
               </Button>
 
-              <p className="flex items-center justify-center gap-1.5 text-[11px] text-gray-400 text-center">
+              <p className="flex items-center justify-center gap-1.5 text-[11px] text-gray-500 text-center">
                 <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>

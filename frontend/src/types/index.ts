@@ -21,7 +21,7 @@ export const LEAD_STATUS_COLORS: Record<LeadStatus, string> = {
   CONSULTATION_SCHEDULED: 'text-purple-600',
   APPLICATION_STARTED: 'text-orange-600',
   CONVERTED: 'text-green-600',
-  CLOSED: 'text-gray-400',
+  CLOSED: 'text-gray-500',
 }
 
 export const LEAD_STATUS_DOT: Record<LeadStatus, string> = {

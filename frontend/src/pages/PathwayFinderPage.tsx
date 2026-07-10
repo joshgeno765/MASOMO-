@@ -140,7 +140,7 @@ export default function PathwayFinderPage() {
           {step === 'intro' && (
             <Card className="text-center py-12">
               {cameFromFmc && (
-                <p className="text-brand-gold text-sm font-bold mb-4">Let's check your FMC Student Pilot eligibility</p>
+                <p className="text-brand-gold-dark text-sm font-bold mb-4">Let's check your FMC Student Pilot eligibility</p>
               )}
               <h2 className="font-serif text-2xl text-navy mb-3">Ready to find your pathway?</h2>
               <p className="text-gray-500 mb-8 max-w-md mx-auto">
@@ -153,10 +153,10 @@ export default function PathwayFinderPage() {
           {step === 'quiz' && (
             <Card>
               {cameFromFmc && questionIndex === 0 && (
-                <p className="text-brand-gold text-xs font-bold uppercase tracking-wide mb-4">Checking FMC Student Pilot eligibility</p>
+                <p className="text-brand-gold-dark text-xs font-bold uppercase tracking-wide mb-4">Checking FMC Student Pilot eligibility</p>
               )}
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold text-gray-400">Question {questionIndex + 1} of {QUESTIONS.length}</span>
+                <span className="text-xs font-semibold text-gray-500">Question {questionIndex + 1} of {QUESTIONS.length}</span>
               </div>
               <div className="h-1.5 bg-gray-100 rounded-full mb-8 overflow-hidden">
                 <div
@@ -179,7 +179,7 @@ export default function PathwayFinderPage() {
                 ))}
               </div>
 
-              <button onClick={handleBack} className="mt-8 text-sm font-semibold text-gray-400 hover:text-navy">
+              <button onClick={handleBack} className="mt-8 text-sm font-semibold text-gray-500 hover:text-navy">
                 ← Back
               </button>
             </Card>
@@ -202,28 +202,28 @@ export default function PathwayFinderPage() {
                 </h2>
                 <p className="text-gray-500 text-sm mb-6">{result.country.tagline}</p>
 
-                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Why this match</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Why this match</h3>
                 <ul className="space-y-2 mb-6">
                   {result.rationale.map((r) => (
                     <li key={r} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-brand-gold mt-0.5 flex-shrink-0 font-bold">—</span>
+                      <span className="text-brand-gold-dark mt-0.5 flex-shrink-0 font-bold">—</span>
                       {r}
                     </li>
                   ))}
                 </ul>
 
                 {answers.studyGoal && answers.studyGoal !== 'Not sure yet' && (
-                  <p className="text-xs text-gray-400 mb-4">
+                  <p className="text-xs text-gray-500 mb-4">
                     You're looking to study: <span className="font-semibold text-navy">{answers.studyGoal}</span>
                   </p>
                 )}
 
-                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Matched schools</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Matched schools</h3>
                 <div className="grid gap-3 mb-2">
                   {result.matchedSchools.map((s) => (
                     <div key={s.name} className="border border-gray-200 rounded-xl p-4">
                       <div className="font-semibold text-navy text-sm">{s.name}</div>
-                      {(s.type || s.city) && <div className="text-xs text-gray-400 mt-0.5">{[s.type, s.city].filter(Boolean).join(' · ')}</div>}
+                      {(s.type || s.city) && <div className="text-xs text-gray-500 mt-0.5">{[s.type, s.city].filter(Boolean).join(' · ')}</div>}
                       {s.website && (
                         <a href={s.website} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-brand-blue hover:underline mt-1 inline-block">
                           Visit official website ↗
@@ -246,14 +246,14 @@ export default function PathwayFinderPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-400 mt-3">
+                <p className="text-xs text-gray-500 mt-3">
                   Requirements shown are general guidelines from each school's official site — your counselor will confirm the exact requirements for your specific program.
                 </p>
               </Card>
 
               {result.alternateCountry && result.alternateSchools && result.alternateSchools.length > 0 && (
                 <Card>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
                     {result.isFmcPathway ? 'Prefer an English-track option?' : 'Also consider'}
                   </h3>
                   <p className="text-sm text-gray-600 mb-3">
@@ -273,7 +273,7 @@ export default function PathwayFinderPage() {
                 <Link to={result.isFmcPathway ? '/fmc-pilot' : '/destinations'} className="font-bold text-brand-blue hover:underline">
                   See full details →
                 </Link>
-                <button onClick={handleRetake} className="font-semibold text-gray-400 hover:text-navy">
+                <button onClick={handleRetake} className="font-semibold text-gray-500 hover:text-navy">
                   Retake quiz
                 </button>
               </div>
@@ -294,7 +294,7 @@ export default function PathwayFinderPage() {
                     <Button type="submit" fullWidth loading={submitting}>
                       {submitting ? 'Saving...' : 'Save My Pathway →'}
                     </Button>
-                    <p className="text-center text-[11px] text-gray-400">
+                    <p className="text-center text-[11px] text-gray-500">
                       By saving, you agree to our <Link to="/privacy" className="underline hover:text-navy">Privacy Policy</Link>.
                     </p>
                   </form>

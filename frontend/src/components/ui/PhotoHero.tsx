@@ -17,21 +17,30 @@ interface PhotoHeroProps {
 export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
   const slides = images && images.length > 0 ? images : image ? [image] : []
   const [active, setActive] = useState(0)
+  const [loaded, setLoaded] = useState<number[]>([0])
 
   useEffect(() => {
     if (slides.length < 2) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => setActive((i) => (i + 1) % slides.length), 5000)
+    const id = setInterval(() => {
+      setActive((i) => {
+        const next = (i + 1) % slides.length
+        setLoaded((prev) => (prev.includes(next) ? prev : [...prev, next]))
+        return next
+      })
+    }, 5000)
     return () => clearInterval(id)
   }, [slides.length])
 
   return (
     <section className={`relative overflow-hidden ${height}`}>
-      {slides.map((src, i) => (
+      {slides.map((src, i) => loaded.includes(i) && (
         <img
           key={src}
           src={src}
           alt={i === active ? alt : ''}
+          loading="eager"
+          {...(i === 0 ? { fetchpriority: 'high' } : {})}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 motion-reduce:transition-none ${
             i === active ? 'opacity-100' : 'opacity-0'
           }`}

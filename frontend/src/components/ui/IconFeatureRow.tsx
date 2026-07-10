@@ -23,7 +23,7 @@ export default function IconFeatureRow({ title, features, columns = 4 }: { title
             {features.map((f) => (
               <div key={f.title} className="text-center">
                 {f.photo ? (
-                  <img src={f.photo} alt="" className="w-16 h-16 rounded-full object-cover mx-auto mb-4" />
+                  <img src={f.photo} alt="" loading="lazy" className="w-16 h-16 rounded-full object-cover mx-auto mb-4" />
                 ) : (
                   <div className="w-16 h-16 rounded-full bg-navy/5 flex items-center justify-center text-3xl mx-auto mb-4">
                     {f.icon}

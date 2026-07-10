@@ -3,26 +3,26 @@ import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const services = [
-  { icon: '🗣️', photo: '/images/seminars/seminar-2.jpg', title: 'Free Consultation & Counseling', description: 'A one-on-one session with a Rwanda-based counselor to understand your goals, budget, and academic background before recommending a path.' },
-  { icon: '🎓', photo: '/images/schools/dcu.jpg', title: 'University & Program Selection', description: 'We match you to partner institutions in Ireland, Germany, and Poland — or the Canadian FMC Student Pilot — based on what genuinely fits you.' },
-  { icon: '📄', photo: '/images/seminars/seminar-4.jpg', title: 'Application Support', description: 'Help preparing transcripts, statements of purpose, recommendation letters, and every document your chosen institution requires.' },
-  { icon: '🛂', photo: '/images/schools/vistula.jpg', title: 'Visa & Immigration Support', description: 'Backed by a licensed immigration team (RCIC), we guide you through study permit and visa applications step by step.' },
-  { icon: '🧳', photo: '/images/seminars/seminar-5.jpg', title: 'Pre-Departure Orientation', description: 'Practical guidance on housing, banking, travel, and what to expect before you leave home.' },
-  { icon: '🏡', photo: '/images/schools/bcit.jpg', title: 'Post-Arrival Settlement', description: 'We stay with you after arrival — from airport pickup coordination to connecting you with the local student community.' },
+  { icon: '🗣️', photo: '/images/seminars/seminar-2-thumb.webp', title: 'Free Consultation & Counseling', description: 'A one-on-one session with a Rwanda-based counselor to understand your goals, budget, and academic background before recommending a path.' },
+  { icon: '🎓', photo: '/images/schools/dcu-thumb.webp', title: 'University & Program Selection', description: 'We match you to partner institutions in Ireland, Germany, and Poland — or the Canadian FMC Student Pilot — based on what genuinely fits you.' },
+  { icon: '📄', photo: '/images/seminars/seminar-4-thumb.webp', title: 'Application Support', description: 'Help preparing transcripts, statements of purpose, recommendation letters, and every document your chosen institution requires.' },
+  { icon: '🛂', photo: '/images/schools/vistula-thumb.webp', title: 'Visa & Immigration Support', description: 'Backed by a licensed immigration team (RCIC), we guide you through study permit and visa applications step by step.' },
+  { icon: '🧳', photo: '/images/seminars/seminar-5-thumb.webp', title: 'Pre-Departure Orientation', description: 'Practical guidance on housing, banking, travel, and what to expect before you leave home.' },
+  { icon: '🏡', photo: '/images/schools/bcit-thumb.webp', title: 'Post-Arrival Settlement', description: 'We stay with you after arrival — from airport pickup coordination to connecting you with the local student community.' },
 ]
 
 export default function ServicesPage() {
   return (
     <>
       <PhotoHero
-        image="/images/seminars/seminar-1.jpg"
+        image="/images/seminars/seminar-1.webp"
         alt="A Masomo Now counselor following up with a student after a seminar"
         eyebrow="Services"
         title="End-to-end support, every step"
         subtitle="From your first inquiry to settling into life abroad — here's exactly how Masomo Now helps."
       />
 
-      <IconFeatureRow columns={3} features={services} />
+      <IconFeatureRow title="What we help with" columns={3} features={services} />
 
       {/* CTA */}
       <section className="pb-24 pt-8 px-6">

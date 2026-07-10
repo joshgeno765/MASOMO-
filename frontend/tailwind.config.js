@@ -13,6 +13,10 @@ export default {
           sky: '#3498DB',
           gold: '#C8932A',
           'gold-light': '#F0B429',
+          // Darker than brand-gold specifically so small gold text passes WCAG AA (4.5:1)
+          // on white/light backgrounds. brand-gold itself is ~2.75:1 on white — fine as a
+          // button/badge background or on dark navy sections, but fails as light-bg text.
+          'gold-dark': '#8A6D1F',
         }
       },
       fontFamily: {

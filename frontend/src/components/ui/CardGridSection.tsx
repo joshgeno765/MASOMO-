@@ -17,14 +17,14 @@ export default function CardGridSection({ eyebrow, title, cards, columns = 4 }: 
         <div className="max-w-6xl mx-auto">
           {(eyebrow || title) && (
             <div className="text-center mb-12">
-              {eyebrow && <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">{eyebrow}</p>}
+              {eyebrow && <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">{eyebrow}</p>}
               {title && <h2 className="font-serif text-3xl text-navy">{title}</h2>}
             </div>
           )}
           <div className={`grid sm:grid-cols-2 ${colClass} gap-6`}>
             {cards.map((c) => (
               <div key={c.title} className="text-center border border-gray-200 rounded-xl overflow-hidden">
-                <img src={c.image} alt={c.title} className="w-full h-40 object-cover" />
+                <img src={c.image} alt={c.title} loading="lazy" className="w-full h-40 object-cover" />
                 <div className="p-5">
                   <h3 className="font-bold text-navy mb-1">{c.title}</h3>
                   {c.subtitle && <p className="text-sm text-gray-500 mb-4">{c.subtitle}</p>}

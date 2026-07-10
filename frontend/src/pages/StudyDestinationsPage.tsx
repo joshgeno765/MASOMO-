@@ -15,7 +15,7 @@ function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVide
     <div className="relative h-40 rounded-lg overflow-hidden border border-gray-200">
       {s.photo ? (
         <>
-          <img src={s.photo} alt={`${s.name}, ${s.city}`} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={s.photo} alt={`${s.name}, ${s.city}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent" />
         </>
       ) : (
@@ -72,7 +72,7 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
       {/* Body */}
       <div className="grid md:grid-cols-3 gap-10">
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Key Facts</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Key Facts</h3>
           <div className="space-y-2.5">
             {d.facts.map((f) => (
               <div key={f.label} className="flex justify-between gap-4 border-b border-gray-100 pb-2.5">
@@ -84,16 +84,16 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Overview</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Overview</h3>
           <p className="text-sm text-gray-600 leading-relaxed">{d.desc}</p>
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Why {d.name}</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Why {d.name}</h3>
           <ul className="space-y-2">
             {d.pros.map((p) => (
               <li key={p} className="flex items-start gap-2 text-sm text-gray-600">
-                <span className="text-brand-gold mt-0.5 flex-shrink-0 font-bold">—</span>
+                <span className="text-brand-gold-dark mt-0.5 flex-shrink-0 font-bold">—</span>
                 {p}
               </li>
             ))}
@@ -117,7 +117,7 @@ export default function StudyDestinationsPage() {
   return (
     <>
       <PhotoHero
-        image="/images/schools/tru.jpg"
+        image="/images/schools/tru.webp"
         alt="Thompson Rivers University campus entrance"
         eyebrow="Study Destinations"
         title="Where will you study abroad?"
@@ -127,17 +127,17 @@ export default function StudyDestinationsPage() {
       {/* Featured partner video — BCIT */}
       <section className="py-16 px-6 bg-gray-50 border-b border-gray-200">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Take a look inside one of our partner schools</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Take a look inside one of our partner schools</p>
           <h2 className="font-serif text-3xl text-navy mb-6">A first look at BCIT, Burnaby, BC</h2>
           <VideoEmbed videoId="CKl8mhU_eR0" title="BCIT | Burnaby Campus Tour" autoplay />
-          <p className="text-xs text-gray-400 mt-4">BCIT — British Columbia Institute of Technology, a real Masomo Now partner school.</p>
+          <p className="text-xs text-gray-500 mt-4">BCIT — British Columbia Institute of Technology, a real Masomo Now partner school.</p>
         </div>
       </section>
 
       {/* North America */}
       <section className="pt-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-1">Region</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Region</p>
           <h2 className="font-serif text-3xl text-navy">North America</h2>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function StudyDestinationsPage() {
       {/* Europe */}
       <section className="pt-4 px-6">
         <div className="max-w-6xl mx-auto border-t border-gray-200 pt-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-1">Region</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Region</p>
           <h2 className="font-serif text-3xl text-navy">Europe</h2>
         </div>
       </section>
@@ -163,19 +163,19 @@ export default function StudyDestinationsPage() {
       {/* Coming soon regions */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-1">Coming soon</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Coming soon</p>
           <h2 className="font-serif text-3xl text-navy mb-8">Expanding to more regions</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {comingSoon.map((c) => (
               <div key={c.region} className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center">
                 <div className="text-4xl mb-3">{c.flags}</div>
                 <div className="font-serif text-xl text-navy mb-1">{c.region}</div>
-                <div className="text-sm text-gray-400">{c.note ?? 'Partner schools coming soon'}</div>
+                <div className="text-sm text-gray-500">{c.note ?? 'Partner schools coming soon'}</div>
               </div>
             ))}
           </div>
         </div>
-        <p className="text-xs text-gray-400 text-center mt-10 max-w-6xl mx-auto">
+        <p className="text-xs text-gray-500 text-center mt-10 max-w-6xl mx-auto">
           Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain).
         </p>
       </section>
