@@ -124,13 +124,13 @@ export default function StudyDestinationsPage() {
         subtitle="We work with students from Rwanda, DR Congo, and Djibouti to secure admission at top institutions across five countries."
       />
 
-      {/* General "what awaits you abroad" video */}
+      {/* Featured partner video — BCIT */}
       <section className="py-16 px-6 bg-gray-50 border-b border-gray-200">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
-          <h2 className="font-serif text-3xl text-navy mb-6">See what studying in Canada is really like</h2>
-          <VideoEmbed videoId="qfzYhUgz9cs" title="Study in Canada — A world of possibilities awaits (EduCanada)" />
-          <p className="text-xs text-gray-400 mt-4">Official Government of Canada / EduCanada video.</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Take a look inside one of our partner schools</p>
+          <h2 className="font-serif text-3xl text-navy mb-6">A first look at BCIT, Burnaby, BC</h2>
+          <VideoEmbed videoId="CKl8mhU_eR0" title="BCIT | Burnaby Campus Tour" autoplay />
+          <p className="text-xs text-gray-400 mt-4">BCIT — British Columbia Institute of Technology, a real Masomo Now partner school.</p>
         </div>
       </section>
 

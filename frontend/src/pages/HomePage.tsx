@@ -6,6 +6,7 @@ import IconFeatureRow from '../components/ui/IconFeatureRow'
 import FactsBand from '../components/ui/FactsBand'
 import ScrollCarouselModal from '../components/ui/ScrollCarouselModal'
 import VideoEmbed from '../components/ui/VideoEmbed'
+import Reveal from '../components/ui/Reveal'
 
 const testimonials = [
   { name: 'Amara M.', dest: 'BCIT, British Columbia', quote: 'Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I\'m now in Vancouver.' },
@@ -45,10 +46,10 @@ const destinationShowcase = [
 ]
 
 const whoWeHelp = [
-  { icon: '🎒', title: 'Recent High School Graduates', description: 'Undergraduate-track programs plus English/French upgrading and language-proficiency pathways for students moving straight from secondary school.' },
-  { icon: '🔄', title: 'University Transfer Students', description: 'Associate degree and university-transfer (UT) programs that let you start close to home and transfer credits into a full degree abroad.' },
-  { icon: '🎓', title: 'Degree & Diploma Seekers', description: 'Full diploma and bachelor\'s degree programs across our partner institutions in Canada, the US, Ireland, Germany, and Poland.' },
-  { icon: '🔧', title: 'Trades & Apprenticeship', description: 'Hands-on technical and trades programs with strong co-op placement, including at BCIT and Northern Lights College.' },
+  { photo: '/images/seminars/seminar-3.jpg', title: 'Recent High School Graduates', description: 'Undergraduate-track programs plus English/French upgrading and language-proficiency pathways for students moving straight from secondary school.' },
+  { photo: '/images/schools/lwtech.jpg', title: 'University Transfer Students', description: 'Associate degree and university-transfer (UT) programs that let you start close to home and transfer credits into a full degree abroad.' },
+  { photo: '/images/schools/tru.jpg', title: 'Degree & Diploma Seekers', description: 'Full diploma and bachelor\'s degree programs across our partner institutions in Canada, the US, Ireland, Germany, and Poland.' },
+  { photo: '/images/schools/bcit.jpg', title: 'Trades & Apprenticeship', description: 'Hands-on technical and trades programs with strong co-op placement, including at BCIT and Northern Lights College.' },
 ]
 
 const networkItems = [
@@ -88,7 +89,7 @@ export default function HomePage() {
       </div>
 
       <PhotoHero
-        image="/images/seminars/seminar-3.jpg"
+        images={['/images/seminars/seminar-2.jpg', '/images/seminars/seminar-3.jpg', '/images/seminars/seminar-4.jpg']}
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
         eyebrow="Masomo Now — ELIMU International Education Connections"
         title="Study and work abroad, without guesswork"
@@ -97,6 +98,15 @@ export default function HomePage() {
         ctaTo="/pathway-finder"
       >
         <Button to="/services" variant="outline">Explore Our Services</Button>
+        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+          🛂 RCIC Licensed — R731358
+        </span>
+        <div className="w-full max-w-md bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 mt-1">
+          <p className="text-white/90 text-xs leading-relaxed">
+            Masomo Now is the francophone Africa division of <strong>ELIMU International Education Connections</strong>, a licensed Canadian education consultancy.
+          </p>
+          <Link to="/about" className="text-brand-gold-light text-xs font-bold hover:underline mt-1 inline-block">Learn more about ELIMU →</Link>
+        </div>
       </PhotoHero>
 
       <TextImageSplit
@@ -113,21 +123,23 @@ export default function HomePage() {
       <FactsBand facts={realFacts} />
 
       {/* See what studying abroad actually looks like */}
-      <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
-            <h2 className="font-serif text-3xl text-navy mb-4">See what studying abroad actually looks like</h2>
-            <p className="text-gray-600 leading-relaxed text-lg mb-6">
-              We don't just tell you about campus life in Canada — we show you. This is the official Government of Canada / EduCanada look at what studying and living there is really like, from classrooms to community.
-            </p>
-            <Link to="/destinations" className="text-brand-blue text-sm font-bold hover:underline">Watch real campus videos for every partner school →</Link>
+      <Reveal>
+        <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">What awaits you abroad</p>
+              <h2 className="font-serif text-3xl text-navy mb-4">See what studying abroad actually looks like</h2>
+              <p className="text-gray-600 leading-relaxed text-lg mb-6">
+                We don't just tell you about campus life in Canada — we show you. This is the official Government of Canada / EduCanada look at what studying and living there is really like, from classrooms to community.
+              </p>
+              <Link to="/destinations" className="text-brand-blue text-sm font-bold hover:underline">Watch real campus videos for every partner school →</Link>
+            </div>
+            <div>
+              <VideoEmbed videoId="qfzYhUgz9cs" title="Study in Canada — A world of possibilities awaits (EduCanada)" autoplay />
+            </div>
           </div>
-          <div>
-            <VideoEmbed videoId="qfzYhUgz9cs" title="Study in Canada — A world of possibilities awaits (EduCanada)" />
-          </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       <IconFeatureRow
         title="Why Masomo Now"
@@ -140,49 +152,53 @@ export default function HomePage() {
       />
 
       {/* Destinations showcase */}
-      <section className="py-16 px-6 bg-navy">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-2xl mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-light mb-3">Study Destinations</p>
-            <h2 className="font-serif text-3xl text-white">Where we send our students</h2>
-            <p className="text-white/60 text-lg mt-3">Real partner institutions across five countries — matched to your goals, budget, and language preference.</p>
+      <Reveal>
+        <section className="py-16 px-6 bg-navy">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-light mb-3">Study Destinations</p>
+              <h2 className="font-serif text-3xl text-white">Where we send our students</h2>
+              <p className="text-white/60 text-lg mt-3">Real partner institutions across five countries — matched to your goals, budget, and language preference.</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+              {destinationShowcase.map((d) => (
+                <Link key={d.name} to="/destinations" className="group relative rounded-lg overflow-hidden h-72 block">
+                  <img src={d.image} alt={d.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
+                  <div className="absolute bottom-0 p-5">
+                    <p className="text-xs font-semibold uppercase mb-1">{d.flag}</p>
+                    <p className="text-white font-bold text-base leading-tight">{d.name}</p>
+                    <p className="text-white/60 text-xs mt-1">{d.count}</p>
+                    <span className="inline-block mt-3 text-xs font-semibold text-white/90 border-b border-brand-gold-light">Explore</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            {destinationShowcase.map((d) => (
-              <Link key={d.name} to="/destinations" className="group relative rounded-lg overflow-hidden h-72 block">
-                <img src={d.image} alt={d.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
-                <div className="absolute bottom-0 p-5">
-                  <p className="text-xs font-semibold uppercase mb-1">{d.flag}</p>
-                  <p className="text-white font-bold text-base leading-tight">{d.name}</p>
-                  <p className="text-white/60 text-xs mt-1">{d.count}</p>
-                  <span className="inline-block mt-3 text-xs font-semibold text-white/90 border-b border-brand-gold-light">Explore</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* Who we help */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-2xl mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Who We Help</p>
-            <h2 className="font-serif text-3xl text-navy">Support for every stage</h2>
+      <Reveal>
+        <section className="py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Who We Help</p>
+              <h2 className="font-serif text-3xl text-navy">Support for every stage</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {whoWeHelp.map((w) => (
+                <div key={w.title} className="border border-gray-200 rounded-xl p-7 hover:border-brand-gold/50 transition-colors">
+                  <img src={w.photo} alt="" className="w-14 h-14 rounded-lg object-cover mb-4" />
+                  <h3 className="font-bold text-navy text-lg mb-2">{w.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{w.description}</p>
+                  <Link to="/pathway-finder" className="text-sm font-semibold text-brand-blue hover:underline">Find your pathway →</Link>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whoWeHelp.map((w) => (
-              <div key={w.title} className="border border-gray-200 rounded-xl p-7 hover:border-brand-gold/50 transition-colors">
-                <div className="text-3xl mb-4">{w.icon}</div>
-                <h3 className="font-bold text-navy text-lg mb-2">{w.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{w.description}</p>
-                <Link to="/pathway-finder" className="text-sm font-semibold text-brand-blue hover:underline">Find your pathway →</Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       <ScrollCarouselModal eyebrow="More about us" title="What makes Masomo Now different" items={whyMasomoNow} />
 
@@ -197,25 +213,27 @@ export default function HomePage() {
       </TextImageSplit>
 
       {/* Our network */}
-      <section className="py-16 px-6 border-t border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Our Network</p>
-          <h2 className="font-serif text-3xl text-navy mb-10">Part of a real, verified network</h2>
-          <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
-            {networkItems.map((item, i) => (
-              <details key={item.title} open={i === 0} className="py-5 group">
-                <summary className="flex items-center justify-between font-bold text-navy">
-                  {item.title}
-                  <svg className="chev w-5 h-5 text-brand-gold transition-transform flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                  </svg>
-                </summary>
-                <p className="text-gray-600 mt-3 text-[15px] leading-relaxed">{item.body}</p>
-              </details>
-            ))}
+      <Reveal>
+        <section className="py-16 px-6 border-t border-b border-gray-200">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-3">Our Network</p>
+            <h2 className="font-serif text-3xl text-navy mb-10">Part of a real, verified network</h2>
+            <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
+              {networkItems.map((item, i) => (
+                <details key={item.title} open={i === 0} className="py-5 group">
+                  <summary className="flex items-center justify-between font-bold text-navy">
+                    {item.title}
+                    <svg className="chev w-5 h-5 text-brand-gold transition-transform flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+                    </svg>
+                  </summary>
+                  <p className="text-gray-600 mt-3 text-[15px] leading-relaxed">{item.body}</p>
+                </details>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* Partner marquee */}
       <section className="py-14 border-y border-gray-200 overflow-hidden bg-gray-50">
@@ -237,32 +255,36 @@ export default function HomePage() {
       />
 
       {/* Recent students */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-10">Recent students</h2>
-          <div className="flex gap-5 overflow-x-auto pb-2">
-            {testimonials.map((t) => (
-              <div key={t.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
-                <p className="text-gray-700 text-sm leading-relaxed italic mb-5">"{t.quote}"</p>
-                <div className="font-semibold text-navy text-sm">{t.name}</div>
-                <div className="text-gray-400 text-xs mt-0.5">{t.dest}</div>
-              </div>
-            ))}
+      <Reveal>
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-serif text-3xl text-navy mb-10">Recent students</h2>
+            <div className="flex gap-5 overflow-x-auto pb-2">
+              {testimonials.map((t) => (
+                <div key={t.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
+                  <p className="text-gray-700 text-sm leading-relaxed italic mb-5">"{t.quote}"</p>
+                  <div className="font-semibold text-navy text-sm">{t.name}</div>
+                  <div className="text-gray-400 text-xs mt-0.5">{t.dest}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-navy text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl text-white mb-3">Ready to get started?</h2>
-          <p className="text-white/70 mb-8">Book a free consultation and we'll tell you exactly what your next step should be.</p>
-          <div className="flex gap-3 justify-center flex-wrap">
-            <Button to="/consultation" variant="primary">Book Free Consultation</Button>
-            <Button to="/pathway-finder" variant="outline">Find Your Pathway →</Button>
+      <Reveal>
+        <section className="py-20 px-6 bg-navy text-center">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl text-white mb-3">Ready to get started?</h2>
+            <p className="text-white/70 mb-8">Book a free consultation and we'll tell you exactly what your next step should be.</p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <Button to="/consultation" variant="primary">Book Free Consultation</Button>
+              <Button to="/pathway-finder" variant="outline">Find Your Pathway →</Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
     </>
   )
 }

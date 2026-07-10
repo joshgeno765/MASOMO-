@@ -3,12 +3,12 @@ import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const services = [
-  { icon: '🗣️', title: 'Free Consultation & Counseling', description: 'A one-on-one session with a Rwanda-based counselor to understand your goals, budget, and academic background before recommending a path.' },
-  { icon: '🎓', title: 'University & Program Selection', description: 'We match you to partner institutions in Ireland, Germany, and Poland — or the Canadian FMC Student Pilot — based on what genuinely fits you.' },
-  { icon: '📄', title: 'Application Support', description: 'Help preparing transcripts, statements of purpose, recommendation letters, and every document your chosen institution requires.' },
-  { icon: '🛂', title: 'Visa & Immigration Support', description: 'Backed by a licensed immigration team (RCIC), we guide you through study permit and visa applications step by step.' },
-  { icon: '🧳', title: 'Pre-Departure Orientation', description: 'Practical guidance on housing, banking, travel, and what to expect before you leave home.' },
-  { icon: '🏡', title: 'Post-Arrival Settlement', description: 'We stay with you after arrival — from airport pickup coordination to connecting you with the local student community.' },
+  { icon: '🗣️', photo: '/images/seminars/seminar-2.jpg', title: 'Free Consultation & Counseling', description: 'A one-on-one session with a Rwanda-based counselor to understand your goals, budget, and academic background before recommending a path.' },
+  { icon: '🎓', photo: '/images/schools/dcu.jpg', title: 'University & Program Selection', description: 'We match you to partner institutions in Ireland, Germany, and Poland — or the Canadian FMC Student Pilot — based on what genuinely fits you.' },
+  { icon: '📄', photo: '/images/seminars/seminar-4.jpg', title: 'Application Support', description: 'Help preparing transcripts, statements of purpose, recommendation letters, and every document your chosen institution requires.' },
+  { icon: '🛂', photo: '/images/schools/vistula.jpg', title: 'Visa & Immigration Support', description: 'Backed by a licensed immigration team (RCIC), we guide you through study permit and visa applications step by step.' },
+  { icon: '🧳', photo: '/images/seminars/seminar-5.jpg', title: 'Pre-Departure Orientation', description: 'Practical guidance on housing, banking, travel, and what to expect before you leave home.' },
+  { icon: '🏡', photo: '/images/schools/bcit.jpg', title: 'Post-Arrival Settlement', description: 'We stay with you after arrival — from airport pickup coordination to connecting you with the local student community.' },
 ]
 
 export default function ServicesPage() {
