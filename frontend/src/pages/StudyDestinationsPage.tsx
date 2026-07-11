@@ -10,6 +10,14 @@ interface ActiveVideo {
   title: string
 }
 
+const comparisonData = [
+  { flag: '🇨🇦', name: 'Canada', tuition: 'CAD $15,000–40,000', living: 'CAD $22,895', work: '24 hrs/week, unlimited during breaks', gradVisa: 'PGWP — up to 3 years' },
+  { flag: '🇺🇸', name: 'United States', tuition: 'USD $10,000–35,000', living: 'USD ~$25,000–33,000', work: 'On-campus only; CPT/OPT for practical training', gradVisa: 'OPT — 12 months (+24 STEM)' },
+  { flag: '🇮🇪', name: 'Ireland', tuition: '€9,850–28,000', living: '€10,000', work: '20 hrs/week term-time, 40 hrs/week holidays', gradVisa: '2 years (Stamp 1G)' },
+  { flag: '🇩🇪', name: 'Germany', tuition: '€7,000–15,000 (our partner schools)', living: '€11,904 (blocked account)', work: '140 full / 280 half days per year', gradVisa: '18 months (Job Seeker Visa)' },
+  { flag: '🇵🇱', name: 'Poland', tuition: '€2,000–8,000', living: '~€7,000–11,000', work: 'No strict hour cap for full-time students', gradVisa: '1 year' },
+]
+
 function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVideo) => void }) {
   return (
     <div className="relative h-40 rounded-lg overflow-hidden border border-gray-200">
@@ -179,6 +187,38 @@ export default function StudyDestinationsPage() {
         <p className="text-xs text-gray-500 text-center mt-10 max-w-6xl mx-auto">
           Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain).
         </p>
+      </section>
+
+      {/* Compare Destinations */}
+      <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-3xl text-navy mb-8">Compare Destinations</h2>
+          <div className="overflow-x-auto border border-gray-200 rounded-lg bg-white">
+            <table className="w-full text-sm min-w-[720px]">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  {['Country', 'Tuition (intl., /yr)', 'Living Costs', 'Work Rights', 'Graduate Visa'].map((h) => (
+                    <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((c, i) => (
+                  <tr key={c.name} className={i < comparisonData.length - 1 ? 'border-b border-gray-100' : ''}>
+                    <td className="px-4 py-3 font-semibold text-navy whitespace-nowrap">{c.flag} {c.name}</td>
+                    <td className="px-4 py-3 text-gray-600">{c.tuition}</td>
+                    <td className="px-4 py-3 text-gray-600">{c.living}</td>
+                    <td className="px-4 py-3 text-gray-600">{c.work}</td>
+                    <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{c.gradVisa}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-4">
+            Representative ranges, not guarantees — actual costs vary by institution and city. Living costs reflect each country's official minimum funds requirement, except Poland, where the legal minimum is unrealistically low and a realistic city living-cost estimate is shown instead.
+          </p>
+        </div>
       </section>
 
       {/* CTA */}

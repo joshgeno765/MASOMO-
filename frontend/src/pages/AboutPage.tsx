@@ -6,10 +6,10 @@ import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const values = [
-  { num: '01', title: 'Transparency', desc: 'No hidden fees. No vague timelines. We tell you exactly what to expect and when.' },
-  { num: '02', title: 'Integrity', desc: 'We only recommend universities that genuinely fit the student — not ones that pay us referral fees.' },
-  { num: '03', title: 'Results', desc: 'We measure our success by your success — every student placed, every visa approved.' },
-  { num: '04', title: 'Care', desc: 'We remember you\'re a person, not an application number. Every student gets real attention.' },
+  { num: '01', title: 'Transparency', desc: 'Clear pricing and honest timelines.' },
+  { num: '02', title: 'Integrity', desc: 'Student-first recommendations.' },
+  { num: '03', title: 'Excellence', desc: 'Focused on successful admissions and visa outcomes.' },
+  { num: '04', title: 'Care', desc: 'Personalized support throughout your journey.' },
 ]
 
 const seminars = [
@@ -34,46 +34,45 @@ export default function AboutPage() {
       <PhotoHero
         image="/images/seminars/seminar-2.webp"
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
-        eyebrow="About Masomo Now"
-        title="Built to help you get there"
-        subtitle="Masomo Now was founded to remove the barriers that stop talented Rwandan and francophone African students from accessing world-class education abroad."
+        title="Your Journey Starts Here"
+        subtitle="Helping students turn their international education dreams into reality."
       />
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
         alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
-        title="Where we started"
+        title="Our Story"
         imageSide="right"
       >
-        <p>Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a Canadian education consultancy headquartered in Vancouver, BC.</p>
-        <p>As we saw growing demand from francophone students in Rwanda, DR Congo, and Djibouti, we launched Masomo Now to serve them directly — backed by a licensed immigration team and partner institutions in Canada, Ireland, Germany, and Poland.</p>
+        <p>Masomo Now is the Francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong>, a Canadian education consultancy headquartered in Vancouver, British Columbia.</p>
+        <p>Our mission is to connect talented students with quality education opportunities around the world while providing trusted guidance throughout every step of the journey.</p>
       </TextImageSplit>
 
       <IconFeatureRow
         title="Our credentials"
         features={[
-          { icon: '🇨🇦', title: 'Vancouver, BC', description: 'Head office, founded by Canadians with lived experience in the Canadian education system.' },
-          { icon: '🛂', title: 'RCIC Licensed', description: 'Authorized by IRCC to submit study permit applications on behalf of students.' },
-          { icon: '📋', title: 'CRA Registered', description: 'Incorporated and registered in Canada under the Canada Revenue Agency.' },
-          { icon: '🤝', title: 'End-to-End Support', description: 'From first inquiry to airport pickup and settlement in Canada.' },
+          { icon: '🇨🇦', title: 'Canadian Head Office', description: 'Based in Vancouver, British Columbia.' },
+          { icon: '🛂', title: 'Licensed Immigration Support', description: 'Professional study permit and immigration guidance.' },
+          { icon: '📋', title: 'Canadian Registered Business', description: 'Operating through ELIMU International Education Connections.' },
+          { icon: '🤝', title: 'End-to-End Student Support', description: 'From consultation to arrival abroad.' },
         ]}
       />
 
       {/* Offices */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-8">Where we operate</h2>
+          <h2 className="font-serif text-3xl text-navy mb-3">Where We Operate</h2>
+          <p className="text-gray-500 mb-8">Serving students throughout East and Central Africa.</p>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              ['🇨🇦', 'Vancouver, BC — Canada', 'ELIMU HQ'],
-              ['🇰🇪', 'Nairobi, Kenya', ''],
-              ['🇷🇼', 'Kigali, Rwanda', 'Masomo Now Office'],
-              ['🇪🇹', 'Jijiga, Ethiopia', ''],
-            ].map(([flag, name, tag]) => (
+              ['🇨🇦', 'Vancouver'],
+              ['🇰🇪', 'Nairobi'],
+              ['🇷🇼', 'Kigali'],
+              ['🇪🇹', 'Jijiga'],
+            ].map(([flag, name]) => (
               <div key={name} className="border-2 border-navy/10 rounded-xl p-5">
                 <div className="text-3xl mb-2">{flag}</div>
                 <h3 className="font-bold text-navy">{name}</h3>
-                {tag && <span className="text-xs text-brand-gold-dark font-bold">{tag}</span>}
               </div>
             ))}
           </div>
@@ -99,9 +98,9 @@ export default function AboutPage() {
       <section id="seminars" className="py-20 px-6 bg-gray-50 border-t border-b border-gray-200 scroll-mt-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">On the ground</p>
-          <h2 className="font-serif text-4xl text-navy mb-3">Our seminars &amp; events</h2>
+          <h2 className="font-serif text-4xl text-navy mb-3">Our Seminars</h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl">
-            Before a student ever books a consultation online, many of them meet us in person — at a school assembly, a community hall, or a symposium alongside partners like Northern Lights College.
+            We regularly host school visits, education fairs, and community seminars across East Africa to help students and families explore international education opportunities.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {seminars.map((s, i) => (
@@ -117,9 +116,9 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-4xl text-white mb-5">Our team</h2>
+          <h2 className="font-serif text-4xl text-white mb-5">Our Team</h2>
           <p className="text-white/70 text-lg leading-relaxed">
-            Masomo Now is run by a small, hands-on team based in Kigali and Vancouver — backed by ELIMU's licensed immigration consultants. We keep it lean on purpose, so every student gets direct attention from someone who actually knows their file, not a call center.
+            Our advisors work closely with licensed immigration professionals to provide personalized guidance from your first inquiry until you arrive at your destination.
           </p>
         </div>
       </section>
@@ -127,8 +126,8 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-4xl text-navy mb-4">Talk to a real counselor</h2>
-          <p className="text-gray-600 text-lg mb-8">No scripts, no sales pitch. Just honest advice about your next step.</p>
+          <h2 className="font-serif text-4xl text-navy mb-4">Speak With a Real Advisor</h2>
+          <p className="text-gray-600 text-lg mb-8">Receive honest advice and discover the study pathway that's right for you.</p>
           <Button to="/consultation">Book Free Consultation</Button>
         </div>
       </section>

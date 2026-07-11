@@ -4,25 +4,25 @@ import Button from '../components/ui/Button'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const eligibilityPoints = [
-  { icon: '🌍', title: 'Francophone country of origin', description: 'You must be a citizen or resident of a francophone country — including Rwanda, DR Congo, Djibouti, Cameroon, Côte d\'Ivoire, Senegal, and others.' },
-  { icon: '🎓', title: 'Accepted at a participating institution', description: 'You must have an acceptance letter from a designated FMC-eligible college or university in Canada outside Quebec.' },
-  { icon: '🗣️', title: 'French-language program', description: 'Your program of study must be delivered primarily in French at the participating institution.' },
-  { icon: '📋', title: 'Standard IRCC requirements', description: 'You must also meet the standard requirements: proof of finances, health clearance, character, and intent to leave Canada after studies.' },
+  { icon: '🌍', title: 'Francophone country of origin', description: 'A citizen or resident of a francophone country — Rwanda, DR Congo, Djibouti, Cameroon, and others.' },
+  { icon: '🎓', title: 'Accepted at a participating institution', description: 'An admission letter from a participating institution outside Quebec.' },
+  { icon: '🗣️', title: 'French-language program', description: 'Your program of study is delivered primarily in French.' },
+  { icon: '📋', title: 'Standard IRCC requirements', description: 'Standard study permit requirements: proof of finances, health, and character.' },
 ]
 
 const benefits = [
-  { title: 'Faster processing', desc: 'Applications through this pilot are processed on a priority basis, reducing wait times significantly.' },
-  { title: 'Dedicated support pathway', desc: 'The pilot connects francophone students with institutions that have specific support structures for French-speaking international students.' },
+  { title: 'Priority processing', desc: 'Applications through this pilot are processed faster than standard study permits.' },
+  { title: 'French-speaking environment', desc: 'Study and live in a dedicated French-language community outside Quebec.' },
   { title: 'Study outside Quebec', desc: 'Access world-class French-language education in Ontario, New Brunswick, Manitoba, and other provinces.' },
-  { title: 'Pathway to permanent residence', desc: 'Graduating from a French-language program outside Quebec strengthens your Express Entry profile under francophone immigration streams.' },
+  { title: 'Pathway to permanent residence', desc: 'Graduating outside Quebec strengthens your Express Entry profile.' },
 ]
 
 const steps = [
-  { num: '1', title: 'Check eligibility', desc: 'We review your background, nationality, and academic history against the FMC pilot requirements.' },
-  { num: '2', title: 'Choose a program', desc: 'We identify the right French-language program and institution that fits your career goals and qualifications.' },
-  { num: '3', title: 'Apply to the institution', desc: 'We prepare your full application package — transcripts, SOP, recommendation letters, and language proof.' },
-  { num: '4', title: 'Submit study permit', desc: 'Once you have your acceptance letter, we guide you through the IRCC study permit application under the FMC pilot.' },
-  { num: '5', title: 'Pre-departure & arrival', desc: 'We prepare you for life in Canada — housing, orientation, banking, and connecting with the local francophone community.' },
+  { num: '1', title: 'Eligibility Assessment', desc: 'We check your background against the FMC pilot requirements.' },
+  { num: '2', title: 'Program Selection', desc: 'We find the right French-language program for your goals.' },
+  { num: '3', title: 'Application Preparation', desc: 'We prepare your full application package.' },
+  { num: '4', title: 'Study Permit Guidance', desc: 'We guide you through the IRCC study permit application.' },
+  { num: '5', title: 'Pre-Departure & Arrival Support', desc: 'We prepare you for life in Canada.' },
 ]
 
 export default function FMCPilotPage() {
@@ -40,10 +40,10 @@ export default function FMCPilotPage() {
           <div>
             <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Canada Study Permit</p>
             <h1 className="font-serif text-4xl md:text-5xl text-white leading-tight mb-5">
-              Francophone Minority Communities Student Pilot
+              Study in Canada Through the Francophone Minority Communities Student Pilot
             </h1>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
-              A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, Djibouti, and other French-speaking countries — to study at French-language institutions across Canada outside Quebec.
+              A dedicated pathway for eligible French-speaking students to study at participating French-language institutions outside Quebec.
             </p>
             <div className="flex gap-3 flex-wrap">
               <Button to="/pathway-finder?ref=fmc-pilot" variant="primary">Check My Eligibility</Button>
@@ -53,7 +53,7 @@ export default function FMCPilotPage() {
                 rel="noopener noreferrer"
                 className="btn-outline"
               >
-                Official IRCC Page ↗
+                Official IRCC Information ↗
               </a>
             </div>
           </div>
@@ -61,12 +61,11 @@ export default function FMCPilotPage() {
           {/* Info table */}
           <div className="border border-white/20 rounded-lg overflow-hidden">
             {[
-              ['Pilot name', 'FMC Student Pilot'],
-              ['Managed by', 'IRCC — Immigration, Refugees & Citizenship Canada'],
-              ['Target students', 'Francophone international students'],
+              ['Pilot', 'FMC Student Pilot'],
+              ['Managed by', 'IRCC'],
               ['Study location', 'Canada — outside Quebec'],
-              ['Language', 'French-language programs'],
-              ['Processing', 'Priority — faster than standard'],
+              ['Language', 'French'],
+              ['Application', 'Priority processing'],
             ].map(([label, value]) => (
               <div key={label} className="flex gap-4 px-5 py-3.5 border-b border-white/10 last:border-0">
                 <span className="text-white/50 text-sm w-32 flex-shrink-0">{label}</span>
@@ -77,26 +76,21 @@ export default function FMCPilotPage() {
         </div>
       </section>
 
-      {/* Two streams clarification */}
+      {/* Two pathways */}
       <section className="py-16 px-6 border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl text-navy mb-2">Two francophone pathways to Canada</h2>
-          <p className="text-gray-600 text-base mb-8 max-w-2xl">
-            "Francophone" immigration to Canada actually covers two separate streams. Make sure you're looking at the right one.
-          </p>
+          <h2 className="font-serif text-2xl text-navy mb-8">Two Pathways</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border-2 border-navy rounded-lg p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">This page covers</p>
-              <h3 className="font-bold text-navy text-lg mb-2">Student Mobility — FMC Student Pilot</h3>
+              <h3 className="font-bold text-navy text-lg mb-2">FMC Student Pilot</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                A <strong>study permit</strong> pathway for francophone students enrolling in a French-language program at a participating institution outside Quebec. This is what Masomo Now specializes in — no job offer required.
+                For students who want to study in Canada. No job offer required.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">A separate stream</p>
-              <h3 className="font-bold text-navy text-lg mb-2">Work Permit Mobility</h3>
+              <h3 className="font-bold text-navy text-lg mb-2">Francophone Mobility Work Permit</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                An LMIA-exempt <strong>work permit</strong> (code C16) for francophone workers who already have a job offer from a Canadian employer outside Quebec. No school or study permit involved.
+                For skilled workers who already have a Canadian job offer. No study permit required.
               </p>
               <a
                 href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/special-instructions/francophone-mobility.html"
@@ -111,13 +105,17 @@ export default function FMCPilotPage() {
         </div>
       </section>
 
-      {/* Who is this for */}
-      <section className="py-16 px-6 border-b border-gray-200">
+      {/* Eligibility */}
+      <div className="pt-16 px-6 text-center">
+        <h2 className="font-serif text-3xl text-navy mb-2 max-w-6xl mx-auto">Eligibility</h2>
+        <p className="text-gray-500 max-w-6xl mx-auto">You may qualify if you meet all of the following.</p>
+      </div>
+      <IconFeatureRow features={eligibilityPoints} />
+
+      {/* Eligible countries */}
+      <section className="pb-16 px-6 border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-4">Who is this for?</h2>
-          <p className="text-gray-600 text-base mb-6 max-w-2xl">
-            If you are from Rwanda, DR Congo, Djibouti, Cameroon, Côte d'Ivoire, Senegal, or any other French-speaking country — and you want to study in French in Canada — this pilot was built for you.
-          </p>
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Eligible Countries</p>
           <div className="flex flex-wrap gap-2">
             {FMC_ELIGIBLE_COUNTRIES.map((c) => (
               <span key={c} className="border border-gray-300 rounded px-3 py-1 text-sm text-gray-700">{c}</span>
@@ -125,13 +123,6 @@ export default function FMCPilotPage() {
           </div>
         </div>
       </section>
-
-      {/* Eligibility */}
-      <div className="pt-16 px-6 text-center">
-        <h2 className="font-serif text-3xl text-navy mb-2 max-w-6xl mx-auto">Eligibility criteria</h2>
-        <p className="text-gray-500 max-w-6xl mx-auto">You must meet all of the following to apply through the FMC Student Pilot.</p>
-      </div>
-      <IconFeatureRow features={eligibilityPoints} />
 
       {/* Benefits */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
@@ -151,9 +142,9 @@ export default function FMCPilotPage() {
       {/* Institutions */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-3">Participating institutions</h2>
+          <h2 className="font-serif text-3xl text-navy mb-3">Participating Institutions</h2>
           <p className="text-gray-500 mb-10 max-w-2xl">
-            French-language colleges and universities across Canada (outside Quebec) that participate in the FMC pilot. We'll help you find the right fit.
+            French-language institutions across Canada, outside Quebec.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {FMC_INSTITUTIONS.map((group) => (
@@ -184,8 +175,8 @@ export default function FMCPilotPage() {
       {/* Process */}
       <section className="py-16 px-6 bg-navy">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-white mb-3">How Masomo Now helps</h2>
-          <p className="text-white/60 mb-12 max-w-xl">From checking your eligibility to arriving on campus — our Rwanda-based team knows this pathway inside out.</p>
+          <h2 className="font-serif text-3xl text-white mb-3">How Masomo Now Helps</h2>
+          <p className="text-white/60 mb-12 max-w-xl">From checking your eligibility to arriving on campus.</p>
           <div className="grid md:grid-cols-5 gap-6">
             {steps.map((s) => (
               <div key={s.num} className="border-t border-white/20 pt-5">
@@ -201,9 +192,9 @@ export default function FMCPilotPage() {
       {/* CTA */}
       <section className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-3xl text-navy mb-3">Ready to apply through the FMC Pilot?</h2>
+          <h2 className="font-serif text-3xl text-navy mb-3">Ready to Study in Canada?</h2>
           <p className="text-gray-600 mb-8">
-            Book a free consultation with our Rwanda team. We'll tell you exactly if you qualify and what your next step is.
+            Book a free consultation and we'll assess your eligibility and guide you through every step of the application process.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link to="/consultation" className="btn-primary">Book Free Consultation</Link>

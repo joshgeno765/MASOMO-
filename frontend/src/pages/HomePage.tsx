@@ -3,42 +3,15 @@ import Button from '../components/ui/Button'
 import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
-import FactsBand from '../components/ui/FactsBand'
-import ScrollCarouselModal from '../components/ui/ScrollCarouselModal'
-import VideoEmbed from '../components/ui/VideoEmbed'
 import Reveal from '../components/ui/Reveal'
 
 const testimonials = [
   { name: 'Amara M.', dest: 'BCIT, British Columbia', quote: 'Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I\'m now in Vancouver.' },
-  { name: 'Claudette U.', dest: 'Université de Moncton, NB', quote: 'En tant que Rwandaise francophone, le programme pilote FMC était parfait pour moi. L\'équipe de Masomo Now à Kigali m\'a guidée du début à la fin.' },
   { name: 'Jean-Pierre M.', dest: 'Collège Boréal, Ontario', quote: 'I came from DRC and didn\'t think studying in Canada was possible. Masomo Now found the FMC pilot for me — now I\'m studying in French in Ontario.' },
 ]
 
-const whyMasomoNow = [
-  {
-    image: '/images/seminars/seminar-3-thumb.webp',
-    title: 'RCIC Licensed Team',
-    body: 'Our Regulated Canadian Immigration Consultants (RCICs) are licensed by the College of Immigration and Citizenship Consultants (CICC) — License R731358, RCIC-IRB-L3. They guide you through Canadian study permits, including the FMC pathway, as well as UK and Australian visas.',
-  },
-  {
-    image: '/images/seminars/seminar-4-thumb.webp',
-    title: 'Francophone FMC Pathway',
-    body: 'A dedicated Canadian immigration pathway for francophone students from Rwanda, DR Congo, and Djibouti. Study at French-language institutions across Canada with priority processing and a clear route to permanent residence.',
-  },
-  {
-    image: '/images/seminars/seminar-2-thumb.webp',
-    title: 'On The Ground In East Africa',
-    body: 'Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.',
-  },
-  {
-    image: '/images/schools/bcit-thumb.webp',
-    title: 'Real Partner Institutions',
-    body: 'We work with 13 partner schools across Canada, the United States, Ireland, Germany, and Poland — every one a real, verified institution with real programs, not a placeholder listing.',
-  },
-]
-
 const destinationShowcase = [
-  { flag: '🇨🇦', name: 'Canada', image: '/images/schools/bcit-thumb.webp', count: '5 partner schools' },
+  { flag: '🇨🇦', name: 'Canada', image: '/images/schools/bcit-thumb.webp', count: '8 partner schools' },
   { flag: '🇺🇸', name: 'United States', image: '/images/schools/lwtech-thumb.webp', count: '2 partner schools' },
   { flag: '🇮🇪', name: 'Ireland', image: '/images/schools/dcu-thumb.webp', count: '2 partner schools' },
   { flag: '🇩🇪', name: 'Germany', image: '/images/schools/cbs-thumb.webp', count: '3 partner schools' },
@@ -46,25 +19,10 @@ const destinationShowcase = [
 ]
 
 const whoWeHelp = [
-  { photo: '/images/seminars/seminar-3-thumb.webp', title: 'Recent High School Graduates', description: 'Undergraduate-track programs plus English/French upgrading and language-proficiency pathways for students moving straight from secondary school.' },
-  { photo: '/images/schools/lwtech-thumb.webp', title: 'University Transfer Students', description: 'Associate degree and university-transfer (UT) programs that let you start close to home and transfer credits into a full degree abroad.' },
-  { photo: '/images/schools/tru-thumb.webp', title: 'Degree & Diploma Seekers', description: 'Full diploma and bachelor\'s degree programs across our partner institutions in Canada, the US, Ireland, Germany, and Poland.' },
-  { photo: '/images/schools/bcit-thumb.webp', title: 'Trades & Apprenticeship', description: 'Hands-on technical and trades programs with strong co-op placement, including at BCIT and Northern Lights College.' },
-]
-
-const networkItems = [
-  {
-    title: 'Partner Institutions',
-    body: '13 real, verified partner institutions across Canada, the United States, Ireland, Germany, and Poland — including BCIT, TRU, University of Lethbridge, Northern Lights College, North Island College, Lake Washington Institute of Technology, Seattle Colleges, DCU, Griffith College, CBS International Business School, BSBI, Gisma University of Applied Sciences, and Vistula University.',
-  },
-  {
-    title: 'Specialist Visa & Immigration Counselors',
-    body: 'Our RCIC-licensed team (College of Immigration and Citizenship Consultants, License R731358) guides every study permit and visa application, including Canada\'s FMC Student Pilot for francophone students.',
-  },
-  {
-    title: 'In-Person Seminars & Community Events',
-    body: 'Our counselors run seminars in schools and community halls across East Africa — real, face-to-face guidance, not just an online form.',
-  },
+  { photo: '/images/seminars/seminar-3-thumb.webp', title: 'High School Graduates', description: 'Start your undergraduate journey abroad.' },
+  { photo: '/images/schools/lwtech-thumb.webp', title: 'University Transfer', description: 'Transfer credits into a university degree.' },
+  { photo: '/images/schools/tru-thumb.webp', title: 'Degree & Diploma', description: 'Choose from career-focused programs.' },
+  { photo: '/images/schools/bcit-thumb.webp', title: 'Trades', description: 'Hands-on training with co-op opportunities.' },
 ]
 
 const partnerMarquee = [
@@ -72,13 +30,6 @@ const partnerMarquee = [
   'Saskatchewan Polytechnic', 'Fanshawe College', 'University Canada West',
   'Lake Washington Institute of Technology', 'Seattle Colleges', 'DCU', 'Griffith College',
   'CBS International Business School', 'BSBI', 'Gisma University of Applied Sciences', 'Vistula University',
-]
-
-const realFacts = [
-  { value: '16', label: 'Partner Schools' },
-  { value: '5', label: 'Study Destinations' },
-  { value: '3', label: 'Countries We Serve' },
-  { value: 'RCIC', label: 'Licensed Immigration Team' },
 ]
 
 export default function HomePage() {
@@ -92,20 +43,22 @@ export default function HomePage() {
       <PhotoHero
         images={['/images/seminars/seminar-2.webp', '/images/seminars/seminar-3.webp', '/images/seminars/seminar-4.webp']}
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
-        eyebrow="Masomo Now — ELIMU International Education Connections"
-        title="Study and work abroad, without guesswork"
-        subtitle="Backed by ELIMU International Education Connections, a licensed Canadian consultancy, we guide students from Rwanda, DR Congo, and Djibouti from first inquiry to landing on campus."
+        title="Study Abroad with Confidence"
+        subtitle="Helping students from Rwanda, DR Congo, and Djibouti access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed guidance."
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
         height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
-        <Button to="/services" variant="outline">Explore Our Services</Button>
+        <Button to="/consultation" variant="outline">Book Free Consultation</Button>
         <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
-          🛂 RCIC Licensed
+          🛂 RCIC Licensed Support
         </span>
-        <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
-          🎓 Learn about ELIMU →
-        </Link>
+        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+          🎓 16 Partner Institutions
+        </span>
+        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+          🌍 5 Study Destinations
+        </span>
       </PhotoHero>
 
       <TextImageSplit
@@ -115,38 +68,17 @@ export default function HomePage() {
         imageSide="left"
         cta={<Link to="/about" className="text-brand-blue text-sm font-bold hover:underline">Learn more about ELIMU →</Link>}
       >
-        <p>Masomo Now is the francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong> — a licensed Canadian education consultancy headquartered in Vancouver, BC.</p>
-        <p>We serve students directly from Rwanda, DR Congo, and Djibouti — backed by a licensed immigration team and real partner institutions in Canada, Ireland, Germany, and Poland.</p>
+        <p>Masomo Now is the Francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong>, a Canadian education consultancy based in Vancouver, British Columbia.</p>
+        <p>We help students successfully apply to universities and colleges abroad by providing expert guidance on admissions, visas, and student preparation from application to arrival.</p>
       </TextImageSplit>
 
-      <FactsBand facts={realFacts} />
-
-      {/* See what studying abroad actually looks like */}
-      <Reveal>
-        <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">What awaits you abroad</p>
-              <h2 className="font-serif text-3xl text-navy mb-4">See what studying abroad actually looks like</h2>
-              <p className="text-gray-600 leading-relaxed text-lg mb-6">
-                We don't just tell you about campus life in Canada — we show you. This is a real look inside TRU — Thompson Rivers University in Kamloops, BC, one of our partner schools — from classrooms to campus life.
-              </p>
-              <Link to="/destinations" className="text-brand-blue text-sm font-bold hover:underline">Watch real campus videos for every partner school →</Link>
-            </div>
-            <div>
-              <VideoEmbed videoId="6jc9QVVUC8Q" title="TRU Campus Tour 2024" autoplay />
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       <IconFeatureRow
-        title="Why Masomo Now"
+        title="Why Choose Masomo Now?"
         features={[
-          { icon: '🛂', title: 'RCIC Licensed', description: 'Licensed visa & study permit support for Canada, UK, and Australia.' },
-          { icon: '🍁', title: 'FMC Pathway', description: 'A dedicated francophone route to studying in Canada.' },
-          { icon: '📍', title: 'On The Ground', description: 'In-person seminars across East Africa, not just online.' },
-          { icon: '🤝', title: 'End-to-End Support', description: 'From first inquiry to arrival on campus.' },
+          { icon: '🛂', title: 'RCIC Licensed Support', description: 'Professional immigration guidance backed by licensed Canadian consultants.' },
+          { icon: '🎓', title: 'Trusted Partner Institutions', description: 'Study at carefully selected colleges and universities across five countries.' },
+          { icon: '🎯', title: 'Personalized Guidance', description: 'Every student receives advice tailored to their goals, budget, and academic background.' },
+          { icon: '🤝', title: 'End-to-End Support', description: 'From your first consultation until you settle into your new campus.' },
         ]}
       />
 
@@ -199,45 +131,11 @@ export default function HomePage() {
         </section>
       </Reveal>
 
-      <ScrollCarouselModal eyebrow="More about us" title="What makes Masomo Now different" items={whyMasomoNow} />
-
-      <TextImageSplit
-        image="/images/seminars/seminar-5.webp"
-        alt="Students respond to a live poll during a school seminar on studying abroad"
-        title="We show up in person, not just online"
-        imageSide="right"
-        cta={<Link to="/about#seminars" className="text-brand-blue text-sm font-bold hover:underline">See our recent seminars →</Link>}
-      >
-        <p>Our counselors run in-person seminars in schools and community halls across East Africa — walking students through real pathways abroad face to face, alongside partners like Northern Lights College.</p>
-      </TextImageSplit>
-
-      {/* Our network */}
-      <Reveal>
-        <section className="py-16 px-6 border-t border-b border-gray-200">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Our Network</p>
-            <h2 className="font-serif text-3xl text-navy mb-10">Part of a real, verified network</h2>
-            <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
-              {networkItems.map((item, i) => (
-                <details key={item.title} open={i === 0} className="py-5 group">
-                  <summary className="flex items-center justify-between font-bold text-navy">
-                    {item.title}
-                    <svg className="chev w-5 h-5 text-brand-gold transition-transform flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                    </svg>
-                  </summary>
-                  <p className="text-gray-600 mt-3 text-[15px] leading-relaxed">{item.body}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       {/* Partner marquee */}
       <section className="py-14 border-y border-gray-200 overflow-hidden bg-gray-50">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-500 mb-8">Our Real Partner Institutions</p>
-        <div className="flex whitespace-nowrap marquee-track">
+        <p className="text-center font-serif text-2xl text-navy mb-1">Our Partners</p>
+        <p className="text-center text-sm text-gray-500 mb-8">We proudly work with 16 trusted institutions across Canada, the United States, Ireland, Germany, and Poland.</p>
+        <div className="flex whitespace-nowrap marquee-track mb-8">
           {[0, 1].map((rep) => (
             <div key={rep} className="flex items-center gap-14 pr-14" aria-hidden={rep === 1}>
               {partnerMarquee.map((name) => (
@@ -246,18 +144,16 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+        <p className="text-center">
+          <Link to="/destinations" className="text-sm font-bold text-brand-blue hover:underline">View All Partner Institutions →</Link>
+        </p>
       </section>
-
-      <FactsBand
-        dark
-        facts={realFacts}
-      />
 
       {/* Recent students */}
       <Reveal>
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-serif text-3xl text-navy mb-10">Recent students</h2>
+            <h2 className="font-serif text-3xl text-navy mb-10">Student Success Stories</h2>
             <div className="flex gap-5 overflow-x-auto pb-2">
               {testimonials.map((t) => (
                 <div key={t.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
@@ -275,8 +171,8 @@ export default function HomePage() {
       <Reveal>
         <section className="py-20 px-6 bg-navy text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="font-serif text-3xl text-white mb-3">Ready to get started?</h2>
-            <p className="text-white/70 mb-8">Book a free consultation and we'll tell you exactly what your next step should be.</p>
+            <h2 className="font-serif text-3xl text-white mb-3">Ready to Study Abroad?</h2>
+            <p className="text-white/70 mb-8">Book a free consultation with one of our advisors and receive a personalized study pathway based on your academic goals.</p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Button to="/consultation" variant="primary">Book Free Consultation</Button>
               <Button to="/pathway-finder" variant="outline">Find Your Pathway →</Button>
