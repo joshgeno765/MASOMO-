@@ -77,6 +77,40 @@ export default function FMCPilotPage() {
         </div>
       </section>
 
+      {/* Two streams clarification */}
+      <section className="py-16 px-6 border-b border-gray-200 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-2xl text-navy mb-2">Two francophone pathways to Canada</h2>
+          <p className="text-gray-600 text-base mb-8 max-w-2xl">
+            "Francophone" immigration to Canada actually covers two separate streams. Make sure you're looking at the right one.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white border-2 border-navy rounded-lg p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">This page covers</p>
+              <h3 className="font-bold text-navy text-lg mb-2">Student Mobility — FMC Student Pilot</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                A <strong>study permit</strong> pathway for francophone students enrolling in a French-language program at a participating institution outside Quebec. This is what Masomo Now specializes in — no job offer required.
+              </p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">A separate stream</p>
+              <h3 className="font-bold text-navy text-lg mb-2">Work Permit Mobility</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                An LMIA-exempt <strong>work permit</strong> (code C16) for francophone workers who already have a job offer from a Canadian employer outside Quebec. No school or study permit involved.
+              </p>
+              <a
+                href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/special-instructions/francophone-mobility.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-blue text-sm font-bold hover:underline"
+              >
+                Official IRCC page ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who is this for */}
       <section className="py-16 px-6 border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
