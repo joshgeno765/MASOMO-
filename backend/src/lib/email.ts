@@ -35,7 +35,7 @@ export async function sendNewLeadEmail(lead: {
             ${lead.message ? `<tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6;vertical-align:top">Message</td><td style="padding:8px 0;border-top:1px solid #f3f4f6;color:#374151">${lead.message}</td></tr>` : ''}
           </table>
           <div style="margin-top:20px">
-            <a href="https://masomojoshua.netlify.app/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
+            <a href="https://masomonow.com/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
               View in Dashboard →
             </a>
           </div>
@@ -91,7 +91,7 @@ export async function sendNewPathwayResultEmail(lead: {
             <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Timeline</td><td style="padding:8px 0;border-top:1px solid #f3f4f6">${q.timeline}</td></tr>
           </table>
           <div style="margin-top:20px">
-            <a href="https://masomojoshua.netlify.app/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
+            <a href="https://masomonow.com/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
               View in Dashboard →
             </a>
           </div>
@@ -141,7 +141,7 @@ export async function sendNewAppointmentEmail(appointment: {
             ${appointment.notes ? `<tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6;vertical-align:top">Notes</td><td style="padding:8px 0;border-top:1px solid #f3f4f6;color:#374151">${appointment.notes}</td></tr>` : ''}
           </table>
           <div style="margin-top:20px">
-            <a href="https://masomojoshua.netlify.app/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
+            <a href="https://masomonow.com/admin/leads" style="background:#0B2545;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">
               View in Dashboard →
             </a>
           </div>

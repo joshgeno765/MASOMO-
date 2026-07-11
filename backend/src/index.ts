@@ -53,20 +53,6 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'Masomo Now API', version: '1.0.0' })
 })
 
-// Temporary diagnostic endpoint — shows DB state without exposing sensitive data
-app.get('/debug', async (_req, res) => {
-  try {
-    const userCount = await prisma.user.count()
-    const admin = await prisma.user.findUnique({
-      where: { email: 'admin@masomonow.com' },
-      select: { id: true, email: true, role: true, isActive: true, createdAt: true },
-    })
-    res.json({ db: 'connected', userCount, admin: admin ?? 'NOT FOUND' })
-  } catch (e) {
-    res.status(500).json({ db: 'error', error: String(e) })
-  }
-})
-
 app.use('/api/auth', authRouter)
 app.use('/api/leads', leadsRouter)
 app.use('/api/users', usersRouter)

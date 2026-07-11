@@ -1,114 +1,92 @@
 # Masomo Now — Student Management Platform
-## Phase 1: Website + CRM
 
-Built by Joshua Geno | Deadline: July 15, 2026
-
----
+International education consultancy site + admin CRM for **Masomo Now**, the francophone-Africa division of ELIMU International Education Connections. Live at [masomonow.com](https://masomonow.com).
 
 ## Project Structure
 
 ```
 masomo-now/
-├── frontend/          # React 18 + TypeScript + Tailwind CSS
-├── backend/           # Node.js + Express + TypeScript
+├── frontend/          # React 18 + TypeScript + Vite + Tailwind CSS — deployed to Netlify
+├── backend/           # Node.js + Express + TypeScript + Prisma + SQLite — deployed to Railway
+├── docs/
+│   ├── DEPLOYMENT.md       # architecture, env vars, redeploy process
+│   ├── STAFF_GUIDE.md      # how to use the admin CRM
+│   └── LAUNCH_CHECKLIST.md # go-live readiness checklist
 └── README.md
 ```
 
----
+## Live Site
 
-## Quick Start
+| | |
+|---|---|
+| Public site | https://masomonow.com (Netlify) |
+| Staff login | https://masomonow.com/login |
+| API | https://masomo-production.up.railway.app (Railway) |
+
+Pushing to `main` triggers an automatic redeploy on both Netlify and Railway — there's no manual deploy step. See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for details.
+
+## Public Routes
+
+`/`, `/about`, `/destinations`, `/fmc-pilot`, `/pathway-finder`, `/services`, `/consultation`, `/privacy`, `/terms`
+
+## Admin Routes (require login)
+
+`/admin` (dashboard), `/admin/leads`, `/admin/consultations`, `/admin/users`
+
+See [`docs/STAFF_GUIDE.md`](docs/STAFF_GUIDE.md) for how to use these.
+
+## Local Development
 
 ### 1. Prerequisites
-Make sure you have installed:
-- Node.js v18+ → https://nodejs.org
-- MySQL 8 → https://dev.mysql.com/downloads/
-- Git → https://git-scm.com
+- Node.js v18+
+- Git
 
-### 2. Clone & Install
+No external database server is needed — the backend uses SQLite, which is just a file on disk.
+
+### 2. Install dependencies
 
 ```bash
-# Install frontend dependencies
-cd frontend
-npm install
-
-# Install backend dependencies
-cd ../backend
-npm install
+cd frontend && npm install
+cd ../backend && npm install
 ```
 
-### 3. Set Up the Database
+### 3. Configure environment variables
 
-Open MySQL and run:
-```sql
-CREATE DATABASE masomo_now;
-CREATE USER 'masomo'@'localhost' IDENTIFIED BY 'yourpassword';
-GRANT ALL PRIVILEGES ON masomo_now.* TO 'masomo'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-### 4. Configure Environment Variables
-
-**Backend** — copy and edit:
 ```bash
-cd backend
-cp .env.example .env
-# Edit .env with your MySQL credentials
+cd backend && cp .env.example .env
+cd ../frontend && cp .env.example .env
 ```
 
-**Frontend** — copy and edit:
-```bash
-cd frontend
-cp .env.example .env
-```
+Defaults in `.env.example` work out of the box for local dev (SQLite file, `localhost` URLs). See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for what each variable does.
 
-### 5. Run Database Migrations
+### 4. Set up the database
 
 ```bash
 cd backend
-npx prisma migrate dev --name init
-npx prisma db seed
+npx prisma migrate dev
+npm run db:seed
 ```
 
-### 6. Start Development Servers
+This creates `admin@masomonow.com` as a seed admin account (see `backend/prisma/seed.ts` for the password — rotate it after first login in any real deployment).
 
-Open two terminals:
+### 5. Run both dev servers
 
-**Terminal 1 — Backend:**
 ```bash
-cd backend
-npm run dev
-# Runs on http://localhost:5000
+# Terminal 1
+cd backend && npm run dev   # http://localhost:5000
+
+# Terminal 2
+cd frontend && npm run dev  # http://localhost:5173
 ```
-
-**Terminal 2 — Frontend:**
-```bash
-cd frontend
-npm run dev
-# Runs on http://localhost:5173
-```
-
-Open http://localhost:5173 in your browser. Done!
-
----
-
-## Week 1 Pages Built
-- `/` — Home Page
-- `/about` — About Page  
-- `/contact` — Contact Page (wired to backend)
-
-## API Endpoints (Week 1)
-- `POST /api/leads` — Submit inquiry from contact form
-- `GET /api/leads` — List all leads (admin only)
-- `GET /health` — Health check
-
----
 
 ## Tech Stack
+
 | Layer | Technology |
 |-------|-----------|
-| Frontend | React 18, TypeScript, Tailwind CSS, React Router v6 |
+| Frontend | React 18, TypeScript, Tailwind CSS, React Router v6, Vite |
 | Backend | Node.js, Express, TypeScript |
-| Database | MySQL 8, Prisma ORM |
-| Auth | JWT (Week 3) |
-| Email | Nodemailer (Week 2) |
-| Hosting | DigitalOcean |
+| Database | SQLite, Prisma ORM |
+| Auth | JWT |
+| Email | Resend / Nodemailer (lead + consultation notifications) |
+| Hosting | Netlify (frontend), Railway (backend) |
+| Domain | GoDaddy (registrar) → Netlify (DNS) |
