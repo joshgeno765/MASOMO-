@@ -49,18 +49,8 @@ export default function HomePage() {
         ctaTo="/pathway-finder"
         secondaryTitle="Work in Canada"
         secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required, no study permit required."
-        secondaryCtaLabel="Explore Work Permit →"
+        secondaryCtaLabel="Explore Immigration Pathway →"
         secondaryCtaTo="/fmc-pilot"
-        secondaryChildren={
-          <a
-            href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/special-instructions/francophone-mobility.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/80 text-sm font-semibold hover:underline"
-          >
-            Official IRCC page ↗
-          </a>
-        }
         height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
         <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">

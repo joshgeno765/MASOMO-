@@ -14,12 +14,11 @@ interface PhotoHeroProps {
   secondarySubtitle?: string
   secondaryCtaLabel?: string
   secondaryCtaTo?: string
-  secondaryChildren?: ReactNode
   height?: string
   children?: ReactNode
 }
 
-export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
+export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
   const slides = images && images.length > 0 ? images : image ? [image] : []
   const [active, setActive] = useState(0)
   const [loaded, setLoaded] = useState<number[]>([0])
@@ -80,10 +79,7 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
                 <div>
                   <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight mb-3">{secondaryTitle}</h1>
                   {secondarySubtitle && <p className="text-white/80 text-base md:text-lg mb-6">{secondarySubtitle}</p>}
-                  <div className="flex flex-wrap items-center gap-4">
-                    {secondaryCtaLabel && secondaryCtaTo && <Button to={secondaryCtaTo} variant="outline">{secondaryCtaLabel}</Button>}
-                    {secondaryChildren}
-                  </div>
+                  {secondaryCtaLabel && secondaryCtaTo && <Button to={secondaryCtaTo} variant="outline">{secondaryCtaLabel}</Button>}
                 </div>
               </div>
               {children && <div className="flex flex-wrap items-center gap-4 mt-8">{children}</div>}
