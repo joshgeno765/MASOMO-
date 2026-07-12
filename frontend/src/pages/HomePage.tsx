@@ -54,15 +54,15 @@ export default function HomePage() {
         height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
         <Button to="/consultation" variant="outline">Book Free Consultation</Button>
-        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+        <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🇨🇦 Canadian Licensed Support
-        </span>
-        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+        </Link>
+        <Link to="/destinations" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🎓 16 Partner Institutions
-        </span>
-        <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
+        </Link>
+        <Link to="/destinations" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🌍 5 Study Destinations
-        </span>
+        </Link>
       </PhotoHero>
 
       <TextImageSplit
