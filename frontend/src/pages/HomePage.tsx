@@ -48,20 +48,13 @@ export default function HomePage() {
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
         secondaryTitle="Work in Canada"
-        secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no study permit required."
+        secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required, no study permit required."
         secondaryCtaLabel="Explore Work Permit →"
         secondaryCtaTo="/fmc-pilot"
         height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
-        <Button to="/consultation" variant="outline">Book Free Consultation</Button>
         <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🇨🇦 Canadian Licensed Support
-        </Link>
-        <Link to="/destinations" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
-          🎓 16 Partner Institutions
-        </Link>
-        <Link to="/destinations" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
-          🌍 5 Study Destinations
         </Link>
       </PhotoHero>
 
