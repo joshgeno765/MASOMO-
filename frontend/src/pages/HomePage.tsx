@@ -52,14 +52,9 @@ export default function HomePage() {
         secondaryCtaLabel="Explore Immigration Pathway →"
         secondaryCtaTo="/fmc-pilot"
         secondaryChildren={
-          <a
-            href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/special-instructions/francophone-mobility.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/80 text-sm font-semibold hover:underline"
-          >
-            Explore Work Permit ↗
-          </a>
+          <Link to="/fmc-pilot" className="text-white/80 text-sm font-semibold hover:underline">
+            Explore Work Permit →
+          </Link>
         }
         height="h-[75vh] min-h-[520px] max-h-[700px]"
       >
