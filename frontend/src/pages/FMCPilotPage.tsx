@@ -4,7 +4,7 @@ import Button from '../components/ui/Button'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
 const eligibilityPoints = [
-  { icon: '🌍', title: 'Francophone country of origin', description: 'A citizen or resident of a francophone country — Rwanda, DR Congo, Djibouti, Cameroon, and others.' },
+  { icon: '🌍', title: 'Francophone country of origin', description: 'A citizen or resident of an eligible francophone country.' },
   { icon: '🎓', title: 'Accepted at a participating institution', description: 'An admission letter from a participating institution outside Quebec.' },
   { icon: '🗣️', title: 'French-language program', description: 'Your program of study is delivered primarily in French.' },
   { icon: '📋', title: 'Standard IRCC requirements', description: 'Standard study permit requirements: proof of finances, health, and character.' },

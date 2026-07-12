@@ -130,7 +130,7 @@ export default function StudyDestinationsPage() {
         alt="Thompson Rivers University campus entrance"
         eyebrow="Study Destinations"
         title="Where will you study abroad?"
-        subtitle="We work with students from Rwanda, DR Congo, and Djibouti to secure admission at top institutions across five countries."
+        subtitle="We work with Francophone African students to secure admission at top institutions across five countries."
       />
 
       {/* Featured partner video — BCIT */}

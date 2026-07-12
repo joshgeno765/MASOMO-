@@ -46,7 +46,7 @@ export default function LoginPage() {
         <div className="relative flex flex-col justify-end h-full px-12 pb-16 max-w-xl">
           <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">Masomo Now — Staff Portal</p>
           <h1 className="font-serif text-3xl lg:text-4xl text-white leading-tight mb-4">
-            Guiding students from Rwanda, DR Congo, and Djibouti to campuses abroad
+            Guiding Francophone African students to campuses abroad
           </h1>
           <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white w-fit">
             🛂 RCIC Licensed

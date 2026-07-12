@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import Button from '../components/ui/Button'
 import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
@@ -120,15 +119,6 @@ export default function AboutPage() {
           <p className="text-white/70 text-lg leading-relaxed">
             Our advisors work closely with licensed immigration professionals to provide personalized guidance from your first inquiry until you arrive at your destination.
           </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-4xl text-navy mb-4">Speak With a Real Advisor</h2>
-          <p className="text-gray-600 text-lg mb-8">Receive honest advice and discover the study pathway that's right for you.</p>
-          <Button to="/consultation">Book Free Consultation</Button>
         </div>
       </section>
     </>

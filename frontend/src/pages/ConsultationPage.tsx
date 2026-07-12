@@ -119,13 +119,12 @@ export default function ConsultationPage() {
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
         eyebrow="Book a Consultation"
         title="Book your free consultation"
-        subtitle="Pick a date and time that works for you — a Rwanda-based counselor will call you to talk through your options."
+        subtitle="Pick a date and time that works for you — one of our counselors will call you to talk through your options."
         height="h-[55vh] min-h-[380px] max-h-[520px]"
       >
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
           <span>info@masomonow.com</span>
           <span>+1 778 846 8953</span>
-          <span>Kigali, Rwanda — also serving DRC &amp; Djibouti</span>
         </div>
       </PhotoHero>
 
