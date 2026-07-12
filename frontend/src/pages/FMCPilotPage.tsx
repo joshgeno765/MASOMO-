@@ -79,14 +79,28 @@ export default function FMCPilotPage() {
       {/* Two pathways */}
       <section className="py-16 px-6 border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl text-navy mb-8">Two Pathways</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="font-serif text-2xl text-navy mb-8">Two Pathways — Study or Work</h2>
+          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-stretch">
             <div className="bg-white border-2 border-navy rounded-lg p-6">
               <h3 className="font-bold text-navy text-lg mb-2">FMC Student Pilot</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 For students who want to study in Canada. No job offer required.
               </p>
             </div>
+
+            <div>
+              <div className="flex items-center gap-3 md:hidden">
+                <span className="flex-1 h-px bg-gray-300" />
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
+                <span className="flex-1 h-px bg-gray-300" />
+              </div>
+              <div className="hidden md:flex flex-col items-center gap-3 h-full">
+                <span className="flex-1 w-px bg-gray-300" />
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
+                <span className="flex-1 w-px bg-gray-300" />
+              </div>
+            </div>
+
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="font-bold text-navy text-lg mb-2">Francophone Mobility Work Permit</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-3">
