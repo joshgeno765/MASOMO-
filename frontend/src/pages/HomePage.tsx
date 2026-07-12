@@ -36,7 +36,7 @@ export default function HomePage() {
   return (
     <>
       <div className="bg-brand-gold text-navy text-center py-2.5 px-4 text-sm font-semibold">
-        Francophone students from Africa may qualify for Canada's FMC Student Pilot —{' '}
+        Francophone Minority Community Student Pilot (FMCSP) —{' '}
         <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-navy/70">Check your eligibility</Link>
       </div>
 
