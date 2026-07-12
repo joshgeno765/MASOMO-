@@ -67,18 +67,18 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
                 <div>
                   <div className="flex items-center gap-3 md:hidden">
                     <span className="flex-1 h-px bg-white/30" />
-                    <span className="text-xs font-bold text-white/60 uppercase tracking-widest">Or</span>
+                    <span className="text-xs font-bold text-white uppercase tracking-widest">Or</span>
                     <span className="flex-1 h-px bg-white/30" />
                   </div>
                   <div className="hidden md:flex flex-col items-center gap-3 h-full">
                     <span className="flex-1 w-px bg-white/30" />
-                    <span className="text-xs font-bold text-white/60 uppercase tracking-widest">Or</span>
+                    <span className="text-xs font-bold text-white uppercase tracking-widest">Or</span>
                     <span className="flex-1 w-px bg-white/30" />
                   </div>
                 </div>
 
                 <div>
-                  <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight mb-3">{secondaryTitle}</h1>
+                  <h2 className="font-serif text-3xl md:text-5xl text-white leading-tight mb-3">{secondaryTitle}</h2>
                   {secondarySubtitle && <p className="text-white/80 text-base md:text-lg mb-6">{secondarySubtitle}</p>}
                   <div className="flex flex-wrap items-center gap-4">
                     {secondaryCtaLabel && secondaryCtaTo && <Button to={secondaryCtaTo} variant="outline">{secondaryCtaLabel}</Button>}

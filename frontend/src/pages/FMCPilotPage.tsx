@@ -91,12 +91,12 @@ export default function FMCPilotPage() {
             <div>
               <div className="flex items-center gap-3 md:hidden">
                 <span className="flex-1 h-px bg-gray-300" />
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
+                <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">Or</span>
                 <span className="flex-1 h-px bg-gray-300" />
               </div>
               <div className="hidden md:flex flex-col items-center gap-3 h-full">
                 <span className="flex-1 w-px bg-gray-300" />
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
+                <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">Or</span>
                 <span className="flex-1 w-px bg-gray-300" />
               </div>
             </div>
