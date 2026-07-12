@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FMC_ELIGIBLE_COUNTRIES, FMC_INSTITUTIONS } from '../data/destinations'
+import { FMC_ELIGIBLE_COUNTRIES } from '../data/destinations'
 import Button from '../components/ui/Button'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
@@ -150,39 +150,6 @@ export default function FMCPilotPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Institutions */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-3">Participating Institutions</h2>
-          <p className="text-gray-500 mb-10 max-w-2xl">
-            French-language institutions across Canada, outside Quebec.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FMC_INSTITUTIONS.map((group) => (
-              <div key={group.province}>
-                <h3 className="font-bold text-navy text-sm uppercase tracking-wide mb-3 border-b border-gray-200 pb-2">{group.province}</h3>
-                <ul className="space-y-2">
-                  {group.schools.map((school) => (
-                    <li key={school.name} className="text-sm text-gray-600">{school.name}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <p className="text-sm text-gray-500 mt-8">
-            This list is regularly updated. {' '}
-            <a
-              href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/fmc-student-pilot/eligibility.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-blue hover:underline"
-            >
-              See the official IRCC list ↗
-            </a>
-          </p>
         </div>
       </section>
 
