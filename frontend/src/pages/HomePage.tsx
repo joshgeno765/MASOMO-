@@ -48,7 +48,7 @@ export default function HomePage() {
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
         secondaryTitle="Work in Canada"
-        secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required, no study permit required."
+        secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required."
         secondaryCtaLabel="Explore Immigration Pathway →"
         secondaryCtaTo="/fmc-pilot"
         secondaryChildren={
