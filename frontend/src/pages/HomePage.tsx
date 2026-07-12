@@ -35,9 +35,9 @@ const partnerMarquee = [
 export default function HomePage() {
   return (
     <>
-      <div className="bg-brand-gold text-white text-center py-2.5 px-4 text-sm font-semibold">
+      <div className="bg-brand-gold text-black text-center py-2.5 px-4 text-sm font-semibold">
         Francophone Minority Community Student Pilot (FMCSP) —{' '}
-        <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-white/70">Check your eligibility</Link>
+        <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">Check your eligibility</Link>
       </div>
 
       <PhotoHero
