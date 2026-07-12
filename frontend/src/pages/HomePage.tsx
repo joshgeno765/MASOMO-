@@ -44,7 +44,7 @@ export default function HomePage() {
         images={['/images/seminars/seminar-2.webp', '/images/seminars/seminar-3.webp', '/images/seminars/seminar-4.webp']}
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
         title="Study Abroad"
-        subtitle="Helping Francophone African students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed guidance."
+        subtitle="Helping international students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed guidance."
         ctaLabel="Find Your Pathway →"
         ctaTo="/pathway-finder"
         height="h-[75vh] min-h-[520px] max-h-[700px]"
