@@ -59,56 +59,12 @@ export default function HomePage() {
         <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white">
           🌍 5 Study Destinations
         </span>
+        <div className="w-full flex items-center gap-3 pt-2">
+          <Link to="/pathway-finder?ref=fmc-pilot" className="text-white text-sm font-semibold hover:underline">🎓 Study — FMC Student Pilot</Link>
+          <span className="text-white/50 text-xs font-bold uppercase tracking-widest">Or</span>
+          <Link to="/fmc-pilot" className="text-white text-sm font-semibold hover:underline">💼 Work — Francophone Mobility Permit</Link>
+        </div>
       </PhotoHero>
-
-      {/* Two Pathways: Study or Work */}
-      <Reveal>
-        <section className="py-16 px-6 border-b border-gray-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="max-w-2xl mb-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Francophone Pathways</p>
-              <h2 className="font-serif text-3xl text-navy">Two Pathways — Study or Work</h2>
-            </div>
-            <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-stretch">
-              <div className="bg-white border-2 border-navy rounded-lg p-6">
-                <h3 className="font-bold text-navy text-lg mb-2">FMC Student Pilot</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                  For students who want to study in Canada. No job offer required.
-                </p>
-                <Link to="/fmc-pilot" className="text-brand-blue text-sm font-bold hover:underline">Learn more →</Link>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 md:hidden">
-                  <span className="flex-1 h-px bg-gray-300" />
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
-                  <span className="flex-1 h-px bg-gray-300" />
-                </div>
-                <div className="hidden md:flex flex-col items-center gap-3 h-full">
-                  <span className="flex-1 w-px bg-gray-300" />
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Or</span>
-                  <span className="flex-1 w-px bg-gray-300" />
-                </div>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 className="font-bold text-navy text-lg mb-2">Francophone Mobility Work Permit</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-3">
-                  For skilled workers who already have a Canadian job offer. No study permit required.
-                </p>
-                <a
-                  href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/special-instructions/francophone-mobility.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-blue text-sm font-bold hover:underline"
-                >
-                  Official IRCC page ↗
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
