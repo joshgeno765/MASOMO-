@@ -47,7 +47,7 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
-      <div className="relative h-full flex items-end">
+      <div className="relative h-full flex items-center">
         <div className="max-w-6xl mx-auto w-full px-6 pb-12 md:pb-16">
           <div className="max-w-xl">
             {eyebrow && <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">{eyebrow}</p>}
