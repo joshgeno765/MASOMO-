@@ -124,7 +124,7 @@ export default function ConsultationPage() {
       >
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
           <span>info@masomonow.com</span>
-          <span>+1 778 846 8953</span>
+          <span>+250 793 412 612</span>
         </div>
       </PhotoHero>
 

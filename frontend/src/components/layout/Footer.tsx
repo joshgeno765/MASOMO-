@@ -19,9 +19,11 @@ export default function Footer() {
               International education consultancy helping Francophone African students access world-class institutions abroad — with a focus on Canadian francophone pathways.
             </p>
             <div className="flex gap-2 text-xs flex-wrap">
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇨🇦 Vancouver</span>
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇰🇪 Nairobi</span>
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇷🇼 Kigali</span>
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇪🇹 Jijiga</span>
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇩🇪 Bonn</span>
             </div>
           </div>
 
