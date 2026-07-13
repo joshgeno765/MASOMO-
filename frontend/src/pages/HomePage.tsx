@@ -177,17 +177,18 @@ export default function HomePage() {
 
       {/* Graduation */}
       <Reveal>
-        <section className="relative h-80 overflow-hidden">
-          <img
-            src="/images/team/graduation-1.webp"
-            alt="A Masomo Now / ELIMU student at their Canadian convocation"
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
-          <p className="absolute bottom-6 left-6 right-6 text-white text-sm font-medium max-w-md">
-            A Masomo Now / ELIMU student at their Canadian convocation.
-          </p>
+        <section className="py-16 px-6 bg-gray-50">
+          <figure className="max-w-sm mx-auto rounded-2xl overflow-hidden shadow-sm">
+            <img
+              src="/images/team/graduation-1.webp"
+              alt="A Masomo Now / ELIMU student at their Canadian convocation"
+              loading="lazy"
+              className="w-full h-96 object-cover object-top"
+            />
+            <figcaption className="bg-white px-5 py-4 text-sm text-gray-600 text-center">
+              A Masomo Now / ELIMU student at their Canadian convocation.
+            </figcaption>
+          </figure>
         </section>
       </Reveal>
 
