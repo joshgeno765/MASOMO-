@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider, useAuth } from './context/AuthContext'
 
@@ -19,6 +19,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const TermsOfUsePage = lazy(() => import('./pages/TermsOfUsePage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
+const ChangePasswordPage = lazy(() => import('./pages/admin/ChangePasswordPage'))
 const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
 const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
 const ConsultationsPage = lazy(() => import('./pages/admin/ConsultationsPage'))
@@ -34,8 +35,12 @@ function PageLoader() {
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth()
+  const location = useLocation()
   if (isLoading) return <PageLoader />
   if (!user) return <Navigate to="/login" replace />
+  if (user.mustChangePassword && location.pathname !== '/admin/change-password') {
+    return <Navigate to="/admin/change-password" replace />
+  }
   return <>{children}</>
 }
 
@@ -70,6 +75,9 @@ export default function App() {
               <Route path="/login" element={<LoginPage />} />
               {/* /admin/login is the natural URL people actually type/bookmark */}
               <Route path="/admin/login" element={<Navigate to="/login" replace />} />
+
+              {/* Forced password change — outside AdminLayout so there's no sidebar to escape through */}
+              <Route path="/admin/change-password" element={<RequireAuth><ChangePasswordPage /></RequireAuth>} />
 
               {/* Admin portal */}
               <Route

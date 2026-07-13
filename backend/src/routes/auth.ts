@@ -12,6 +12,11 @@ const loginSchema = z.object({
   password: z.string().min(1),
 })
 
+const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1),
+  newPassword: z.string().min(8, 'New password must be at least 8 characters'),
+})
+
 // POST /api/auth/login
 router.post('/login', async (req: Request, res: Response) => {
   try {
@@ -40,7 +45,7 @@ router.post('/login', async (req: Request, res: Response) => {
       success: true,
       data: {
         token,
-        user: { id: user.id, email: user.email, role: user.role },
+        user: { id: user.id, email: user.email, role: user.role, mustChangePassword: user.mustChangePassword },
       },
     })
   } catch (error) {
@@ -57,7 +62,7 @@ router.get('/me', requireAuth, async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user!.id },
-      select: { id: true, email: true, role: true, isActive: true },
+      select: { id: true, email: true, role: true, isActive: true, mustChangePassword: true },
     })
     if (!user) {
       return res.status(404).json({ success: false, error: 'User not found' })
@@ -65,6 +70,32 @@ router.get('/me', requireAuth, async (req: Request, res: Response) => {
     return res.json({ success: true, data: user })
   } catch {
     return res.status(500).json({ success: false, error: 'Failed to fetch user' })
+  }
+})
+
+// POST /api/auth/change-password — self-service, also clears the forced-change flag
+router.post('/change-password', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { currentPassword, newPassword } = changePasswordSchema.parse(req.body)
+
+    const user = await prisma.user.findUnique({ where: { id: req.user!.id } })
+    if (!user) return res.status(404).json({ success: false, error: 'User not found' })
+
+    const valid = await bcrypt.compare(currentPassword, user.password)
+    if (!valid) return res.status(401).json({ success: false, error: 'Current password is incorrect' })
+
+    const hashed = await bcrypt.hash(newPassword, 10)
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { password: hashed, mustChangePassword: false },
+    })
+
+    return res.json({ success: true, message: 'Password updated successfully' })
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({ success: false, error: error.errors[0].message })
+    }
+    return res.status(500).json({ success: false, error: 'Failed to change password' })
   }
 })
 

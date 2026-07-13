@@ -15,6 +15,7 @@ model User {
   password  String
   role      String   @default("STUDENT")
   isActive  Boolean  @default(true)
+  mustChangePassword Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

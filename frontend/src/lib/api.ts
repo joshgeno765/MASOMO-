@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData, PathwayFinderSubmission } from '../types'
+import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData, PathwayFinderSubmission, User } from '../types'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
@@ -33,12 +33,17 @@ export async function submitPathwayResult(data: PathwayFinderSubmission): Promis
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
 export async function login(email: string, password: string) {
-  const res = await api.post<ApiResponse<{ token: string; user: { id: number; email: string; role: string } }>>('/api/auth/login', { email, password })
+  const res = await api.post<ApiResponse<{ token: string; user: User }>>('/api/auth/login', { email, password })
   return res.data
 }
 
 export async function getMe() {
-  const res = await api.get<ApiResponse<{ id: number; email: string; role: string }>>('/api/auth/me')
+  const res = await api.get<ApiResponse<User>>('/api/auth/me')
+  return res.data
+}
+
+export async function changePassword(currentPassword: string, newPassword: string) {
+  const res = await api.post<ApiResponse<null>>('/api/auth/change-password', { currentPassword, newPassword })
   return res.data
 }
 
