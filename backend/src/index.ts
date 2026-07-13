@@ -2,16 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import dotenv from 'dotenv'
-import { execSync } from 'child_process'
 import { rateLimit } from 'express-rate-limit'
 
-import bcrypt from 'bcryptjs'
 import leadsRouter from './routes/leads'
 import authRouter from './routes/auth'
 import usersRouter from './routes/users'
 import appointmentsRouter from './routes/appointments'
 import pathwayFinderRouter from './routes/pathwayFinder'
-import prisma from './lib/prisma'
 
 dotenv.config()
 
@@ -71,34 +68,12 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 })
 
 // ── Start ─────────────────────────────────────────────────────────────────────
-async function start() {
-  // 1. Run database migrations (creates tables if they don't exist)
-  try {
-    execSync('./node_modules/.bin/prisma migrate deploy', { stdio: 'inherit' })
-    console.log('Database migrations applied')
-  } catch (e) {
-    console.error('Migration failed:', e)
-    // Do not exit — tables may already exist from a previous run
-  }
-
-  // 2. Ensure admin account always exists with the correct password
-  try {
-    const hash = await bcrypt.hash('Admin@Masomo2025', 10)
-    await prisma.user.upsert({
-      where: { email: 'admin@masomonow.com' },
-      update: { password: hash },
-      create: { email: 'admin@masomonow.com', password: hash, role: 'ADMIN' },
-    })
-    console.log('Admin account ready')
-  } catch (e) {
-    console.error('Failed to create admin user:', e)
-  }
-
-  app.listen(PORT, () => {
-    console.log(`Masomo Now API running on port ${PORT}`)
-  })
-}
-
-start()
+// Migrations and the initial admin account are handled by railway.json's
+// startCommand (prisma migrate deploy && node prisma/seed.js) before this
+// process even starts — doing it again here used to silently overwrite
+// admin@masomonow.com's password back to a hardcoded default on every boot.
+app.listen(PORT, () => {
+  console.log(`Masomo Now API running on port ${PORT}`)
+})
 
 export default app
