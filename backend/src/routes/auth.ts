@@ -17,6 +17,15 @@ const changePasswordSchema = z.object({
   newPassword: z.string().min(8, 'New password must be at least 8 characters'),
 })
 
+const updateProfileSchema = z.object({
+  firstName: z.string().trim().min(1).max(60).optional(),
+  lastName: z.string().trim().min(1).max(60).optional(),
+  gender: z.string().trim().max(40).optional(),
+  // Data URI for a resized/compressed photo — capped well under Postgres's
+  // limits, generous enough for a few hundred KB of base64 image data.
+  avatarUrl: z.string().max(2_000_000).optional(),
+})
+
 // POST /api/auth/login
 router.post('/login', async (req: Request, res: Response) => {
   try {
@@ -45,7 +54,10 @@ router.post('/login', async (req: Request, res: Response) => {
       success: true,
       data: {
         token,
-        user: { id: user.id, email: user.email, role: user.role, mustChangePassword: user.mustChangePassword },
+        user: {
+          id: user.id, email: user.email, role: user.role, mustChangePassword: user.mustChangePassword,
+          firstName: user.firstName, lastName: user.lastName, gender: user.gender, avatarUrl: user.avatarUrl,
+        },
       },
     })
   } catch (error) {
@@ -62,7 +74,10 @@ router.get('/me', requireAuth, async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user!.id },
-      select: { id: true, email: true, role: true, isActive: true, mustChangePassword: true },
+      select: {
+        id: true, email: true, role: true, isActive: true, mustChangePassword: true,
+        firstName: true, lastName: true, gender: true, avatarUrl: true,
+      },
     })
     if (!user) {
       return res.status(404).json({ success: false, error: 'User not found' })
@@ -96,6 +111,34 @@ router.post('/change-password', requireAuth, async (req: Request, res: Response)
       return res.status(400).json({ success: false, error: error.errors[0].message })
     }
     return res.status(500).json({ success: false, error: 'Failed to change password' })
+  }
+})
+
+// PATCH /api/auth/profile — self-service: name, gender, avatar
+router.patch('/profile', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const validated = updateProfileSchema.parse(req.body)
+
+    const user = await prisma.user.update({
+      where: { id: req.user!.id },
+      data: {
+        ...(validated.firstName !== undefined && { firstName: validated.firstName }),
+        ...(validated.lastName !== undefined && { lastName: validated.lastName }),
+        ...(validated.gender !== undefined && { gender: validated.gender }),
+        ...(validated.avatarUrl !== undefined && { avatarUrl: validated.avatarUrl }),
+      },
+      select: {
+        id: true, email: true, role: true, isActive: true, mustChangePassword: true,
+        firstName: true, lastName: true, gender: true, avatarUrl: true,
+      },
+    })
+
+    return res.json({ success: true, data: user, message: 'Profile updated' })
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({ success: false, error: error.errors[0].message })
+    }
+    return res.status(500).json({ success: false, error: 'Failed to update profile' })
   }
 })
 

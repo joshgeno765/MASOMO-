@@ -68,6 +68,10 @@ export interface User {
   email: string
   role: string
   mustChangePassword?: boolean
+  firstName?: string | null
+  lastName?: string | null
+  gender?: string | null
+  avatarUrl?: string | null
 }
 
 export type AppointmentStatus = 'SCHEDULED' | 'CONFIRMED' | 'COMPLETED' | 'CANCELLED' | 'NO_SHOW'

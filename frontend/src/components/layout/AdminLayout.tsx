@@ -6,6 +6,7 @@ const navItems = [
   { to: '/admin/leads', label: 'Leads', end: false },
   { to: '/admin/consultations', label: 'Consultations', end: false },
   { to: '/admin/users', label: 'Team', end: false },
+  { to: '/admin/profile', label: 'Profile', end: false },
 ]
 
 export default function AdminLayout() {
@@ -46,7 +47,23 @@ export default function AdminLayout() {
         </nav>
 
         <div className="px-5 py-4 border-t border-white/10">
-          <div className="text-white/40 text-xs truncate mb-3">{user?.email}</div>
+          <div className="flex items-center gap-2.5 mb-3">
+            {user?.avatarUrl ? (
+              <img src={user.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">
+                {(user?.firstName?.[0] ?? user?.email?.[0] ?? '?').toUpperCase()}
+              </div>
+            )}
+            <div className="min-w-0">
+              <div className="text-white text-xs font-semibold truncate">
+                {[user?.firstName, user?.lastName].filter(Boolean).join(' ') || user?.email}
+              </div>
+              {(user?.firstName || user?.lastName) && (
+                <div className="text-white/40 text-[11px] truncate">{user?.email}</div>
+              )}
+            </div>
+          </div>
           <button
             onClick={handleLogout}
             className="text-white/40 hover:text-white text-xs transition-colors"

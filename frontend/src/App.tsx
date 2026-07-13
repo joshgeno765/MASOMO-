@@ -24,6 +24,7 @@ const AdminHomePage = lazy(() => import('./pages/admin/AdminHomePage'))
 const LeadsPage = lazy(() => import('./pages/admin/LeadsPage'))
 const ConsultationsPage = lazy(() => import('./pages/admin/ConsultationsPage'))
 const UsersPage = lazy(() => import('./pages/admin/UsersPage'))
+const ProfilePage = lazy(() => import('./pages/admin/ProfilePage'))
 
 function PageLoader() {
   return (
@@ -88,6 +89,7 @@ export default function App() {
                 <Route path="leads" element={<LeadsPage />} />
                 <Route path="consultations" element={<ConsultationsPage />} />
                 <Route path="users" element={<UsersPage />} />
+                <Route path="profile" element={<ProfilePage />} />
               </Route>
 
               {/* Anything else — never leave the screen blank */}

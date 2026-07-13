@@ -40,7 +40,9 @@ export default function AdminHomePage() {
     <div className="p-8 max-w-6xl">
       {/* Header */}
       <div className="mb-10">
-        <h1 className="font-serif text-2xl text-navy">Dashboard</h1>
+        <h1 className="font-serif text-2xl text-navy">
+          {user?.firstName ? `Welcome back, ${user.firstName}` : 'Dashboard'}
+        </h1>
         <p className="text-gray-500 text-sm mt-1">{user?.email}</p>
       </div>
 

@@ -47,6 +47,18 @@ export async function changePassword(currentPassword: string, newPassword: strin
   return res.data
 }
 
+export interface ProfileUpdate {
+  firstName?: string
+  lastName?: string
+  gender?: string
+  avatarUrl?: string
+}
+
+export async function updateProfile(data: ProfileUpdate) {
+  const res = await api.patch<ApiResponse<User>>('/api/auth/profile', data)
+  return res.data
+}
+
 // ── Admin — Leads ─────────────────────────────────────────────────────────────
 
 export async function getLeads(params?: { status?: LeadStatus; search?: string; page?: number }) {

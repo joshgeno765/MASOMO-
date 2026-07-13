@@ -35,7 +35,8 @@ app.use(cors({
   },
   credentials: true,
 }))
-app.use(express.json())
+// Raised from Express's 100kb default — profile photos are sent as base64 data URIs
+app.use(express.json({ limit: '3mb' }))
 
 // Rate limit all API routes
 const limiter = rateLimit({
