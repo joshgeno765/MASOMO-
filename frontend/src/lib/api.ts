@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData, PathwayFinderSubmission, User } from '../types'
+import { ApiResponse, Lead, LeadStatus, Appointment, AppointmentStatus, AppointmentWithLead, ConsultationFormData, PathwayFinderSubmission, User, CounselorInsights } from '../types'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
@@ -68,6 +68,11 @@ export async function getLeads(params?: { status?: LeadStatus; search?: string; 
 
 export async function exportLeadsCsv(params?: { status?: LeadStatus; search?: string }): Promise<Blob> {
   const res = await api.get('/api/leads/export', { params, responseType: 'blob' })
+  return res.data
+}
+
+export async function getInsights() {
+  const res = await api.get<ApiResponse<CounselorInsights>>('/api/leads/insights')
   return res.data
 }
 

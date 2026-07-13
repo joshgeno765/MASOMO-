@@ -4,6 +4,7 @@ import prisma from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
 import { sendNewLeadEmail } from '../lib/email'
 import { toCsv } from '../lib/csv'
+import { getInsightsForUser, getTeamProgress } from '../lib/insights'
 
 const router = Router()
 
@@ -165,6 +166,18 @@ router.get('/export', requireAuth, async (req: Request, res: Response) => {
   } catch (error) {
     console.error('Export leads error:', error)
     return res.status(500).json({ success: false, error: 'Failed to export leads' })
+  }
+})
+
+// ── GET /api/leads/insights — admin/counselor only — must sit before /:id ────
+router.get('/insights', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const insights = await getInsightsForUser(req.user!.id, req.user!.role)
+    const teamProgress = req.user?.role === 'ADMIN' ? await getTeamProgress() : undefined
+    return res.json({ success: true, data: { ...insights, teamProgress } })
+  } catch (error) {
+    console.error('Insights error:', error)
+    return res.status(500).json({ success: false, error: 'Failed to load insights' })
   }
 })
 

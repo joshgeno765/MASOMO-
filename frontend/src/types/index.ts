@@ -63,6 +63,20 @@ export interface ApiResponse<T> {
   }
 }
 
+export interface GoalProgress {
+  current: number
+  target: number
+}
+
+export interface CounselorInsights {
+  monthLabel: string
+  conversions: GoalProgress
+  consultationsBooked: GoalProgress
+  avgResponseHours: { current: number | null; target: number }
+  staleLeads: Array<{ id: number; name: string; daysSinceUpdate: number }>
+  teamProgress?: Array<{ email: string; conversions: number }>
+}
+
 export interface User {
   id: number
   email: string

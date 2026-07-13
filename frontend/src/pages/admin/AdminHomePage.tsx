@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
-import { getLeads, runDigestNow } from '../../lib/api'
-import { Lead, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, LEAD_STATUS_DOT, LeadStatus } from '../../types'
+import { getLeads, getInsights, runDigestNow } from '../../lib/api'
+import { Lead, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, LEAD_STATUS_DOT, LeadStatus, CounselorInsights } from '../../types'
 import { useAuth } from '../../context/AuthContext'
 
 const DASHBOARD_PHOTOS = [
@@ -11,6 +11,34 @@ const DASHBOARD_PHOTOS = [
   '/images/team/graduation-1-thumb.webp',
 ]
 
+function monthPaceMessage(current: number, target: number): string {
+  const now = new Date()
+  const dayOfMonth = now.getDate()
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()
+  const expectedByNow = (dayOfMonth / daysInMonth) * target
+  if (current >= target) return '🎉 Goal reached this month!'
+  if (current >= expectedByNow) return "You're on pace to hit your goal."
+  const remaining = target - current
+  const daysLeft = daysInMonth - dayOfMonth
+  return `${remaining} more to go, ${daysLeft} day${daysLeft === 1 ? '' : 's'} left this month.`
+}
+
+function GoalBar({ label, current, target }: { label: string; current: number; target: number }) {
+  const pct = Math.min(100, Math.round((current / target) * 100))
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="text-sm text-gray-700">{label}</span>
+        <span className="text-sm font-semibold text-navy">{current}/{target}</span>
+      </div>
+      <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="h-full bg-brand-gold rounded-full transition-all" style={{ width: `${pct}%` }} />
+      </div>
+      <p className="text-xs text-gray-500 mt-1">{monthPaceMessage(current, target)}</p>
+    </div>
+  )
+}
+
 export default function AdminHomePage() {
   const { user } = useAuth()
   const [leads, setLeads] = useState<Lead[]>([])
@@ -18,6 +46,7 @@ export default function AdminHomePage() {
   const [byDestination, setByDestination] = useState<{ destination: string; count: number }[]>([])
   const [loading, setLoading] = useState(true)
   const [sendingDigest, setSendingDigest] = useState(false)
+  const [insights, setInsights] = useState<CounselorInsights | null>(null)
 
   const handleSendDigest = async () => {
     setSendingDigest(true)
@@ -50,6 +79,8 @@ export default function AdminHomePage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false))
+
+    getInsights().then((res) => setInsights(res.data ?? null)).catch(() => {})
   }, [])
 
   const total = Object.values(counts).reduce((a, b) => a + b, 0)
@@ -102,6 +133,64 @@ export default function AdminHomePage() {
           </div>
         ))}
       </div>
+
+      {/* Goals + Recommendations */}
+      {insights && (
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          <div>
+            <h2 className="font-semibold text-navy text-sm mb-4">Your Goals — {insights.monthLabel}</h2>
+            <div className="border border-gray-200 rounded-lg p-5 bg-white space-y-5">
+              <GoalBar label="Conversions" current={insights.conversions.current} target={insights.conversions.target} />
+              <GoalBar label="Consultations Booked" current={insights.consultationsBooked.current} target={insights.consultationsBooked.target} />
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-gray-700">Avg. Response Time</span>
+                  <span className={`text-sm font-semibold ${
+                    insights.avgResponseHours.current === null ? 'text-gray-400'
+                    : insights.avgResponseHours.current <= insights.avgResponseHours.target ? 'text-green-600' : 'text-amber-600'
+                  }`}>
+                    {insights.avgResponseHours.current === null ? 'No data yet' : `${insights.avgResponseHours.current} hrs`}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500">Goal: within {insights.avgResponseHours.target} hrs of a lead coming in</p>
+              </div>
+
+              {insights.teamProgress && insights.teamProgress.length > 0 && (
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Team This Month</p>
+                  <div className="space-y-1.5">
+                    {insights.teamProgress.map((t) => (
+                      <div key={t.email} className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600 truncate pr-2">{t.email}</span>
+                        <span className="font-semibold text-navy flex-shrink-0">{t.conversions} conversions</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="font-semibold text-navy text-sm mb-4">Recommendations</h2>
+            <div className="border border-gray-200 rounded-lg overflow-hidden">
+              {insights.staleLeads.length === 0 ? (
+                <div className="px-5 py-6 text-gray-500 text-sm bg-white">You're all caught up — no leads need follow-up right now.</div>
+              ) : (
+                insights.staleLeads.map((l, i) => (
+                  <div key={l.id} className={`flex items-center justify-between px-4 py-3 bg-white ${i < insights.staleLeads.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                    <div>
+                      <div className="text-sm font-semibold text-navy">{l.name}</div>
+                      <div className="text-xs text-gray-500">Quiet for {l.daysSinceUpdate} day{l.daysSinceUpdate === 1 ? '' : 's'}</div>
+                    </div>
+                    <Link to="/admin/leads" className="text-xs font-semibold text-brand-blue hover:underline flex-shrink-0">Follow up →</Link>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* Pipeline */}
