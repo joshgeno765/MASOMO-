@@ -36,7 +36,13 @@ export default function AboutPage() {
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
         title="Your Journey Starts Here"
         subtitle="Helping students turn their international education dreams into reality."
-      />
+      >
+        <div className="w-full mt-6 text-center">
+          <p className="text-white/80 text-base italic max-w-2xl mx-auto">
+            "The future belongs to those who believe in the beauty of their dream."
+          </p>
+        </div>
+      </PhotoHero>
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
@@ -74,15 +80,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Quote */}
-      <section className="py-16 px-6 text-center bg-brand-gold-light/10">
-        <div className="max-w-3xl mx-auto">
-          <p className="font-serif text-2xl md:text-3xl text-navy leading-snug italic">
-            "The future belongs to those who believe in the beauty of their dream."
-          </p>
         </div>
       </section>
 
