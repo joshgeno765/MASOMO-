@@ -63,6 +63,16 @@ export default function HomePage() {
         </Link>
       </PhotoHero>
 
+      {/* Philosophy */}
+      <section className="py-16 px-6 text-center bg-brand-gold-light/10">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-4">Sky is the Beginning</p>
+          <p className="font-serif text-2xl md:text-3xl text-navy leading-snug italic">
+            "The future belongs to those who can imagine it, design it, and execute it. It isn't something you await, but rather create."
+          </p>
+        </div>
+      </section>
+
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
         alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
