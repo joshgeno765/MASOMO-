@@ -13,6 +13,7 @@ const values = [
 
 const offices = [
   { flag: '🇨🇦', city: 'Vancouver', country: 'Canada', email: 'info@elimunow.com', phone: '+1 780 512 7513' },
+  { flag: '🇺🇸', city: 'Seattle', country: 'USA', email: 'usa@elimunow.com', phone: '+1 (253) 600-5998' },
   { flag: '🇰🇪', city: 'Nairobi', country: 'Kenya', email: 'administration@elimunow.com', phone: '+254 748 307 159' },
   { flag: '🇷🇼', city: 'Kigali', country: 'Rwanda', email: 'info@masomonow.com', phone: '+250 793 412 612' },
   { flag: '🇪🇹', city: 'Jijiga', country: 'Ethiopia', email: 'ethiopia@elimunow.com', phone: '+251 983 092 003' },
@@ -68,16 +69,16 @@ export default function AboutPage() {
       {/* Offices */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-3">Where We Operate</h2>
+          <h2 className="font-serif text-3xl text-navy mb-3">Our Office Locations</h2>
           <p className="text-gray-500 mb-8">Serving students across East Africa, Europe, and North America.</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offices.map((o) => (
               <div key={o.city} className="border-2 border-navy/10 rounded-xl p-5">
                 <div className="text-3xl mb-2">{o.flag}</div>
                 <h3 className="font-bold text-navy">{o.city}</h3>
                 <p className="text-xs text-gray-500 mb-3">{o.country}</p>
                 <a href={`mailto:${o.email}`} className="block text-xs text-brand-blue hover:underline mb-1 break-all">{o.email}</a>
-                <a href={`tel:${o.phone.replace(/\s/g, '')}`} className="block text-xs text-gray-600 hover:text-navy">{o.phone}</a>
+                <a href={`tel:${o.phone.replace(/[^\d+]/g, '')}`} className="block text-xs text-gray-600 hover:text-navy">{o.phone}</a>
               </div>
             ))}
           </div>
