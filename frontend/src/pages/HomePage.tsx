@@ -61,17 +61,13 @@ export default function HomePage() {
         <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🇨🇦 Canadian Licensed Support
         </Link>
-      </PhotoHero>
-
-      {/* Philosophy */}
-      <section className="py-16 px-6 text-center bg-brand-gold-light/10">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-4">Sky is the Beginning</p>
-          <p className="font-serif text-2xl md:text-3xl text-navy leading-snug italic">
+        <div className="w-full mt-4">
+          <p className="text-brand-gold-light text-xs font-bold uppercase tracking-widest mb-2">Sky is the Beginning</p>
+          <p className="text-white/80 text-base italic max-w-2xl">
             "The future belongs to those who can imagine it, design it, and execute it. It isn't something you await, but rather create."
           </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
