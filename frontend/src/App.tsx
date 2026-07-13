@@ -14,6 +14,7 @@ const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
 const PathwayFinderPage = lazy(() => import('./pages/PathwayFinderPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 const TermsOfUsePage = lazy(() => import('./pages/TermsOfUsePage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
@@ -54,7 +55,7 @@ export default function App() {
               <Route path="/universities" element={<Navigate to="/destinations" replace />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/consultation" element={<ConsultationPage />} />
-              <Route path="/contact" element={<Navigate to="/consultation" replace />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfUsePage />} />
             </Route>

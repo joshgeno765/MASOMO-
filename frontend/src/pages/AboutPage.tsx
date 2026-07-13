@@ -3,21 +3,13 @@ import { useLocation } from 'react-router-dom'
 import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
+import { OFFICES } from '../data/offices'
 
 const values = [
   { num: '01', title: 'Transparency', desc: 'Clear pricing and honest timelines.' },
   { num: '02', title: 'Integrity', desc: 'Student-first recommendations.' },
   { num: '03', title: 'Excellence', desc: 'Focused on successful admissions and visa outcomes.' },
   { num: '04', title: 'Care', desc: 'Personalized support throughout your journey.' },
-]
-
-const offices = [
-  { flag: '🇨🇦', city: 'Vancouver', country: 'Canada', email: 'info@elimunow.com', phone: '+1 780 512 7513' },
-  { flag: '🇺🇸', city: 'Seattle', country: 'USA', email: 'usa@elimunow.com', phone: '+1 (253) 600-5998' },
-  { flag: '🇰🇪', city: 'Nairobi', country: 'Kenya', email: 'administration@elimunow.com', phone: '+254 748 307 159' },
-  { flag: '🇷🇼', city: 'Kigali', country: 'Rwanda', email: 'info@masomonow.com', phone: '+250 793 412 612' },
-  { flag: '🇪🇹', city: 'Jijiga', country: 'Ethiopia', email: 'ethiopia@elimunow.com', phone: '+251 983 092 003' },
-  { flag: '🇩🇪', city: 'Bonn', country: 'Germany', email: 'europe@elimunow.com', phone: '+49 172 621 7823' },
 ]
 
 const seminars = [
@@ -72,7 +64,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl text-navy mb-3">Our Office Locations</h2>
           <p className="text-gray-500 mb-8">Serving students across East Africa, Europe, and North America.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {offices.map((o) => (
+            {OFFICES.map((o) => (
               <div key={o.city} className="border-2 border-navy/10 rounded-xl p-5">
                 <div className="text-3xl mb-2">{o.flag}</div>
                 <h3 className="font-bold text-navy">{o.city}</h3>

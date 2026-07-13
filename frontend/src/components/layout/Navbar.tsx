@@ -9,6 +9,7 @@ export default function Navbar() {
     { to: '/about', label: 'About Us' },
     { to: '/destinations', label: 'Destinations' },
     { to: '/services', label: 'Services' },
+    { to: '/contact', label: 'Contact' },
   ]
 
   return (

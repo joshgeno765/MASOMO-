@@ -38,6 +38,7 @@ export default function Footer() {
               <Link to="/services" className="text-sm hover:text-brand-gold-light transition-colors">Services</Link>
               <Link to="/fmc-pilot" className="text-sm hover:text-brand-gold-light transition-colors">🇨🇦 FMC Pilot Program</Link>
               <Link to="/consultation" className="text-sm hover:text-brand-gold-light transition-colors">Book Consultation</Link>
+              <Link to="/contact" className="text-sm hover:text-brand-gold-light transition-colors">Contact</Link>
             </div>
           </div>
 
