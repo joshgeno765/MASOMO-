@@ -1,10 +1,11 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider, useAuth } from './context/AuthContext'
 
 import Layout from './components/layout/Layout'
 import AdminLayout from './components/layout/AdminLayout'
+import ErrorBoundary from './components/ErrorBoundary'
 
 // Each page is its own separate JS chunk — only loaded when the user visits that route
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -39,43 +40,49 @@ function RequireAuth({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useEffect(() => {
+    sessionStorage.removeItem('masomo_chunk_reload_attempted')
+  }, [])
+
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Toaster position="bottom-right" />
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Public website */}
-            <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/destinations" element={<StudyDestinationsPage />} />
-              <Route path="/fmc-pilot" element={<FMCPilotPage />} />
-              <Route path="/pathway-finder" element={<PathwayFinderPage />} />
-              <Route path="/universities" element={<Navigate to="/destinations" replace />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/consultation" element={<ConsultationPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/privacy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms" element={<TermsOfUsePage />} />
-            </Route>
+    <ErrorBoundary>
+      <AuthProvider>
+        <BrowserRouter>
+          <Toaster position="bottom-right" />
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              {/* Public website */}
+              <Route element={<Layout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/destinations" element={<StudyDestinationsPage />} />
+                <Route path="/fmc-pilot" element={<FMCPilotPage />} />
+                <Route path="/pathway-finder" element={<PathwayFinderPage />} />
+                <Route path="/universities" element={<Navigate to="/destinations" replace />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/consultation" element={<ConsultationPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms" element={<TermsOfUsePage />} />
+              </Route>
 
-            {/* Auth */}
-            <Route path="/login" element={<LoginPage />} />
+              {/* Auth */}
+              <Route path="/login" element={<LoginPage />} />
 
-            {/* Admin portal */}
-            <Route
-              path="/admin"
-              element={<RequireAuth><AdminLayout /></RequireAuth>}
-            >
-              <Route index element={<AdminHomePage />} />
-              <Route path="leads" element={<LeadsPage />} />
-              <Route path="consultations" element={<ConsultationsPage />} />
-              <Route path="users" element={<UsersPage />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </AuthProvider>
+              {/* Admin portal */}
+              <Route
+                path="/admin"
+                element={<RequireAuth><AdminLayout /></RequireAuth>}
+              >
+                <Route index element={<AdminHomePage />} />
+                <Route path="leads" element={<LeadsPage />} />
+                <Route path="consultations" element={<ConsultationsPage />} />
+                <Route path="users" element={<UsersPage />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </AuthProvider>
+    </ErrorBoundary>
   )
 }
