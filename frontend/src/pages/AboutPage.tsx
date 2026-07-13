@@ -18,6 +18,13 @@ const seminars = [
   { src: '/images/seminars/seminar-2-thumb.webp', caption: 'International Education & Career Symposium — Nairobi, Kenya, in partnership with Northern Lights College.' },
   { src: '/images/seminars/seminar-4-thumb.webp', caption: 'Walking families through the route from British Columbia\'s Northern Lights College campuses to a study permit.' },
   { src: '/images/seminars/seminar-1-thumb.webp', caption: 'Our counselors follow up with students one-on-one after every seminar.' },
+  { src: '/images/seminars/seminar-6-thumb.webp', caption: 'An ELIMU counselor presenting Northern Lights College\'s programs on stage in Nairobi.' },
+]
+
+const team = [
+  { src: '/images/team/team-1-thumb.webp', caption: 'Our Nairobi team preparing student resources for Thompson Rivers University.' },
+  { src: '/images/team/team-2-thumb.webp', caption: 'ELIMU counselors at the International Education and Career Symposium in Nairobi.' },
+  { src: '/images/team/team-3-thumb.webp', caption: 'ELIMU counselors presenting Canadian study pathways at the Nairobi symposium.' },
 ]
 
 export default function AboutPage() {
@@ -119,6 +126,14 @@ export default function AboutPage() {
           <p className="text-white/70 text-lg leading-relaxed">
             Our advisors work closely with licensed immigration professionals to provide personalized guidance from your first inquiry until you arrive at your destination.
           </p>
+        </div>
+        <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-5 mt-12 text-left">
+          {team.map((t) => (
+            <figure key={t.src} className="rounded-xl overflow-hidden">
+              <img src={t.src} alt={t.caption} loading="lazy" className="w-full h-56 object-cover" />
+              <figcaption className="text-white/50 text-xs mt-2 leading-relaxed">{t.caption}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
     </>

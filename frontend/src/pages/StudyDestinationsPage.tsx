@@ -186,7 +186,7 @@ export default function StudyDestinationsPage() {
           </div>
         </div>
         <p className="text-xs text-gray-500 text-center mt-10 max-w-6xl mx-auto">
-          Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain).
+          Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain); Fanshawe College and Northern Lights College photos are ELIMU's own event photography.
         </p>
       </section>
 

@@ -47,7 +47,8 @@ export default function TermsOfUsePage() {
             <p>
               The design and written content of this site belong to Masomo Now / ELIMU International Education
               Connections. Some campus photography is used courtesy of Wikimedia Commons contributors under CC BY-SA
-              or public domain licenses. Embedded videos remain the property of their original creators (our partner
+              or public domain licenses; Fanshawe College and Northern Lights College photos are ELIMU's own event
+              photography. Embedded videos remain the property of their original creators (our partner
               institutions) and are shown here through YouTube's standard embed functionality.
             </p>
           </div>

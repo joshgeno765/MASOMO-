@@ -69,7 +69,7 @@ export const northAmerica: Country[] = [
         videoId: 'FXM84Z2bK-U', videoTitle: 'ULethbridge: Experience for Everyone',
       },
       {
-        name: 'Northern Lights College', type: 'Public College', city: 'Dawson Creek, BC', photo: null, website: 'https://www.nlc.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
+        name: 'Northern Lights College', type: 'Public College', city: 'Dawson Creek, BC', photo: '/images/schools/northern-lights-college-thumb.webp', website: 'https://www.nlc.bc.ca', programTags: ['technical'], costTier: 'budget-friendly',
         pathwayCategories: ['Associate & UT Programs', 'High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.0 overall (no band below 5.5), TOEFL iBT 78, or Duolingo 110 — or complete NLC\'s own in-house English as a Second Language (EASL) pathway program.',
         intlRequirementsSource: 'https://www.nlc.bc.ca/schedule/admissions-regulations/',
@@ -89,7 +89,7 @@ export const northAmerica: Country[] = [
         intlRequirementsSource: 'https://saskpolytech.ca/admissions/admission-requirements/english-language-proficiency-requirements.aspx',
       },
       {
-        name: 'Fanshawe College', type: 'Public College', city: 'London, ON', photo: null, website: 'https://www.fanshawec.ca', programTags: ['technical'],
+        name: 'Fanshawe College', type: 'Public College', city: 'London, ON', photo: '/images/schools/fanshawe-thumb.webp', website: 'https://www.fanshawec.ca', programTags: ['technical'],
         pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas', 'Trades & Apprenticeship'],
         intlRequirements: 'IELTS 6.0 overall (no band below 5.5), TOEFL iBT 79, PTE 53, or Duolingo 105 (no score below 95) for standard diploma/advanced diploma programs — or complete Fanshawe\'s own English for Academic Purposes (EAP) program.',
         intlRequirementsSource: 'https://www.fanshawec.ca/admission-finance/before-applying/admission-requirements/english-requirements',
