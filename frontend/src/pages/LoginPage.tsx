@@ -34,7 +34,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-dvh flex">
       {/* Photo panel */}
       <div className="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden">
         <img
@@ -55,16 +55,16 @@ export default function LoginPage() {
       </div>
 
       {/* Form panel */}
-      <div className="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center bg-white px-6 py-12">
+      <div className="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center bg-white px-5 py-10 sm:px-6 sm:py-12">
         <div className="w-full max-w-sm">
-          <Link to="/" className="flex items-center gap-2.5 mb-10">
-            <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">MN</div>
+          <Link to="/" className="flex items-center gap-2.5 mb-8 sm:mb-10">
+            <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base flex-shrink-0">MN</div>
             <span className="text-navy font-bold text-lg">Masomo Now</span>
           </Link>
 
           <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">Staff Access</p>
-          <h2 className="font-serif text-3xl text-navy mb-1">Sign in</h2>
-          <p className="text-gray-500 text-sm mb-8">Masomo Now team access only</p>
+          <h2 className="font-serif text-2xl sm:text-3xl text-navy mb-1">Sign in</h2>
+          <p className="text-gray-500 text-sm mb-6 sm:mb-8">Masomo Now team access only</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -75,7 +75,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@masomonow.com"
                 autoFocus
-                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
               />
             </div>
             <div>
@@ -85,7 +85,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+                className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
               />
             </div>
             <Button type="submit" disabled={submitting} fullWidth className="mt-2">
@@ -97,7 +97,7 @@ export default function LoginPage() {
             ← Back to masomonow.com
           </Link>
 
-          <div className="mt-10 pt-6 border-t border-gray-100">
+          <div className="hidden sm:block mt-10 pt-6 border-t border-gray-100">
             <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3 text-center">Our Partner Schools</p>
             <p className="text-xs text-gray-400 text-center leading-relaxed">
               {partnerSchools.join(' · ')}

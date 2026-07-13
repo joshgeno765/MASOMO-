@@ -33,8 +33,8 @@ export default function ChangePasswordPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6">
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg p-8">
+    <div className="min-h-dvh flex items-center justify-center bg-gray-50 px-5 py-10 sm:px-6">
+      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
         <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">Staff Access</p>
         <h1 className="font-serif text-2xl text-navy mb-1">Set a new password</h1>
         <p className="text-gray-500 text-sm mb-6">
@@ -49,7 +49,7 @@ export default function ChangePasswordPage() {
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
               autoFocus
-              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-navy focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
             />
           </div>
           <div>
@@ -59,7 +59,7 @@ export default function ChangePasswordPage() {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               placeholder="At least 8 characters"
-              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-navy placeholder-gray-400 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
             />
           </div>
           <div>
@@ -68,7 +68,7 @@ export default function ChangePasswordPage() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-sm text-navy focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
+              className="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-navy focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-colors"
             />
           </div>
           <Button type="submit" disabled={submitting} fullWidth className="mt-2">
