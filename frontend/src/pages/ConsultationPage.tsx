@@ -120,7 +120,7 @@ export default function ConsultationPage() {
         eyebrow="Book a Consultation"
         title="Book your free consultation"
         subtitle="Pick a date and time that works for you — one of our counselors will call you to talk through your options."
-        height="h-[55vh] min-h-[380px] max-h-[520px]"
+        height="min-h-[380px]"
       >
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
           <span>info@masomonow.com</span>

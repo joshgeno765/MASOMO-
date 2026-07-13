@@ -4,6 +4,7 @@ import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import Reveal from '../components/ui/Reveal'
+import VideoEmbed from '../components/ui/VideoEmbed'
 
 const testimonials = [
   { name: 'Amara M.', dest: 'BCIT, British Columbia', quote: 'Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I\'m now in Vancouver.' },
@@ -56,7 +57,7 @@ export default function HomePage() {
             Explore Work Permit →
           </Link>
         }
-        height="h-[75vh] min-h-[520px] max-h-[700px]"
+        height="min-h-[520px]"
       >
         <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
           🇨🇦 Canadian Licensed Support
@@ -79,6 +80,16 @@ export default function HomePage() {
         <p>Masomo Now is the Francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong>, a Canadian education consultancy based in Vancouver, British Columbia.</p>
         <p>We help students successfully apply to universities and colleges abroad by providing expert guidance on admissions, visas, and student preparation from application to arrival.</p>
       </TextImageSplit>
+
+      {/* Featured partner video — TRU */}
+      <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Take a look inside one of our partner schools</p>
+          <h2 className="font-serif text-3xl text-navy mb-6">A first look at TRU, Kamloops, BC</h2>
+          <VideoEmbed videoId="6jc9QVVUC8Q" title="TRU Campus Tour 2024" autoplay />
+          <p className="text-xs text-gray-500 mt-4">TRU — Thompson Rivers University, a real Masomo Now partner school.</p>
+        </div>
+      </section>
 
       <IconFeatureRow
         title="Why Choose Masomo Now?"

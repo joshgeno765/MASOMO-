@@ -20,7 +20,7 @@ interface PhotoHeroProps {
   children?: ReactNode
 }
 
-export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, quote, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
+export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, quote, height = 'min-h-[420px]', children }: PhotoHeroProps) {
   const slides = images && images.length > 0 ? images : image ? [image] : []
   const [active, setActive] = useState(0)
   const [loaded, setLoaded] = useState<number[]>([0])
@@ -53,8 +53,8 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
-      <div className="relative h-full flex items-center">
-        <div className="max-w-6xl mx-auto w-full px-6 pb-12 md:pb-16">
+      <div className="relative py-14 md:py-20">
+        <div className="max-w-6xl mx-auto w-full px-6">
           {secondaryTitle ? (
             <>
               <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center">
@@ -71,10 +71,10 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
                     <span className="text-xs font-bold text-white uppercase tracking-widest">Or</span>
                     <span className="flex-1 h-px bg-white/30" />
                   </div>
-                  <div className="hidden md:flex flex-col items-center gap-3 h-full">
-                    <span className="flex-1 w-px bg-white/30" />
+                  <div className="hidden md:flex flex-col items-center gap-3">
+                    <span className="w-px h-16 bg-white/30" />
                     <span className="text-xs font-bold text-white uppercase tracking-widest">Or</span>
-                    <span className="flex-1 w-px bg-white/30" />
+                    <span className="w-px h-16 bg-white/30" />
                   </div>
                 </div>
 
