@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import toast from 'react-hot-toast'
-import { getLeads, updateLead } from '../../lib/api'
+import { getLeads, updateLead, getUsers, StaffUser } from '../../lib/api'
+import { whatsappLink, mailtoLink } from '../../lib/contact'
+import { useAuth } from '../../context/AuthContext'
 import { Lead, LeadStatus, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, LEAD_STATUS_DOT } from '../../types'
 
 const ALL_STATUSES: LeadStatus[] = ['NEW', 'CONTACTED', 'CONSULTATION_SCHEDULED', 'APPLICATION_STARTED', 'CONVERTED', 'CLOSED']
@@ -14,19 +16,22 @@ function StatusLabel({ status }: { status: LeadStatus }) {
   )
 }
 
-function LeadModal({ lead, onClose, onSave }: {
+function LeadModal({ lead, counselors, isAdmin, onClose, onSave }: {
   lead: Lead
+  counselors: StaffUser[]
+  isAdmin: boolean
   onClose: () => void
   onSave: (id: number, data: Partial<Lead>) => Promise<void>
 }) {
   const [status, setStatus] = useState<LeadStatus>(lead.status)
   const [notes, setNotes] = useState(lead.notes ?? '')
+  const [assignedCounselorId, setAssignedCounselorId] = useState<number | null>(lead.assignedCounselorId ?? null)
   const [saving, setSaving] = useState(false)
 
   const handleSave = async () => {
     setSaving(true)
     try {
-      await onSave(lead.id, { status, notes })
+      await onSave(lead.id, { status, notes, ...(isAdmin && { assignedCounselorId }) })
       toast.success('Saved')
       onClose()
     } catch {
@@ -43,7 +48,11 @@ function LeadModal({ lead, onClose, onSave }: {
         <div className="px-6 py-4 border-b border-gray-200 flex items-start justify-between">
           <div>
             <h2 className="font-semibold text-navy">{lead.name}</h2>
-            <p className="text-gray-500 text-sm">{lead.email} · {lead.phone}</p>
+            <p className="text-gray-500 text-sm flex items-center gap-2">
+              <a href={mailtoLink(lead.email)} className="hover:text-navy hover:underline transition-colors">{lead.email}</a>
+              <span>·</span>
+              <a href={whatsappLink(lead.phone)} target="_blank" rel="noopener noreferrer" className="hover:text-navy hover:underline transition-colors">{lead.phone}</a>
+            </p>
           </div>
           <button onClick={onClose} className="text-gray-300 hover:text-gray-500 text-lg leading-none mt-0.5">✕</button>
         </div>
@@ -85,6 +94,23 @@ function LeadModal({ lead, onClose, onSave }: {
             </select>
           </div>
 
+          {/* Assign to */}
+          {isAdmin && (
+            <div>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Assigned to</label>
+              <select
+                value={assignedCounselorId ?? ''}
+                onChange={(e) => setAssignedCounselorId(e.target.value ? Number(e.target.value) : null)}
+                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-navy bg-white"
+              >
+                <option value="">Unassigned</option>
+                {counselors.map((c) => (
+                  <option key={c.id} value={c.id}>{c.email}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
           {/* Notes */}
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Notes</label>
@@ -116,6 +142,9 @@ function LeadModal({ lead, onClose, onSave }: {
 }
 
 export default function LeadsPage() {
+  const { user } = useAuth()
+  const isAdmin = user?.role === 'ADMIN'
+
   const [leads, setLeads] = useState<Lead[]>([])
   const [total, setTotal] = useState(0)
   const [statusFilter, setStatusFilter] = useState<LeadStatus | 'ALL'>('ALL')
@@ -123,6 +152,16 @@ export default function LeadsPage() {
   const [loading, setLoading] = useState(true)
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null)
   const [counts, setCounts] = useState<Record<string, number>>({})
+  const [counselors, setCounselors] = useState<StaffUser[]>([])
+
+  useEffect(() => {
+    if (!isAdmin) return
+    getUsers()
+      .then((res) => setCounselors((res.data ?? []).filter((u) => u.role === 'COUNSELOR' && u.isActive)))
+      .catch(() => {})
+  }, [isAdmin])
+
+  const counselorEmail = (id?: number | null) => counselors.find((c) => c.id === id)?.email
 
   const fetchLeads = useCallback(async () => {
     setLoading(true)
@@ -200,7 +239,7 @@ export default function LeadsPage() {
           <table className="w-full text-sm bg-white">
             <thead className="border-b border-gray-200">
               <tr>
-                {['Name', 'Contact', 'Country', 'Destination', 'Status', 'Date', ''].map((h) => (
+                {['Name', 'Contact', 'Country', 'Destination', 'Status', ...(isAdmin ? ['Assigned'] : []), 'Date', ''].map((h) => (
                   <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{h}</th>
                 ))}
               </tr>
@@ -210,12 +249,17 @@ export default function LeadsPage() {
                 <tr key={lead.id} className={`hover:bg-gray-50 transition-colors ${i < leads.length - 1 ? 'border-b border-gray-100' : ''}`}>
                   <td className="px-4 py-3 font-semibold text-navy">{lead.name}</td>
                   <td className="px-4 py-3 text-gray-500">
-                    <div>{lead.email}</div>
-                    <div className="text-xs text-gray-500">{lead.phone}</div>
+                    <a href={mailtoLink(lead.email)} className="block hover:text-navy hover:underline transition-colors">{lead.email}</a>
+                    <a href={whatsappLink(lead.phone)} target="_blank" rel="noopener noreferrer" className="block text-xs text-gray-500 hover:text-navy hover:underline transition-colors">{lead.phone}</a>
                   </td>
                   <td className="px-4 py-3 text-gray-600">{lead.country || '—'}</td>
                   <td className="px-4 py-3 text-gray-600 max-w-[140px] truncate">{lead.destinationInterest}</td>
                   <td className="px-4 py-3"><StatusLabel status={lead.status} /></td>
+                  {isAdmin && (
+                    <td className="px-4 py-3 text-gray-600 max-w-[140px] truncate">
+                      {counselorEmail(lead.assignedCounselorId) || <span className="text-gray-400">Unassigned</span>}
+                    </td>
+                  )}
                   <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
                     {new Date(lead.createdAt).toLocaleDateString()}
                   </td>
@@ -237,6 +281,8 @@ export default function LeadsPage() {
       {selectedLead && (
         <LeadModal
           lead={selectedLead}
+          counselors={counselors}
+          isAdmin={isAdmin}
           onClose={() => setSelectedLead(null)}
           onSave={handleSave}
         />

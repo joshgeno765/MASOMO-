@@ -43,7 +43,7 @@ export interface Lead {
   message?: string
   status: LeadStatus
   notes?: string
-  assignedCounselorId?: number
+  assignedCounselorId?: number | null
   createdAt: string
   updatedAt: string
 }
@@ -59,6 +59,7 @@ export interface ApiResponse<T> {
     limit: number
     pages: number
     counts?: Array<{ status: string; _count: { id: number } }>
+    byDestination?: Array<{ destinationInterest: string; _count: { id: number } }>
   }
 }
 

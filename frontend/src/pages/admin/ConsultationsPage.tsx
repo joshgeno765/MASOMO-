@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import toast from 'react-hot-toast'
 import { getAppointments, updateAppointment } from '../../lib/api'
+import { whatsappLink } from '../../lib/contact'
 import { AppointmentWithLead, AppointmentStatus } from '../../types'
 
 const ALL_STATUSES: AppointmentStatus[] = ['SCHEDULED', 'CONFIRMED', 'COMPLETED', 'CANCELLED', 'NO_SHOW']
@@ -36,11 +37,6 @@ function StatusLabel({ status }: { status: AppointmentStatus }) {
       {STATUS_LABELS[status]}
     </span>
   )
-}
-
-function whatsappLink(phone: string): string {
-  const digits = phone.replace(/[^0-9]/g, '')
-  return `https://wa.me/${digits}`
 }
 
 function AppointmentModal({ appointment, onClose, onSave }: {

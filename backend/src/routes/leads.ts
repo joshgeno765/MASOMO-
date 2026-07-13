@@ -27,7 +27,7 @@ const updateLeadSchema = z.object({
   message: z.string().optional(),
   status: z.enum(LEAD_STATUSES).optional(),
   notes: z.string().optional(),
-  assignedCounselorId: z.number().optional(),
+  assignedCounselorId: z.number().nullable().optional(),
 })
 
 // ── POST /api/leads — public: create lead from inquiry form ──────────────────
@@ -72,6 +72,10 @@ router.get('/', requireAuth, async (req: Request, res: Response) => {
 
     const where: Record<string, unknown> = {}
 
+    if (req.user?.role === 'COUNSELOR') {
+      where.assignedCounselorId = req.user.id
+    }
+
     if (status && LEAD_STATUSES.includes(status as LeadStatus)) {
       where.status = status
     }
@@ -93,16 +97,18 @@ router.get('/', requireAuth, async (req: Request, res: Response) => {
       prisma.lead.count({ where }),
     ])
 
-    // Summary counts per status
-    const counts = await prisma.lead.groupBy({
-      by: ['status'],
-      _count: { id: true },
-    })
+    // Summary counts per status, and per destination — scoped to the same assignment
+    // restriction as the list itself (a counselor's dashboard reflects their own leads)
+    const roleWhere = req.user?.role === 'COUNSELOR' ? { assignedCounselorId: req.user.id } : {}
+    const [counts, byDestination] = await Promise.all([
+      prisma.lead.groupBy({ by: ['status'], where: roleWhere, _count: { id: true } }),
+      prisma.lead.groupBy({ by: ['destinationInterest'], where: roleWhere, _count: { id: true }, orderBy: { _count: { id: 'desc' } } }),
+    ])
 
     return res.json({
       success: true,
       data: leads,
-      meta: { total, page: pageNum, limit: limitNum, pages: Math.ceil(total / limitNum), counts },
+      meta: { total, page: pageNum, limit: limitNum, pages: Math.ceil(total / limitNum), counts, byDestination },
     })
   } catch (error) {
     console.error('List leads error:', error)
@@ -119,6 +125,9 @@ router.get('/:id', requireAuth, async (req: Request, res: Response) => {
       include: { appointments: true, auditLogs: { orderBy: { createdAt: 'desc' }, take: 20 } },
     })
     if (!lead) return res.status(404).json({ success: false, error: 'Lead not found' })
+    if (req.user?.role === 'COUNSELOR' && lead.assignedCounselorId !== req.user.id) {
+      return res.status(403).json({ success: false, error: 'Forbidden' })
+    }
     return res.json({ success: true, data: lead })
   } catch {
     return res.status(500).json({ success: false, error: 'Failed to fetch lead' })
@@ -133,6 +142,15 @@ router.patch('/:id', requireAuth, async (req: Request, res: Response) => {
 
     const existing = await prisma.lead.findUnique({ where: { id } })
     if (!existing) return res.status(404).json({ success: false, error: 'Lead not found' })
+
+    if (req.user?.role === 'COUNSELOR') {
+      if (existing.assignedCounselorId !== req.user.id) {
+        return res.status(403).json({ success: false, error: 'Forbidden' })
+      }
+      if (validated.assignedCounselorId !== undefined) {
+        return res.status(403).json({ success: false, error: 'Only administrators can reassign leads' })
+      }
+    }
 
     const updated = await prisma.lead.update({
       where: { id },
@@ -174,6 +192,14 @@ router.patch('/:id', requireAuth, async (req: Request, res: Response) => {
 router.delete('/:id', requireAuth, async (req: Request, res: Response) => {
   try {
     const id = parseInt(req.params.id)
+
+    if (req.user?.role === 'COUNSELOR') {
+      const existing = await prisma.lead.findUnique({ where: { id } })
+      if (!existing || existing.assignedCounselorId !== req.user.id) {
+        return res.status(403).json({ success: false, error: 'Forbidden' })
+      }
+    }
+
     await prisma.lead.update({ where: { id }, data: { status: 'CLOSED' } })
     await prisma.auditLog.create({
       data: { leadId: id, action: 'LEAD_CLOSED', performedBy: req.user?.email ?? 'admin' },
