@@ -166,3 +166,14 @@ model AuditLog {
 
   @@map("audit_logs")
 }
+
+// ─── DIGEST RUNS (daily summary email scheduler) ────────────────────────────
+model DigestRun {
+  id                   Int      @id @default(autoincrement())
+  lastRunAt            DateTime
+  newLeadsCount        Int      @default(0)
+  newAppointmentsCount Int      @default(0)
+  createdAt            DateTime @default(now())
+
+  @@map("digest_runs")
+}

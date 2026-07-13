@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { bookConsultation } from '../lib/api'
-import { ConsultationFormData } from '../types'
+import { ConsultationFormData, Appointment } from '../types'
+import { downloadIcs, googleCalendarUrl, outlookWebUrl, CalendarEventInput } from '../lib/calendar'
 import FloatingField from '../components/ui/FloatingField'
 import Button from '../components/ui/Button'
 import PhotoHero from '../components/ui/PhotoHero'
@@ -94,6 +95,7 @@ export default function ConsultationPage() {
   const [time, setTime] = useState('')
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [bookedAppointment, setBookedAppointment] = useState<Appointment | null>(null)
 
   useEffect(() => {
     const destination = searchParams.get('destination')
@@ -142,7 +144,8 @@ export default function ConsultationPage() {
 
     setLoading(true)
     try {
-      await bookConsultation({ ...form, scheduledAt })
+      const res = await bookConsultation({ ...form, scheduledAt })
+      setBookedAppointment(res.data ?? null)
       setSubmitted(true)
     } catch {
       toast.error('Something went wrong. Please try again or WhatsApp us.')
@@ -181,8 +184,51 @@ export default function ConsultationPage() {
               <p className="text-gray-600 mb-6">
                 Thank you, <strong>{form.name}</strong>. We'll confirm your slot by email at <strong>{form.email}</strong> shortly.
               </p>
+
+              {bookedAppointment && (
+                <div className="flex flex-wrap gap-2 justify-center mb-6">
+                  {(() => {
+                    const event: CalendarEventInput = {
+                      id: bookedAppointment.id,
+                      title: `Masomo Now consultation — ${form.destinationInterest}`,
+                      description: 'Free consultation with a Masomo Now counselor.',
+                      location: 'Phone call',
+                      start: new Date(bookedAppointment.scheduledAt),
+                      durationMinutes: bookedAppointment.duration,
+                    }
+                    return (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => downloadIcs(event)}
+                          className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
+                        >
+                          Download .ics
+                        </button>
+                        <a
+                          href={googleCalendarUrl(event)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
+                        >
+                          Add to Google Calendar
+                        </a>
+                        <a
+                          href={outlookWebUrl(event)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
+                        >
+                          Add to Outlook
+                        </a>
+                      </>
+                    )
+                  })()}
+                </div>
+              )}
+
               <button
-                onClick={() => { setForm(EMPTY_FORM); setDate(''); setTime(''); setSubmitted(false) }}
+                onClick={() => { setForm(EMPTY_FORM); setDate(''); setTime(''); setSubmitted(false); setBookedAppointment(null) }}
                 className="btn-primary"
               >
                 Book Another Consultation

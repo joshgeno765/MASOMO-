@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getLeads } from '../../lib/api'
+import toast from 'react-hot-toast'
+import { getLeads, runDigestNow } from '../../lib/api'
 import { Lead, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, LEAD_STATUS_DOT, LeadStatus } from '../../types'
 import { useAuth } from '../../context/AuthContext'
+
+const DASHBOARD_PHOTOS = [
+  '/images/team/team-2-thumb.webp',
+  '/images/seminars/seminar-6-thumb.webp',
+  '/images/team/graduation-1-thumb.webp',
+]
 
 export default function AdminHomePage() {
   const { user } = useAuth()
@@ -10,6 +17,19 @@ export default function AdminHomePage() {
   const [counts, setCounts] = useState<Record<string, number>>({})
   const [byDestination, setByDestination] = useState<{ destination: string; count: number }[]>([])
   const [loading, setLoading] = useState(true)
+  const [sendingDigest, setSendingDigest] = useState(false)
+
+  const handleSendDigest = async () => {
+    setSendingDigest(true)
+    try {
+      await runDigestNow()
+      toast.success('Digest sent (if there was new activity to report)')
+    } catch {
+      toast.error('Failed to run digest')
+    } finally {
+      setSendingDigest(false)
+    }
+  }
 
   useEffect(() => {
     getLeads({} as never)
@@ -39,11 +59,23 @@ export default function AdminHomePage() {
   return (
     <div className="p-8 max-w-6xl">
       {/* Header */}
-      <div className="mb-10">
-        <h1 className="font-serif text-2xl text-navy">
-          {user?.firstName ? `Welcome back, ${user.firstName}` : 'Dashboard'}
-        </h1>
-        <p className="text-gray-500 text-sm mt-1">{user?.email}</p>
+      <div className="mb-10 flex items-start justify-between gap-4">
+        <div>
+          <h1 className="font-serif text-2xl text-navy">
+            {user?.firstName ? `Welcome back, ${user.firstName}` : 'Dashboard'}
+          </h1>
+          <p className="text-gray-500 text-sm mt-1">{user?.email}</p>
+        </div>
+        {user?.role === 'ADMIN' && (
+          <button
+            type="button"
+            onClick={handleSendDigest}
+            disabled={sendingDigest}
+            className="flex-shrink-0 border border-gray-300 text-gray-600 hover:border-navy hover:text-navy px-4 py-2 rounded text-sm font-semibold transition-colors disabled:opacity-60"
+          >
+            {sendingDigest ? 'Sending...' : 'Send digest now'}
+          </button>
+        )}
       </div>
 
       {/* Metrics row */}
@@ -58,6 +90,15 @@ export default function AdminHomePage() {
           <div key={m.label} className={`px-6 py-5 bg-white ${i < 4 ? 'border-r border-gray-200' : ''}`}>
             <div className="text-2xl font-bold text-navy">{m.value}</div>
             <div className="text-xs text-gray-500 mt-1">{m.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Photo strip */}
+      <div className="grid grid-cols-3 gap-3 mb-10 h-28">
+        {DASHBOARD_PHOTOS.map((src) => (
+          <div key={src} className="rounded-lg overflow-hidden">
+            <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
           </div>
         ))}
       </div>

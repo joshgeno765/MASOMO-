@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import toast from 'react-hot-toast'
 import { getAppointments, updateAppointment } from '../../lib/api'
 import { whatsappLink } from '../../lib/contact'
+import { downloadIcs, googleCalendarUrl, outlookWebUrl, CalendarEventInput } from '../../lib/calendar'
 import { AppointmentWithLead, AppointmentStatus } from '../../types'
 
 const ALL_STATUSES: AppointmentStatus[] = ['SCHEDULED', 'CONFIRMED', 'COMPLETED', 'CANCELLED', 'NO_SHOW']
@@ -47,6 +48,15 @@ function AppointmentModal({ appointment, onClose, onSave }: {
   const [status, setStatus] = useState<AppointmentStatus>(appointment.status)
   const [notes, setNotes] = useState(appointment.notes ?? '')
   const [saving, setSaving] = useState(false)
+
+  const calendarEvent: CalendarEventInput = {
+    id: appointment.id,
+    title: `Consultation — ${appointment.lead?.name ?? 'Unknown'}`,
+    description: appointment.destination ? `Destination: ${appointment.destination}` : undefined,
+    location: 'Phone call',
+    start: new Date(appointment.scheduledAt),
+    durationMinutes: appointment.duration,
+  }
 
   const handleSave = async () => {
     setSaving(true)
@@ -122,16 +132,41 @@ function AppointmentModal({ appointment, onClose, onSave }: {
             />
           </div>
 
-          {appointment.lead?.phone && (
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {appointment.lead?.phone && (
+              <a
+                href={whatsappLink(appointment.lead.phone)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#25D366] hover:underline"
+              >
+                WhatsApp {appointment.lead.name} →
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={() => downloadIcs(calendarEvent)}
+              className="text-sm font-semibold text-gray-500 hover:text-navy hover:underline transition-colors"
+            >
+              Download .ics
+            </button>
             <a
-              href={whatsappLink(appointment.lead.phone)}
+              href={googleCalendarUrl(calendarEvent)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#25D366] hover:underline"
+              className="text-sm font-semibold text-gray-500 hover:text-navy hover:underline transition-colors"
             >
-              WhatsApp {appointment.lead.name} →
+              Add to Google Calendar
             </a>
-          )}
+            <a
+              href={outlookWebUrl(calendarEvent)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-gray-500 hover:text-navy hover:underline transition-colors"
+            >
+              Add to Outlook
+            </a>
+          </div>
         </div>
 
         <div className="px-6 py-4 border-t border-gray-200 flex gap-3 justify-end">

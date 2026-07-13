@@ -3,6 +3,7 @@ import { z } from 'zod'
 import prisma from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
 import { sendNewLeadEmail } from '../lib/email'
+import { toCsv } from '../lib/csv'
 
 const router = Router()
 
@@ -113,6 +114,57 @@ router.get('/', requireAuth, async (req: Request, res: Response) => {
   } catch (error) {
     console.error('List leads error:', error)
     return res.status(500).json({ success: false, error: 'Failed to fetch leads' })
+  }
+})
+
+// ── GET /api/leads/export — admin/counselor only — must sit before /:id ──────
+router.get('/export', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { status, search } = req.query
+
+    const where: Record<string, unknown> = {}
+
+    if (req.user?.role === 'COUNSELOR') {
+      where.assignedCounselorId = req.user.id
+    }
+
+    if (status && LEAD_STATUSES.includes(status as LeadStatus)) {
+      where.status = status
+    }
+
+    if (search && typeof search === 'string') {
+      where.OR = [
+        { name: { contains: search } },
+        { email: { contains: search } },
+        { phone: { contains: search } },
+      ]
+    }
+
+    const leads = await prisma.lead.findMany({ where, orderBy: { createdAt: 'desc' } })
+
+    const counselorIds = [...new Set(leads.map((l) => l.assignedCounselorId).filter((id): id is number => id != null))]
+    const counselors = counselorIds.length
+      ? await prisma.user.findMany({ where: { id: { in: counselorIds } }, select: { id: true, email: true } })
+      : []
+    const emailById = new Map(counselors.map((c) => [c.id, c.email]))
+
+    const csv = toCsv(
+      ['Lead ID', 'Name', 'Email', 'Phone', 'Country', 'Destination Interest', 'Status', 'Assigned Counselor', 'Created Date', 'Last Updated', 'Notes', 'Original Message'],
+      leads.map((l) => [
+        l.id, l.name, l.email, l.phone, l.country ?? '', l.destinationInterest, l.status,
+        l.assignedCounselorId != null ? (emailById.get(l.assignedCounselorId) ?? '') : 'Unassigned',
+        l.createdAt.toISOString().slice(0, 10), l.updatedAt.toISOString().slice(0, 10),
+        l.notes ?? '', l.message ?? '',
+      ])
+    )
+
+    const filename = `leads-${new Date().toISOString().slice(0, 10)}.csv`
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8')
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`)
+    return res.status(200).send(csv)
+  } catch (error) {
+    console.error('Export leads error:', error)
+    return res.status(500).json({ success: false, error: 'Failed to export leads' })
   }
 })
 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import toast from 'react-hot-toast'
-import { getLeads, updateLead, getUsers, StaffUser } from '../../lib/api'
+import { getLeads, updateLead, getUsers, exportLeadsCsv, StaffUser } from '../../lib/api'
 import { whatsappLink, mailtoLink } from '../../lib/contact'
 import { useAuth } from '../../context/AuthContext'
 import { Lead, LeadStatus, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, LEAD_STATUS_DOT } from '../../types'
@@ -153,6 +153,7 @@ export default function LeadsPage() {
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null)
   const [counts, setCounts] = useState<Record<string, number>>({})
   const [counselors, setCounselors] = useState<StaffUser[]>([])
+  const [exporting, setExporting] = useState(false)
 
   useEffect(() => {
     if (!isAdmin) return
@@ -191,6 +192,28 @@ export default function LeadsPage() {
     await fetchLeads()
   }
 
+  const handleExport = async () => {
+    setExporting(true)
+    try {
+      const blob = await exportLeadsCsv({
+        ...(statusFilter !== 'ALL' && { status: statusFilter }),
+        ...(search && { search }),
+      })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `leads-${new Date().toISOString().slice(0, 10)}.csv`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      toast.error('Failed to export leads')
+    } finally {
+      setExporting(false)
+    }
+  }
+
   const totalCount = Object.values(counts).reduce((a, b) => a + b, 0)
 
   return (
@@ -219,7 +242,7 @@ export default function LeadsPage() {
       </div>
 
       {/* Search */}
-      <div className="mb-5">
+      <div className="mb-5 flex items-center justify-between gap-4">
         <input
           type="text"
           value={search}
@@ -227,6 +250,14 @@ export default function LeadsPage() {
           placeholder="Search by name, email or phone..."
           className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-navy w-full max-w-xs transition-colors"
         />
+        <button
+          type="button"
+          onClick={handleExport}
+          disabled={exporting}
+          className="flex-shrink-0 border border-navy text-navy hover:bg-navy hover:text-white px-4 py-2 rounded text-sm font-semibold transition-colors disabled:opacity-60"
+        >
+          {exporting ? 'Exporting...' : 'Export CSV'}
+        </button>
       </div>
 
       {/* Table */}

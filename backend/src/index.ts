@@ -9,6 +9,8 @@ import authRouter from './routes/auth'
 import usersRouter from './routes/users'
 import appointmentsRouter from './routes/appointments'
 import pathwayFinderRouter from './routes/pathwayFinder'
+import adminRouter from './routes/admin'
+import { startDigestScheduler } from './lib/digest'
 
 dotenv.config()
 
@@ -56,6 +58,7 @@ app.use('/api/leads', leadsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/appointments', appointmentsRouter)
 app.use('/api/pathway-finder', pathwayFinderRouter)
+app.use('/api/admin', adminRouter)
 
 // 404 handler
 app.use((_req, res) => {
@@ -75,6 +78,7 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 // admin@masomonow.com's password back to a hardcoded default on every boot.
 app.listen(PORT, () => {
   console.log(`Masomo Now API running on port ${PORT}`)
+  startDigestScheduler().catch((err) => console.error('Failed to start digest scheduler:', err))
 })
 
 export default app

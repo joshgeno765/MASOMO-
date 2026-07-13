@@ -66,6 +66,11 @@ export async function getLeads(params?: { status?: LeadStatus; search?: string; 
   return res.data
 }
 
+export async function exportLeadsCsv(params?: { status?: LeadStatus; search?: string }): Promise<Blob> {
+  const res = await api.get('/api/leads/export', { params, responseType: 'blob' })
+  return res.data
+}
+
 export async function getLead(id: number) {
   const res = await api.get<ApiResponse<Lead>>(`/api/leads/${id}`)
   return res.data
@@ -115,6 +120,13 @@ export async function getAppointments(params?: { status?: AppointmentStatus; pag
 
 export async function updateAppointment(id: number, data: Partial<Pick<Appointment, 'status' | 'notes' | 'scheduledAt'>>) {
   const res = await api.patch<ApiResponse<Appointment>>(`/api/appointments/${id}`, data)
+  return res.data
+}
+
+// ── Admin — Digest ────────────────────────────────────────────────────────────
+
+export async function runDigestNow(): Promise<ApiResponse<null>> {
+  const res = await api.post<ApiResponse<null>>('/api/admin/run-digest')
   return res.data
 }
 
