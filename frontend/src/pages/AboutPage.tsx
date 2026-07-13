@@ -77,6 +77,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Quote */}
+      <section className="py-16 px-6 text-center bg-brand-gold-light/10">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-serif text-2xl md:text-3xl text-navy leading-snug italic">
+            "The future belongs to those who believe in the beauty of their dream."
+          </p>
+        </div>
+      </section>
+
       {/* Values — huge numerals */}
       <section className="py-4">
         <div className="grid md:grid-cols-2">
