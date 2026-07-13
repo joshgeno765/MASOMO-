@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Country, School, northAmerica, europe, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
@@ -58,7 +58,7 @@ function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVide
 
 function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveVideo) => void }) {
   return (
-    <div className="py-12">
+    <div id={d.slug} className="py-12 scroll-mt-20">
       {/* Header */}
       <div className="flex items-start gap-5 mb-8">
         <span className="text-4xl">{d.flag}</span>
@@ -122,6 +122,13 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
 
 export default function StudyDestinationsPage() {
   const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null)
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) return
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }, [hash])
 
   return (
     <>

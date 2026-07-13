@@ -22,6 +22,7 @@ export interface School {
 export interface Country {
   flag: string
   name: string
+  slug: string
   tagline: string
   region: 'North America' | 'Europe'
   languages: string[]
@@ -37,6 +38,7 @@ export const northAmerica: Country[] = [
   {
     flag: '🇨🇦',
     name: 'Canada',
+    slug: 'canada',
     tagline: 'From coast to coast — technical institutes to universities',
     region: 'North America',
     languages: ['English', 'French'],
@@ -103,12 +105,13 @@ export const northAmerica: Country[] = [
     ],
     desc: 'Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot\'s francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia, Alberta, Saskatchewan, and Ontario — from Metro Vancouver\'s tech corridor to smaller regional colleges with a lower cost of living.',
     pros: ['Post-Graduation Work Permit — up to 3 years', 'A recognised pathway toward permanent residence', 'Strong co-op and trades programs (BCIT)', "TRU's guaranteed tuition model locks in your rate for your whole program", 'Lower cost of living at regional colleges (Northern Lights, North Island)'],
-    link: '/consultation',
+    link: '/consultation?destination=' + encodeURIComponent('Canada'),
     linkLabel: 'Enquire About Canada →',
   },
   {
     flag: '🇺🇸',
     name: 'United States',
+    slug: 'united-states',
     tagline: 'A community-college pathway into the Seattle tech corridor',
     region: 'North America',
     languages: ['English'],
@@ -124,7 +127,7 @@ export const northAmerica: Country[] = [
     ],
     desc: 'Our two Washington State partners sit minutes from downtown Seattle — home to Amazon, Microsoft, and one of the world\'s busiest tech job markets. Both offer accredited two-year degrees and certificates, with clear transfer pathways into four-year bachelor\'s programs, at a fraction of the cost of direct university enrollment.',
     pros: ['Direct pathway into the Seattle tech corridor', 'Lower tuition than direct 4-year enrollment', 'Clear transfer pathways to bachelor\'s degrees', 'OPT work authorization after graduation', 'No TOEFL/IELTS required at LWTech (free placement test)'],
-    link: '/consultation',
+    link: '/consultation?destination=' + encodeURIComponent('United States'),
     linkLabel: 'Enquire About the United States →',
   },
 ]
@@ -133,6 +136,7 @@ export const europe: Country[] = [
   {
     flag: '🇮🇪',
     name: 'Ireland',
+    slug: 'ireland',
     tagline: 'English-speaking gateway to the European Union',
     region: 'Europe',
     languages: ['English'],
@@ -148,12 +152,13 @@ export const europe: Country[] = [
     ],
     desc: 'Ireland is one of the only English-speaking countries in the EU, making it a strategic choice for African students seeking a globally recognised degree with access to European job markets. Dublin is home to the European headquarters of Google, Meta, and Apple.',
     pros: ['English-language EU country', '2-year post-study work permit (Stamp 1G)', 'Access to European job market', 'World-class tech and business sector', 'Welcoming to international students'],
-    link: '/consultation',
+    link: '/consultation?destination=' + encodeURIComponent('Ireland'),
     linkLabel: 'Enquire About Ireland →',
   },
   {
     flag: '🇩🇪',
     name: 'Germany',
+    slug: 'germany',
     tagline: "Europe's largest economy — English programs available",
     region: 'Europe',
     languages: ['English'],
@@ -170,12 +175,13 @@ export const europe: Country[] = [
     ],
     desc: 'Germany is Europe\'s strongest economy and a top destination for international students. Our three partner institutions offer fully English-taught business and management programs, making Germany accessible without needing to learn German first.',
     pros: ['3 partner institutions in major cities', '18-month job seeker visa after graduation', 'Strong engineering & business job market', 'English-taught programs available', 'Central EU location'],
-    link: '/consultation',
+    link: '/consultation?destination=' + encodeURIComponent('Germany'),
     linkLabel: 'Enquire About Germany →',
   },
   {
     flag: '🇵🇱',
     name: 'Poland',
+    slug: 'poland',
     tagline: 'Affordable European education in Warsaw',
     region: 'Europe',
     languages: ['English'],
@@ -190,7 +196,7 @@ export const europe: Country[] = [
     ],
     desc: 'Poland offers EU-recognised degrees at significantly lower tuition fees and living costs than Western Europe. Vistula University in Warsaw is one of Poland\'s most internationally active institutions, with a strong track record of enrolling students from Africa.',
     pros: ['Among the most affordable EU tuitions', 'Lower cost of living vs. Western Europe', 'EU-recognised degrees', 'English-taught programs', 'Growing economy and job market'],
-    link: '/consultation',
+    link: '/consultation?destination=' + encodeURIComponent('Poland'),
     linkLabel: 'Enquire About Poland →',
   },
 ]

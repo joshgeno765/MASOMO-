@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { bookConsultation } from '../lib/api'
 import { ConsultationFormData } from '../types'
@@ -16,6 +16,35 @@ const SLOT_WINDOWS: Record<number, { start: number; end: number } | null> = {
   4: { start: 14, end: 17 }, // Thursday
   5: { start: 9, end: 12 }, // Friday
   6: { start: 10, end: 13 }, // Saturday
+}
+
+const DESTINATION_OPTIONS = [
+  'Ireland — DCU (Dublin City University)',
+  'Ireland — Griffith College',
+  'Germany — CBS University of Applied Sciences',
+  'Germany — BSBI (Berlin School of Business & Innovation)',
+  'Germany — Gisma University of Applied Sciences',
+  'Poland — Vistula University',
+  'USA — Lake Washington Institute of Technology',
+  'USA — Seattle Colleges',
+  'Canada — FMC Student Pilot',
+  'Canada — BCIT',
+  'Canada — TRU (Thompson Rivers University)',
+  'Canada — University of Lethbridge',
+  'Canada — Northern Lights College',
+  'Canada — North Island College',
+  'Not sure — need guidance',
+]
+
+// The country cards/links elsewhere on the site pass the country's display name
+// (matching destinations.ts), which doesn't always match this dropdown's own
+// abbreviations (e.g. "United States" here vs "USA" in DESTINATION_OPTIONS).
+const DESTINATION_PARAM_PREFIX: Record<string, string> = {
+  'Canada': 'Canada',
+  'United States': 'USA',
+  'Ireland': 'Ireland',
+  'Germany': 'Germany',
+  'Poland': 'Poland',
 }
 
 const EMPTY_FORM: ConsultationFormData = {
@@ -58,12 +87,22 @@ function isPastOrToday(d: Date): boolean {
 }
 
 export default function ConsultationPage() {
+  const [searchParams] = useSearchParams()
   const [form, setForm] = useState<ConsultationFormData>(EMPTY_FORM)
   const [weekOffset, setWeekOffset] = useState(0)
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    const destination = searchParams.get('destination')
+    if (!destination) return
+    const prefix = DESTINATION_PARAM_PREFIX[destination]
+    if (!prefix) return
+    const match = DESTINATION_OPTIONS.find((o) => o.startsWith(`${prefix} —`))
+    if (match) setForm((prev) => ({ ...prev, destinationInterest: match }))
+  }, [searchParams])
 
   const days = useMemo(() => weekDays(weekOffset), [weekOffset])
 
@@ -169,21 +208,7 @@ export default function ConsultationPage() {
                 <select name="destinationInterest" value={form.destinationInterest} onChange={handleChange}
                   className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white text-gray-700">
                   <option value="">Where would you like to study?</option>
-                  <option>Ireland — DCU (Dublin City University)</option>
-                  <option>Ireland — Griffith College</option>
-                  <option>Germany — CBS University of Applied Sciences</option>
-                  <option>Germany — BSBI (Berlin School of Business & Innovation)</option>
-                  <option>Germany — Gisma University of Applied Sciences</option>
-                  <option>Poland — Vistula University</option>
-                  <option>USA — Lake Washington Institute of Technology</option>
-                  <option>USA — Seattle Colleges</option>
-                  <option>Canada — FMC Student Pilot</option>
-                  <option>Canada — BCIT</option>
-                  <option>Canada — TRU (Thompson Rivers University)</option>
-                  <option>Canada — University of Lethbridge</option>
-                  <option>Canada — Northern Lights College</option>
-                  <option>Canada — North Island College</option>
-                  <option>Not sure — need guidance</option>
+                  {DESTINATION_OPTIONS.map((o) => (<option key={o}>{o}</option>))}
                 </select>
               </div>
 

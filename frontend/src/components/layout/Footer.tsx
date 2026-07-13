@@ -47,10 +47,10 @@ export default function Footer() {
             <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">Destinations</h4>
             <div className="flex flex-col gap-2 text-sm">
               <Link to="/fmc-pilot" className="hover:text-brand-gold-light transition-colors">🇨🇦 Canada (FMC Pilot)</Link>
-              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇺🇸 United States</Link>
-              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇮🇪 Ireland</Link>
-              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇩🇪 Germany</Link>
-              <Link to="/destinations" className="hover:text-brand-gold-light transition-colors">🇵🇱 Poland</Link>
+              <Link to="/destinations#united-states" className="hover:text-brand-gold-light transition-colors">🇺🇸 United States</Link>
+              <Link to="/destinations#ireland" className="hover:text-brand-gold-light transition-colors">🇮🇪 Ireland</Link>
+              <Link to="/destinations#germany" className="hover:text-brand-gold-light transition-colors">🇩🇪 Germany</Link>
+              <Link to="/destinations#poland" className="hover:text-brand-gold-light transition-colors">🇵🇱 Poland</Link>
             </div>
           </div>
         </div>

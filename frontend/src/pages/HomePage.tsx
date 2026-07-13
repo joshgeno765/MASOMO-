@@ -12,11 +12,11 @@ const testimonials = [
 ]
 
 const destinationShowcase = [
-  { flag: '🇨🇦', name: 'Canada', image: '/images/schools/bcit-thumb.webp', count: '8 partner schools' },
-  { flag: '🇺🇸', name: 'United States', image: '/images/schools/lwtech-thumb.webp', count: '2 partner schools' },
-  { flag: '🇮🇪', name: 'Ireland', image: '/images/schools/dcu-thumb.webp', count: '2 partner schools' },
-  { flag: '🇩🇪', name: 'Germany', image: '/images/schools/cbs-thumb.webp', count: '3 partner schools' },
-  { flag: '🇵🇱', name: 'Poland', image: '/images/schools/vistula-thumb.webp', count: '1 partner school' },
+  { flag: '🇨🇦', name: 'Canada', slug: 'canada', image: '/images/schools/bcit-thumb.webp', count: '8 partner schools' },
+  { flag: '🇺🇸', name: 'United States', slug: 'united-states', image: '/images/schools/lwtech-thumb.webp', count: '2 partner schools' },
+  { flag: '🇮🇪', name: 'Ireland', slug: 'ireland', image: '/images/schools/dcu-thumb.webp', count: '2 partner schools' },
+  { flag: '🇩🇪', name: 'Germany', slug: 'germany', image: '/images/schools/cbs-thumb.webp', count: '3 partner schools' },
+  { flag: '🇵🇱', name: 'Poland', slug: 'poland', image: '/images/schools/vistula-thumb.webp', count: '1 partner school' },
 ]
 
 const whoWeHelp = [
@@ -52,11 +52,6 @@ export default function HomePage() {
         secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required."
         secondaryCtaLabel="Explore Immigration Pathway →"
         secondaryCtaTo="/fmc-pilot"
-        secondaryChildren={
-          <Link to="/fmc-pilot" className="text-white/80 text-sm font-semibold hover:underline">
-            Explore Work Permit →
-          </Link>
-        }
         height="min-h-[520px]"
       >
         <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
@@ -112,7 +107,7 @@ export default function HomePage() {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {destinationShowcase.map((d) => (
-                <Link key={d.name} to="/destinations" className="group relative rounded-lg overflow-hidden h-72 block">
+                <Link key={d.name} to={`/destinations#${d.slug}`} className="group relative rounded-lg overflow-hidden h-72 block">
                   <img src={d.image} alt={d.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
                   <div className="absolute bottom-0 p-5">

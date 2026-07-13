@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express'
 import { z } from 'zod'
 import prisma from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
-import { sendNewAppointmentEmail } from '../lib/email'
+import { sendNewAppointmentEmail, sendAppointmentConfirmationEmail } from '../lib/email'
 
 const router = Router()
 
@@ -69,6 +69,12 @@ router.post('/', async (req: Request, res: Response) => {
     sendNewAppointmentEmail({ ...validated, scheduledAt: appointment.scheduledAt }).catch((err) =>
       console.error('Email failed:', err)
     )
+    sendAppointmentConfirmationEmail({
+      name: validated.name,
+      email: validated.email,
+      destinationInterest: validated.destinationInterest,
+      scheduledAt: appointment.scheduledAt,
+    }).catch((err) => console.error('Confirmation email failed:', err))
 
     return res.status(201).json({
       success: true,

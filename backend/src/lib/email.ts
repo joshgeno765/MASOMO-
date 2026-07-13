@@ -102,6 +102,47 @@ export async function sendNewPathwayResultEmail(lead: {
   })
 }
 
+export async function sendAppointmentConfirmationEmail(appointment: {
+  name: string
+  email: string
+  destinationInterest: string
+  scheduledAt: Date
+}) {
+  if (!process.env.RESEND_API_KEY) return
+
+  const resend = new Resend(process.env.RESEND_API_KEY)
+  const when = appointment.scheduledAt.toLocaleString('en-US', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Africa/Kigali',
+  })
+
+  await resend.emails.send({
+    from: FROM,
+    to: appointment.email,
+    subject: 'Your Masomo Now consultation is booked',
+    html: `
+      <div style="font-family:sans-serif;max-width:560px;margin:0 auto;padding:24px">
+        <div style="background:#0B2545;padding:20px 24px;border-radius:8px 8px 0 0">
+          <span style="color:#F5C842;font-weight:800;font-size:14px;letter-spacing:1px">MASOMO NOW</span>
+          <p style="color:white;margin:6px 0 0;font-size:18px;font-weight:600">Consultation Confirmed</p>
+        </div>
+        <div style="border:1px solid #e5e7eb;border-top:none;padding:24px;border-radius:0 0 8px 8px">
+          <p style="color:#374151;font-size:14px">Hi ${appointment.name},</p>
+          <p style="color:#374151;font-size:14px">Thanks for booking a free consultation with Masomo Now. Here are your details:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;margin:16px 0">
+            <tr><td style="padding:8px 0;color:#6b7280;width:130px">When</td><td style="padding:8px 0;font-weight:600;color:#0B2545">${when} (Central Africa Time)</td></tr>
+            <tr><td style="padding:8px 0;color:#6b7280;border-top:1px solid #f3f4f6">Destination</td><td style="padding:8px 0;border-top:1px solid #f3f4f6;font-weight:600;color:#0B2545">${appointment.destinationInterest}</td></tr>
+          </table>
+          <p style="color:#374151;font-size:14px">One of our counselors will call you at the number you provided around this time. If anything comes up, just reply to this email or reach us on WhatsApp.</p>
+          <p style="color:#374151;font-size:14px">Best regards,<br/>The Masomo Now team</p>
+        </div>
+        <p style="color:#9ca3af;font-size:12px;margin-top:16px;text-align:center">Masomo Now · info@masomonow.com</p>
+      </div>
+    `,
+  })
+}
+
 export async function sendNewAppointmentEmail(appointment: {
   name: string
   email: string
