@@ -11,6 +11,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact Us"
         subtitle="Reach the Masomo Now / ELIMU office nearest you, or book a free consultation with one of our advisors."
+        quote="If you think you're too small to create change, you've never spent a night in a tent with a mosquito."
       />
 
       <section className="py-16 px-6">

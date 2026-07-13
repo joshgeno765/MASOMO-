@@ -36,6 +36,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="End-to-end support, every step"
         subtitle="From your first inquiry to settling into life abroad — here's exactly how Masomo Now helps."
+        quote="The worst thing that can happen to you is not failing to fulfill your dreams — the worst is not dreaming at all."
       />
 
       <IconFeatureRow title="What we help with" columns={3} features={services} />
