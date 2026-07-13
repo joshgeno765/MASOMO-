@@ -131,6 +131,7 @@ export default function StudyDestinationsPage() {
         eyebrow="Study Destinations"
         title="Where will you study abroad?"
         subtitle="We work with Francophone African students to secure admission at top institutions across five countries."
+        quote="He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
       />
 
       {/* Featured partner video — BCIT */}

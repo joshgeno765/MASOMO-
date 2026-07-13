@@ -15,11 +15,12 @@ interface PhotoHeroProps {
   secondaryCtaLabel?: string
   secondaryCtaTo?: string
   secondaryChildren?: ReactNode
+  quote?: string
   height?: string
   children?: ReactNode
 }
 
-export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
+export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, quote, height = 'h-[70vh] min-h-[420px] max-h-[640px]', children }: PhotoHeroProps) {
   const slides = images && images.length > 0 ? images : image ? [image] : []
   const [active, setActive] = useState(0)
   const [loaded, setLoaded] = useState<number[]>([0])
@@ -97,6 +98,13 @@ export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle
                 {ctaLabel && ctaTo && <Button to={ctaTo} variant="primary">{ctaLabel}</Button>}
                 {children}
               </div>
+            </div>
+          )}
+          {quote && (
+            <div className="w-full mt-8 text-center">
+              <p className="font-serif text-lg md:text-2xl text-brand-gold-light italic leading-snug max-w-2xl mx-auto">
+                "{quote}"
+              </p>
             </div>
           )}
         </div>

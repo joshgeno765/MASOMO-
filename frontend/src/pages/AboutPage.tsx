@@ -36,13 +36,8 @@ export default function AboutPage() {
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
         title="Your Journey Starts Here"
         subtitle="Helping students turn their international education dreams into reality."
-      >
-        <div className="w-full mt-6 text-center">
-          <p className="text-white/80 text-base italic max-w-2xl mx-auto">
-            "The future belongs to those who believe in the beauty of their dream."
-          </p>
-        </div>
-      </PhotoHero>
+        quote="The future belongs to those who believe in the beauty of their dream."
+      />
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
