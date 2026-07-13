@@ -68,6 +68,8 @@ export default function App() {
 
               {/* Auth */}
               <Route path="/login" element={<LoginPage />} />
+              {/* /admin/login is the natural URL people actually type/bookmark */}
+              <Route path="/admin/login" element={<Navigate to="/login" replace />} />
 
               {/* Admin portal */}
               <Route
@@ -79,6 +81,9 @@ export default function App() {
                 <Route path="consultations" element={<ConsultationsPage />} />
                 <Route path="users" element={<UsersPage />} />
               </Route>
+
+              {/* Anything else — never leave the screen blank */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
         </BrowserRouter>
