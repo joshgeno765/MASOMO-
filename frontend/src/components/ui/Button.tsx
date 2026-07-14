@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-type Variant = 'primary' | 'outline' | 'outlineDark'
+type Variant = 'primary' | 'outline'
 
 interface BaseProps {
   variant?: Variant
@@ -27,7 +27,6 @@ type ButtonProps = LinkButtonProps | ActionButtonProps
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary: 'bg-brand-gold text-navy hover:bg-brand-gold-light hover:shadow-lg hover:shadow-brand-gold/30',
   outline: 'border border-white/30 text-white hover:border-white/60 hover:bg-white/5',
-  outlineDark: 'border border-navy/25 text-navy hover:border-navy hover:bg-navy/5',
 }
 
 function classes(variant: Variant, fullWidth: boolean, disabled: boolean, className?: string) {

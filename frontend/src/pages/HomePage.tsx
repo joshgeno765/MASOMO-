@@ -54,14 +54,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="bg-gray-50 px-6 py-16 md:py-28 flex items-center">
+          <div className="bg-navy px-6 py-16 md:py-28 flex items-center">
             <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-16">
-              <p className="text-brand-gold-dark text-xs font-bold uppercase tracking-widest mb-4">Skilled Workers</p>
-              <h2 className="font-serif text-4xl md:text-6xl text-navy leading-[1.1] mb-5">Work in Canada</h2>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+              <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Skilled Workers</p>
+              <h2 className="font-serif text-4xl md:text-6xl text-white leading-[1.1] mb-5">Work in Canada</h2>
+              <p className="text-white/75 text-base md:text-lg leading-relaxed mb-8">
                 Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required.
               </p>
-              <Button to="/fmc-pilot" variant="outlineDark">Explore Immigration Pathway →</Button>
+              <Button to="/fmc-pilot" variant="outline">Explore Work, Immigration Pathway →</Button>
             </div>
           </div>
         </div>
