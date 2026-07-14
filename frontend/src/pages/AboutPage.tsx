@@ -52,7 +52,7 @@ export default function AboutPage() {
         title="Our Story"
         imageSide="right"
       >
-        <p>Masomo Now is the Francophone Africa division of <strong className="text-navy">ELIMU International Education Connections</strong>, a Canadian education consultancy headquartered in Vancouver, British Columbia.</p>
+        <p>Masomo Now is the Francophone Africa division of <a href="https://elimunow.com" target="_blank" rel="noopener noreferrer" className="text-navy font-bold hover:underline">ELIMU International Education Connections</a>, a Canadian education consultancy headquartered in Vancouver, British Columbia.</p>
         <p>Our mission is to connect talented students with quality education opportunities around the world while providing trusted guidance throughout every step of the journey.</p>
       </TextImageSplit>
 
