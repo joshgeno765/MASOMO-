@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import Button from '../components/ui/Button'
-import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import Reveal from '../components/ui/Reveal'
@@ -41,29 +40,53 @@ export default function HomePage() {
         <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">Check your eligibility</Link>
       </div>
 
-      <PhotoHero
-        image="/images/seminars/seminar-2.webp"
-        alt="A Masomo Now / ELIMU seminar with students in Kenya"
-        title="Study Abroad"
-        subtitle="Helping international students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed immigration consultants."
-        ctaLabel="Find Your Pathway →"
-        ctaTo="/pathway-finder"
-        secondaryTitle="Work in Canada"
-        secondarySubtitle="Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required."
-        secondaryCtaLabel="Explore Immigration Pathway →"
-        secondaryCtaTo="/fmc-pilot"
-        height="min-h-[520px]"
-      >
-        <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors">
+      {/* Split hero — two distinct paths, no photo to compete with the choice */}
+      <section className="relative">
+        <div className="grid md:grid-cols-2">
+          <div className="bg-navy px-6 py-16 md:py-28 flex items-center">
+            <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-16">
+              <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">International Students</p>
+              <h1 className="font-serif text-4xl md:text-6xl text-white leading-[1.1] mb-5">Study Abroad</h1>
+              <p className="text-white/75 text-base md:text-lg leading-relaxed mb-8">
+                Helping international students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed immigration consultants.
+              </p>
+              <Button to="/pathway-finder" variant="primary">Find Your Pathway →</Button>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 px-6 py-16 md:py-28 flex items-center">
+            <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-16">
+              <p className="text-brand-gold-dark text-xs font-bold uppercase tracking-widest mb-4">Skilled Workers</p>
+              <h2 className="font-serif text-4xl md:text-6xl text-navy leading-[1.1] mb-5">Work in Canada</h2>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required.
+              </p>
+              <Button to="/fmc-pilot" variant="outlineDark">Explore Immigration Pathway →</Button>
+            </div>
+          </div>
+        </div>
+
+        {/* "Or" divider between the two paths */}
+        <div className="flex items-center gap-3 px-6 py-3 md:hidden bg-navy">
+          <span className="flex-1 h-px bg-white/20" />
+          <span className="text-xs font-bold text-white/60 uppercase tracking-widest">Or</span>
+          <span className="flex-1 h-px bg-white/20" />
+        </div>
+        <div className="hidden md:flex absolute inset-y-0 left-1/2 -translate-x-1/2 items-center z-10">
+          <span className="bg-white text-navy text-xs font-bold uppercase tracking-widest rounded-full w-12 h-12 flex items-center justify-center shadow-lg">Or</span>
+        </div>
+      </section>
+
+      {/* Trust badge + quote */}
+      <div className="bg-navy-mid py-6 px-6 text-center border-t border-white/10">
+        <Link to="/about" className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/20 transition-colors mb-4">
           🇨🇦 Canadian Licensed Support
         </Link>
-        <div className="w-full mt-6 text-center">
-          <p className="text-brand-gold-light text-xs font-bold uppercase tracking-widest mb-2">Sky is the Beginning</p>
-          <p className="text-white/80 text-base italic max-w-2xl mx-auto">
-            "The future belongs to those who can imagine it, design it, and execute it. It isn't something you await, but rather create."
-          </p>
-        </div>
-      </PhotoHero>
+        <p className="text-brand-gold-light text-xs font-bold uppercase tracking-widest mb-2">Sky is the Beginning</p>
+        <p className="text-white/80 text-base italic max-w-2xl mx-auto">
+          "The future belongs to those who can imagine it, design it, and execute it. It isn't something you await, but rather create."
+        </p>
+      </div>
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
