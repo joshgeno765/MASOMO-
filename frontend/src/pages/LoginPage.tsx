@@ -35,17 +35,12 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-dvh flex">
-      {/* Photo panel */}
-      <div className="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden">
-        <img
-          src="/images/seminars/seminar-1.webp"
-          alt="A Masomo Now / ELIMU seminar with students in Kenya"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
+      {/* Brand panel — solid navy gradient + subtle dot texture instead of a photo */}
+      <div className="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden bg-gradient-to-br from-navy to-navy-mid">
+        <div className="absolute inset-0 dot-pattern" />
         <div className="relative flex flex-col justify-end h-full px-12 pb-16 max-w-xl">
           <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">Masomo Now — Staff Portal</p>
-          <h1 className="font-serif text-3xl lg:text-4xl text-white leading-tight mb-4">
+          <h1 className="font-serif text-4xl lg:text-5xl text-white leading-[1.1] mb-4">
             Guiding Francophone African students to campuses abroad
           </h1>
           <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-xs font-semibold text-white w-fit">
