@@ -42,7 +42,7 @@ export default function HomePage() {
       </div>
 
       <PhotoHero
-        images={['/images/seminars/seminar-2.webp', '/images/seminars/seminar-3.webp', '/images/seminars/seminar-4.webp']}
+        image="/images/seminars/seminar-2.webp"
         alt="A Masomo Now / ELIMU seminar with students in Kenya"
         title="Study Abroad"
         subtitle="Helping international students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed immigration consultants."

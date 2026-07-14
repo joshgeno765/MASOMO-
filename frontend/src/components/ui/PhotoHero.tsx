@@ -1,9 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import Button from './Button'
 
 interface PhotoHeroProps {
   image?: string
-  images?: string[]
   alt: string
   eyebrow?: string
   title: string
@@ -20,38 +19,18 @@ interface PhotoHeroProps {
   children?: ReactNode
 }
 
-export default function PhotoHero({ image, images, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, quote, height = 'min-h-[420px]', children }: PhotoHeroProps) {
-  const slides = images && images.length > 0 ? images : image ? [image] : []
-  const [active, setActive] = useState(0)
-  const [loaded, setLoaded] = useState<number[]>([0])
-
-  useEffect(() => {
-    if (slides.length < 2) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => {
-      setActive((i) => {
-        const next = (i + 1) % slides.length
-        setLoaded((prev) => (prev.includes(next) ? prev : [...prev, next]))
-        return next
-      })
-    }, 5000)
-    return () => clearInterval(id)
-  }, [slides.length])
-
+export default function PhotoHero({ image, alt, eyebrow, title, subtitle, ctaLabel, ctaTo, secondaryTitle, secondarySubtitle, secondaryCtaLabel, secondaryCtaTo, secondaryChildren, quote, height = 'min-h-[420px]', children }: PhotoHeroProps) {
   return (
     <section className={`relative overflow-hidden ${height}`}>
-      {slides.map((src, i) => loaded.includes(i) && (
+      {image && (
         <img
-          key={src}
-          src={src}
-          alt={i === active ? alt : ''}
+          src={image}
+          alt={alt}
           loading="eager"
-          {...(i === 0 ? { fetchpriority: 'high' } : {})}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 motion-reduce:transition-none ${
-            i === active ? 'opacity-100' : 'opacity-0'
-          }`}
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-      ))}
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
       <div className="relative py-14 md:py-20">
         <div className="max-w-6xl mx-auto w-full px-6">
