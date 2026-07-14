@@ -59,6 +59,7 @@ export default function LoginPage() {
         <div className="w-full max-w-sm">
           <Link to="/" className="flex items-center gap-2.5 mb-8 sm:mb-10">
             <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base flex-shrink-0">MN</div>
+            <img src="/images/elimu-logo.png" alt="ELIMU" className="h-7 w-auto flex-shrink-0" />
             <span className="text-navy font-bold text-lg">Masomo Now</span>
           </Link>
 

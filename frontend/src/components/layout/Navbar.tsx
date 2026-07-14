@@ -20,6 +20,7 @@ export default function Navbar() {
           <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">
             MN
           </div>
+          <img src="/images/elimu-logo.png" alt="ELIMU" className="h-7 w-auto" />
           <span className="text-white font-bold text-lg">
             Masomo <span className="text-brand-gold-light">Now</span>
             <span className="ml-2 font-bold text-white">- Sky is the Beginning</span>
