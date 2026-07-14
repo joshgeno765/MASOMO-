@@ -111,7 +111,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {seminars.map((s, i) => (
               <figure key={s.src} className={`overflow-hidden rounded-xl ${i === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-                <img src={s.src} alt={s.caption} loading="lazy" className={`w-full object-cover ${i === 0 ? 'h-full min-h-[20rem]' : 'h-48'}`} />
+                <img src={s.src} alt={s.caption} loading="lazy" className={`w-full object-cover photo-grade ${i === 0 ? 'h-full min-h-[20rem]' : 'h-48'}`} />
                 <figcaption className="bg-white px-4 py-3 text-xs text-gray-500 leading-relaxed">{s.caption}</figcaption>
               </figure>
             ))}
@@ -130,7 +130,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-5 mt-12 text-left">
           {team.map((t) => (
             <figure key={t.src} className="rounded-xl overflow-hidden">
-              <img src={t.src} alt={t.caption} loading="lazy" className="w-full h-56 object-cover" />
+              <img src={t.src} alt={t.caption} loading="lazy" className="w-full h-56 object-cover photo-grade" />
               <figcaption className="text-white/50 text-xs mt-2 leading-relaxed">{t.caption}</figcaption>
             </figure>
           ))}

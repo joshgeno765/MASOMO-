@@ -108,7 +108,7 @@ export default function HomePage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {destinationShowcase.map((d) => (
                 <Link key={d.name} to={`/destinations#${d.slug}`} className="group relative rounded-lg overflow-hidden h-72 block">
-                  <img src={d.image} alt={d.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={d.image} alt={d.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover photo-grade group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
                   <div className="absolute bottom-0 p-5">
                     <p className="text-xs font-semibold uppercase mb-1">{d.flag}</p>
@@ -134,7 +134,7 @@ export default function HomePage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {whoWeHelp.map((w) => (
                 <div key={w.title} className="border border-gray-200 rounded-xl p-7 hover:border-brand-gold/50 transition-colors">
-                  <img src={w.photo} alt="" loading="lazy" className="w-14 h-14 rounded-lg object-cover mb-4" />
+                  <img src={w.photo} alt="" loading="lazy" className="w-14 h-14 rounded-lg object-cover photo-grade mb-4" />
                   <h3 className="font-bold text-navy text-lg mb-2">{w.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{w.description}</p>
                   <Link to="/pathway-finder" className="text-sm font-semibold text-brand-blue hover:underline">Find your pathway →</Link>
@@ -189,7 +189,7 @@ export default function HomePage() {
               src="/images/team/graduation-1.webp"
               alt="A Masomo Now / ELIMU student at their Canadian convocation"
               loading="lazy"
-              className="w-full h-96 object-cover object-top"
+              className="w-full h-96 object-cover object-top photo-grade"
             />
             <figcaption className="bg-white px-5 py-4 text-sm text-gray-600 text-center">
               A Masomo Now / ELIMU student at their Canadian convocation.

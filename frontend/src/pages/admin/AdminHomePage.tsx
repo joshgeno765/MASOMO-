@@ -129,7 +129,7 @@ export default function AdminHomePage() {
       <div className="grid grid-cols-3 gap-3 mb-10 h-28">
         {DASHBOARD_PHOTOS.map((src) => (
           <div key={src} className="rounded-lg overflow-hidden">
-            <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+            <img src={src} alt="" className="w-full h-full object-cover photo-grade" loading="lazy" />
           </div>
         ))}
       </div>

@@ -20,16 +20,16 @@ const comparisonData = [
 
 function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVideo) => void }) {
   return (
-    <div className="relative h-40 rounded-lg overflow-hidden border border-gray-200">
+    <div className="group relative h-40 rounded-lg overflow-hidden border border-gray-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       {s.photo ? (
         <>
-          <img src={s.photo} alt={`${s.name}, ${s.city}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={s.photo} alt={`${s.name}, ${s.city}`} loading="lazy" className="absolute inset-0 w-full h-full object-cover photo-grade transition-transform duration-300 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent" />
         </>
       ) : (
         <div className="absolute inset-0 bg-navy" />
       )}
-      <div className="relative h-full flex flex-col justify-end p-3">
+      <div className="relative h-full flex flex-col justify-end p-4">
         <div className="font-semibold text-white text-sm leading-tight">{s.name}</div>
         <div className="text-[11px] text-white/60 mb-1.5">{s.type} · {s.city}</div>
         <div className="flex items-center gap-3">
@@ -99,10 +99,10 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
 
         <div>
           <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Why {d.name}</h3>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {d.pros.map((p) => (
-              <li key={p} className="flex items-start gap-2 text-sm text-gray-600">
-                <span className="text-brand-gold-dark mt-0.5 flex-shrink-0 font-bold">—</span>
+              <li key={p} className="flex items-start gap-2.5 text-sm text-gray-600">
+                <img src="/images/elimu-logo.png" alt="" className="w-3.5 h-auto mt-1 flex-shrink-0" />
                 {p}
               </li>
             ))}

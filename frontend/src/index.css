@@ -18,6 +18,14 @@
   .btn-outline {
     @apply border border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:border-white/60 transition-colors duration-150 text-sm;
   }
+
+  /* A single subtle warm grade applied to marketing/content photography so images
+     pulled from different sources (stock, event photos, campus photos) read as one
+     consistent brand rather than a patchwork. Deliberately not applied to logos/icons
+     or user-uploaded profile photos, which should stay true to their real color. */
+  .photo-grade {
+    filter: saturate(1.08) contrast(1.03) sepia(0.06);
+  }
 }
 
 .marquee-track {

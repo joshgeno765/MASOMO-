@@ -25,13 +25,14 @@ interface ActionButtonProps extends BaseProps {
 type ButtonProps = LinkButtonProps | ActionButtonProps
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  primary: 'bg-brand-gold text-navy hover:bg-brand-gold-light',
-  outline: 'border border-white/30 text-white hover:border-white/60',
+  primary: 'bg-brand-gold text-navy hover:bg-brand-gold-light hover:shadow-lg hover:shadow-brand-gold/30',
+  outline: 'border border-white/30 text-white hover:border-white/60 hover:bg-white/5',
 }
 
 function classes(variant: Variant, fullWidth: boolean, disabled: boolean, className?: string) {
   return [
-    'font-bold px-6 py-3 rounded-lg transition-colors duration-150 inline-flex items-center justify-center gap-2 text-sm',
+    'font-bold px-6 py-3 rounded-lg transition-all duration-150 inline-flex items-center justify-center gap-2 text-sm',
+    disabled ? '' : 'hover:-translate-y-0.5 active:translate-y-0',
     VARIANT_CLASSES[variant],
     fullWidth ? 'w-full' : '',
     disabled ? 'opacity-60 cursor-not-allowed' : '',

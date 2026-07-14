@@ -28,7 +28,7 @@ export default function PhotoHero({ image, alt, eyebrow, title, subtitle, ctaLab
           alt={alt}
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover photo-grade"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
@@ -80,10 +80,12 @@ export default function PhotoHero({ image, alt, eyebrow, title, subtitle, ctaLab
             </div>
           )}
           {quote && (
-            <div className="w-full mt-8 text-center">
-              <p className="font-serif text-lg md:text-2xl text-brand-gold-light italic leading-snug max-w-2xl mx-auto">
-                "{quote}"
-              </p>
+            <div className="w-full mt-8 flex justify-center">
+              <div className="bg-navy/70 backdrop-blur-sm rounded-xl px-6 py-4 max-w-2xl">
+                <p className="font-serif text-lg md:text-2xl text-brand-gold-light italic leading-snug text-center">
+                  "{quote}"
+                </p>
+              </div>
             </div>
           )}
         </div>
