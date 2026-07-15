@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Country, School, northAmerica, europe, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
@@ -10,15 +11,9 @@ interface ActiveVideo {
   title: string
 }
 
-const comparisonData = [
-  { flag: '🇨🇦', name: 'Canada', tuition: 'CAD $15,000–40,000', living: 'CAD $22,895', work: '24 hrs/week, unlimited during breaks', gradVisa: 'PGWP — up to 3 years' },
-  { flag: '🇺🇸', name: 'United States', tuition: 'USD $10,000–35,000', living: 'USD ~$25,000–33,000', work: 'On-campus only; CPT/OPT for practical training', gradVisa: 'OPT — 12 months (+24 STEM)' },
-  { flag: '🇮🇪', name: 'Ireland', tuition: '€9,850–28,000', living: '€10,000', work: '20 hrs/week term-time, 40 hrs/week holidays', gradVisa: '2 years (Stamp 1G)' },
-  { flag: '🇩🇪', name: 'Germany', tuition: '€7,000–15,000 (our partner schools)', living: '€11,904 (blocked account)', work: '140 full / 280 half days per year', gradVisa: '18 months (Job Seeker Visa)' },
-  { flag: '🇵🇱', name: 'Poland', tuition: '€2,000–8,000', living: '~€7,000–11,000', work: 'No strict hour cap for full-time students', gradVisa: '1 year' },
-]
+type CompareRow = { tuition: string; living: string; work: string; gradVisa: string }
 
-function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVideo) => void }) {
+function SchoolCard({ s, onPlayVideo, t }: { s: School; onPlayVideo: (v: ActiveVideo) => void; t: (key: string) => string }) {
   return (
     <div className="group relative h-40 rounded-lg overflow-hidden border border-gray-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       {s.photo ? (
@@ -40,14 +35,14 @@ function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVide
             aria-label={`Visit ${s.name} official website`}
             className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
           >
-            Visit official website ↗
+            {t('school.visitWebsite')}
           </a>
           {s.videoId && (
             <button
               onClick={() => onPlayVideo({ videoId: s.videoId!, title: s.videoTitle ?? s.name })}
               className="text-[11px] font-bold text-white w-fit border-b border-white/50 hover:border-white"
             >
-              ▶ Watch video
+              {t('school.watchVideo')}
             </button>
           )}
         </div>
@@ -56,7 +51,13 @@ function SchoolCard({ s, onPlayVideo }: { s: School; onPlayVideo: (v: ActiveVide
   )
 }
 
-function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveVideo) => void }) {
+function CountryBlock({ d, onPlayVideo, t }: { d: Country; onPlayVideo: (v: ActiveVideo) => void; t: ReturnType<typeof useTranslation>['t'] }) {
+  const tagline = t(`countries.${d.slug}.tagline`)
+  const desc = t(`countries.${d.slug}.desc`)
+  const pros = t(`countries.${d.slug}.pros`, { returnObjects: true }) as string[]
+  const linkLabel = t(`countries.${d.slug}.linkLabel`)
+  const factValues = t(`countries.${d.slug}.factValues`, { returnObjects: true }) as string[]
+
   return (
     <div id={d.slug} className="py-12 scroll-mt-20">
       {/* Header */}
@@ -66,41 +67,41 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
           <div className="flex items-center gap-3 flex-wrap">
             <h2 className="font-serif text-2xl text-navy">{d.name}</h2>
           </div>
-          <p className="text-gray-500 text-sm mt-1">{d.tagline}</p>
+          <p className="text-gray-500 text-sm mt-1">{tagline}</p>
         </div>
         <Link to={d.link} className="hidden md:inline-flex text-sm font-bold text-brand-blue hover:underline">
-          {d.linkLabel}
+          {linkLabel}
         </Link>
       </div>
 
       {/* Partner school photo cards */}
       <div className={`grid gap-4 mb-10 ${d.schools.length >= 3 ? 'md:grid-cols-3' : d.schools.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-sm'}`}>
-        {d.schools.map((s) => (<SchoolCard key={s.name} s={s} onPlayVideo={onPlayVideo} />))}
+        {d.schools.map((s) => (<SchoolCard key={s.name} s={s} onPlayVideo={onPlayVideo} t={t} />))}
       </div>
 
       {/* Body */}
       <div className="grid md:grid-cols-3 gap-10">
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Key Facts</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">{t('sectionLabels.keyFacts')}</h3>
           <div className="space-y-2.5">
-            {d.facts.map((f) => (
+            {d.facts.map((f, i) => (
               <div key={f.label} className="flex justify-between gap-4 border-b border-gray-100 pb-2.5">
-                <span className="text-sm text-gray-500">{f.label}</span>
-                <span className="text-sm font-semibold text-navy text-right">{f.value}</span>
+                <span className="text-sm text-gray-500">{t(`factLabels.${f.label}`, { defaultValue: f.label })}</span>
+                <span className="text-sm font-semibold text-navy text-right">{factValues[i]}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Overview</h3>
-          <p className="text-sm text-gray-600 leading-relaxed">{d.desc}</p>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">{t('sectionLabels.overview')}</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Why {d.name}</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">{t('sectionLabels.why', { country: d.name })}</h3>
           <ul className="space-y-2.5">
-            {d.pros.map((p) => (
+            {pros.map((p) => (
               <li key={p} className="flex items-start gap-2.5 text-sm text-gray-600">
                 <img src="/images/elimu-logo.png" alt="" className="w-3.5 h-auto mt-1 flex-shrink-0" />
                 {p}
@@ -113,7 +114,7 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
       {/* Mobile CTA */}
       <div className="md:hidden mt-6">
         <Link to={d.link} className="text-sm font-bold text-brand-blue hover:underline">
-          {d.linkLabel}
+          {linkLabel}
         </Link>
       </div>
     </div>
@@ -121,6 +122,7 @@ function CountryBlock({ d, onPlayVideo }: { d: Country; onPlayVideo: (v: ActiveV
 }
 
 export default function StudyDestinationsPage() {
+  const { t } = useTranslation('destinations')
   const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null)
   const { hash } = useLocation()
 
@@ -130,101 +132,108 @@ export default function StudyDestinationsPage() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }, [hash])
 
+  const compareHeaders = t('compare.headers', { returnObjects: true }) as string[]
+  const compareRows = t('compare.rows', { returnObjects: true }) as Record<string, CompareRow>
+  const allCountries = [...northAmerica, ...europe]
+
   return (
     <>
       <PhotoHero
         image="/images/schools/tru.webp"
         alt="Thompson Rivers University campus entrance"
-        eyebrow="Study Destinations"
-        title="Where will you study abroad?"
-        subtitle="We work with Francophone African students to secure admission at top institutions across five countries."
-        quote="He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        quote={t('hero.quote')}
       />
 
       {/* Featured partner video — BCIT */}
       <section className="py-16 px-6 bg-gray-50 border-b border-gray-200">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">Take a look inside one of our partner schools</p>
-          <h2 className="font-serif text-3xl text-navy mb-6">A first look at BCIT, Burnaby, BC</h2>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">{t('video.eyebrow')}</p>
+          <h2 className="font-serif text-3xl text-navy mb-6">{t('video.title')}</h2>
           <VideoEmbed videoId="CKl8mhU_eR0" title="BCIT | Burnaby Campus Tour" autoplay />
-          <p className="text-xs text-gray-500 mt-4">BCIT — British Columbia Institute of Technology, a real Masomo Now partner school.</p>
+          <p className="text-xs text-gray-500 mt-4">{t('video.caption')}</p>
         </div>
       </section>
 
       {/* North America */}
       <section className="pt-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Region</p>
-          <h2 className="font-serif text-3xl text-navy">North America</h2>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('region.label')}</p>
+          <h2 className="font-serif text-3xl text-navy">{t('region.northAmerica')}</h2>
         </div>
       </section>
       <section className="px-6">
         <div className="max-w-6xl mx-auto divide-y divide-gray-200">
-          {northAmerica.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} />))}
+          {northAmerica.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} t={t} />))}
         </div>
       </section>
 
       {/* Europe */}
       <section className="pt-4 px-6">
         <div className="max-w-6xl mx-auto border-t border-gray-200 pt-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Region</p>
-          <h2 className="font-serif text-3xl text-navy">Europe</h2>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('region.label')}</p>
+          <h2 className="font-serif text-3xl text-navy">{t('region.europe')}</h2>
         </div>
       </section>
       <section className="px-6">
         <div className="max-w-6xl mx-auto divide-y divide-gray-200">
-          {europe.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} />))}
+          {europe.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} t={t} />))}
         </div>
       </section>
 
       {/* Coming soon regions */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">Coming soon</p>
-          <h2 className="font-serif text-3xl text-navy mb-8">Expanding to more regions</h2>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('comingSoon.eyebrow')}</p>
+          <h2 className="font-serif text-3xl text-navy mb-8">{t('comingSoon.title')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {comingSoon.map((c) => (
               <div key={c.region} className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center">
                 <div className="text-4xl mb-3">{c.flags}</div>
                 <div className="font-serif text-xl text-navy mb-1">{c.region}</div>
-                <div className="text-sm text-gray-500">{c.note ?? 'Partner schools coming soon'}</div>
+                <div className="text-sm text-gray-500">{c.note ? t('comingSoon.japanNote') : t('comingSoon.placeholder')}</div>
               </div>
             ))}
           </div>
         </div>
         <p className="text-xs text-gray-500 text-center mt-10 max-w-6xl mx-auto">
-          Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain); Fanshawe College and Northern Lights College photos are ELIMU's own event photography.
+          {t('comingSoon.photoCredits')}
         </p>
       </section>
 
       {/* Compare Destinations */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-8">Compare Destinations</h2>
+          <h2 className="font-serif text-3xl text-navy mb-8">{t('compare.title')}</h2>
           <div className="overflow-x-auto border border-gray-200 rounded-lg bg-white">
             <table className="w-full text-sm min-w-[720px]">
               <thead>
                 <tr className="border-b border-gray-200">
-                  {['Country', 'Tuition (intl., /yr)', 'Living Costs', 'Work Rights', 'Graduate Visa'].map((h) => (
+                  {compareHeaders.map((h) => (
                     <th key={h} className="text-left px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {comparisonData.map((c, i) => (
-                  <tr key={c.name} className={i < comparisonData.length - 1 ? 'border-b border-gray-100' : ''}>
-                    <td className="px-4 py-3 font-semibold text-navy whitespace-nowrap">{c.flag} {c.name}</td>
-                    <td className="px-4 py-3 text-gray-600">{c.tuition}</td>
-                    <td className="px-4 py-3 text-gray-600">{c.living}</td>
-                    <td className="px-4 py-3 text-gray-600">{c.work}</td>
-                    <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{c.gradVisa}</td>
-                  </tr>
-                ))}
+                {allCountries.map((c, i) => {
+                  const row = compareRows[c.slug]
+                  return (
+                    <tr key={c.name} className={i < allCountries.length - 1 ? 'border-b border-gray-100' : ''}>
+                      <td className="px-4 py-3 font-semibold text-navy whitespace-nowrap">{c.flag} {c.name}</td>
+                      <td className="px-4 py-3 text-gray-600">{row.tuition}</td>
+                      <td className="px-4 py-3 text-gray-600">{row.living}</td>
+                      <td className="px-4 py-3 text-gray-600">{row.work}</td>
+                      <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.gradVisa}</td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-4">
-            Representative ranges, not guarantees — actual costs vary by institution and city. Living costs reflect each country's official minimum funds requirement, except Poland, where the legal minimum is unrealistically low and a realistic city living-cost estimate is shown instead.
+            {t('compare.disclaimer')}
           </p>
         </div>
       </section>
@@ -232,11 +241,11 @@ export default function StudyDestinationsPage() {
       {/* CTA */}
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-3xl text-white mb-3">Not sure which country is right for you?</h2>
-          <p className="text-white/70 mb-8">Answer 6 quick questions and we'll match you to a real pathway based on your goals, budget, and language preference.</p>
+          <h2 className="font-serif text-3xl text-white mb-3">{t('cta.title')}</h2>
+          <p className="text-white/70 mb-8">{t('cta.body')}</p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <Button to="/pathway-finder" variant="primary">Find Your Pathway →</Button>
-            <Button to="/consultation" variant="outline">Book Free Consultation</Button>
+            <Button to="/pathway-finder" variant="primary">{t('cta.findPathway')}</Button>
+            <Button to="/consultation" variant="outline">{t('cta.bookFree')}</Button>
           </div>
         </div>
       </section>

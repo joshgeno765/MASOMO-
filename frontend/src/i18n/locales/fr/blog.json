@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "eyebrow": "Ressources",
+    "title": "Guides pour étudier à l'étranger",
+    "subtitle": "Des conseils pratiques et à jour sur les visas, le budget et la vie à l'étranger — rédigés par notre équipe de conseillers."
+  },
+  "readMore": "Lire la suite →",
+  "backToResources": "← Retour à toutes les ressources",
+  "publishedOn": "Publié le {{date}}",
+  "relatedCta": {
+    "title": "Des questions sur votre situation particulière?",
+    "body": "Le parcours de chaque étudiant est différent. Réservez une consultation gratuite et obtenez des conseils adaptés à votre pays, votre budget et vos objectifs.",
+    "cta": "Réserver une consultation gratuite"
+  },
+  "notFound": {
+    "title": "Article introuvable",
+    "body": "Cet article a peut-être été déplacé ou n'existe plus.",
+    "back": "← Retour à toutes les ressources"
+  }
+}

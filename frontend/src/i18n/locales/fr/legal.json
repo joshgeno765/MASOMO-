@@ -1,0 +1,90 @@
+{
+  "privacy": {
+    "eyebrow": "Juridique",
+    "title": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour : juillet 2026",
+    "intro": "Masomo Now est la division Afrique francophone d'<1>ELIMU International Education Connections</1>, un cabinet-conseil canadien en éducation agréé, dont le siège se trouve à Vancouver, en Colombie-Britannique. Cette politique explique quels renseignements personnels nous recueillons par l'intermédiaire de masomonow.com, comment nous les utilisons, et comment vous pouvez nous contacter à ce sujet.",
+    "whatWeCollect": {
+      "title": "Ce que nous recueillons",
+      "intro": "Nous ne recueillons que les renseignements que vous choisissez de nous fournir, par l'intermédiaire de deux formulaires sur ce site :",
+      "items": [
+        { "label": "Réservation de consultation", "text": "vos nom, adresse courriel, numéro de téléphone, pays, destination d'études d'intérêt, heure de rendez-vous préférée, et toute remarque que vous ajoutez." },
+        { "label": "Pathway Finder", "text": "les réponses à votre questionnaire (pays d'origine, préférence linguistique, objectif d'études, domaine d'intérêt, budget et échéancier) et, seulement si vous choisissez d'enregistrer votre résultat, vos nom, adresse courriel, numéro de téléphone et un message facultatif." }
+      ]
+    },
+    "howWeUseIt": {
+      "title": "Comment nous l'utilisons",
+      "body": "Nous utilisons ces renseignements pour répondre à votre demande, vous orienter vers des destinations d'études et des établissements partenaires pertinents, planifier et préparer les consultations, et conserver un dossier interne vous concernant afin que nos conseillers puissent assurer un suivi approprié. Nous n'utilisons pas vos renseignements à des fins publicitaires, et nous ne vendons vos renseignements personnels à personne."
+    },
+    "whoCanSeeIt": {
+      "title": "Qui peut y avoir accès",
+      "body": "Vos renseignements ne sont accessibles qu'au personnel de Masomo Now / ELIMU International Education Connections et à notre équipe d'immigration agréée CRIC (permis R731358) qui participe au traitement de votre demande. Nous utilisons Resend, un fournisseur de courriels transactionnels, uniquement pour l'envoi de notifications internes lorsque vous soumettez un formulaire — ce service n'est pas utilisé à des fins de marketing et ne reçoit pas votre dossier complet."
+    },
+    "cookies": {
+      "title": "Cookies et suivi",
+      "body": "Ce site n'utilise aucun cookie publicitaire ni de suivi analytique. Les vidéos sont intégrées au moyen du mode « nocookie » de YouTube, respectueux de la vie privée, qui limite l'utilisation des cookies tant que vous n'interagissez pas avec un lecteur vidéo."
+    },
+    "retention": {
+      "title": "Durée de conservation",
+      "body": "Nous conservons vos renseignements aussi longtemps que nécessaire pour traiter votre demande ou votre dossier, ou selon les obligations applicables en matière de conservation des documents. Vous pouvez nous demander de supprimer vos renseignements à tout moment au moyen des coordonnées ci-dessous, et nous le ferons, sauf si nous sommes tenus de les conserver pour un motif légitime."
+    },
+    "yourRights": {
+      "title": "Vos droits",
+      "body": "Vous pouvez nous demander d'accéder à vos renseignements personnels, de les corriger ou de les supprimer à tout moment en nous écrivant à <1>info@masomonow.com</1>."
+    },
+    "under18": {
+      "title": "Si vous avez moins de 18 ans",
+      "body": "Certains de nos séminaires et demandes de renseignements concernent des élèves du secondaire. Si vous avez moins de 18 ans, veuillez impliquer un parent ou un tuteur avant de nous transmettre vos renseignements."
+    },
+    "changes": {
+      "title": "Modifications de la présente politique",
+      "body": "Nous pouvons mettre à jour cette politique de temps à autre, à mesure que nos services évoluent. La date de « dernière mise à jour » ci-dessus reflète la révision la plus récente."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "body": "Pour toute question sur cette politique ou sur vos renseignements, écrivez-nous à <1>info@masomonow.com</1>."
+    }
+  },
+  "terms": {
+    "eyebrow": "Juridique",
+    "title": "Conditions d'utilisation",
+    "lastUpdated": "Dernière mise à jour : juillet 2026",
+    "intro": "Les présentes conditions régissent votre utilisation de masomonow.com, exploité par Masomo Now, la division Afrique francophone d'ELIMU International Education Connections. En utilisant ce site ou en soumettant un formulaire, vous acceptez les présentes conditions.",
+    "ourServices": {
+      "title": "Nos services",
+      "body": "Masomo Now offre des services de conseil en éducation et de conseil en immigration agréé CRIC (permis R731358, réglementé par le Collège des consultants en immigration et en citoyenneté) afin d'aider les étudiants à cibler des destinations d'études et à y présenter une demande, y compris le projet pilote pour étudiants des communautés francophones en situation minoritaire (FMC) du Canada."
+    },
+    "noGuarantee": {
+      "title": "Aucune garantie de résultat",
+      "body": "Les décisions d'admission, l'octroi de bourses ainsi que l'approbation des visas et des permis d'études relèvent uniquement de l'établissement d'accueil et de l'autorité gouvernementale compétente. Masomo Now fournit des conseils, un accompagnement dans les démarches de candidature et une évaluation honnête de vos options, mais ne garantit ni l'admission, ni l'obtention d'un visa ou d'un permis d'études, ni aucun autre résultat. Les outils proposés sur ce site, y compris le Pathway Finder, fournissent une recommandation de départ fondée sur les renseignements que vous nous communiquez — il ne s'agit pas d'une décision d'admissibilité officielle."
+    },
+    "accuracy": {
+      "title": "Exactitude des renseignements",
+      "body": "Vous acceptez de nous fournir des renseignements exacts lorsque vous utilisez nos formulaires. Les recommandations et les mises en correspondance que nous proposons ne valent que ce que valent les renseignements que vous nous communiquez, et le conseiller qui vous est assigné confirmera les exigences exactes de votre programme avant que vous ne soumettiez votre candidature."
+    },
+    "contentIp": {
+      "title": "Contenu et propriété intellectuelle",
+      "body": "La conception et le contenu rédactionnel de ce site appartiennent à Masomo Now / ELIMU International Education Connections. Certaines photographies de campus sont utilisées avec l'aimable autorisation de contributeurs de Wikimedia Commons, sous licence CC BY-SA ou dans le domaine public; les photos du Fanshawe College et du Northern Lights College proviennent des propres reportages photographiques d'événements d'ELIMU. Les vidéos intégrées demeurent la propriété de leurs créateurs d'origine (nos établissements partenaires) et sont présentées ici au moyen de la fonctionnalité d'intégration standard de YouTube."
+    },
+    "links": {
+      "title": "Liens vers d'autres sites",
+      "body": "Ce site renvoie vers les pages officielles d'établissements partenaires et d'organismes gouvernementaux (comme IRCC) pour votre commodité. Nous ne sommes pas responsables du contenu ou de l'exactitude des sites externes vers lesquels nous renvoyons."
+    },
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "body": "Masomo Now n'est pas responsable des pertes indirectes ou consécutives découlant de votre utilisation de ce site ou de son contenu. Aucune disposition des présentes conditions ne limite les obligations que notre équipe agréée CRIC a envers vous en vertu de la réglementation professionnelle applicable."
+    },
+    "governingLaw": {
+      "title": "Droit applicable",
+      "body": "Les présentes conditions sont régies par les lois de la Colombie-Britannique, Canada."
+    },
+    "changes": {
+      "title": "Modifications des présentes conditions",
+      "body": "Nous pouvons mettre à jour les présentes conditions de temps à autre. La date de « dernière mise à jour » ci-dessus reflète la révision la plus récente."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "body": "Pour toute question sur les présentes conditions, écrivez-nous à <1>info@masomonow.com</1>."
+    }
+  }
+}

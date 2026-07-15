@@ -1,0 +1,12 @@
+{
+  "openLabel": "Discutez avec nous",
+  "title": "Assistant Masomo Now",
+  "subtitle": "Posez vos questions sur les visas, les coûts ou les programmes",
+  "welcome": "Bonjour! Je peux répondre à vos questions rapides sur les études à l'étranger — visas, tests, coûts, programmes. Que souhaitez-vous savoir?",
+  "placeholder": "Écrivez votre question…",
+  "send": "Envoyer",
+  "disclaimer": "Réponses générées par IA — pour tout ce qui concerne votre situation particulière, réservez une consultation gratuite.",
+  "errorFallback": "Désolé, une erreur s'est produite. Veuillez réessayer ou nous écrire sur WhatsApp.",
+  "whatsapp": "Nous contacter sur WhatsApp",
+  "close": "Fermer le clavardage"
+}

@@ -1,0 +1,125 @@
+{
+  "hero": {
+    "eyebrow": "Destinations d'études",
+    "title": "Où allez-vous étudier à l'étranger?",
+    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de cinq pays.",
+    "quote": "Celui qui suit les autres ne peut aller que là où ils vont, mais celui qui trace sa propre voie peut aller aussi loin qu'il le souhaite."
+  },
+  "video": {
+    "eyebrow": "Un aperçu de l'un de nos établissements partenaires",
+    "title": "Premier regard sur BCIT, Burnaby, C.-B.",
+    "caption": "BCIT — British Columbia Institute of Technology, un véritable établissement partenaire de Masomo Now."
+  },
+  "region": {
+    "label": "Région",
+    "northAmerica": "Amérique du Nord",
+    "europe": "Europe"
+  },
+  "school": {
+    "visitWebsite": "Visiter le site officiel ↗",
+    "watchVideo": "▶ Voir la vidéo"
+  },
+  "sectionLabels": {
+    "keyFacts": "Faits clés",
+    "overview": "Aperçu",
+    "why": "Pourquoi {{country}}"
+  },
+  "factLabels": {
+    "Partner Schools": "Écoles partenaires",
+    "Post-Study Work": "Travail post-études",
+    "Language": "Langue",
+    "Location": "Lieu"
+  },
+  "countries": {
+    "canada": {
+      "tagline": "D'un océan à l'autre — instituts techniques et universités",
+      "linkLabel": "S'informer sur le Canada →",
+      "factValues": ["8", "PVMD — jusqu'à 3 ans", "Anglais (français via le pilote FMC)", "Colombie-Britannique, Alberta, Saskatchewan et Ontario"],
+      "desc": "Le Canada demeure la destination la plus demandée par nos étudiants. Au-delà de la filière francophone du pilote pour étudiants FMC, nous plaçons aussi des étudiants en filière anglophone directement dans des instituts techniques, collèges et universités en Colombie-Britannique, en Alberta, en Saskatchewan et en Ontario — du corridor technologique du Grand Vancouver à de plus petits collèges régionaux offrant un coût de la vie plus abordable.",
+      "pros": [
+        "Permis de travail post-diplôme (PVMD) — jusqu'à 3 ans",
+        "Une filière reconnue vers la résidence permanente",
+        "D'excellents programmes coopératifs et de métiers (BCIT)",
+        "Le modèle de frais de scolarité garantis de TRU fixe votre tarif pour tout votre programme",
+        "Coût de la vie plus abordable dans les collèges régionaux (Northern Lights, North Island)"
+      ]
+    },
+    "united-states": {
+      "tagline": "Une filière de collège communautaire vers le corridor technologique de Seattle",
+      "linkLabel": "S'informer sur les États-Unis →",
+      "factValues": ["2", "OPT — 12 mois (+24 pour les STIM)", "Anglais", "Kirkland et Seattle, WA"],
+      "desc": "Nos deux partenaires de l'État de Washington se trouvent à quelques minutes du centre-ville de Seattle — siège d'Amazon, de Microsoft et de l'un des marchés de l'emploi technologique les plus dynamiques au monde. Les deux offrent des diplômes et certificats accrédités de deux ans, avec des filières de transfert claires vers des programmes de baccalauréat de quatre ans, à une fraction du coût d'une inscription universitaire directe.",
+      "pros": [
+        "Filière directe vers le corridor technologique de Seattle",
+        "Frais de scolarité inférieurs à une inscription directe de 4 ans",
+        "Filières de transfert claires vers un baccalauréat",
+        "Autorisation de travail OPT après l'obtention du diplôme",
+        "Aucun TOEFL/IELTS requis à LWTech (test de classement gratuit)"
+      ]
+    },
+    "ireland": {
+      "tagline": "Porte d'entrée anglophone vers l'Union européenne",
+      "linkLabel": "S'informer sur l'Irlande →",
+      "factValues": ["2", "2 ans (Stamp 1G)", "Anglais", "Dublin"],
+      "desc": "L'Irlande est l'un des seuls pays anglophones de l'UE, ce qui en fait un choix stratégique pour les étudiants africains à la recherche d'un diplôme reconnu mondialement avec accès aux marchés de l'emploi européens. Dublin abrite les sièges européens de Google, Meta et Apple.",
+      "pros": [
+        "Pays de l'UE de langue anglaise",
+        "Permis de travail post-études de 2 ans (Stamp 1G)",
+        "Accès au marché de l'emploi européen",
+        "Secteur technologique et des affaires de calibre mondial",
+        "Accueillant envers les étudiants internationaux"
+      ]
+    },
+    "germany": {
+      "tagline": "La plus grande économie d'Europe — programmes en anglais offerts",
+      "linkLabel": "S'informer sur l'Allemagne →",
+      "factValues": ["3", "18 mois (visa de recherche d'emploi)", "Programmes en anglais offerts", "Berlin et autres villes"],
+      "desc": "L'Allemagne est la plus grande économie d'Europe et une destination de premier choix pour les étudiants internationaux. Nos trois établissements partenaires offrent des programmes de commerce et de gestion entièrement enseignés en anglais, rendant l'Allemagne accessible sans devoir d'abord apprendre l'allemand.",
+      "pros": [
+        "3 établissements partenaires dans de grandes villes",
+        "Visa de recherche d'emploi de 18 mois après l'obtention du diplôme",
+        "Marché de l'emploi dynamique en ingénierie et en affaires",
+        "Programmes enseignés en anglais offerts",
+        "Emplacement central en UE"
+      ]
+    },
+    "poland": {
+      "tagline": "Une éducation européenne abordable à Varsovie",
+      "linkLabel": "S'informer sur la Pologne →",
+      "factValues": ["1", "1 an", "Programmes en anglais offerts", "Varsovie"],
+      "desc": "La Pologne offre des diplômes reconnus par l'UE à des frais de scolarité et un coût de la vie nettement inférieurs à ceux de l'Europe occidentale. L'Université Vistula à Varsovie est l'un des établissements polonais les plus actifs à l'international, avec un solide historique d'inscription d'étudiants africains.",
+      "pros": [
+        "Parmi les frais de scolarité les plus abordables de l'UE",
+        "Coût de la vie inférieur à celui de l'Europe occidentale",
+        "Diplômes reconnus par l'UE",
+        "Programmes enseignés en anglais",
+        "Économie et marché de l'emploi en croissance"
+      ]
+    }
+  },
+  "comingSoon": {
+    "eyebrow": "Bientôt disponible",
+    "title": "Expansion vers de nouvelles régions",
+    "placeholder": "Écoles partenaires à venir",
+    "japanNote": "En commençant par le Japon",
+    "photoCredits": "Photographies de campus gracieuseté des contributeurs de Wikimedia Commons (CC BY-SA / domaine public); les photos de Fanshawe College et de Northern Lights College sont des photographies d'événements prises par ELIMU."
+  },
+  "compare": {
+    "title": "Comparer les destinations",
+    "headers": ["Pays", "Scolarité (intl., /an)", "Coût de la vie", "Droit de travail", "Visa post-diplôme"],
+    "disclaimer": "Fourchettes représentatives, non garanties — les coûts réels varient selon l'établissement et la ville. Les coûts de la vie reflètent l'exigence officielle de fonds minimums de chaque pays, sauf pour la Pologne, où le minimum légal est irréaliste et une estimation réaliste du coût de la vie en ville est présentée à la place.",
+    "rows": {
+      "canada": { "tuition": "15 000 $ CA – 40 000 $ CA", "living": "22 895 $ CA", "work": "24 h/semaine, illimité pendant les congés", "gradVisa": "PVMD — jusqu'à 3 ans" },
+      "united-states": { "tuition": "10 000 $ US – 35 000 $ US", "living": "~25 000 $ US – 33 000 $ US", "work": "Sur le campus uniquement; CPT/OPT pour la formation pratique", "gradVisa": "OPT — 12 mois (+24 STIM)" },
+      "ireland": { "tuition": "9 850 € – 28 000 €", "living": "10 000 €", "work": "20 h/semaine en session, 40 h/semaine pendant les congés", "gradVisa": "2 ans (Stamp 1G)" },
+      "germany": { "tuition": "7 000 € – 15 000 € (nos écoles partenaires)", "living": "11 904 € (compte bloqué)", "work": "140 jours complets / 280 demi-journées par an", "gradVisa": "18 mois (visa de recherche d'emploi)" },
+      "poland": { "tuition": "2 000 € – 8 000 €", "living": "~7 000 € – 11 000 €", "work": "Aucune limite d'heures stricte pour les étudiants à temps plein", "gradVisa": "1 an" }
+    }
+  },
+  "cta": {
+    "title": "Vous ne savez pas quel pays vous convient?",
+    "body": "Répondez à 6 questions rapides et nous vous associerons à une filière réelle selon vos objectifs, votre budget et votre préférence linguistique.",
+    "findPathway": "Trouvez votre filière →",
+    "bookFree": "Réserver une consultation gratuite"
+  }
+}

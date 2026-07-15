@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "eyebrow": "Recherche de filière",
+    "title": "Répondez à 6 questions. Découvrez votre véritable filière.",
+    "subtitle": "Aucune approximation — nous comparons vos réponses à nos véritables écoles partenaires et à nos critères d'admissibilité réels."
+  },
+  "intro": {
+    "fmcCheck": "Vérifions votre admissibilité au pilote FMC",
+    "title": "Prêt à trouver votre filière?",
+    "body": "Cela prend environ une minute. Nous vous montrons un résultat réel immédiatement — aucun courriel requis pour le voir.",
+    "start": "Commencer →"
+  },
+  "quiz": {
+    "fmcChecking": "Vérification de l'admissibilité au pilote FMC",
+    "questionOf": "Question {{current}} sur {{total}}",
+    "back": "← Retour"
+  },
+  "questions": {
+    "homeCountry": {
+      "question": "De quel pays faites-vous votre demande?",
+      "options": {
+        "Rwanda": "Rwanda", "DR Congo": "RD Congo", "Djibouti": "Djibouti", "Kenya": "Kenya",
+        "Uganda": "Ouganda", "Tanzania": "Tanzanie", "Cameroon": "Cameroun", "Senegal": "Sénégal",
+        "Côte d'Ivoire": "Côte d'Ivoire", "Other": "Autre"
+      }
+    },
+    "languagePreference": {
+      "question": "Dans quelle langue souhaitez-vous étudier?",
+      "options": { "French": "Français", "English": "Anglais", "Both / Not sure": "Les deux / Pas certain" }
+    },
+    "studyGoal": {
+      "question": "Que souhaitez-vous étudier?",
+      "options": {
+        "Associate & UT Programs": "Programmes associés et de transfert universitaire",
+        "High School, Upgrading & Language Proficiency": "Secondaire, mise à niveau et compétence linguistique",
+        "Degrees & Diplomas": "Diplômes et certificats",
+        "Trades & Apprenticeship": "Métiers et apprentissage",
+        "Not sure yet": "Pas encore certain"
+      }
+    },
+    "fieldOfInterest": {
+      "question": "Quel domaine vous intéresse?",
+      "options": {
+        "Technical / Trades": "Technique / Métiers",
+        "Business & Management": "Affaires et gestion",
+        "University / Academic": "Universitaire / Académique",
+        "Not sure yet": "Pas encore certain"
+      }
+    },
+    "budget": {
+      "question": "Qu'est-ce qui compte le plus pour votre budget?",
+      "options": { "Most affordable option": "L'option la plus abordable", "Budget flexible": "Budget flexible", "Not sure": "Pas certain" }
+    },
+    "timeline": {
+      "question": "Quand espérez-vous commencer?",
+      "options": { "As soon as possible": "Dès que possible", "Within the next year": "Au cours de la prochaine année", "Just exploring": "Je m'informe seulement" }
+    }
+  },
+  "journey": {
+    "you": "Vous",
+    "fmcPilot": "Pilote FMC",
+    "eligiblePathway": "Filière admissible",
+    "destination": "Destination",
+    "matchedSchool": "École correspondante",
+    "outcome": "Résultat"
+  },
+  "result": {
+    "fmcTitle": "Vous pourriez être admissible au pilote pour étudiants FMC",
+    "matchTitle": "Votre meilleure correspondance : {{country}}",
+    "whyThisMatch": "Pourquoi cette correspondance",
+    "studyingLabel": "Vous souhaitez étudier :",
+    "matchedSchools": "Écoles correspondantes",
+    "visitWebsite": "Visiter le site officiel ↗",
+    "intlRequirementsLabel": "Exigences d'admission internationales :",
+    "source": "(source ↗)",
+    "requirementsDisclaimer": "Les exigences indiquées sont des lignes directrices générales tirées du site officiel de chaque école — votre conseiller confirmera les exigences exactes pour votre programme spécifique.",
+    "preferEnglishTrack": "Préférez-vous une filière en anglais?",
+    "alsoConsider": "À considérer aussi",
+    "canadaEnglishTrack": "Le Canada offre aussi des écoles partenaires en anglais si le français ne vous convient pas :",
+    "closeSecond": "{{country}} était une deuxième correspondance proche :",
+    "seeFullDetails": "Voir tous les détails →",
+    "retakeQuiz": "Refaire le questionnaire",
+    "partnerSchool": "École partenaire",
+    "matchedSchoolsCount": "{{count}} écoles correspondantes",
+    "destinationCanadaFmc": "Canada (pilote FMC)"
+  },
+  "rationale": {
+    "languageMatch": "{{country}} enseigne en {{language}} — correspondant à votre préférence linguistique.",
+    "fieldMatch": "{{school}} offre d'excellents programmes en {{field}}.",
+    "pathwayMatch": "{{school}} offre {{studyGoal}} pour les étudiants internationaux.",
+    "budgetMatch": "{{country}} propose des options abordables avec un coût de la vie réduit.",
+    "fallback": "{{country}} est l'une de nos régions partenaires les plus solides pour les étudiants qui explorent leurs options.",
+    "fmcEligible": "{{homeCountry}} fait partie des pays admissibles au pilote pour étudiants des communautés francophones en situation minoritaire (FMC) du Canada.",
+    "fmcFieldPriority": "Nous avons priorisé les établissements offrant d'excellents programmes en {{field}}, dans la mesure du possible.",
+    "fmcPathwayMatch": "{{school}} offre {{studyGoal}} pour les étudiants internationaux.",
+    "fmcTimeline": "Le pilote FMC offre un traitement prioritaire — un réel avantage compte tenu de votre échéancier."
+  },
+  "fieldLabelsLower": {
+    "Technical / Trades": "technique / métiers",
+    "Business & Management": "affaires et gestion",
+    "University / Academic": "universitaire / académique",
+    "Not sure yet": "pas encore certain"
+  },
+  "save": {
+    "savedTitle": "Enregistré!",
+    "savedBody": "Un conseiller assurera un suivi sur votre filière correspondante sous peu.",
+    "title": "Enregistrer / réserver une consultation",
+    "subtitle": "Facultatif — laissez vos coordonnées et un conseiller assurera un suivi sur cette correspondance exacte.",
+    "fullName": "Nom complet",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "saving": "Enregistrement...",
+    "saveCta": "Enregistrer ma filière →",
+    "privacyNotice": "En enregistrant, vous acceptez notre <1>politique de confidentialité</1>."
+  },
+  "toast": {
+    "nameRequired": "Veuillez entrer votre nom complet",
+    "emailInvalid": "Veuillez entrer une adresse courriel valide",
+    "phoneRequired": "Veuillez entrer votre numéro de téléphone",
+    "genericError": "Une erreur s'est produite. Veuillez réessayer ou réserver une consultation directement."
+  }
+}

@@ -12,6 +12,9 @@ Masomo Now provides education and immigration consulting: university/college mat
 - [Services](https://masomonow.com/services): The six services Masomo Now provides, from first consultation to post-arrival settlement.
 - [FMC Student Pilot](https://masomonow.com/fmc-pilot): Details on Canada's Francophone Minority Communities Student Pilot for francophone students.
 - [Pathway Finder](https://masomonow.com/pathway-finder): An interactive quiz matching a student's answers to a real destination, school, and eligibility pathway.
+- [Cost Calculator](https://masomonow.com/cost-calculator): Estimates tuition and living costs by destination country, program type, and duration.
+- [Program Search](https://masomonow.com/programs): Search and filter partner schools by field of study (business, engineering, health, trades, and more).
+- [Resources](https://masomonow.com/resources): Articles on study permits, budgeting, test prep, and life abroad.
 - [Book a Consultation](https://masomonow.com/consultation): Free consultation booking with a Rwanda-based counselor.
 - [Privacy Policy](https://masomonow.com/privacy): What personal information is collected and how it is used.
 - [Terms of Use](https://masomonow.com/terms): Terms governing use of this site and its services.

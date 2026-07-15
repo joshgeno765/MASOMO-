@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "alt": "Symposium sur l'éducation Masomo Now / ELIMU à Nairobi, au Kenya",
+    "title": "Votre parcours commence ici",
+    "subtitle": "Nous aidons les étudiants à transformer leurs rêves d'éducation internationale en réalité.",
+    "quote": "L'avenir appartient à ceux qui croient en la beauté de leurs rêves."
+  },
+  "story": {
+    "alt": "Conseiller de Masomo Now présentant les campus de Northern Lights College en Colombie-Britannique",
+    "title": "Notre histoire",
+    "p1": "Masomo Now est la division Afrique francophone d'<1>ELIMU International Education Connections</1>, un cabinet-conseil canadien en éducation dont le siège se trouve à Vancouver, en Colombie-Britannique.",
+    "p2": "Notre mission est de mettre en relation des étudiants talentueux avec des opportunités d'éducation de qualité partout dans le monde, tout en offrant un accompagnement de confiance à chaque étape du parcours."
+  },
+  "credentials": {
+    "title": "Nos accréditations",
+    "items": [
+      { "icon": "🇨🇦", "title": "Siège social canadien", "description": "Basé à Vancouver, en Colombie-Britannique." },
+      { "icon": "🛂", "title": "Accompagnement en immigration agréé", "description": "Conseils professionnels pour le permis d'études et l'immigration." },
+      { "icon": "📋", "title": "Entreprise enregistrée au Canada", "description": "Exerçant ses activités par l'intermédiaire d'ELIMU International Education Connections." },
+      { "icon": "🤝", "title": "Accompagnement complet des étudiants", "description": "De la consultation jusqu'à votre arrivée à l'étranger." }
+    ]
+  },
+  "offices": {
+    "title": "Nos bureaux",
+    "subtitle": "Au service des étudiants d'Afrique de l'Est, d'Europe et d'Amérique du Nord."
+  },
+  "values": {
+    "items": [
+      { "title": "Transparence", "desc": "Des tarifs clairs et des délais honnêtes." },
+      { "title": "Intégrité", "desc": "Des recommandations toujours axées sur l'étudiant." },
+      { "title": "Excellence", "desc": "Concentrés sur la réussite des admissions et des demandes de visa." },
+      { "title": "Bienveillance", "desc": "Un accompagnement personnalisé tout au long de votre parcours." }
+    ]
+  },
+  "seminars": {
+    "eyebrow": "Sur le terrain",
+    "title": "Nos séminaires",
+    "body": "Nous organisons régulièrement des visites scolaires, des salons de l'éducation et des séminaires communautaires à travers l'Afrique de l'Est pour aider les étudiants et leurs familles à explorer les possibilités d'éducation internationale.",
+    "items": [
+      "Séance d'information dans une école secondaire partenaire — présentation aux étudiants de la filière FMC vers le Canada.",
+      "Des étudiants répondent à un sondage en direct lors d'un séminaire scolaire sur les études à l'étranger.",
+      "Symposium international sur l'éducation et la carrière — Nairobi, Kenya, en partenariat avec Northern Lights College.",
+      "Accompagnement des familles à travers le parcours menant des campus de Northern Lights College, en Colombie-Britannique, à l'obtention d'un permis d'études.",
+      "Nos conseillers assurent un suivi individuel avec chaque étudiant après chaque séminaire.",
+      "Un conseiller ELIMU présentant les programmes de Northern Lights College sur scène à Nairobi."
+    ]
+  },
+  "team": {
+    "title": "Notre équipe",
+    "body": "Nos conseillers travaillent en étroite collaboration avec des professionnels de l'immigration agréés afin de vous offrir un accompagnement personnalisé, de votre première demande jusqu'à votre arrivée à destination.",
+    "items": [
+      "Notre équipe de Nairobi préparant des ressources destinées aux étudiants de Thompson Rivers University.",
+      "Des conseillers ELIMU au Symposium international sur l'éducation et la carrière à Nairobi.",
+      "Des conseillers ELIMU présentant les filières d'études canadiennes lors du symposium de Nairobi."
+    ]
+  }
+}

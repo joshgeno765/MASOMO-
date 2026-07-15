@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "alt": "A Masomo Now counselor following up with a student after a seminar",
+    "eyebrow": "Services",
+    "title": "End-to-end support, every step",
+    "subtitle": "From your first inquiry to settling into life abroad — here's exactly how Masomo Now helps.",
+    "quote": "The worst thing that can happen to you is not failing to fulfill your dreams — the worst is not dreaming at all."
+  },
+  "whatWeHelpWith": {
+    "title": "What we help with",
+    "items": [
+      { "icon": "💬", "title": "Free Consultation", "description": "Understand your options with a personalized one-on-one session." },
+      { "icon": "🎓", "title": "University Selection", "description": "Find the institution and program that best fits your goals." },
+      { "icon": "📄", "title": "Application Support", "description": "Complete your application with confidence." },
+      { "icon": "🛂", "title": "Visa Assistance", "description": "Professional guidance through every stage of your study permit application." },
+      { "icon": "✈️", "title": "Pre-Departure Support", "description": "Prepare for travel, accommodation, banking, and student life." },
+      { "icon": "🏠", "title": "Arrival Support", "description": "Helping you settle into your new country successfully." }
+    ]
+  },
+  "process": {
+    "title": "Our Process",
+    "items": [
+      "Consultation",
+      "Choose a School",
+      "Submit Applications",
+      "Receive Admission",
+      "Apply for Visa",
+      "Travel",
+      "Arrive"
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "q": "Do I need IELTS?", "a": "It depends on the institution — most accept IELTS, TOEFL, PTE, or Duolingo, and several of our partner schools also offer in-house English preparation programs if you don't have a qualifying score yet." },
+      { "q": "Can I transfer universities?", "a": "Yes — several of our partner institutions offer University Transfer (UT) programs that let you complete initial credits before transferring into a full degree." },
+      { "q": "How long does the process take?", "a": "Timelines vary by destination and season, but most students move from first consultation to a study permit decision within 3 to 6 months. We'll give you a realistic timeline for your chosen program during your consultation." }
+    ]
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "body": "Book a free consultation and we'll tell you exactly what your next step should be.",
+    "link": "Book Free Consultation →"
+  }
+}

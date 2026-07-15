@@ -1,0 +1,125 @@
+{
+  "hero": {
+    "eyebrow": "Study Destinations",
+    "title": "Where will you study abroad?",
+    "subtitle": "We work with Francophone African students to secure admission at top institutions across five countries.",
+    "quote": "He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
+  },
+  "video": {
+    "eyebrow": "Take a look inside one of our partner schools",
+    "title": "A first look at BCIT, Burnaby, BC",
+    "caption": "BCIT — British Columbia Institute of Technology, a real Masomo Now partner school."
+  },
+  "region": {
+    "label": "Region",
+    "northAmerica": "North America",
+    "europe": "Europe"
+  },
+  "school": {
+    "visitWebsite": "Visit official website ↗",
+    "watchVideo": "▶ Watch video"
+  },
+  "sectionLabels": {
+    "keyFacts": "Key Facts",
+    "overview": "Overview",
+    "why": "Why {{country}}"
+  },
+  "factLabels": {
+    "Partner Schools": "Partner Schools",
+    "Post-Study Work": "Post-Study Work",
+    "Language": "Language",
+    "Location": "Location"
+  },
+  "countries": {
+    "canada": {
+      "tagline": "From coast to coast — technical institutes to universities",
+      "linkLabel": "Enquire About Canada →",
+      "factValues": ["8", "PGWP — up to 3 years", "English (French via FMC Pilot)", "British Columbia, Alberta, Saskatchewan & Ontario"],
+      "desc": "Canada remains the single most requested destination for our students. Beyond the FMC Student Pilot's francophone pathway, we also place English-track students directly with technical institutes, colleges, and universities across British Columbia, Alberta, Saskatchewan, and Ontario — from Metro Vancouver's tech corridor to smaller regional colleges with a lower cost of living.",
+      "pros": [
+        "Post-Graduation Work Permit — up to 3 years",
+        "A recognised pathway toward permanent residence",
+        "Strong co-op and trades programs (BCIT)",
+        "TRU's guaranteed tuition model locks in your rate for your whole program",
+        "Lower cost of living at regional colleges (Northern Lights, North Island)"
+      ]
+    },
+    "united-states": {
+      "tagline": "A community-college pathway into the Seattle tech corridor",
+      "linkLabel": "Enquire About the United States →",
+      "factValues": ["2", "OPT — 12 months (+24 for STEM)", "English", "Kirkland & Seattle, WA"],
+      "desc": "Our two Washington State partners sit minutes from downtown Seattle — home to Amazon, Microsoft, and one of the world's busiest tech job markets. Both offer accredited two-year degrees and certificates, with clear transfer pathways into four-year bachelor's programs, at a fraction of the cost of direct university enrollment.",
+      "pros": [
+        "Direct pathway into the Seattle tech corridor",
+        "Lower tuition than direct 4-year enrollment",
+        "Clear transfer pathways to bachelor's degrees",
+        "OPT work authorization after graduation",
+        "No TOEFL/IELTS required at LWTech (free placement test)"
+      ]
+    },
+    "ireland": {
+      "tagline": "English-speaking gateway to the European Union",
+      "linkLabel": "Enquire About Ireland →",
+      "factValues": ["2", "2 years (Stamp 1G)", "English", "Dublin"],
+      "desc": "Ireland is one of the only English-speaking countries in the EU, making it a strategic choice for African students seeking a globally recognised degree with access to European job markets. Dublin is home to the European headquarters of Google, Meta, and Apple.",
+      "pros": [
+        "English-language EU country",
+        "2-year post-study work permit (Stamp 1G)",
+        "Access to European job market",
+        "World-class tech and business sector",
+        "Welcoming to international students"
+      ]
+    },
+    "germany": {
+      "tagline": "Europe's largest economy — English programs available",
+      "linkLabel": "Enquire About Germany →",
+      "factValues": ["3", "18 months (Job Seeker Visa)", "English programs available", "Berlin & other cities"],
+      "desc": "Germany is Europe's strongest economy and a top destination for international students. Our three partner institutions offer fully English-taught business and management programs, making Germany accessible without needing to learn German first.",
+      "pros": [
+        "3 partner institutions in major cities",
+        "18-month job seeker visa after graduation",
+        "Strong engineering & business job market",
+        "English-taught programs available",
+        "Central EU location"
+      ]
+    },
+    "poland": {
+      "tagline": "Affordable European education in Warsaw",
+      "linkLabel": "Enquire About Poland →",
+      "factValues": ["1", "1 year", "English programs available", "Warsaw"],
+      "desc": "Poland offers EU-recognised degrees at significantly lower tuition fees and living costs than Western Europe. Vistula University in Warsaw is one of Poland's most internationally active institutions, with a strong track record of enrolling students from Africa.",
+      "pros": [
+        "Among the most affordable EU tuitions",
+        "Lower cost of living vs. Western Europe",
+        "EU-recognised degrees",
+        "English-taught programs",
+        "Growing economy and job market"
+      ]
+    }
+  },
+  "comingSoon": {
+    "eyebrow": "Coming soon",
+    "title": "Expanding to more regions",
+    "placeholder": "Partner schools coming soon",
+    "japanNote": "Starting with Japan",
+    "photoCredits": "Campus photography courtesy of Wikimedia Commons contributors (CC BY-SA / public domain); Fanshawe College and Northern Lights College photos are ELIMU's own event photography."
+  },
+  "compare": {
+    "title": "Compare Destinations",
+    "headers": ["Country", "Tuition (intl., /yr)", "Living Costs", "Work Rights", "Graduate Visa"],
+    "disclaimer": "Representative ranges, not guarantees — actual costs vary by institution and city. Living costs reflect each country's official minimum funds requirement, except Poland, where the legal minimum is unrealistically low and a realistic city living-cost estimate is shown instead.",
+    "rows": {
+      "canada": { "tuition": "CAD $15,000–40,000", "living": "CAD $22,895", "work": "24 hrs/week, unlimited during breaks", "gradVisa": "PGWP — up to 3 years" },
+      "united-states": { "tuition": "USD $10,000–35,000", "living": "USD ~$25,000–33,000", "work": "On-campus only; CPT/OPT for practical training", "gradVisa": "OPT — 12 months (+24 STEM)" },
+      "ireland": { "tuition": "€9,850–28,000", "living": "€10,000", "work": "20 hrs/week term-time, 40 hrs/week holidays", "gradVisa": "2 years (Stamp 1G)" },
+      "germany": { "tuition": "€7,000–15,000 (our partner schools)", "living": "€11,904 (blocked account)", "work": "140 full / 280 half days per year", "gradVisa": "18 months (Job Seeker Visa)" },
+      "poland": { "tuition": "€2,000–8,000", "living": "~€7,000–11,000", "work": "No strict hour cap for full-time students", "gradVisa": "1 year" }
+    }
+  },
+  "cta": {
+    "title": "Not sure which country is right for you?",
+    "body": "Answer 6 quick questions and we'll match you to a real pathway based on your goals, budget, and language preference.",
+    "findPathway": "Find Your Pathway →",
+    "bookFree": "Book Free Consultation"
+  }
+}

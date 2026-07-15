@@ -1,0 +1,98 @@
+{
+  "banner": {
+    "text": "Projet pilote pour étudiants des communautés francophones en situation minoritaire (FMCSP) —",
+    "cta": "Vérifiez votre admissibilité"
+  },
+  "hero": {
+    "students": {
+      "eyebrow": "Étudiants internationaux",
+      "title": "Étudier à l'étranger",
+      "body": "Nous aidons les étudiants internationaux à accéder à une éducation de calibre mondial au Canada, aux États-Unis, en Irlande, en Allemagne et en Pologne grâce à des partenariats universitaires de confiance et à des consultants en immigration agréés.",
+      "cta": "Trouvez votre filière →"
+    },
+    "workers": {
+      "eyebrow": "Travailleurs qualifiés",
+      "title": "Travailler au Canada",
+      "body": "Nous aidons les travailleurs qualifiés francophones à obtenir une offre d'emploi canadienne et à immigrer grâce au permis de travail de mobilité francophone — aucune EIMT requise.",
+      "cta": "Découvrir la filière travail/immigration →"
+    },
+    "or": "Ou"
+  },
+  "trust": {
+    "badge": "Soutien agréé canadien",
+    "eyebrow": "Le ciel n'est qu'un début",
+    "quote": "« L'avenir appartient à ceux qui peuvent l'imaginer, le concevoir et le réaliser. Ce n'est pas quelque chose que l'on attend, mais que l'on crée. »"
+  },
+  "welcome": {
+    "title": "Bienvenue chez Masomo Now",
+    "learnMore": "En savoir plus sur ELIMU →",
+    "p1": "Masomo Now est la division Afrique francophone d'<1>ELIMU International Education Connections</1>, un cabinet-conseil canadien en éducation basé à Vancouver, en Colombie-Britannique.",
+    "p2": "Nous aidons les étudiants à réussir leurs candidatures aux universités et collèges à l'étranger en offrant des conseils d'experts sur les admissions, les visas et la préparation des étudiants, de la candidature jusqu'à l'arrivée."
+  },
+  "video": {
+    "eyebrow": "Un aperçu de l'un de nos établissements partenaires",
+    "title": "Premier regard sur TRU, Kamloops, C.-B.",
+    "caption": "TRU — Thompson Rivers University, un véritable établissement partenaire de Masomo Now."
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi choisir Masomo Now?",
+    "features": [
+      { "icon": "🛂", "title": "Soutien par un CRIC agréé", "description": "Un accompagnement professionnel en immigration soutenu par des consultants canadiens agréés." },
+      { "icon": "🎓", "title": "Établissements partenaires de confiance", "description": "Étudiez dans des collèges et universités soigneusement sélectionnés dans cinq pays." },
+      { "icon": "🎯", "title": "Accompagnement personnalisé", "description": "Chaque étudiant reçoit des conseils adaptés à ses objectifs, son budget et son parcours académique." },
+      { "icon": "🤝", "title": "Un accompagnement de bout en bout", "description": "De votre première consultation jusqu'à votre installation sur votre nouveau campus." }
+    ]
+  },
+  "destinationsShowcase": {
+    "eyebrow": "Destinations d'études",
+    "title": "Où nous envoyons nos étudiants",
+    "subtitle": "De véritables établissements partenaires dans cinq pays — choisis selon vos objectifs, votre budget et votre préférence linguistique.",
+    "explore": "Découvrir",
+    "names": {
+      "canada": "Canada",
+      "united-states": "États-Unis",
+      "ireland": "Irlande",
+      "germany": "Allemagne",
+      "poland": "Pologne"
+    },
+    "counts": {
+      "canada": "8 écoles partenaires",
+      "united-states": "2 écoles partenaires",
+      "ireland": "2 écoles partenaires",
+      "germany": "3 écoles partenaires",
+      "poland": "1 école partenaire"
+    }
+  },
+  "whoWeHelp": {
+    "eyebrow": "Qui nous aidons",
+    "title": "Un accompagnement à chaque étape",
+    "findPathway": "Trouvez votre filière →",
+    "items": [
+      { "title": "Diplômés du secondaire", "description": "Commencez votre parcours universitaire à l'étranger." },
+      { "title": "Transfert universitaire", "description": "Transférez vos crédits vers un diplôme universitaire." },
+      { "title": "Diplôme et certificat", "description": "Choisissez parmi des programmes axés sur la carrière." },
+      { "title": "Métiers spécialisés", "description": "Formation pratique avec possibilités de stages coopératifs." }
+    ]
+  },
+  "partners": {
+    "title": "Nos partenaires",
+    "subtitle": "Nous collaborons fièrement avec 16 établissements de confiance au Canada, aux États-Unis, en Irlande, en Allemagne et en Pologne.",
+    "viewAll": "Voir tous les établissements partenaires →"
+  },
+  "testimonials": {
+    "title": "Témoignages de réussite",
+    "items": [
+      { "name": "Amara M.", "dest": "BCIT, Colombie-Britannique", "quote": "Masomo Now a rendu simple ce qui semblait impossible. De ma candidature au BCIT jusqu'à mon permis d'études — chaque étape a été accompagnée. Je suis maintenant à Vancouver." },
+      { "name": "Jean-Pierre M.", "dest": "Collège Boréal, Ontario", "quote": "Je venais de la RDC et je ne pensais pas qu'étudier au Canada était possible. Masomo Now a trouvé le pilote FMC pour moi — j'étudie maintenant en français en Ontario." }
+    ]
+  },
+  "graduation": {
+    "caption": "Un étudiant de Masomo Now / ELIMU lors de sa collation des grades au Canada."
+  },
+  "cta": {
+    "title": "Prêt à étudier à l'étranger?",
+    "body": "Réservez une consultation gratuite avec l'un de nos conseillers et recevez une filière d'études personnalisée selon vos objectifs académiques.",
+    "bookFree": "Réserver une consultation gratuite",
+    "findPathway": "Trouvez votre filière →"
+  }
+}

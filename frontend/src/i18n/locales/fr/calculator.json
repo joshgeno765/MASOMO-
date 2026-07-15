@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "eyebrow": "Planifiez votre budget",
+    "title": "Calculateur de coûts et de budget",
+    "subtitle": "Obtenez une estimation instantanée des frais de scolarité et du coût de la vie pour votre destination d'études — puis réservez une consultation pour des chiffres exacts."
+  },
+  "form": {
+    "countryLabel": "Destination d'études",
+    "programTypeLabel": "Type de programme",
+    "durationLabel": "Durée du programme",
+    "years_one": "{{count}} an",
+    "years_other": "{{count}} ans",
+    "calculate": "Calculer l'estimation"
+  },
+  "programTypes": {
+    "Technical / Trades": "Technique / Métiers",
+    "Business & Management": "Affaires et gestion",
+    "University / Academic": "Universitaire / Académique"
+  },
+  "result": {
+    "title": "Votre coût estimé — {{country}}",
+    "forDuration": "Pour {{count}} an d'études",
+    "forDuration_other": "Pour {{count}} ans d'études",
+    "tuition": "Frais de scolarité",
+    "living": "Coût de la vie",
+    "total": "Total estimé",
+    "modifierNote": "Ajusté pour les programmes en {{programType}}, qui coûtent généralement {{direction}} la moyenne du pays.",
+    "modifierUp": "au-dessus de",
+    "modifierDown": "en dessous de",
+    "modifierNeutral": "conforme à",
+    "disclaimer": "Il s'agit d'une estimation représentative fondée sur les frais de scolarité habituels de nos écoles partenaires et l'exigence officielle de coût de la vie minimum de chaque pays — non un devis. Les coûts réels varient selon l'école, le programme et la ville.",
+    "cta": "Réserver une consultation pour des coûts exacts",
+    "findPathway": "Vous ne savez pas quel pays convient à votre budget? Trouvez votre filière →"
+  }
+}

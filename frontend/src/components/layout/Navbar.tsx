@@ -1,15 +1,19 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import LanguageToggle from '../ui/LanguageToggle'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { t } = useTranslation()
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About Us' },
-    { to: '/destinations', label: 'Destinations' },
-    { to: '/services', label: 'Services' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/', label: t('nav.home') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/destinations', label: t('nav.destinations') },
+    { to: '/resources', label: t('nav.resources') },
+    { to: '/services', label: t('nav.services') },
+    { to: '/contact', label: t('nav.contact') },
   ]
 
   return (
@@ -20,21 +24,21 @@ export default function Navbar() {
           <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">
             MN
           </div>
-          <img src="/images/elimu-logo.png" alt="ELIMU" className="h-7 w-auto" />
-          <span className="text-white font-bold text-lg">
-            Masomo <span className="text-brand-gold-light">Now</span>
-            <span className="ml-2 font-bold text-white">- Sky is the Beginning</span>
+          <img src="/images/elimu-logo.png" alt="ELIMU" className="h-7 w-auto flex-shrink-0" />
+          <span className="text-white font-bold text-lg whitespace-nowrap">
+            {t('brand.name')} <span className="text-brand-gold-light">{t('brand.now')}</span>
+            <span className="ml-2 font-bold text-white hidden 2xl:inline">{t('brand.tagline')}</span>
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-0.5 flex-shrink-0">
           {navLinks.map(({ to, label }) => (
             <li key={to}>
               <NavLink
                 to={to}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
+                  `block px-2.5 lg:px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-all duration-150 ${
                     isActive
                       ? 'text-brand-gold-light bg-white/10'
                       : 'text-white/70 hover:text-white hover:bg-white/10'
@@ -45,24 +49,30 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-          <li className="ml-2">
+          <li className="ml-1 flex-shrink-0">
+            <LanguageToggle />
+          </li>
+          <li className="ml-1 flex-shrink-0">
             <Link
               to="/consultation"
-              className="bg-brand-gold text-navy font-bold text-sm px-4 py-2 rounded-md hover:bg-brand-gold-light transition-all"
+              className="block bg-brand-gold text-navy font-bold text-sm px-3 lg:px-4 py-2 rounded-md whitespace-nowrap hover:bg-brand-gold-light transition-all"
             >
-              Book Consultation →
+              {t('nav.bookConsultationShort')}
             </Link>
           </li>
         </ul>
 
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? '✕' : '☰'}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageToggle />
+          <button
+            className="text-white p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={t('nav.toggleMenu')}
+          >
+            {mobileOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -88,7 +98,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="mt-2 text-center bg-brand-gold text-navy font-bold text-sm px-4 py-2.5 rounded-md"
             >
-              Book Consultation →
+              {t('nav.bookConsultation')}
             </Link>
           </div>
         </div>

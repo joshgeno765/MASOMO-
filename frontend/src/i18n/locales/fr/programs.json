@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Recherche de programmes",
+    "title": "Trouvez une école selon ce que vous voulez étudier",
+    "subtitle": "Explorez toutes nos écoles partenaires et tous nos établissements francophones par domaine d'études — affaires, ingénierie, soins infirmiers, métiers et plus encore."
+  },
+  "search": {
+    "placeholder": "Recherchez un programme, un domaine ou une école…",
+    "resultsCount_one": "{{count}} école trouvée",
+    "resultsCount_other": "{{count}} écoles trouvées",
+    "noResults": "Aucune école ne correspond à votre recherche. Essayez un autre mot-clé ou effacez le filtre.",
+    "clear": "Effacer la recherche"
+  },
+  "filters": {
+    "business": "Affaires",
+    "engineering": "Ingénierie et technologie",
+    "it": "Informatique / TI",
+    "health": "Santé et soins infirmiers",
+    "trades": "Métiers",
+    "artsScience": "Arts et sciences",
+    "law": "Droit",
+    "hospitality": "Hôtellerie et tourisme"
+  },
+  "card": {
+    "visitWebsite": "Visiter le site officiel ↗",
+    "viewDestination": "Voir la destination →",
+    "fmcBadge": "Pilote FMC (français)"
+  },
+  "cta": {
+    "title": "Vous ne savez pas quel programme correspond à vos objectifs?",
+    "body": "Répondez à 6 questions rapides et nous vous associerons à une filière réelle selon vos intérêts, votre budget et votre préférence linguistique.",
+    "findPathway": "Trouvez votre filière →"
+  }
+}

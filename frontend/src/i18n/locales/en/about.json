@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "alt": "Masomo Now / ELIMU education symposium in Nairobi, Kenya",
+    "title": "Your Journey Starts Here",
+    "subtitle": "Helping students turn their international education dreams into reality.",
+    "quote": "The future belongs to those who believe in the beauty of their dream."
+  },
+  "story": {
+    "alt": "Masomo Now counselor presenting Northern Lights College's British Columbia campuses",
+    "title": "Our Story",
+    "p1": "Masomo Now is the Francophone Africa division of <1>ELIMU International Education Connections</1>, a Canadian education consultancy headquartered in Vancouver, British Columbia.",
+    "p2": "Our mission is to connect talented students with quality education opportunities around the world while providing trusted guidance throughout every step of the journey."
+  },
+  "credentials": {
+    "title": "Our credentials",
+    "items": [
+      { "icon": "🇨🇦", "title": "Canadian Head Office", "description": "Based in Vancouver, British Columbia." },
+      { "icon": "🛂", "title": "Licensed Immigration Support", "description": "Professional study permit and immigration guidance." },
+      { "icon": "📋", "title": "Canadian Registered Business", "description": "Operating through ELIMU International Education Connections." },
+      { "icon": "🤝", "title": "End-to-End Student Support", "description": "From consultation to arrival abroad." }
+    ]
+  },
+  "offices": {
+    "title": "Our Office Locations",
+    "subtitle": "Serving students across East Africa, Europe, and North America."
+  },
+  "values": {
+    "items": [
+      { "title": "Transparency", "desc": "Clear pricing and honest timelines." },
+      { "title": "Integrity", "desc": "Student-first recommendations." },
+      { "title": "Excellence", "desc": "Focused on successful admissions and visa outcomes." },
+      { "title": "Care", "desc": "Personalized support throughout your journey." }
+    ]
+  },
+  "seminars": {
+    "eyebrow": "On the ground",
+    "title": "Our Seminars",
+    "body": "We regularly host school visits, education fairs, and community seminars across East Africa to help students and families explore international education opportunities.",
+    "items": [
+      "Information session at a partner secondary school — walking students through the FMC pathway to Canada.",
+      "Students respond to a live poll during a school seminar on studying abroad.",
+      "International Education & Career Symposium — Nairobi, Kenya, in partnership with Northern Lights College.",
+      "Walking families through the route from British Columbia's Northern Lights College campuses to a study permit.",
+      "Our counselors follow up with students one-on-one after every seminar.",
+      "An ELIMU counselor presenting Northern Lights College's programs on stage in Nairobi."
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "body": "Our advisors work closely with licensed immigration professionals to provide personalized guidance from your first inquiry until you arrive at your destination.",
+    "items": [
+      "Our Nairobi team preparing student resources for Thompson Rivers University.",
+      "ELIMU counselors at the International Education and Career Symposium in Nairobi.",
+      "ELIMU counselors presenting Canadian study pathways at the Nairobi symposium."
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "brand": {
+    "name": "Masomo",
+    "now": "Now",
+    "tagline": "- Sky is the Beginning"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "destinations": "Destinations",
+    "resources": "Resources",
+    "services": "Services",
+    "contact": "Contact",
+    "bookConsultation": "Book Consultation →",
+    "bookConsultationShort": "Book Now →",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "description": "International education consultancy helping Francophone African students access world-class institutions abroad — with a focus on Canadian francophone pathways.",
+    "navigate": "Navigate",
+    "studyDestinations": "Study Destinations",
+    "fmcPilotProgram": "FMC Pilot Program",
+    "costCalculator": "Cost Calculator",
+    "programSearch": "Program Search",
+    "resources": "Resources",
+    "bookConsultation": "Book Consultation",
+    "destinationsHeading": "Destinations",
+    "canadaFmc": "Canada (FMC Pilot)",
+    "unitedStates": "United States",
+    "ireland": "Ireland",
+    "germany": "Germany",
+    "poland": "Poland",
+    "copyright": "© 2026 Masomo Now. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
+  },
+  "language": {
+    "en": "EN",
+    "fr": "FR",
+    "switchTo": "Switch to {{language}}"
+  }
+}

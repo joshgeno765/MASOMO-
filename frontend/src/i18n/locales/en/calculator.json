@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "eyebrow": "Plan Your Budget",
+    "title": "Cost & Budget Calculator",
+    "subtitle": "Get an instant estimate of tuition and living costs for your study destination — then book a consultation for exact numbers."
+  },
+  "form": {
+    "countryLabel": "Study destination",
+    "programTypeLabel": "Program type",
+    "durationLabel": "Program duration",
+    "years_one": "{{count}} year",
+    "years_other": "{{count}} years",
+    "calculate": "Calculate estimate"
+  },
+  "programTypes": {
+    "Technical / Trades": "Technical / Trades",
+    "Business & Management": "Business & Management",
+    "University / Academic": "University / Academic"
+  },
+  "result": {
+    "title": "Your estimated cost — {{country}}",
+    "forDuration": "For {{count}} year of study",
+    "forDuration_other": "For {{count}} years of study",
+    "tuition": "Tuition",
+    "living": "Living costs",
+    "total": "Estimated total",
+    "modifierNote": "Adjusted for {{programType}} programs, which typically run {{direction}} the country average.",
+    "modifierUp": "above",
+    "modifierDown": "below",
+    "modifierNeutral": "in line with",
+    "disclaimer": "This is a representative estimate based on typical partner-school tuition and each country's official minimum living-cost requirement — not a quote. Actual costs vary by specific school, program, and city.",
+    "cta": "Book a Consultation for Exact Costs",
+    "findPathway": "Not sure which country fits your budget? Find your pathway →"
+  }
+}

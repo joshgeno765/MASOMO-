@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "eyebrow": "Resources",
+    "title": "Guides for studying abroad",
+    "subtitle": "Practical, up-to-date guidance on visas, budgeting, and life abroad — written by our counseling team."
+  },
+  "readMore": "Read more →",
+  "backToResources": "← Back to all resources",
+  "publishedOn": "Published {{date}}",
+  "relatedCta": {
+    "title": "Have questions about your specific situation?",
+    "body": "Every student's path is different. Book a free consultation and get advice tailored to your country, budget, and goals.",
+    "cta": "Book Free Consultation"
+  },
+  "notFound": {
+    "title": "Article not found",
+    "body": "This article may have moved or no longer exists.",
+    "back": "← Back to all resources"
+  }
+}

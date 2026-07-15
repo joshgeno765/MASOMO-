@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "eyebrow": "Canada Study Permit",
+    "title": "Study in Canada Through the Francophone Minority Communities Student Pilot",
+    "body": "A dedicated pathway for eligible French-speaking students to study at participating French-language institutions outside Quebec.",
+    "checkEligibility": "Check My Eligibility",
+    "officialInfo": "Official IRCC Information ↗"
+  },
+  "infoTable": {
+    "pilot": "Pilot",
+    "pilotValue": "FMC Student Pilot",
+    "managedBy": "Managed by",
+    "managedByValue": "IRCC",
+    "studyLocation": "Study location",
+    "studyLocationValue": "Canada — outside Quebec",
+    "language": "Language",
+    "languageValue": "French",
+    "application": "Application",
+    "applicationValue": "Priority processing"
+  },
+  "pathways": {
+    "title": "Two Pathways — Study or Work",
+    "or": "Or",
+    "student": {
+      "title": "FMC Student Pilot",
+      "desc": "For students who want to study in Canada. No job offer required."
+    },
+    "worker": {
+      "title": "Francophone Mobility Work Permit",
+      "desc": "For skilled workers who already have a Canadian job offer. No study permit required.",
+      "officialLink": "Official IRCC page ↗"
+    }
+  },
+  "eligibility": {
+    "title": "Eligibility",
+    "subtitle": "You may qualify if you meet all of the following.",
+    "points": [
+      { "icon": "🌍", "title": "Francophone country of origin", "description": "A citizen or resident of an eligible francophone country." },
+      { "icon": "🎓", "title": "Accepted at a participating institution", "description": "An admission letter from a participating institution outside Quebec." },
+      { "icon": "🗣️", "title": "French-language program", "description": "Your program of study is delivered primarily in French." },
+      { "icon": "📋", "title": "Standard IRCC requirements", "description": "Standard study permit requirements: proof of finances, health, and character." }
+    ]
+  },
+  "eligibleCountries": "Eligible Countries",
+  "benefits": {
+    "title": "Benefits of the FMC pathway",
+    "items": [
+      { "title": "Priority processing", "desc": "Applications through this pilot are processed faster than standard study permits." },
+      { "title": "French-speaking environment", "desc": "Study and live in a dedicated French-language community outside Quebec." },
+      { "title": "Study outside Quebec", "desc": "Access world-class French-language education in Ontario, New Brunswick, Manitoba, and other provinces." },
+      { "title": "Pathway to permanent residence", "desc": "Graduating outside Quebec strengthens your Express Entry profile." }
+    ]
+  },
+  "process": {
+    "title": "How Masomo Now Helps",
+    "subtitle": "From checking your eligibility to arriving on campus.",
+    "step": "Step {{num}}",
+    "steps": [
+      { "num": "1", "title": "Eligibility Assessment", "desc": "We check your background against the FMC pilot requirements." },
+      { "num": "2", "title": "Program Selection", "desc": "We find the right French-language program for your goals." },
+      { "num": "3", "title": "Application Preparation", "desc": "We prepare your full application package." },
+      { "num": "4", "title": "Study Permit Guidance", "desc": "We guide you through the IRCC study permit application." },
+      { "num": "5", "title": "Pre-Departure & Arrival Support", "desc": "We prepare you for life in Canada." }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Study in Canada?",
+    "body": "Book a free consultation and we'll assess your eligibility and guide you through every step of the application process.",
+    "bookFree": "Book Free Consultation",
+    "officialRequirements": "Read Official Requirements ↗"
+  }
+}

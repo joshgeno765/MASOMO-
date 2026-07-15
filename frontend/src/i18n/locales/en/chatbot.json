@@ -1,0 +1,12 @@
+{
+  "openLabel": "Chat with us",
+  "title": "Masomo Now Assistant",
+  "subtitle": "Ask about visas, costs, or programs",
+  "welcome": "Hi! I can help with quick questions about studying abroad — visas, tests, costs, programs. What would you like to know?",
+  "placeholder": "Type your question…",
+  "send": "Send",
+  "disclaimer": "AI-generated answers — for anything specific to your situation, book a free consultation.",
+  "errorFallback": "Sorry, something went wrong. Please try again or message us on WhatsApp.",
+  "whatsapp": "WhatsApp us instead",
+  "close": "Close chat"
+}

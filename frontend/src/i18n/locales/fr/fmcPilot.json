@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "eyebrow": "Permis d'études canadien",
+    "title": "Étudier au Canada grâce au pilote pour étudiants des communautés francophones en situation minoritaire",
+    "body": "Une filière dédiée permettant aux étudiants francophones admissibles d'étudier dans des établissements de langue française participants, à l'extérieur du Québec.",
+    "checkEligibility": "Vérifier mon admissibilité",
+    "officialInfo": "Renseignements officiels d'IRCC ↗"
+  },
+  "infoTable": {
+    "pilot": "Pilote",
+    "pilotValue": "Pilote pour étudiants FMC",
+    "managedBy": "Géré par",
+    "managedByValue": "IRCC",
+    "studyLocation": "Lieu d'études",
+    "studyLocationValue": "Canada — à l'extérieur du Québec",
+    "language": "Langue",
+    "languageValue": "Français",
+    "application": "Demande",
+    "applicationValue": "Traitement prioritaire"
+  },
+  "pathways": {
+    "title": "Deux filières — Étudier ou travailler",
+    "or": "Ou",
+    "student": {
+      "title": "Pilote pour étudiants FMC",
+      "desc": "Pour les étudiants qui souhaitent étudier au Canada. Aucune offre d'emploi requise."
+    },
+    "worker": {
+      "title": "Permis de travail de mobilité francophone",
+      "desc": "Pour les travailleurs qualifiés qui ont déjà une offre d'emploi canadienne. Aucun permis d'études requis.",
+      "officialLink": "Page officielle d'IRCC ↗"
+    }
+  },
+  "eligibility": {
+    "title": "Admissibilité",
+    "subtitle": "Vous pourriez être admissible si vous répondez à tous les critères suivants.",
+    "points": [
+      { "icon": "🌍", "title": "Pays d'origine francophone", "description": "Citoyen ou résident d'un pays francophone admissible." },
+      { "icon": "🎓", "title": "Accepté par un établissement participant", "description": "Une lettre d'admission d'un établissement participant à l'extérieur du Québec." },
+      { "icon": "🗣️", "title": "Programme de langue française", "description": "Votre programme d'études est offert principalement en français." },
+      { "icon": "📋", "title": "Exigences standards d'IRCC", "description": "Exigences standards du permis d'études : preuve de fonds, santé et bonnes mœurs." }
+    ]
+  },
+  "eligibleCountries": "Pays admissibles",
+  "benefits": {
+    "title": "Avantages de la filière FMC",
+    "items": [
+      { "title": "Traitement prioritaire", "desc": "Les demandes soumises par ce pilote sont traitées plus rapidement que les permis d'études standards." },
+      { "title": "Environnement francophone", "desc": "Étudiez et vivez au sein d'une communauté de langue française dédiée, à l'extérieur du Québec." },
+      { "title": "Étudier hors Québec", "desc": "Accédez à une éducation de langue française de calibre mondial en Ontario, au Nouveau-Brunswick, au Manitoba et dans d'autres provinces." },
+      { "title": "Filière vers la résidence permanente", "desc": "Obtenir votre diplôme à l'extérieur du Québec renforce votre profil Entrée express." }
+    ]
+  },
+  "process": {
+    "title": "Comment Masomo Now vous accompagne",
+    "subtitle": "De la vérification de votre admissibilité jusqu'à votre arrivée sur le campus.",
+    "step": "Étape {{num}}",
+    "steps": [
+      { "num": "1", "title": "Évaluation de l'admissibilité", "desc": "Nous vérifions votre profil par rapport aux exigences du pilote FMC." },
+      { "num": "2", "title": "Choix du programme", "desc": "Nous trouvons le bon programme de langue française pour vos objectifs." },
+      { "num": "3", "title": "Préparation de la demande", "desc": "Nous préparons votre dossier de candidature complet." },
+      { "num": "4", "title": "Accompagnement pour le permis d'études", "desc": "Nous vous guidons tout au long de la demande de permis d'études IRCC." },
+      { "num": "5", "title": "Soutien avant le départ et à l'arrivée", "desc": "Nous vous préparons à la vie au Canada." }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à étudier au Canada?",
+    "body": "Réservez une consultation gratuite et nous évaluerons votre admissibilité en vous guidant à chaque étape du processus de candidature.",
+    "bookFree": "Réserver une consultation gratuite",
+    "officialRequirements": "Lire les exigences officielles ↗"
+  }
+}

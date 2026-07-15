@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 import { AuthProvider, useAuth } from './context/AuthContext'
 
 import Layout from './components/layout/Layout'
@@ -13,6 +14,10 @@ const AboutPage = lazy(() => import('./pages/AboutPage'))
 const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage'))
 const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
 const PathwayFinderPage = lazy(() => import('./pages/PathwayFinderPage'))
+const CostCalculatorPage = lazy(() => import('./pages/CostCalculatorPage'))
+const ProgramSearchPage = lazy(() => import('./pages/ProgramSearchPage'))
+const ResourcesPage = lazy(() => import('./pages/ResourcesPage'))
+const ArticlePage = lazy(() => import('./pages/ArticlePage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -46,9 +51,15 @@ function RequireAuth({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const { i18n } = useTranslation()
+
   useEffect(() => {
     sessionStorage.removeItem('masomo_chunk_reload_attempted')
   }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage || 'en'
+  }, [i18n.resolvedLanguage])
 
   return (
     <ErrorBoundary>
@@ -64,6 +75,10 @@ export default function App() {
                 <Route path="/destinations" element={<StudyDestinationsPage />} />
                 <Route path="/fmc-pilot" element={<FMCPilotPage />} />
                 <Route path="/pathway-finder" element={<PathwayFinderPage />} />
+                <Route path="/cost-calculator" element={<CostCalculatorPage />} />
+                <Route path="/programs" element={<ProgramSearchPage />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/resources/:slug" element={<ArticlePage />} />
                 <Route path="/universities" element={<Navigate to="/destinations" replace />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/consultation" element={<ConsultationPage />} />

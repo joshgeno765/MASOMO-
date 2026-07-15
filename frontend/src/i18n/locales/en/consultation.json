@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Book a Consultation",
+    "title": "Book your free consultation",
+    "subtitle": "Pick a date and time that works for you — one of our counselors will call you to talk through your options."
+  },
+  "success": {
+    "title": "Consultation booked",
+    "body": "Thank you, <name>{{name}}</name>. We'll confirm your slot by email at <email>{{email}}</email> shortly.",
+    "downloadIcs": "Download .ics",
+    "addGoogle": "Add to Google Calendar",
+    "addOutlook": "Add to Outlook",
+    "bookAnother": "Book Another Consultation"
+  },
+  "form": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "selectCountry": "Select country",
+    "selectDestination": "Where would you like to study?",
+    "thisWeek": "This Week",
+    "nextWeek": "Next Week",
+    "closedSundays": "Closed Sundays — pick another day.",
+    "notesPlaceholder": "Anything we should know?",
+    "submit": "Book Consultation →",
+    "submitting": "Booking...",
+    "securityNotice": "Submitted securely over HTTPS. By booking, you agree to our <1>Privacy Policy</1>.",
+    "whatsapp": "Prefer to chat now? WhatsApp us"
+  },
+  "countries": {
+    "Rwanda": "Rwanda", "DR Congo": "DR Congo", "Djibouti": "Djibouti", "Kenya": "Kenya",
+    "Uganda": "Uganda", "Tanzania": "Tanzania", "Cameroon": "Cameroon", "Senegal": "Senegal",
+    "Côte d'Ivoire": "Côte d'Ivoire", "Other": "Other"
+  },
+  "destinations": {
+    "Ireland — DCU (Dublin City University)": "Ireland — DCU (Dublin City University)",
+    "Ireland — Griffith College": "Ireland — Griffith College",
+    "Germany — CBS University of Applied Sciences": "Germany — CBS University of Applied Sciences",
+    "Germany — BSBI (Berlin School of Business & Innovation)": "Germany — BSBI (Berlin School of Business & Innovation)",
+    "Germany — Gisma University of Applied Sciences": "Germany — Gisma University of Applied Sciences",
+    "Poland — Vistula University": "Poland — Vistula University",
+    "USA — Lake Washington Institute of Technology": "USA — Lake Washington Institute of Technology",
+    "USA — Seattle Colleges": "USA — Seattle Colleges",
+    "Canada — FMC Student Pilot": "Canada — FMC Student Pilot",
+    "Canada — BCIT": "Canada — BCIT",
+    "Canada — TRU (Thompson Rivers University)": "Canada — TRU (Thompson Rivers University)",
+    "Canada — University of Lethbridge": "Canada — University of Lethbridge",
+    "Canada — Northern Lights College": "Canada — Northern Lights College",
+    "Canada — North Island College": "Canada — North Island College",
+    "Not sure — need guidance": "Not sure — need guidance"
+  },
+  "toast": {
+    "nameRequired": "Please enter your full name",
+    "emailInvalid": "Please enter a valid email",
+    "phoneRequired": "Please enter your phone number",
+    "destinationRequired": "Please select a study destination",
+    "dateRequired": "Please choose a date",
+    "closedSundaysError": "We are closed on Sundays — please choose another date",
+    "timeRequired": "Please choose a time slot",
+    "genericError": "Something went wrong. Please try again or WhatsApp us."
+  }
+}

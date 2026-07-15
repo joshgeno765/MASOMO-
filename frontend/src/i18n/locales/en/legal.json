@@ -1,0 +1,90 @@
+{
+  "privacy": {
+    "eyebrow": "Legal",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: July 2026",
+    "intro": "Masomo Now is the francophone Africa division of <1>ELIMU International Education Connections</1>, a licensed Canadian education consultancy headquartered in Vancouver, BC. This policy explains what personal information we collect through masomonow.com, how we use it, and how you can contact us about it.",
+    "whatWeCollect": {
+      "title": "What we collect",
+      "intro": "We only collect information you choose to give us, through two forms on this site:",
+      "items": [
+        { "label": "Consultation booking", "text": "your name, email, phone number, country, study destination interest, preferred appointment time, and any notes you add." },
+        { "label": "Pathway Finder", "text": "your quiz answers (home country, language preference, study goal, field of interest, budget, and timeline) and, only if you choose to save your result, your name, email, phone number, and an optional message." }
+      ]
+    },
+    "howWeUseIt": {
+      "title": "How we use it",
+      "body": "We use this information to respond to your inquiry, match you to relevant study destinations and partner institutions, schedule and prepare for consultations, and keep an internal record of your file so our counselors can follow up appropriately. We do not use your information for advertising, and we do not sell personal information to anyone."
+    },
+    "whoCanSeeIt": {
+      "title": "Who can see it",
+      "body": "Your information is accessible only to Masomo Now / ELIMU International Education Connections staff and our RCIC-licensed immigration team (License R731358) who are involved in supporting your inquiry. We use Resend, a transactional email provider, solely to deliver internal notifications when you submit a form — it is not used for marketing and does not receive your full record."
+    },
+    "cookies": {
+      "title": "Cookies and tracking",
+      "body": "This site does not run advertising or analytics tracking cookies. Videos are embedded using YouTube's privacy-enhanced \"nocookie\" mode, which limits the use of cookies until you interact with a video player."
+    },
+    "retention": {
+      "title": "How long we keep it",
+      "body": "We retain your information for as long as necessary to support your inquiry or file, or as required by applicable record-keeping obligations. You can ask us to delete your information at any time using the contact details below, and we will do so unless we're required to keep it for a legitimate reason."
+    },
+    "yourRights": {
+      "title": "Your rights",
+      "body": "You can ask us to access, correct, or delete the personal information we hold about you at any time by emailing <1>info@masomonow.com</1>."
+    },
+    "under18": {
+      "title": "If you are under 18",
+      "body": "Some of our seminars and inquiries involve secondary school students. If you are under 18, please involve a parent or guardian before submitting your information to us."
+    },
+    "changes": {
+      "title": "Changes to this policy",
+      "body": "We may update this policy from time to time as our services evolve. The \"last updated\" date above reflects the most recent revision."
+    },
+    "contact": {
+      "title": "Contact us",
+      "body": "Questions about this policy or your information can be sent to <1>info@masomonow.com</1>."
+    }
+  },
+  "terms": {
+    "eyebrow": "Legal",
+    "title": "Terms of Use",
+    "lastUpdated": "Last updated: July 2026",
+    "intro": "These terms govern your use of masomonow.com, operated by Masomo Now, the francophone Africa division of ELIMU International Education Connections. By using this site or submitting a form, you agree to these terms.",
+    "ourServices": {
+      "title": "Our services",
+      "body": "Masomo Now provides education consulting and RCIC-licensed immigration consulting (License R731358, regulated by the College of Immigration and Citizenship Consultants) to help students identify and apply to study destinations, including the Canadian Francophone Minority Communities (FMC) Student Pilot."
+    },
+    "noGuarantee": {
+      "title": "No guarantee of outcome",
+      "body": "Admission decisions, scholarship awards, visa and study permit approvals are made solely by the receiving institution and the relevant government authority. Masomo Now provides guidance, application support, and honest assessment of your options, but does not guarantee admission, a visa or study permit outcome, or any other result. Tools on this site, including the Pathway Finder, provide a starting recommendation based on the information you give us — they are not a formal eligibility decision."
+    },
+    "accuracy": {
+      "title": "Accuracy of information",
+      "body": "You agree to give us accurate information when using our forms. Recommendations and matches we provide are only as good as the information you share with us, and your assigned counselor will confirm exact requirements for your specific program before you apply."
+    },
+    "contentIp": {
+      "title": "Content and intellectual property",
+      "body": "The design and written content of this site belong to Masomo Now / ELIMU International Education Connections. Some campus photography is used courtesy of Wikimedia Commons contributors under CC BY-SA or public domain licenses; Fanshawe College and Northern Lights College photos are ELIMU's own event photography. Embedded videos remain the property of their original creators (our partner institutions) and are shown here through YouTube's standard embed functionality."
+    },
+    "links": {
+      "title": "Links to other sites",
+      "body": "This site links to official pages of partner institutions and government bodies (such as IRCC) for your convenience. We are not responsible for the content or accuracy of external sites we link to."
+    },
+    "liability": {
+      "title": "Limitation of liability",
+      "body": "Masomo Now is not liable for indirect or consequential losses arising from your use of this site or its content. Nothing in these terms limits any obligation our RCIC-licensed team owes you under applicable professional regulation."
+    },
+    "governingLaw": {
+      "title": "Governing law",
+      "body": "These terms are governed by the laws of British Columbia, Canada."
+    },
+    "changes": {
+      "title": "Changes to these terms",
+      "body": "We may update these terms from time to time. The \"last updated\" date above reflects the most recent revision."
+    },
+    "contact": {
+      "title": "Contact us",
+      "body": "Questions about these terms can be sent to <1>info@masomonow.com</1>."
+    }
+  }
+}

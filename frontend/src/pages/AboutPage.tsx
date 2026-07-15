@@ -1,34 +1,34 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Trans, useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import { OFFICES } from '../data/offices'
 
-const values = [
-  { num: '01', title: 'Transparency', desc: 'Clear pricing and honest timelines.' },
-  { num: '02', title: 'Integrity', desc: 'Student-first recommendations.' },
-  { num: '03', title: 'Excellence', desc: 'Focused on successful admissions and visa outcomes.' },
-  { num: '04', title: 'Care', desc: 'Personalized support throughout your journey.' },
+type CredentialItem = { icon: string; title: string; description: string }
+type ValueTextItem = { title: string; desc: string }
+
+const valueNums = ['01', '02', '03', '04']
+
+const seminarPhotos = [
+  '/images/seminars/seminar-3.webp',
+  '/images/seminars/seminar-5-thumb.webp',
+  '/images/seminars/seminar-2-thumb.webp',
+  '/images/seminars/seminar-4-thumb.webp',
+  '/images/seminars/seminar-1-thumb.webp',
+  '/images/seminars/seminar-6-thumb.webp',
 ]
 
-const seminars = [
-  { src: '/images/seminars/seminar-3.webp', caption: 'Information session at a partner secondary school — walking students through the FMC pathway to Canada.' },
-  { src: '/images/seminars/seminar-5-thumb.webp', caption: 'Students respond to a live poll during a school seminar on studying abroad.' },
-  { src: '/images/seminars/seminar-2-thumb.webp', caption: 'International Education & Career Symposium — Nairobi, Kenya, in partnership with Northern Lights College.' },
-  { src: '/images/seminars/seminar-4-thumb.webp', caption: 'Walking families through the route from British Columbia\'s Northern Lights College campuses to a study permit.' },
-  { src: '/images/seminars/seminar-1-thumb.webp', caption: 'Our counselors follow up with students one-on-one after every seminar.' },
-  { src: '/images/seminars/seminar-6-thumb.webp', caption: 'An ELIMU counselor presenting Northern Lights College\'s programs on stage in Nairobi.' },
-]
-
-const team = [
-  { src: '/images/team/team-1-thumb.webp', caption: 'Our Nairobi team preparing student resources for Thompson Rivers University.' },
-  { src: '/images/team/team-2-thumb.webp', caption: 'ELIMU counselors at the International Education and Career Symposium in Nairobi.' },
-  { src: '/images/team/team-3-thumb.webp', caption: 'ELIMU counselors presenting Canadian study pathways at the Nairobi symposium.' },
+const teamPhotos = [
+  '/images/team/team-1-thumb.webp',
+  '/images/team/team-2-thumb.webp',
+  '/images/team/team-3-thumb.webp',
 ]
 
 export default function AboutPage() {
   const { hash } = useLocation()
+  const { t } = useTranslation('about')
 
   useEffect(() => {
     if (!hash) return
@@ -36,41 +36,53 @@ export default function AboutPage() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }, [hash])
 
+  const credentials = t('credentials.items', { returnObjects: true }) as CredentialItem[]
+
+  const valueTexts = t('values.items', { returnObjects: true }) as ValueTextItem[]
+  const values = valueNums.map((num, i) => ({ num, title: valueTexts[i].title, desc: valueTexts[i].desc }))
+
+  const seminarCaptions = t('seminars.items', { returnObjects: true }) as string[]
+  const seminars = seminarPhotos.map((src, i) => ({ src, caption: seminarCaptions[i] }))
+
+  const teamCaptions = t('team.items', { returnObjects: true }) as string[]
+  const team = teamPhotos.map((src, i) => ({ src, caption: teamCaptions[i] }))
+
   return (
     <>
       <PhotoHero
         image="/images/seminars/seminar-2.webp"
-        alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
-        title="Your Journey Starts Here"
-        subtitle="Helping students turn their international education dreams into reality."
-        quote="The future belongs to those who believe in the beauty of their dream."
+        alt={t('hero.alt')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        quote={t('hero.quote')}
       />
 
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
-        alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
-        title="Our Story"
+        alt={t('story.alt')}
+        title={t('story.title')}
         imageSide="right"
       >
-        <p>Masomo Now is the Francophone Africa division of <a href="https://elimunow.com" target="_blank" rel="noopener noreferrer" className="text-navy font-bold hover:underline">ELIMU International Education Connections</a>, a Canadian education consultancy headquartered in Vancouver, British Columbia.</p>
-        <p>Our mission is to connect talented students with quality education opportunities around the world while providing trusted guidance throughout every step of the journey.</p>
+        <p>
+          <Trans
+            i18nKey="story.p1"
+            t={t}
+            components={{ 1: <a href="https://elimunow.com" target="_blank" rel="noopener noreferrer" className="text-navy font-bold hover:underline" /> }}
+          />
+        </p>
+        <p>{t('story.p2')}</p>
       </TextImageSplit>
 
       <IconFeatureRow
-        title="Our credentials"
-        features={[
-          { icon: '🇨🇦', title: 'Canadian Head Office', description: 'Based in Vancouver, British Columbia.' },
-          { icon: '🛂', title: 'Licensed Immigration Support', description: 'Professional study permit and immigration guidance.' },
-          { icon: '📋', title: 'Canadian Registered Business', description: 'Operating through ELIMU International Education Connections.' },
-          { icon: '🤝', title: 'End-to-End Student Support', description: 'From consultation to arrival abroad.' },
-        ]}
+        title={t('credentials.title')}
+        features={credentials}
       />
 
       {/* Offices */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-3">Our Office Locations</h2>
-          <p className="text-gray-500 mb-8">Serving students across East Africa, Europe, and North America.</p>
+          <h2 className="font-serif text-3xl text-navy mb-3">{t('offices.title')}</h2>
+          <p className="text-gray-500 mb-8">{t('offices.subtitle')}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {OFFICES.map((o) => (
               <div key={o.city} className="border-2 border-navy/10 rounded-xl p-5">
@@ -103,10 +115,10 @@ export default function AboutPage() {
       {/* Seminars & Events — real photo gallery */}
       <section id="seminars" className="py-20 px-6 bg-gray-50 border-t border-b border-gray-200 scroll-mt-16">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">On the ground</p>
-          <h2 className="font-serif text-4xl text-navy mb-3">Our Seminars</h2>
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">{t('seminars.eyebrow')}</p>
+          <h2 className="font-serif text-4xl text-navy mb-3">{t('seminars.title')}</h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl">
-            We regularly host school visits, education fairs, and community seminars across East Africa to help students and families explore international education opportunities.
+            {t('seminars.body')}
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {seminars.map((s, i) => (
@@ -122,16 +134,16 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-4xl text-white mb-5">Our Team</h2>
+          <h2 className="font-serif text-4xl text-white mb-5">{t('team.title')}</h2>
           <p className="text-white/70 text-lg leading-relaxed">
-            Our advisors work closely with licensed immigration professionals to provide personalized guidance from your first inquiry until you arrive at your destination.
+            {t('team.body')}
           </p>
         </div>
         <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-5 mt-12 text-left">
-          {team.map((t) => (
-            <figure key={t.src} className="rounded-xl overflow-hidden">
-              <img src={t.src} alt={t.caption} loading="lazy" className="w-full h-56 object-cover photo-grade" />
-              <figcaption className="text-white/50 text-xs mt-2 leading-relaxed">{t.caption}</figcaption>
+          {team.map((m) => (
+            <figure key={m.src} className="rounded-xl overflow-hidden">
+              <img src={m.src} alt={m.caption} loading="lazy" className="w-full h-56 object-cover photo-grade" />
+              <figcaption className="text-white/50 text-xs mt-2 leading-relaxed">{m.caption}</figcaption>
             </figure>
           ))}
         </div>

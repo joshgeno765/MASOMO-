@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "alt": "Un conseiller de Masomo Now assurant un suivi auprès d'un étudiant après un séminaire",
+    "eyebrow": "Services",
+    "title": "Un accompagnement complet, à chaque étape",
+    "subtitle": "De votre première demande à votre installation dans la vie à l'étranger — voici exactement comment Masomo Now vous accompagne.",
+    "quote": "La pire chose qui puisse vous arriver n'est pas de ne pas réaliser vos rêves — le pire est de ne pas rêver du tout."
+  },
+  "whatWeHelpWith": {
+    "title": "Comment nous pouvons vous aider",
+    "items": [
+      { "icon": "💬", "title": "Consultation gratuite", "description": "Comprenez vos options lors d'une séance individuelle personnalisée." },
+      { "icon": "🎓", "title": "Choix de l'université", "description": "Trouvez l'établissement et le programme qui correspondent le mieux à vos objectifs." },
+      { "icon": "📄", "title": "Aide à la candidature", "description": "Complétez votre candidature en toute confiance." },
+      { "icon": "🛂", "title": "Assistance pour le visa", "description": "Un accompagnement professionnel à chaque étape de votre demande de permis d'études." },
+      { "icon": "✈️", "title": "Préparation au départ", "description": "Préparez votre voyage, votre logement, vos services bancaires et votre vie étudiante." },
+      { "icon": "🏠", "title": "Accompagnement à l'arrivée", "description": "Nous vous aidons à bien vous installer dans votre nouveau pays." }
+    ]
+  },
+  "process": {
+    "title": "Notre processus",
+    "items": [
+      "Consultation",
+      "Choisir une école",
+      "Soumettre les candidatures",
+      "Recevoir l'admission",
+      "Faire une demande de visa",
+      "Voyager",
+      "Arriver"
+    ]
+  },
+  "faq": {
+    "title": "Foire aux questions",
+    "items": [
+      { "q": "Ai-je besoin de l'IELTS?", "a": "Cela dépend de l'établissement — la plupart acceptent l'IELTS, le TOEFL, le PTE ou Duolingo, et plusieurs de nos écoles partenaires offrent également des programmes internes de préparation en anglais si vous n'avez pas encore le score requis." },
+      { "q": "Puis-je effectuer un transfert universitaire?", "a": "Oui — plusieurs de nos établissements partenaires offrent des programmes de transfert universitaire (UT) qui vous permettent d'obtenir vos premiers crédits avant de poursuivre vers un diplôme complet." },
+      { "q": "Combien de temps dure le processus?", "a": "Les délais varient selon la destination et la période de l'année, mais la plupart des étudiants passent de la première consultation à une décision sur leur permis d'études en 3 à 6 mois. Nous vous donnerons un échéancier réaliste pour le programme de votre choix lors de votre consultation." }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à commencer?",
+    "body": "Réservez une consultation gratuite et nous vous indiquerons exactement quelle devrait être votre prochaine étape.",
+    "link": "Réserver une consultation gratuite →"
+  }
+}

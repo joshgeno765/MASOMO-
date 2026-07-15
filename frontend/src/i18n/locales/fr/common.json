@@ -1,0 +1,42 @@
+{
+  "brand": {
+    "name": "Masomo",
+    "now": "Now",
+    "tagline": "- Le ciel n'est qu'un début"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "destinations": "Destinations",
+    "resources": "Ressources",
+    "services": "Services",
+    "contact": "Contact",
+    "bookConsultation": "Réserver une consultation →",
+    "bookConsultationShort": "Réserver →",
+    "toggleMenu": "Ouvrir le menu"
+  },
+  "footer": {
+    "description": "Cabinet de conseil en éducation internationale qui aide les étudiants francophones africains à accéder à des établissements de renom à l'étranger — avec un accent sur les filières francophones au Canada.",
+    "navigate": "Navigation",
+    "studyDestinations": "Destinations d'études",
+    "fmcPilotProgram": "Programme pilote FMC",
+    "costCalculator": "Calculateur de coûts",
+    "programSearch": "Recherche de programmes",
+    "resources": "Ressources",
+    "bookConsultation": "Réserver une consultation",
+    "destinationsHeading": "Destinations",
+    "canadaFmc": "Canada (pilote FMC)",
+    "unitedStates": "États-Unis",
+    "ireland": "Irlande",
+    "germany": "Allemagne",
+    "poland": "Pologne",
+    "copyright": "© 2026 Masomo Now. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation"
+  },
+  "language": {
+    "en": "EN",
+    "fr": "FR",
+    "switchTo": "Passer en {{language}}"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Réserver une consultation",
+    "title": "Réservez votre consultation gratuite",
+    "subtitle": "Choisissez une date et une heure qui vous conviennent — l'un de nos conseillers vous appellera pour discuter de vos options."
+  },
+  "success": {
+    "title": "Consultation réservée",
+    "body": "Merci, <name>{{name}}</name>. Nous confirmerons votre créneau par courriel à <email>{{email}}</email> sous peu.",
+    "downloadIcs": "Télécharger le .ics",
+    "addGoogle": "Ajouter à Google Agenda",
+    "addOutlook": "Ajouter à Outlook",
+    "bookAnother": "Réserver une autre consultation"
+  },
+  "form": {
+    "fullName": "Nom complet",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "selectCountry": "Sélectionnez un pays",
+    "selectDestination": "Où souhaitez-vous étudier?",
+    "thisWeek": "Cette semaine",
+    "nextWeek": "Semaine prochaine",
+    "closedSundays": "Fermé le dimanche — choisissez un autre jour.",
+    "notesPlaceholder": "Y a-t-il autre chose que nous devrions savoir?",
+    "submit": "Réserver la consultation →",
+    "submitting": "Réservation en cours...",
+    "securityNotice": "Envoyé de façon sécurisée via HTTPS. En réservant, vous acceptez notre <1>politique de confidentialité</1>.",
+    "whatsapp": "Vous préférez discuter maintenant? Contactez-nous sur WhatsApp"
+  },
+  "countries": {
+    "Rwanda": "Rwanda", "DR Congo": "RD Congo", "Djibouti": "Djibouti", "Kenya": "Kenya",
+    "Uganda": "Ouganda", "Tanzania": "Tanzanie", "Cameroon": "Cameroun", "Senegal": "Sénégal",
+    "Côte d'Ivoire": "Côte d'Ivoire", "Other": "Autre"
+  },
+  "destinations": {
+    "Ireland — DCU (Dublin City University)": "Irlande — DCU (Dublin City University)",
+    "Ireland — Griffith College": "Irlande — Griffith College",
+    "Germany — CBS University of Applied Sciences": "Allemagne — CBS University of Applied Sciences",
+    "Germany — BSBI (Berlin School of Business & Innovation)": "Allemagne — BSBI (Berlin School of Business & Innovation)",
+    "Germany — Gisma University of Applied Sciences": "Allemagne — Gisma University of Applied Sciences",
+    "Poland — Vistula University": "Pologne — Université Vistula",
+    "USA — Lake Washington Institute of Technology": "É.-U. — Lake Washington Institute of Technology",
+    "USA — Seattle Colleges": "É.-U. — Seattle Colleges",
+    "Canada — FMC Student Pilot": "Canada — Pilote pour étudiants FMC",
+    "Canada — BCIT": "Canada — BCIT",
+    "Canada — TRU (Thompson Rivers University)": "Canada — TRU (Thompson Rivers University)",
+    "Canada — University of Lethbridge": "Canada — Université de Lethbridge",
+    "Canada — Northern Lights College": "Canada — Northern Lights College",
+    "Canada — North Island College": "Canada — North Island College",
+    "Not sure — need guidance": "Pas certain — besoin de conseils"
+  },
+  "toast": {
+    "nameRequired": "Veuillez entrer votre nom complet",
+    "emailInvalid": "Veuillez entrer une adresse courriel valide",
+    "phoneRequired": "Veuillez entrer votre numéro de téléphone",
+    "destinationRequired": "Veuillez sélectionner une destination d'études",
+    "dateRequired": "Veuillez choisir une date",
+    "closedSundaysError": "Nous sommes fermés le dimanche — veuillez choisir une autre date",
+    "timeRequired": "Veuillez choisir un créneau horaire",
+    "genericError": "Une erreur s'est produite. Veuillez réessayer ou nous contacter sur WhatsApp."
+  }
+}

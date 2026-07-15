@@ -1,17 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import Button from '../components/ui/Button'
 import { OFFICES } from '../data/offices'
 
 export default function ContactPage() {
+  const { t } = useTranslation('contact')
+
   return (
     <>
       <PhotoHero
         image="/images/seminars/seminar-2.webp"
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
-        eyebrow="Get in Touch"
-        title="Contact Us"
-        subtitle="Reach the Masomo Now / ELIMU office nearest you, or book a free consultation with one of our advisors."
-        quote="If you think you're too small to create change, you've never spent a night in a tent with a mosquito."
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        quote={t('hero.quote')}
       />
 
       <section className="py-16 px-6">
@@ -33,9 +36,9 @@ export default function ContactPage() {
       {/* CTA */}
       <section className="py-20 px-6 bg-navy text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl text-white mb-3">Prefer to Talk It Through?</h2>
-          <p className="text-white/70 mb-8">Book a free consultation and one of our advisors will call you directly.</p>
-          <Button to="/consultation" variant="primary">Book Free Consultation</Button>
+          <h2 className="font-serif text-3xl text-white mb-3">{t('cta.title')}</h2>
+          <p className="text-white/70 mb-8">{t('cta.body')}</p>
+          <Button to="/consultation" variant="primary">{t('cta.button')}</Button>
         </div>
       </section>
     </>

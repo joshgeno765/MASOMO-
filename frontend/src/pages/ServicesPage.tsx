@@ -1,50 +1,50 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 
-const services = [
-  { icon: '💬', photo: '/images/seminars/seminar-2-thumb.webp', title: 'Free Consultation', description: 'Understand your options with a personalized one-on-one session.' },
-  { icon: '🎓', photo: '/images/schools/dcu-thumb.webp', title: 'University Selection', description: 'Find the institution and program that best fits your goals.' },
-  { icon: '📄', photo: '/images/seminars/seminar-4-thumb.webp', title: 'Application Support', description: 'Complete your application with confidence.' },
-  { icon: '🛂', photo: '/images/schools/vistula-thumb.webp', title: 'Visa Assistance', description: 'Professional guidance through every stage of your study permit application.' },
-  { icon: '✈️', photo: '/images/seminars/seminar-5-thumb.webp', title: 'Pre-Departure Support', description: 'Prepare for travel, accommodation, banking, and student life.' },
-  { icon: '🏠', photo: '/images/schools/bcit-thumb.webp', title: 'Arrival Support', description: 'Helping you settle into your new country successfully.' },
+type ServiceItem = { icon: string; title: string; description: string }
+type FaqItem = { q: string; a: string }
+
+const servicePhotos = [
+  '/images/seminars/seminar-2-thumb.webp',
+  '/images/schools/dcu-thumb.webp',
+  '/images/seminars/seminar-4-thumb.webp',
+  '/images/schools/vistula-thumb.webp',
+  '/images/seminars/seminar-5-thumb.webp',
+  '/images/schools/bcit-thumb.webp',
 ]
 
-const process = [
-  { num: '1', title: 'Consultation' },
-  { num: '2', title: 'Choose a School' },
-  { num: '3', title: 'Submit Applications' },
-  { num: '4', title: 'Receive Admission' },
-  { num: '5', title: 'Apply for Visa' },
-  { num: '6', title: 'Travel' },
-  { num: '7', title: 'Arrive' },
-]
-
-const faqs = [
-  { q: 'Do I need IELTS?', a: 'It depends on the institution — most accept IELTS, TOEFL, PTE, or Duolingo, and several of our partner schools also offer in-house English preparation programs if you don\'t have a qualifying score yet.' },
-  { q: 'Can I transfer universities?', a: 'Yes — several of our partner institutions offer University Transfer (UT) programs that let you complete initial credits before transferring into a full degree.' },
-  { q: 'How long does the process take?', a: 'Timelines vary by destination and season, but most students move from first consultation to a study permit decision within 3 to 6 months. We\'ll give you a realistic timeline for your chosen program during your consultation.' },
-]
+const processNums = ['1', '2', '3', '4', '5', '6', '7']
 
 export default function ServicesPage() {
+  const { t } = useTranslation('services')
+
+  const serviceTexts = t('whatWeHelpWith.items', { returnObjects: true }) as ServiceItem[]
+  const services = servicePhotos.map((photo, i) => ({ ...serviceTexts[i], photo }))
+
+  const processTitles = t('process.items', { returnObjects: true }) as string[]
+  const process = processNums.map((num, i) => ({ num, title: processTitles[i] }))
+
+  const faqs = t('faq.items', { returnObjects: true }) as FaqItem[]
+
   return (
     <>
       <PhotoHero
         image="/images/seminars/seminar-1.webp"
-        alt="A Masomo Now counselor following up with a student after a seminar"
-        eyebrow="Services"
-        title="End-to-end support, every step"
-        subtitle="From your first inquiry to settling into life abroad — here's exactly how Masomo Now helps."
-        quote="The worst thing that can happen to you is not failing to fulfill your dreams — the worst is not dreaming at all."
+        alt={t('hero.alt')}
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        quote={t('hero.quote')}
       />
 
-      <IconFeatureRow title="What we help with" columns={3} features={services} />
+      <IconFeatureRow title={t('whatWeHelpWith.title')} columns={3} features={services} />
 
       {/* Our Process */}
       <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-10">Our Process</h2>
+          <h2 className="font-serif text-3xl text-navy mb-10">{t('process.title')}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6">
             {process.map((p) => (
               <div key={p.num} className="border-t-2 border-brand-gold pt-4">
@@ -59,7 +59,7 @@ export default function ServicesPage() {
       {/* FAQ */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-8">Frequently Asked Questions</h2>
+          <h2 className="font-serif text-3xl text-navy mb-8">{t('faq.title')}</h2>
           <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
             {faqs.map((f, i) => (
               <details key={f.q} open={i === 0} className="py-5 group">
@@ -79,9 +79,9 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="pb-24 pt-8 px-6">
         <div className="max-w-2xl mx-auto text-center border-t border-gray-200 pt-14">
-          <h2 className="font-serif text-2xl text-navy mb-3">Ready to get started?</h2>
-          <p className="text-gray-500 mb-6">Book a free consultation and we'll tell you exactly what your next step should be.</p>
-          <Link to="/consultation" className="text-sm font-bold text-navy border-b border-navy pb-0.5">Book Free Consultation →</Link>
+          <h2 className="font-serif text-2xl text-navy mb-3">{t('cta.title')}</h2>
+          <p className="text-gray-500 mb-6">{t('cta.body')}</p>
+          <Link to="/consultation" className="text-sm font-bold text-navy border-b border-navy pb-0.5">{t('cta.link')}</Link>
         </div>
       </section>
     </>

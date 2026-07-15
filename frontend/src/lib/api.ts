@@ -30,6 +30,16 @@ export async function submitPathwayResult(data: PathwayFinderSubmission): Promis
   return res.data
 }
 
+export interface ChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
+
+export async function sendChatMessage(message: string, history: ChatMessage[], language: 'en' | 'fr'): Promise<ApiResponse<{ reply: string }>> {
+  const res = await api.post<ApiResponse<{ reply: string }>>('/api/chatbot/message', { message, history, language })
+  return res.data
+}
+
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
 export async function login(email: string, password: string) {

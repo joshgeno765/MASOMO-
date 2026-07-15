@@ -1,0 +1,98 @@
+{
+  "banner": {
+    "text": "Francophone Minority Community Student Pilot (FMCSP) —",
+    "cta": "Check your eligibility"
+  },
+  "hero": {
+    "students": {
+      "eyebrow": "International Students",
+      "title": "Study Abroad",
+      "body": "Helping international students access world-class education in Canada, the United States, Ireland, Germany, and Poland through trusted university partnerships and licensed immigration consultants.",
+      "cta": "Find Your Pathway →"
+    },
+    "workers": {
+      "eyebrow": "Skilled Workers",
+      "title": "Work in Canada",
+      "body": "Helping Francophone skilled workers secure a Canadian job offer and immigrate through the Francophone Mobility work permit — no LMIA required.",
+      "cta": "Explore Work, Immigration Pathway →"
+    },
+    "or": "Or"
+  },
+  "trust": {
+    "badge": "Canadian Licensed Support",
+    "eyebrow": "Sky is the Beginning",
+    "quote": "\"The future belongs to those who can imagine it, design it, and execute it. It isn't something you await, but rather create.\""
+  },
+  "welcome": {
+    "title": "Welcome to Masomo Now",
+    "learnMore": "Learn more about ELIMU →",
+    "p1": "Masomo Now is the Francophone Africa division of <1>ELIMU International Education Connections</1>, a Canadian education consultancy based in Vancouver, British Columbia.",
+    "p2": "We help students successfully apply to universities and colleges abroad by providing expert guidance on admissions, visas, and student preparation from application to arrival."
+  },
+  "video": {
+    "eyebrow": "Take a look inside one of our partner schools",
+    "title": "A first look at TRU, Kamloops, BC",
+    "caption": "TRU — Thompson Rivers University, a real Masomo Now partner school."
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Masomo Now?",
+    "features": [
+      { "icon": "🛂", "title": "RCIC Licensed Support", "description": "Professional immigration guidance backed by licensed Canadian consultants." },
+      { "icon": "🎓", "title": "Trusted Partner Institutions", "description": "Study at carefully selected colleges and universities across five countries." },
+      { "icon": "🎯", "title": "Personalized Guidance", "description": "Every student receives advice tailored to their goals, budget, and academic background." },
+      { "icon": "🤝", "title": "End-to-End Support", "description": "From your first consultation until you settle into your new campus." }
+    ]
+  },
+  "destinationsShowcase": {
+    "eyebrow": "Study Destinations",
+    "title": "Where we send our students",
+    "subtitle": "Real partner institutions across five countries — matched to your goals, budget, and language preference.",
+    "explore": "Explore",
+    "names": {
+      "canada": "Canada",
+      "united-states": "United States",
+      "ireland": "Ireland",
+      "germany": "Germany",
+      "poland": "Poland"
+    },
+    "counts": {
+      "canada": "8 partner schools",
+      "united-states": "2 partner schools",
+      "ireland": "2 partner schools",
+      "germany": "3 partner schools",
+      "poland": "1 partner school"
+    }
+  },
+  "whoWeHelp": {
+    "eyebrow": "Who We Help",
+    "title": "Support for every stage",
+    "findPathway": "Find your pathway →",
+    "items": [
+      { "title": "High School Graduates", "description": "Start your undergraduate journey abroad." },
+      { "title": "University Transfer", "description": "Transfer credits into a university degree." },
+      { "title": "Degree & Diploma", "description": "Choose from career-focused programs." },
+      { "title": "Trades", "description": "Hands-on training with co-op opportunities." }
+    ]
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "We proudly work with 16 trusted institutions across Canada, the United States, Ireland, Germany, and Poland.",
+    "viewAll": "View All Partner Institutions →"
+  },
+  "testimonials": {
+    "title": "Student Success Stories",
+    "items": [
+      { "name": "Amara M.", "dest": "BCIT, British Columbia", "quote": "Masomo Now made what seemed impossible feel completely manageable. From my BCIT application to my study permit — every step was guided. I'm now in Vancouver." },
+      { "name": "Jean-Pierre M.", "dest": "Collège Boréal, Ontario", "quote": "I came from DRC and didn't think studying in Canada was possible. Masomo Now found the FMC pilot for me — now I'm studying in French in Ontario." }
+    ]
+  },
+  "graduation": {
+    "caption": "A Masomo Now / ELIMU student at their Canadian convocation."
+  },
+  "cta": {
+    "title": "Ready to Study Abroad?",
+    "body": "Book a free consultation with one of our advisors and receive a personalized study pathway based on your academic goals.",
+    "bookFree": "Book Free Consultation",
+    "findPathway": "Find Your Pathway →"
+  }
+}

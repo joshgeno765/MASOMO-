@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Program Search",
+    "title": "Find schools by what you want to study",
+    "subtitle": "Search across every partner school and francophone institution by field of study — Business, Engineering, Nursing, Trades, and more."
+  },
+  "search": {
+    "placeholder": "Search a program, field, or school name…",
+    "resultsCount_one": "{{count}} school found",
+    "resultsCount_other": "{{count}} schools found",
+    "noResults": "No schools match your search. Try a different keyword or clear the filter.",
+    "clear": "Clear search"
+  },
+  "filters": {
+    "business": "Business",
+    "engineering": "Engineering & Technology",
+    "it": "Computer Science / IT",
+    "health": "Health & Nursing",
+    "trades": "Trades",
+    "artsScience": "Arts & Science",
+    "law": "Law",
+    "hospitality": "Hospitality & Tourism"
+  },
+  "card": {
+    "visitWebsite": "Visit official website ↗",
+    "viewDestination": "View destination →",
+    "fmcBadge": "FMC Pilot (French)"
+  },
+  "cta": {
+    "title": "Not sure which program fits your goals?",
+    "body": "Answer 6 quick questions and we'll match you to a real pathway based on your interests, budget, and language preference.",
+    "findPathway": "Find Your Pathway →"
+  }
+}

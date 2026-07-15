@@ -15,13 +15,19 @@ export interface MatchedSchool {
   intlRequirementsSource?: string
 }
 
+export interface RationaleItem {
+  key: 'languageMatch' | 'fieldMatch' | 'pathwayMatch' | 'budgetMatch' | 'fallback'
+    | 'fmcEligible' | 'fmcFieldPriority' | 'fmcPathwayMatch' | 'fmcTimeline'
+  params?: Record<string, string>
+}
+
 export interface PathwayMatchResult {
   isFmcPathway: boolean
   country: Country
   matchedSchools: MatchedSchool[]
   alternateCountry?: Country
   alternateSchools?: MatchedSchool[]
-  rationale: string[]
+  rationale: RationaleItem[]
 }
 
 type FieldTag = 'technical' | 'business' | 'academic' | null
@@ -94,26 +100,26 @@ function toMatchedFmcSchool(school: FmcInstitution): MatchedSchool {
   }
 }
 
-function buildRationale(country: Country, answers: PathwayQuizAnswers, topSchools: { school: School; score: number }[]): string[] {
-  const rationale: string[] = []
+function buildRationale(country: Country, answers: PathwayQuizAnswers, topSchools: { school: School; score: number }[]): RationaleItem[] {
+  const rationale: RationaleItem[] = []
   if (country.languages.includes(answers.languagePreference)) {
-    rationale.push(`${country.name} teaches in ${answers.languagePreference} — matching your language preference.`)
+    rationale.push({ key: 'languageMatch', params: { country: country.name, language: answers.languagePreference } })
   }
   const wantedTag = FIELD_TAG[answers.fieldOfInterest]
   const fieldMatch = topSchools.find((s) => wantedTag && s.school.programTags?.includes(wantedTag))
   if (fieldMatch) {
-    rationale.push(`${fieldMatch.school.name} offers strong ${answers.fieldOfInterest.toLowerCase()} programs.`)
+    rationale.push({ key: 'fieldMatch', params: { school: fieldMatch.school.name, field: answers.fieldOfInterest } })
   }
   const wantedPathway = wantedPathwayCategory(answers.studyGoal)
   const pathwayMatch = topSchools.find((s) => wantedPathway && s.school.pathwayCategories?.includes(wantedPathway))
   if (pathwayMatch) {
-    rationale.push(`${pathwayMatch.school.name} offers ${answers.studyGoal} for international students.`)
+    rationale.push({ key: 'pathwayMatch', params: { school: pathwayMatch.school.name, studyGoal: answers.studyGoal } })
   }
   if (answers.budget === 'Most affordable option' && topSchools.some((s) => s.school.costTier === 'budget-friendly')) {
-    rationale.push(`${country.name} includes budget-friendly options with a lower cost of living.`)
+    rationale.push({ key: 'budgetMatch', params: { country: country.name } })
   }
   if (rationale.length === 0) {
-    rationale.push(`${country.name} is one of our strongest partner regions for students exploring their options.`)
+    rationale.push({ key: 'fallback', params: { country: country.name } })
   }
   return rationale
 }
@@ -138,18 +144,18 @@ export function matchPathway(answers: PathwayQuizAnswers): PathwayMatchResult {
     })
     const matchedSchools: MatchedSchool[] = sorted.slice(0, 3).map(toMatchedFmcSchool)
 
-    const rationale = [
-      `${answers.homeCountry} is one of the countries eligible for Canada's Francophone Minority Communities (FMC) Student Pilot.`,
+    const rationale: RationaleItem[] = [
+      { key: 'fmcEligible', params: { homeCountry: answers.homeCountry } },
     ]
     if (wantedTag) {
-      rationale.push(`We prioritized institutions with strong ${answers.fieldOfInterest.toLowerCase()} programs where possible.`)
+      rationale.push({ key: 'fmcFieldPriority', params: { field: answers.fieldOfInterest } })
     }
     const pathwaySchoolMatch = sorted.find((s) => fmcPathwayMatches(s.pathwayCategories))
     if (pathwaySchoolMatch) {
-      rationale.push(`${pathwaySchoolMatch.name} offers ${answers.studyGoal} for international students.`)
+      rationale.push({ key: 'fmcPathwayMatch', params: { school: pathwaySchoolMatch.name, studyGoal: answers.studyGoal } })
     }
     if (answers.timeline === 'As soon as possible') {
-      rationale.push('The FMC pilot offers priority processing — a real advantage given your timeline.')
+      rationale.push({ key: 'fmcTimeline' })
     }
 
     const alternateSchools: MatchedSchool[] = canada.schools.slice(0, 3).map(toMatchedSchool)

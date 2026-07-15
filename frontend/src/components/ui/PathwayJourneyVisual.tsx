@@ -5,6 +5,23 @@ interface PathwayJourneyVisualProps {
   destinationName: string
   schoolLabel: string
   outcome: string
+  labels?: {
+    you: string
+    fmcPilot: string
+    eligiblePathway: string
+    destination: string
+    matchedSchool: string
+    outcome: string
+  }
+}
+
+const DEFAULT_LABELS = {
+  you: 'You',
+  fmcPilot: 'FMC Pilot',
+  eligiblePathway: 'Eligible pathway',
+  destination: 'Destination',
+  matchedSchool: 'Matched school',
+  outcome: 'Outcome',
 }
 
 interface Node {
@@ -29,13 +46,13 @@ function OutcomeIcon() {
   )
 }
 
-export default function PathwayJourneyVisual({ homeCountry, isFmcPathway, destinationFlag, destinationName, schoolLabel, outcome }: PathwayJourneyVisualProps) {
+export default function PathwayJourneyVisual({ homeCountry, isFmcPathway, destinationFlag, destinationName, schoolLabel, outcome, labels = DEFAULT_LABELS }: PathwayJourneyVisualProps) {
   const nodes: Node[] = [
-    { icon: <span className="text-lg">📍</span>, label: 'You', sublabel: homeCountry },
-    ...(isFmcPathway ? [{ icon: <CheckIcon />, label: 'FMC Pilot', sublabel: 'Eligible pathway' }] : []),
-    { icon: <span className="text-lg">{destinationFlag}</span>, label: destinationName, sublabel: 'Destination' },
-    { icon: <span className="text-lg">🎓</span>, label: schoolLabel, sublabel: 'Matched school' },
-    { icon: <OutcomeIcon />, label: outcome, sublabel: 'Outcome' },
+    { icon: <span className="text-lg">📍</span>, label: labels.you, sublabel: homeCountry },
+    ...(isFmcPathway ? [{ icon: <CheckIcon />, label: labels.fmcPilot, sublabel: labels.eligiblePathway }] : []),
+    { icon: <span className="text-lg">{destinationFlag}</span>, label: destinationName, sublabel: labels.destination },
+    { icon: <span className="text-lg">🎓</span>, label: schoolLabel, sublabel: labels.matchedSchool },
+    { icon: <OutcomeIcon />, label: outcome, sublabel: labels.outcome },
   ]
 
   return (

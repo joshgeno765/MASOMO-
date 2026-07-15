@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "eyebrow": "Pathway Finder",
+    "title": "Answer 6 questions. See your real matched pathway.",
+    "subtitle": "No guesswork — this matches your answers against our actual partner schools and eligibility criteria."
+  },
+  "intro": {
+    "fmcCheck": "Let's check your FMC Student Pilot eligibility",
+    "title": "Ready to find your pathway?",
+    "body": "Takes about a minute. We'll show you a real result immediately — no email required to see it.",
+    "start": "Start →"
+  },
+  "quiz": {
+    "fmcChecking": "Checking FMC Student Pilot eligibility",
+    "questionOf": "Question {{current}} of {{total}}",
+    "back": "← Back"
+  },
+  "questions": {
+    "homeCountry": {
+      "question": "Which country are you applying from?",
+      "options": {
+        "Rwanda": "Rwanda", "DR Congo": "DR Congo", "Djibouti": "Djibouti", "Kenya": "Kenya",
+        "Uganda": "Uganda", "Tanzania": "Tanzania", "Cameroon": "Cameroon", "Senegal": "Senegal",
+        "Côte d'Ivoire": "Côte d'Ivoire", "Other": "Other"
+      }
+    },
+    "languagePreference": {
+      "question": "Which language do you want to study in?",
+      "options": { "French": "French", "English": "English", "Both / Not sure": "Both / Not sure" }
+    },
+    "studyGoal": {
+      "question": "What would you like to study?",
+      "options": {
+        "Associate & UT Programs": "Associate & UT Programs",
+        "High School, Upgrading & Language Proficiency": "High School, Upgrading & Language Proficiency",
+        "Degrees & Diplomas": "Degrees & Diplomas",
+        "Trades & Apprenticeship": "Trades & Apprenticeship",
+        "Not sure yet": "Not sure yet"
+      }
+    },
+    "fieldOfInterest": {
+      "question": "What field are you interested in?",
+      "options": {
+        "Technical / Trades": "Technical / Trades",
+        "Business & Management": "Business & Management",
+        "University / Academic": "University / Academic",
+        "Not sure yet": "Not sure yet"
+      }
+    },
+    "budget": {
+      "question": "What matters most for your budget?",
+      "options": { "Most affordable option": "Most affordable option", "Budget flexible": "Budget flexible", "Not sure": "Not sure" }
+    },
+    "timeline": {
+      "question": "When are you hoping to start?",
+      "options": { "As soon as possible": "As soon as possible", "Within the next year": "Within the next year", "Just exploring": "Just exploring" }
+    }
+  },
+  "journey": {
+    "you": "You",
+    "fmcPilot": "FMC Pilot",
+    "eligiblePathway": "Eligible pathway",
+    "destination": "Destination",
+    "matchedSchool": "Matched school",
+    "outcome": "Outcome"
+  },
+  "result": {
+    "fmcTitle": "You may qualify for the FMC Student Pilot",
+    "matchTitle": "Your best match: {{country}}",
+    "whyThisMatch": "Why this match",
+    "studyingLabel": "You're looking to study:",
+    "matchedSchools": "Matched schools",
+    "visitWebsite": "Visit official website ↗",
+    "intlRequirementsLabel": "International admission requirements:",
+    "source": "(source ↗)",
+    "requirementsDisclaimer": "Requirements shown are general guidelines from each school's official site — your counselor will confirm the exact requirements for your specific program.",
+    "preferEnglishTrack": "Prefer an English-track option?",
+    "alsoConsider": "Also consider",
+    "canadaEnglishTrack": "Canada also has English-track partner schools if French isn't a fit:",
+    "closeSecond": "{{country}} was a close second match:",
+    "seeFullDetails": "See full details →",
+    "retakeQuiz": "Retake quiz",
+    "partnerSchool": "Partner school",
+    "matchedSchoolsCount": "{{count}} matched schools",
+    "destinationCanadaFmc": "Canada (FMC Pilot)"
+  },
+  "rationale": {
+    "languageMatch": "{{country}} teaches in {{language}} — matching your language preference.",
+    "fieldMatch": "{{school}} offers strong {{field}} programs.",
+    "pathwayMatch": "{{school}} offers {{studyGoal}} for international students.",
+    "budgetMatch": "{{country}} includes budget-friendly options with a lower cost of living.",
+    "fallback": "{{country}} is one of our strongest partner regions for students exploring their options.",
+    "fmcEligible": "{{homeCountry}} is one of the countries eligible for Canada's Francophone Minority Communities (FMC) Student Pilot.",
+    "fmcFieldPriority": "We prioritized institutions with strong {{field}} programs where possible.",
+    "fmcPathwayMatch": "{{school}} offers {{studyGoal}} for international students.",
+    "fmcTimeline": "The FMC pilot offers priority processing — a real advantage given your timeline."
+  },
+  "fieldLabelsLower": {
+    "Technical / Trades": "technical / trades",
+    "Business & Management": "business & management",
+    "University / Academic": "university / academic",
+    "Not sure yet": "not sure yet"
+  },
+  "save": {
+    "savedTitle": "Saved!",
+    "savedBody": "A counselor will follow up on your matched pathway shortly.",
+    "title": "Save this / book a consultation",
+    "subtitle": "Optional — leave your details and a counselor will follow up on this exact match.",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "saving": "Saving...",
+    "saveCta": "Save My Pathway →",
+    "privacyNotice": "By saving, you agree to our <1>Privacy Policy</1>."
+  },
+  "toast": {
+    "nameRequired": "Please enter your full name",
+    "emailInvalid": "Please enter a valid email",
+    "phoneRequired": "Please enter your phone number",
+    "genericError": "Something went wrong. Please try again or book a consultation directly."
+  }
+}

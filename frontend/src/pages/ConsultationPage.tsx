@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { Trans, useTranslation } from 'react-i18next'
 import { bookConsultation } from '../lib/api'
 import { ConsultationFormData, Appointment } from '../types'
 import { downloadIcs, googleCalendarUrl, outlookWebUrl, CalendarEventInput } from '../lib/calendar'
@@ -19,7 +20,9 @@ const SLOT_WINDOWS: Record<number, { start: number; end: number } | null> = {
   6: { start: 10, end: 13 }, // Saturday
 }
 
-const DESTINATION_OPTIONS = [
+const COUNTRY_VALUES = ['Rwanda', 'DR Congo', 'Djibouti', 'Kenya', 'Uganda', 'Tanzania', 'Cameroon', 'Senegal', "Côte d'Ivoire", 'Other']
+
+const DESTINATION_VALUES = [
   'Ireland — DCU (Dublin City University)',
   'Ireland — Griffith College',
   'Germany — CBS University of Applied Sciences',
@@ -39,7 +42,7 @@ const DESTINATION_OPTIONS = [
 
 // The country cards/links elsewhere on the site pass the country's display name
 // (matching destinations.ts), which doesn't always match this dropdown's own
-// abbreviations (e.g. "United States" here vs "USA" in DESTINATION_OPTIONS).
+// abbreviations (e.g. "United States" here vs "USA" in DESTINATION_VALUES).
 const DESTINATION_PARAM_PREFIX: Record<string, string> = {
   'Canada': 'Canada',
   'United States': 'USA',
@@ -88,6 +91,7 @@ function isPastOrToday(d: Date): boolean {
 }
 
 export default function ConsultationPage() {
+  const { t, i18n } = useTranslation('consultation')
   const [searchParams] = useSearchParams()
   const [form, setForm] = useState<ConsultationFormData>(EMPTY_FORM)
   const [weekOffset, setWeekOffset] = useState(0)
@@ -102,7 +106,7 @@ export default function ConsultationPage() {
     if (!destination) return
     const prefix = DESTINATION_PARAM_PREFIX[destination]
     if (!prefix) return
-    const match = DESTINATION_OPTIONS.find((o) => o.startsWith(`${prefix} —`))
+    const match = DESTINATION_VALUES.find((o) => o.startsWith(`${prefix} —`))
     if (match) setForm((prev) => ({ ...prev, destinationInterest: match }))
   }, [searchParams])
 
@@ -132,13 +136,13 @@ export default function ConsultationPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name.trim()) return toast.error('Please enter your full name')
-    if (!form.email.includes('@')) return toast.error('Please enter a valid email')
-    if (!form.phone.trim()) return toast.error('Please enter your phone number')
-    if (!form.destinationInterest) return toast.error('Please select a study destination')
-    if (!date) return toast.error('Please choose a date')
-    if (!window) return toast.error('We are closed on Sundays — please choose another date')
-    if (!time) return toast.error('Please choose a time slot')
+    if (!form.name.trim()) return toast.error(t('toast.nameRequired'))
+    if (!form.email.includes('@')) return toast.error(t('toast.emailInvalid'))
+    if (!form.phone.trim()) return toast.error(t('toast.phoneRequired'))
+    if (!form.destinationInterest) return toast.error(t('toast.destinationRequired'))
+    if (!date) return toast.error(t('toast.dateRequired'))
+    if (!window) return toast.error(t('toast.closedSundaysError'))
+    if (!time) return toast.error(t('toast.timeRequired'))
 
     const scheduledAt = new Date(`${date}T${time}:00:00`).toISOString()
 
@@ -148,7 +152,7 @@ export default function ConsultationPage() {
       setBookedAppointment(res.data ?? null)
       setSubmitted(true)
     } catch {
-      toast.error('Something went wrong. Please try again or WhatsApp us.')
+      toast.error(t('toast.genericError'))
     } finally {
       setLoading(false)
     }
@@ -159,9 +163,9 @@ export default function ConsultationPage() {
       <PhotoHero
         image="/images/seminars/seminar-2.webp"
         alt="Masomo Now / ELIMU education symposium in Nairobi, Kenya"
-        eyebrow="Book a Consultation"
-        title="Book your free consultation"
-        subtitle="Pick a date and time that works for you — one of our counselors will call you to talk through your options."
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
         height="min-h-[380px]"
       >
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-white/60">
@@ -180,9 +184,14 @@ export default function ConsultationPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-serif text-2xl text-navy mb-2">Consultation booked</h3>
+              <h3 className="font-serif text-2xl text-navy mb-2">{t('success.title')}</h3>
               <p className="text-gray-600 mb-6">
-                Thank you, <strong>{form.name}</strong>. We'll confirm your slot by email at <strong>{form.email}</strong> shortly.
+                <Trans
+                  i18nKey="success.body"
+                  t={t}
+                  values={{ name: form.name, email: form.email }}
+                  components={{ name: <strong />, email: <strong /> }}
+                />
               </p>
 
               {bookedAppointment && (
@@ -203,7 +212,7 @@ export default function ConsultationPage() {
                           onClick={() => downloadIcs(event)}
                           className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
                         >
-                          Download .ics
+                          {t('success.downloadIcs')}
                         </button>
                         <a
                           href={googleCalendarUrl(event)}
@@ -211,7 +220,7 @@ export default function ConsultationPage() {
                           rel="noopener noreferrer"
                           className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
                         >
-                          Add to Google Calendar
+                          {t('success.addGoogle')}
                         </a>
                         <a
                           href={outlookWebUrl(event)}
@@ -219,7 +228,7 @@ export default function ConsultationPage() {
                           rel="noopener noreferrer"
                           className="px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600 hover:border-navy transition-colors"
                         >
-                          Add to Outlook
+                          {t('success.addOutlook')}
                         </a>
                       </>
                     )
@@ -231,30 +240,28 @@ export default function ConsultationPage() {
                 onClick={() => { setForm(EMPTY_FORM); setDate(''); setTime(''); setSubmitted(false); setBookedAppointment(null) }}
                 className="btn-primary"
               >
-                Book Another Consultation
+                {t('success.bookAnother')}
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              <FloatingField label="Full Name" name="name" value={form.name} onChange={handleChange} required />
-              <FloatingField label="Email" name="email" type="email" value={form.email} onChange={handleChange} required />
-              <FloatingField label="Phone" name="phone" value={form.phone} onChange={handleChange} required />
+              <FloatingField label={t('form.fullName')} name="name" value={form.name} onChange={handleChange} required />
+              <FloatingField label={t('form.email')} name="email" type="email" value={form.email} onChange={handleChange} required />
+              <FloatingField label={t('form.phone')} name="phone" value={form.phone} onChange={handleChange} required />
 
               <div>
                 <select name="country" value={form.country} onChange={handleChange}
                   className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white text-gray-700">
-                  <option value="">Select country</option>
-                  <option>Rwanda</option><option>DR Congo</option><option>Djibouti</option>
-                  <option>Kenya</option><option>Uganda</option><option>Tanzania</option>
-                  <option>Cameroon</option><option>Senegal</option><option>Côte d'Ivoire</option><option>Other</option>
+                  <option value="">{t('form.selectCountry')}</option>
+                  {COUNTRY_VALUES.map((c) => (<option key={c} value={c}>{t(`countries.${c}`)}</option>))}
                 </select>
               </div>
 
               <div>
                 <select name="destinationInterest" value={form.destinationInterest} onChange={handleChange}
                   className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all bg-white text-gray-700">
-                  <option value="">Where would you like to study?</option>
-                  {DESTINATION_OPTIONS.map((o) => (<option key={o}>{o}</option>))}
+                  <option value="">{t('form.selectDestination')}</option>
+                  {DESTINATION_VALUES.map((o) => (<option key={o} value={o}>{t(`destinations.${o}`)}</option>))}
                 </select>
               </div>
 
@@ -270,7 +277,7 @@ export default function ConsultationPage() {
                         weekOffset === w ? 'bg-navy text-white' : 'text-gray-500'
                       }`}
                     >
-                      {w === 0 ? 'This Week' : 'Next Week'}
+                      {w === 0 ? t('form.thisWeek') : t('form.nextWeek')}
                     </button>
                   ))}
                 </div>
@@ -293,7 +300,7 @@ export default function ConsultationPage() {
                           : 'bg-gray-100 text-gray-700 hover:bg-brand-gold/20'
                         }`}
                       >
-                        <div className="text-[10px] font-semibold uppercase">{d.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                        <div className="text-[10px] font-semibold uppercase">{d.toLocaleDateString(i18n.resolvedLanguage, { weekday: 'short' })}</div>
                         <div className="text-sm font-bold">{d.getDate()}</div>
                       </button>
                     )
@@ -304,7 +311,7 @@ export default function ConsultationPage() {
                 {date && (
                   <div className="mt-4">
                     {!window ? (
-                      <p className="text-sm text-gray-500">Closed Sundays — pick another day.</p>
+                      <p className="text-sm text-gray-500">{t('form.closedSundays')}</p>
                     ) : (
                       <div className="flex flex-wrap gap-2">
                         {timeOptions.map((h) => (
@@ -326,23 +333,26 @@ export default function ConsultationPage() {
               </div>
 
               <textarea name="notes" value={form.notes} onChange={handleChange} rows={3}
-                placeholder="Anything we should know?"
+                placeholder={t('form.notesPlaceholder')}
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all resize-none" />
 
               <Button type="submit" fullWidth loading={loading}>
-                {loading ? 'Booking...' : 'Book Consultation →'}
+                {loading ? t('form.submitting') : t('form.submit')}
               </Button>
 
               <p className="flex items-center justify-center gap-1.5 text-[11px] text-gray-500 text-center">
                 <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                Submitted securely over HTTPS. By booking, you agree to our{' '}
-                <Link to="/privacy" className="underline hover:text-navy">Privacy Policy</Link>.
+                <Trans
+                  i18nKey="form.securityNotice"
+                  t={t}
+                  components={{ 1: <Link to="/privacy" className="underline hover:text-navy" /> }}
+                />
               </p>
 
               <a href="https://wa.me/17788468953" className="block text-center text-sm font-semibold text-[#25D366] hover:underline">
-                Prefer to chat now? WhatsApp us
+                {t('form.whatsapp')}
               </a>
             </form>
           )}

@@ -10,6 +10,7 @@ import usersRouter from './routes/users'
 import appointmentsRouter from './routes/appointments'
 import pathwayFinderRouter from './routes/pathwayFinder'
 import adminRouter from './routes/admin'
+import chatbotRouter from './routes/chatbot'
 import { startDigestScheduler } from './lib/digest'
 
 dotenv.config()
@@ -59,6 +60,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/appointments', appointmentsRouter)
 app.use('/api/pathway-finder', pathwayFinderRouter)
 app.use('/api/admin', adminRouter)
+app.use('/api/chatbot', chatbotRouter)
 
 // 404 handler
 app.use((_req, res) => {
