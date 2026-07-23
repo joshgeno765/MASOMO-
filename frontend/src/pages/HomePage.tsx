@@ -49,19 +49,19 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="bg-brand-gold text-black py-2.5 px-4 text-sm font-semibold flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
+      <div className="bg-brand-gold text-black py-2.5 px-4 text-sm font-semibold flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
+        <span className="w-full sm:w-auto sm:flex-1 text-center min-w-0">
+          {t('banner.text')}{' '}
+          <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">{t('banner.cta')}</Link>
+        </span>
         <a
           href="https://rcic.link/r731358?utm_source=chatgpt.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="order-1 inline-flex items-center gap-1 text-xs font-bold underline decoration-black/40 underline-offset-2 hover:decoration-black hover:text-black/70 transition-colors"
+          className="inline-flex items-center gap-1 font-bold underline decoration-black/40 underline-offset-2 rounded-full px-2.5 py-1 hover:bg-black/10 hover:decoration-2 hover:decoration-black transition-all"
         >
-          🇨🇦 {t('trust.badge')} ↗
+          🇨🇦 ✔️ {t('trust.badge')} ↗
         </a>
-        <span className="order-2 flex-1 text-center min-w-0">
-          {t('banner.text')}{' '}
-          <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">{t('banner.cta')}</Link>
-        </span>
       </div>
 
       {/* Split hero — two distinct paths, no photo to compete with the choice */}
