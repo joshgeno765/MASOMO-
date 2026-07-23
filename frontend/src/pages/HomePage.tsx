@@ -38,6 +38,7 @@ const partnerMarquee = [
   'Saskatchewan Polytechnic', 'Fanshawe College', 'University Canada West',
   'Lake Washington Institute of Technology', 'Seattle Colleges', 'DCU', 'Griffith College',
   'CBS International Business School', 'BSBI', 'Gisma University of Applied Sciences', 'Vistula University',
+  'Engineering Institute of Technology',
 ]
 
 export default function HomePage() {

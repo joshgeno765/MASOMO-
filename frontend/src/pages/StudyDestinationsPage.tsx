@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Country, School, northAmerica, europe, comingSoon } from '../data/destinations'
+import { Country, School, northAmerica, europe, oceania, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
 import PhotoHero from '../components/ui/PhotoHero'
@@ -134,7 +134,7 @@ export default function StudyDestinationsPage() {
 
   const compareHeaders = t('compare.headers', { returnObjects: true }) as string[]
   const compareRows = t('compare.rows', { returnObjects: true }) as Record<string, CompareRow>
-  const allCountries = [...northAmerica, ...europe]
+  const allCountries = [...northAmerica, ...europe, ...oceania]
 
   return (
     <>
@@ -183,25 +183,40 @@ export default function StudyDestinationsPage() {
         </div>
       </section>
 
-      {/* Coming soon regions */}
-      <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('comingSoon.eyebrow')}</p>
-          <h2 className="font-serif text-3xl text-navy mb-8">{t('comingSoon.title')}</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {comingSoon.map((c) => (
-              <div key={c.region} className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center">
-                <div className="text-4xl mb-3">{c.flags}</div>
-                <div className="font-serif text-xl text-navy mb-1">{c.region}</div>
-                <div className="text-sm text-gray-500">{c.note ? t('comingSoon.japanNote') : t('comingSoon.placeholder')}</div>
-              </div>
-            ))}
-          </div>
+      {/* Oceania */}
+      <section className="pt-4 px-6">
+        <div className="max-w-6xl mx-auto border-t border-gray-200 pt-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('region.label')}</p>
+          <h2 className="font-serif text-3xl text-navy">{t('region.oceania')}</h2>
         </div>
-        <p className="text-xs text-gray-500 text-center mt-10 max-w-6xl mx-auto">
-          {t('comingSoon.photoCredits')}
-        </p>
       </section>
+      <section className="px-6">
+        <div className="max-w-6xl mx-auto divide-y divide-gray-200">
+          {oceania.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} t={t} />))}
+        </div>
+      </section>
+
+      {/* Coming soon regions */}
+      {comingSoon.length > 0 && (
+        <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
+          <div className="max-w-6xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('comingSoon.eyebrow')}</p>
+            <h2 className="font-serif text-3xl text-navy mb-8">{t('comingSoon.title')}</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {comingSoon.map((c) => (
+                <div key={c.region} className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center">
+                  <div className="text-4xl mb-3">{c.flags}</div>
+                  <div className="font-serif text-xl text-navy mb-1">{c.region}</div>
+                  <div className="text-sm text-gray-500">{c.note ? t('comingSoon.japanNote') : t('comingSoon.placeholder')}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+      <p className="text-xs text-gray-500 text-center px-6 py-6 max-w-6xl mx-auto">
+        {t('comingSoon.photoCredits')}
+      </p>
 
       {/* Compare Destinations */}
       <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">

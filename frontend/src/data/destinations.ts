@@ -25,7 +25,7 @@ export interface Country {
   name: string
   slug: string
   tagline: string
-  region: 'North America' | 'Europe'
+  region: 'North America' | 'Europe' | 'Oceania'
   languages: string[]
   facts: { label: string; value: string }[]
   schools: School[]
@@ -210,10 +210,41 @@ export const europe: Country[] = [
   },
 ]
 
-export const comingSoon = [
-  { flags: '🇦🇺', region: 'Australia' },
-  { flags: '🇯🇵', region: 'Asia', note: 'Starting with Japan' },
+export const oceania: Country[] = [
+  {
+    flag: '🇦🇺',
+    name: 'Australia',
+    slug: 'australia',
+    tagline: 'Globally ranked engineering education with strong post-study work rights',
+    region: 'Oceania',
+    languages: ['English'],
+    facts: [
+      { label: 'Partner Schools', value: '1' },
+      { label: 'Post-Study Work', value: 'Temporary Graduate visa (subclass 485)' },
+      { label: 'Language', value: 'English' },
+      { label: 'Location', value: 'Perth, WA' },
+    ],
+    schools: [
+      {
+        name: 'Engineering Institute of Technology', type: 'Institute of Technology', city: 'Perth, WA', photo: null, website: 'https://www.eit.edu.au', programTags: ['technical'],
+        pathwayCategories: ['Degrees & Diplomas'],
+        programs: ['Engineering (Civil, Electrical, Mechanical, Industrial)', 'Renewable Energy Engineering', 'Data Science & Analytics', 'Construction Management'],
+      },
+    ],
+    desc: 'Australia is home to globally ranked universities and a thriving engineering and technology job market. Our partner institution in Perth offers industry-focused, practical engineering education with strong ties to employers.',
+    pros: [
+      'Practical, industry-focused engineering curriculum',
+      'Temporary Graduate visa (subclass 485) pathway after graduation',
+      'Strong engineering and resources-sector job market in Western Australia',
+      'English-language instruction',
+      'Growing community of African students in Australia',
+    ],
+    link: '/consultation?destination=' + encodeURIComponent('Australia'),
+    linkLabel: 'Enquire About Australia →',
+  },
 ]
+
+export const comingSoon: { flags: string; region: string; note?: string }[] = []
 
 export const FMC_ELIGIBLE_COUNTRIES: string[] = [
   'Rwanda', 'DR Congo', 'Djibouti', 'Cameroon', 'Senegal', "Côte d'Ivoire", 'Mali', 'Burkina Faso', 'Gabon', 'Togo',

@@ -1,5 +1,5 @@
 import {
-  Country, School, PathwayCategory, northAmerica, europe,
+  Country, School, PathwayCategory, northAmerica, europe, oceania,
   FMC_ELIGIBLE_COUNTRIES, FMC_INSTITUTIONS, FmcInstitution,
 } from '../data/destinations'
 import { PathwayQuizAnswers } from '../types'
@@ -169,7 +169,7 @@ export function matchPathway(answers: PathwayQuizAnswers): PathwayMatchResult {
     }
   }
 
-  const candidates = [...northAmerica, ...europe]
+  const candidates = [...northAmerica, ...europe, ...oceania]
   const scored = candidates.map((country) => scoreCountry(country, answers))
   scored.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score

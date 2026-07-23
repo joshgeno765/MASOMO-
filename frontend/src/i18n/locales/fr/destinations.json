@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Destinations d'études",
     "title": "Où allez-vous étudier à l'étranger?",
-    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de cinq pays.",
+    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de six pays.",
     "quote": "Celui qui suit les autres ne peut aller que là où ils vont, mais celui qui trace sa propre voie peut aller aussi loin qu'il le souhaite."
   },
   "video": {
@@ -13,7 +13,8 @@
   "region": {
     "label": "Région",
     "northAmerica": "Amérique du Nord",
-    "europe": "Europe"
+    "europe": "Europe",
+    "oceania": "Océanie"
   },
   "school": {
     "visitWebsite": "Visiter le site officiel ↗",
@@ -95,6 +96,19 @@
         "Programmes enseignés en anglais",
         "Économie et marché de l'emploi en croissance"
       ]
+    },
+    "australia": {
+      "tagline": "Une formation en ingénierie de calibre mondial avec un solide droit de travail post-études",
+      "linkLabel": "S'informer sur l'Australie →",
+      "factValues": ["1", "Visa temporaire pour diplômés (sous-classe 485)", "Anglais", "Perth, WA"],
+      "desc": "L'Australie abrite des universités de calibre mondial et un marché de l'emploi dynamique en ingénierie et en technologie. Notre établissement partenaire à Perth offre une formation en ingénierie pratique et axée sur l'industrie, avec des liens solides avec les employeurs.",
+      "pros": [
+        "Programme d'ingénierie pratique et axé sur l'industrie",
+        "Filière vers le visa temporaire pour diplômés (sous-classe 485) après l'obtention du diplôme",
+        "Marché de l'emploi dynamique en ingénierie et dans le secteur des ressources en Australie-Occidentale",
+        "Enseignement en anglais",
+        "Communauté grandissante d'étudiants africains en Australie"
+      ]
     }
   },
   "comingSoon": {
@@ -113,7 +127,8 @@
       "united-states": { "tuition": "10 000 $ US – 35 000 $ US", "living": "~25 000 $ US – 33 000 $ US", "work": "Sur le campus uniquement; CPT/OPT pour la formation pratique", "gradVisa": "OPT — 12 mois (+24 STIM)" },
       "ireland": { "tuition": "9 850 € – 28 000 €", "living": "10 000 €", "work": "20 h/semaine en session, 40 h/semaine pendant les congés", "gradVisa": "2 ans (Stamp 1G)" },
       "germany": { "tuition": "7 000 € – 15 000 € (nos écoles partenaires)", "living": "11 904 € (compte bloqué)", "work": "140 jours complets / 280 demi-journées par an", "gradVisa": "18 mois (visa de recherche d'emploi)" },
-      "poland": { "tuition": "2 000 € – 8 000 €", "living": "~7 000 € – 11 000 €", "work": "Aucune limite d'heures stricte pour les étudiants à temps plein", "gradVisa": "1 an" }
+      "poland": { "tuition": "2 000 € – 8 000 €", "living": "~7 000 € – 11 000 €", "work": "Aucune limite d'heures stricte pour les étudiants à temps plein", "gradVisa": "1 an" },
+      "australia": { "tuition": "25 000 $ AU – 45 000 $ AU", "living": "~24 000 $ AU (exigence de visa)", "work": "48 h/quinzaine en session, illimité pendant les congés", "gradVisa": "Sous-classe 485 — durée variable selon le diplôme" }
     }
   },
   "cta": {

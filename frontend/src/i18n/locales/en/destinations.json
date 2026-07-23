@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Study Destinations",
     "title": "Where will you study abroad?",
-    "subtitle": "We work with Francophone African students to secure admission at top institutions across five countries.",
+    "subtitle": "We work with Francophone African students to secure admission at top institutions across six countries.",
     "quote": "He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
   },
   "video": {
@@ -13,7 +13,8 @@
   "region": {
     "label": "Region",
     "northAmerica": "North America",
-    "europe": "Europe"
+    "europe": "Europe",
+    "oceania": "Oceania"
   },
   "school": {
     "visitWebsite": "Visit official website ↗",
@@ -95,6 +96,19 @@
         "English-taught programs",
         "Growing economy and job market"
       ]
+    },
+    "australia": {
+      "tagline": "Globally ranked engineering education with strong post-study work rights",
+      "linkLabel": "Enquire About Australia →",
+      "factValues": ["1", "Temporary Graduate visa (subclass 485)", "English", "Perth, WA"],
+      "desc": "Australia is home to globally ranked universities and a thriving engineering and technology job market. Our partner institution in Perth offers industry-focused, practical engineering education with strong ties to employers.",
+      "pros": [
+        "Practical, industry-focused engineering curriculum",
+        "Temporary Graduate visa (subclass 485) pathway after graduation",
+        "Strong engineering and resources-sector job market in Western Australia",
+        "English-language instruction",
+        "Growing community of African students in Australia"
+      ]
     }
   },
   "comingSoon": {
@@ -113,7 +127,8 @@
       "united-states": { "tuition": "USD $10,000–35,000", "living": "USD ~$25,000–33,000", "work": "On-campus only; CPT/OPT for practical training", "gradVisa": "OPT — 12 months (+24 STEM)" },
       "ireland": { "tuition": "€9,850–28,000", "living": "€10,000", "work": "20 hrs/week term-time, 40 hrs/week holidays", "gradVisa": "2 years (Stamp 1G)" },
       "germany": { "tuition": "€7,000–15,000 (our partner schools)", "living": "€11,904 (blocked account)", "work": "140 full / 280 half days per year", "gradVisa": "18 months (Job Seeker Visa)" },
-      "poland": { "tuition": "€2,000–8,000", "living": "~€7,000–11,000", "work": "No strict hour cap for full-time students", "gradVisa": "1 year" }
+      "poland": { "tuition": "€2,000–8,000", "living": "~€7,000–11,000", "work": "No strict hour cap for full-time students", "gradVisa": "1 year" },
+      "australia": { "tuition": "AUD $25,000–45,000", "living": "AUD ~$24,000 (visa requirement)", "work": "48 hrs/fortnight during term, unlimited during breaks", "gradVisa": "Subclass 485 — duration varies by qualification" }
     }
   },
   "cta": {
