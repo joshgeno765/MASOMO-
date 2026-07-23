@@ -2,8 +2,9 @@ export interface Office {
   flag: string
   city: string
   country: string
-  email: string
-  phone: string
+  email?: string
+  phone?: string
+  comingSoon?: boolean
 }
 
 export const OFFICES: Office[] = [
@@ -13,6 +14,6 @@ export const OFFICES: Office[] = [
   { flag: '🇷🇼', city: 'Kigali', country: 'Rwanda', email: 'info@masomonow.com', phone: '+250 793 412 612' },
   { flag: '🇪🇹', city: 'Jijiga', country: 'Ethiopia', email: 'ethiopia@elimunow.com', phone: '+251 983 092 003' },
   { flag: '🇩🇪', city: 'Bonn', country: 'Germany', email: 'europe@elimunow.com', phone: '+49 172 621 7823' },
-  // TODO: email is a guess following the city@elimunow.com pattern — confirm/replace with the real address
-  { flag: '🇨🇳', city: 'Nanjing', country: 'China', email: 'china@elimunow.com', phone: '+86 186 6271 9751' },
+  { flag: '🇨🇳', city: 'Nanjing', country: 'China', email: 'asia@elimunow.com', phone: '+86 186 6271 9751' },
+  { flag: '🇦🇪', city: 'Dubai', country: 'United Arab Emirates', comingSoon: true },
 ]

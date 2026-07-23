@@ -85,12 +85,18 @@ export default function AboutPage() {
           <p className="text-gray-500 mb-8">{t('offices.subtitle')}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {OFFICES.map((o) => (
-              <div key={o.city} className="border-2 border-navy/10 rounded-xl p-5">
-                <div className="text-3xl mb-2">{o.flag}</div>
-                <h3 className="font-bold text-navy">{o.city}</h3>
+              <div key={o.city} className={`rounded-xl p-5 ${o.comingSoon ? 'border-2 border-dashed border-gray-300' : 'border-2 border-navy/10'}`}>
+                <div className={`text-3xl mb-2 ${o.comingSoon ? 'grayscale opacity-60' : ''}`}>{o.flag}</div>
+                <h3 className={`font-bold ${o.comingSoon ? 'text-gray-500' : 'text-navy'}`}>{o.city}</h3>
                 <p className="text-xs text-gray-500 mb-3">{o.country}</p>
-                <a href={`mailto:${o.email}`} className="block text-xs text-brand-blue hover:underline mb-1 break-all">{o.email}</a>
-                <a href={`tel:${o.phone.replace(/[^\d+]/g, '')}`} className="block text-xs text-gray-600 hover:text-navy">{o.phone}</a>
+                {o.comingSoon ? (
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-brand-gold-dark bg-brand-gold/10 px-2 py-1 rounded-full">{t('offices.comingSoon')}</span>
+                ) : (
+                  <>
+                    <a href={`mailto:${o.email}`} className="block text-xs text-brand-blue hover:underline mb-1 break-all">{o.email}</a>
+                    <a href={`tel:${o.phone!.replace(/[^\d+]/g, '')}`} className="block text-xs text-gray-600 hover:text-navy">{o.phone}</a>
+                  </>
+                )}
               </div>
             ))}
           </div>

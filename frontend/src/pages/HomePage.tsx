@@ -55,7 +55,7 @@ export default function HomePage() {
           <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">{t('banner.cta')}</Link>
         </span>
         <a
-          href="https://rcic.link/r731358?utm_source=chatgpt.com"
+          href="https://rcic.link/r731358"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 font-bold underline decoration-black/40 underline-offset-2 rounded-full px-2.5 py-1 hover:bg-black/10 hover:decoration-2 hover:decoration-black transition-all"
