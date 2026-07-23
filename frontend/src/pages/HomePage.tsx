@@ -50,10 +50,6 @@ export default function HomePage() {
   return (
     <>
       <div className="bg-brand-gold text-black py-2.5 px-4 text-sm font-semibold flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
-        <span className="w-full sm:w-auto sm:flex-1 text-center min-w-0">
-          {t('banner.text')}{' '}
-          <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">{t('banner.cta')}</Link>
-        </span>
         <a
           href="https://rcic.link/r731358"
           target="_blank"
@@ -62,6 +58,10 @@ export default function HomePage() {
         >
           🇨🇦 ✔️ {t('trust.badge')} ↗
         </a>
+        <span className="w-full sm:w-auto sm:flex-1 text-center min-w-0">
+          {t('banner.text')}{' '}
+          <Link to="/pathway-finder?ref=fmc-pilot" className="underline font-bold hover:text-black/70">{t('banner.cta')}</Link>
+        </span>
       </div>
 
       {/* Split hero — two distinct paths, no photo to compete with the choice */}

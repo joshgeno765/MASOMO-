@@ -30,6 +30,7 @@ export default function Footer() {
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇪🇹 Jijiga</span>
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇩🇪 Bonn</span>
               <span className="bg-white/10 px-2.5 py-1 rounded-full">🇨🇳 Nanjing</span>
+              <span className="bg-white/10 px-2.5 py-1 rounded-full">🇦🇺 Brisbane</span>
             </div>
           </div>
 

@@ -15,5 +15,6 @@ export const OFFICES: Office[] = [
   { flag: '🇪🇹', city: 'Jijiga', country: 'Ethiopia', email: 'ethiopia@elimunow.com', phone: '+251 983 092 003' },
   { flag: '🇩🇪', city: 'Bonn', country: 'Germany', email: 'europe@elimunow.com', phone: '+49 172 621 7823' },
   { flag: '🇨🇳', city: 'Nanjing', country: 'China', email: 'asia@elimunow.com', phone: '+86 186 6271 9751' },
+  { flag: '🇦🇺', city: 'Brisbane', country: 'Australia', email: 'australia@elimunow.com', phone: '+61 409 781 606' },
   { flag: '🇦🇪', city: 'Dubai', country: 'United Arab Emirates', comingSoon: true },
 ]
