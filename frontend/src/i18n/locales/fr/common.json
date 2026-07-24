@@ -4,6 +4,9 @@
     "now": "Now",
     "tagline": "- Le ciel n'est qu'un début"
   },
+  "whatsapp": {
+    "ariaLabel": "Discutez avec nous sur WhatsApp"
+  },
   "nav": {
     "home": "Accueil",
     "about": "À propos",

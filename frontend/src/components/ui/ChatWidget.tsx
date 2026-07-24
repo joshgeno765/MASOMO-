@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { sendChatMessage, ChatMessage } from '../../lib/api'
+import { PRIMARY_WHATSAPP } from '../../lib/contact'
 
 export default function ChatWidget() {
   const { t, i18n } = useTranslation('chatbot')
@@ -92,7 +93,7 @@ export default function ChatWidget() {
             </form>
             <p className="text-[10px] text-gray-400 mt-2 leading-snug">
               {t('disclaimer')}{' '}
-              <a href="https://wa.me/17788468953" className="text-[#25D366] font-semibold hover:underline">
+              <a href={PRIMARY_WHATSAPP} className="text-[#25D366] font-semibold hover:underline">
                 {t('whatsapp')}
               </a>
             </p>

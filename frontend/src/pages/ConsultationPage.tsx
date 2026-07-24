@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { bookConsultation } from '../lib/api'
 import { ConsultationFormData, Appointment } from '../types'
 import { downloadIcs, googleCalendarUrl, outlookWebUrl, CalendarEventInput } from '../lib/calendar'
+import { PRIMARY_WHATSAPP } from '../lib/contact'
 import FloatingField from '../components/ui/FloatingField'
 import Button from '../components/ui/Button'
 import PhotoHero from '../components/ui/PhotoHero'
@@ -351,7 +352,7 @@ export default function ConsultationPage() {
                 />
               </p>
 
-              <a href="https://wa.me/17788468953" className="block text-center text-sm font-semibold text-[#25D366] hover:underline">
+              <a href={PRIMARY_WHATSAPP} className="block text-center text-sm font-semibold text-[#25D366] hover:underline">
                 {t('form.whatsapp')}
               </a>
             </form>

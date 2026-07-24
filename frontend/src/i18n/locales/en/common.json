@@ -4,6 +4,9 @@
     "now": "Now",
     "tagline": "- Sky is the Beginning"
   },
+  "whatsapp": {
+    "ariaLabel": "Chat with us on WhatsApp"
+  },
   "nav": {
     "home": "Home",
     "about": "About Us",

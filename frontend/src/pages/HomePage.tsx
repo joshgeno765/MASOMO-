@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
@@ -15,7 +14,7 @@ type Testimonial = { name: string; dest: string; quote?: string; video?: boolean
 type Fact = { value: string; label: string }
 type FmcHighlightItem = { icon: string; title: string; desc: string }
 
-const FELIX_VIDEO = { videoId: '44ODe8UMdR8', start: 9, end: 11 }
+const FELIX_VIDEO = { videoId: '44ODe8UMdR8' }
 
 const destinationShowcase = [
   { slug: 'canada' },
@@ -62,7 +61,6 @@ export default function HomePage() {
   const testimonials = t('testimonials.items', { returnObjects: true }) as Testimonial[]
   const facts = t('factsBand.items', { returnObjects: true }) as Fact[]
   const fmcHighlightItems = t('fmcHighlight.items', { returnObjects: true }) as FmcHighlightItem[]
-  const [showFelixVideo, setShowFelixVideo] = useState(false)
 
   return (
     <>
@@ -257,27 +255,13 @@ export default function HomePage() {
             <div className="flex gap-5 overflow-x-auto pb-2 items-start">
               {testimonials.map((item) =>
                 item.video ? (
-                  <button
-                    key={item.name}
-                    onClick={() => setShowFelixVideo(true)}
-                    className="flex-shrink-0 w-48 bg-white border border-gray-200 rounded-2xl overflow-hidden text-left group"
-                  >
-                    <div className="relative w-full pb-[177.78%] bg-navy">
-                      <img
-                        src={`https://img.youtube.com/vi/${FELIX_VIDEO.videoId}/hqdefault.jpg`}
-                        alt={item.name}
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-navy/30 group-hover:bg-navy/10 transition-colors flex items-center justify-center">
-                        <span className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-navy text-lg">▶</span>
-                      </div>
-                    </div>
+                  <div key={item.name} className="flex-shrink-0 w-48 bg-white border border-gray-200 rounded-2xl overflow-hidden text-left">
+                    <VideoEmbed videoId={FELIX_VIDEO.videoId} title="Felix Omondi — Valedictorian" aspect="vertical" autoplay />
                     <div className="p-4">
                       <div className="font-semibold text-navy text-sm">{item.name}</div>
                       <div className="text-gray-500 text-xs mt-0.5">{item.dest}</div>
                     </div>
-                  </button>
+                  </div>
                 ) : (
                   <div key={item.name} className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl p-6">
                     <p className="text-gray-700 text-sm leading-relaxed italic mb-5">"{item.quote}"</p>
@@ -290,29 +274,6 @@ export default function HomePage() {
           </div>
         </section>
       </Reveal>
-
-      {showFelixVideo && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-6"
-          onClick={() => setShowFelixVideo(false)}
-        >
-          <div className="w-full max-w-xs" onClick={(e) => e.stopPropagation()}>
-            <VideoEmbed
-              videoId={FELIX_VIDEO.videoId}
-              title="Felix Omondi — Valedictorian"
-              start={FELIX_VIDEO.start}
-              end={FELIX_VIDEO.end}
-              aspect="vertical"
-            />
-            <button
-              onClick={() => setShowFelixVideo(false)}
-              className="mt-4 text-white text-sm font-semibold hover:underline"
-            >
-              ✕ Close
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Graduation */}
       <Reveal>
