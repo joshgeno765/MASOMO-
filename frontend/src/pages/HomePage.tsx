@@ -13,6 +13,7 @@ type Feature = { icon: string; title: string; description: string }
 type WhoWeHelpItem = { title: string; description: string }
 type Testimonial = { name: string; dest: string; quote?: string; video?: boolean }
 type Fact = { value: string; label: string }
+type FmcHighlightItem = { icon: string; title: string; desc: string }
 
 const FELIX_VIDEO = { videoId: '44ODe8UMdR8', start: 9, end: 11 }
 
@@ -60,6 +61,7 @@ export default function HomePage() {
   const whoWeHelp = t('whoWeHelp.items', { returnObjects: true }) as WhoWeHelpItem[]
   const testimonials = t('testimonials.items', { returnObjects: true }) as Testimonial[]
   const facts = t('factsBand.items', { returnObjects: true }) as Fact[]
+  const fmcHighlightItems = t('fmcHighlight.items', { returnObjects: true }) as FmcHighlightItem[]
   const [showFelixVideo, setShowFelixVideo] = useState(false)
 
   return (
@@ -100,7 +102,7 @@ export default function HomePage() {
               <p className="text-white/75 text-base md:text-lg leading-relaxed mb-8">
                 {t('hero.workers.body')}
               </p>
-              <Button to="/fmc-pilot" variant="outline">{t('hero.workers.cta')}</Button>
+              <Button to="/fmc-pilot" variant="primary">{t('hero.workers.cta')}</Button>
             </div>
           </div>
         </div>
@@ -113,6 +115,30 @@ export default function HomePage() {
         </div>
         <div className="hidden md:flex absolute inset-y-0 left-1/2 -translate-x-1/2 items-center z-10">
           <span className="bg-white text-navy text-xs font-bold uppercase tracking-widest rounded-full w-12 h-12 flex items-center justify-center shadow-lg">{t('hero.or')}</span>
+        </div>
+      </section>
+
+      {/* FMCSP Benefit Highlight */}
+      <section className="py-8 px-6">
+        <div className="max-w-4xl mx-auto bg-navy text-white rounded-2xl p-8 shadow-2xl border border-brand-gold/20">
+          <h2 className="font-serif text-2xl md:text-3xl mb-6">{t('fmcHighlight.title')}</h2>
+          <ul className="space-y-4 mb-8">
+            {fmcHighlightItems.map((item) => (
+              <li key={item.title} className="flex items-start gap-3">
+                <span className="text-xl flex-shrink-0">{item.icon}</span>
+                <div>
+                  <div className="font-bold text-brand-gold-light">{item.title}</div>
+                  <div className="text-white/70 text-sm">{item.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/pathway-finder?ref=fmc-pilot"
+            className="inline-block bg-brand-gold text-navy font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-light hover:shadow-lg hover:shadow-brand-gold/30 transition-all"
+          >
+            {t('fmcHighlight.cta')}
+          </Link>
         </div>
       </section>
 

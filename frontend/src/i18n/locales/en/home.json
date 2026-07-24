@@ -80,6 +80,15 @@
       { "title": "Trades", "description": "Hands-on training with co-op opportunities." }
     ]
   },
+  "fmcHighlight": {
+    "title": "Why Apply Under the FMCSP Pilot Program?",
+    "items": [
+      { "icon": "⚡", "title": "Priority Processing", "desc": "FMCSP applications are processed faster than standard study permits." },
+      { "icon": "🍁", "title": "A Pathway Toward Permanent Residence", "desc": "Graduating outside Quebec strengthens your Express Entry profile." },
+      { "icon": "🏠", "title": "Full Settlement & Arrival Support", "desc": "We prepare you for life in Canada, from pre-departure to arrival." }
+    ],
+    "cta": "Start Your FMCSP Assessment →"
+  },
   "factsBand": {
     "items": [
       { "value": "8", "label": "Study Destinations" },

@@ -80,6 +80,15 @@
       { "title": "Métiers spécialisés", "description": "Formation pratique avec possibilités de stages coopératifs." }
     ]
   },
+  "fmcHighlight": {
+    "title": "Pourquoi postuler dans le cadre du pilote FMCSP?",
+    "items": [
+      { "icon": "⚡", "title": "Traitement prioritaire", "desc": "Les demandes FMCSP sont traitées plus rapidement que les permis d'études standards." },
+      { "icon": "🍁", "title": "Une voie vers la résidence permanente", "desc": "Obtenir votre diplôme hors Québec renforce votre profil Entrée express." },
+      { "icon": "🏠", "title": "Accompagnement complet à l'installation et à l'arrivée", "desc": "Nous vous préparons à la vie au Canada, de votre départ jusqu'à votre arrivée." }
+    ],
+    "cta": "Commencez votre évaluation FMCSP →"
+  },
   "factsBand": {
     "items": [
       { "value": "8", "label": "Destinations d'études" },
