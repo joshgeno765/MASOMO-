@@ -7,7 +7,7 @@
     "students": {
       "eyebrow": "International Students",
       "title": "Study Abroad",
-      "body": "Helping international students access world-class education in Canada, the United States, Ireland, Germany, Poland, and Australia through trusted university partnerships and licensed immigration consultants.",
+      "body": "Helping international students access world-class education in Canada, the United States, Ireland, Germany, Poland, Australia, and China through trusted university partnerships and licensed immigration consultants.",
       "cta": "Find Your Pathway →"
     },
     "workers": {
@@ -38,7 +38,7 @@
     "title": "Why Choose Masomo Now?",
     "features": [
       { "icon": "🛂", "title": "RCIC Licensed Support", "description": "Professional immigration guidance backed by licensed Canadian consultants." },
-      { "icon": "🎓", "title": "Trusted Partner Institutions", "description": "Study at carefully selected colleges and universities across six countries." },
+      { "icon": "🎓", "title": "Trusted Partner Institutions", "description": "Study at carefully selected colleges and universities across seven countries." },
       { "icon": "🎯", "title": "Personalized Guidance", "description": "Every student receives advice tailored to their goals, budget, and academic background." },
       { "icon": "🤝", "title": "End-to-End Support", "description": "From your first consultation until you settle into your new campus." }
     ]
@@ -76,7 +76,7 @@
   },
   "partners": {
     "title": "Our Partners",
-    "subtitle": "We proudly work with 17 trusted institutions across Canada, the United States, Ireland, Germany, Poland, and Australia.",
+    "subtitle": "We proudly work with 18 trusted institutions across Canada, the United States, Ireland, Germany, Poland, Australia, and China.",
     "viewAll": "View All Partner Institutions →"
   },
   "testimonials": {

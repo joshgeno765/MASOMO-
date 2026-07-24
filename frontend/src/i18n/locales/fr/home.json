@@ -7,7 +7,7 @@
     "students": {
       "eyebrow": "Étudiants internationaux",
       "title": "Étudier à l'étranger",
-      "body": "Nous aidons les étudiants internationaux à accéder à une éducation de calibre mondial au Canada, aux États-Unis, en Irlande, en Allemagne, en Pologne et en Australie grâce à des partenariats universitaires de confiance et à des consultants en immigration agréés.",
+      "body": "Nous aidons les étudiants internationaux à accéder à une éducation de calibre mondial au Canada, aux États-Unis, en Irlande, en Allemagne, en Pologne, en Australie et en Chine grâce à des partenariats universitaires de confiance et à des consultants en immigration agréés.",
       "cta": "Trouvez votre filière →"
     },
     "workers": {
@@ -38,7 +38,7 @@
     "title": "Pourquoi choisir Masomo Now?",
     "features": [
       { "icon": "🛂", "title": "Soutien par un CRIC agréé", "description": "Un accompagnement professionnel en immigration soutenu par des consultants canadiens agréés." },
-      { "icon": "🎓", "title": "Établissements partenaires de confiance", "description": "Étudiez dans des collèges et universités soigneusement sélectionnés dans six pays." },
+      { "icon": "🎓", "title": "Établissements partenaires de confiance", "description": "Étudiez dans des collèges et universités soigneusement sélectionnés dans sept pays." },
       { "icon": "🎯", "title": "Accompagnement personnalisé", "description": "Chaque étudiant reçoit des conseils adaptés à ses objectifs, son budget et son parcours académique." },
       { "icon": "🤝", "title": "Un accompagnement de bout en bout", "description": "De votre première consultation jusqu'à votre installation sur votre nouveau campus." }
     ]
@@ -76,7 +76,7 @@
   },
   "partners": {
     "title": "Nos partenaires",
-    "subtitle": "Nous collaborons fièrement avec 17 établissements de confiance au Canada, aux États-Unis, en Irlande, en Allemagne, en Pologne et en Australie.",
+    "subtitle": "Nous collaborons fièrement avec 18 établissements de confiance au Canada, aux États-Unis, en Irlande, en Allemagne, en Pologne, en Australie et en Chine.",
     "viewAll": "Voir tous les établissements partenaires →"
   },
   "testimonials": {

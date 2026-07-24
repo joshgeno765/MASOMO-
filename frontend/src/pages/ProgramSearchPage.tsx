@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { northAmerica, europe, oceania, FMC_INSTITUTIONS } from '../data/destinations'
+import { northAmerica, europe, oceania, asia, FMC_INSTITUTIONS } from '../data/destinations'
 import Button from '../components/ui/Button'
 
 interface SearchableSchool {
@@ -31,7 +31,7 @@ const FILTER_KEYWORDS: Record<FilterKey, string[]> = {
 const FILTER_ORDER: FilterKey[] = ['business', 'engineering', 'it', 'health', 'trades', 'artsScience', 'law', 'hospitality']
 
 function buildSchools(): SearchableSchool[] {
-  const fromCountries = [...northAmerica, ...europe, ...oceania].flatMap((c) =>
+  const fromCountries = [...northAmerica, ...europe, ...oceania, ...asia].flatMap((c) =>
     c.schools.map((s) => ({
       name: s.name,
       programs: s.programs ?? [],

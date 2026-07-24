@@ -25,7 +25,7 @@ export interface Country {
   name: string
   slug: string
   tagline: string
-  region: 'North America' | 'Europe' | 'Oceania'
+  region: 'North America' | 'Europe' | 'Oceania' | 'Asia'
   languages: string[]
   facts: { label: string; value: string }[]
   schools: School[]
@@ -241,6 +241,40 @@ export const oceania: Country[] = [
     ],
     link: '/consultation?destination=' + encodeURIComponent('Australia'),
     linkLabel: 'Enquire About Australia →',
+  },
+]
+
+export const asia: Country[] = [
+  {
+    flag: '🇨🇳',
+    name: 'China',
+    slug: 'china',
+    tagline: "Access to 600+ universities through one national platform",
+    region: 'Asia',
+    languages: ['English', 'Mandarin'],
+    facts: [
+      { label: 'Partner Schools', value: '600+' },
+      { label: 'Post-Study Work', value: 'No universal permit — requires an employer-sponsored work visa (Z visa)' },
+      { label: 'Language', value: 'English & Mandarin-taught programs available' },
+      { label: 'Location', value: 'Nationwide' },
+    ],
+    schools: [
+      {
+        name: "CUCAS — China's University & College Admission System", type: 'National Application Platform', city: 'Nationwide', photo: null, website: 'https://www.cucas.cn', programTags: ['technical', 'business', 'academic'],
+        pathwayCategories: ['High School, Upgrading & Language Proficiency', 'Degrees & Diplomas'],
+        programs: ['Business & Management', 'Engineering & Technology', 'Computer Science / IT', 'Medicine & Health Sciences', 'Chinese Language & Culture', 'Arts & Humanities', 'Natural Sciences'],
+      },
+    ],
+    desc: "China offers one of the world's largest and most diverse higher education systems. Through CUCAS (China's University and College Admission System), students can apply to over 600 colleges and universities nationwide from a single platform, with access to full scholarships including the Chinese Government Scholarship and university-specific awards.",
+    pros: [
+      'Single application platform for 600+ colleges and universities',
+      'Access to full scholarships (Chinese Government Scholarship and university awards)',
+      'English-taught program options at many institutions',
+      'Lower tuition and living costs than many Western destinations',
+      'Growing African student community, supported by our Nanjing office',
+    ],
+    link: '/consultation?destination=' + encodeURIComponent('China'),
+    linkLabel: 'Enquire About China →',
   },
 ]
 

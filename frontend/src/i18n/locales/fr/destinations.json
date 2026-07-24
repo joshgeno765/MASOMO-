@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Destinations d'études",
     "title": "Où allez-vous étudier à l'étranger?",
-    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de six pays.",
+    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de sept pays.",
     "quote": "Celui qui suit les autres ne peut aller que là où ils vont, mais celui qui trace sa propre voie peut aller aussi loin qu'il le souhaite."
   },
   "video": {
@@ -14,7 +14,8 @@
     "label": "Région",
     "northAmerica": "Amérique du Nord",
     "europe": "Europe",
-    "oceania": "Océanie"
+    "oceania": "Océanie",
+    "asia": "Asie"
   },
   "school": {
     "visitWebsite": "Visiter le site officiel ↗",
@@ -109,6 +110,19 @@
         "Enseignement en anglais",
         "Communauté grandissante d'étudiants africains en Australie"
       ]
+    },
+    "china": {
+      "tagline": "Un accès à plus de 600 universités via une seule plateforme nationale",
+      "linkLabel": "S'informer sur la Chine →",
+      "factValues": ["600+", "Aucun permis universel — visa de travail (Z) requis avec parrainage d'un employeur", "Programmes en anglais et en mandarin offerts", "Partout au pays"],
+      "desc": "La Chine possède l'un des systèmes d'enseignement supérieur les plus vastes et diversifiés au monde. Grâce à CUCAS (le système chinois d'admission universitaire et collégiale), les étudiants peuvent postuler à plus de 600 collèges et universités partout au pays à partir d'une seule plateforme, avec accès à des bourses complètes, y compris la bourse du gouvernement chinois et des bourses propres à chaque établissement.",
+      "pros": [
+        "Une seule plateforme de candidature pour plus de 600 collèges et universités",
+        "Accès à des bourses complètes (bourse du gouvernement chinois et bourses d'établissement)",
+        "Options de programmes enseignés en anglais dans plusieurs établissements",
+        "Frais de scolarité et coût de la vie inférieurs à ceux de nombreuses destinations occidentales",
+        "Communauté africaine grandissante, appuyée par notre bureau de Nanjing"
+      ]
     }
   },
   "comingSoon": {
@@ -128,7 +142,8 @@
       "ireland": { "tuition": "9 850 € – 28 000 €", "living": "10 000 €", "work": "20 h/semaine en session, 40 h/semaine pendant les congés", "gradVisa": "2 ans (Stamp 1G)" },
       "germany": { "tuition": "7 000 € – 15 000 € (nos écoles partenaires)", "living": "11 904 € (compte bloqué)", "work": "140 jours complets / 280 demi-journées par an", "gradVisa": "18 mois (visa de recherche d'emploi)" },
       "poland": { "tuition": "2 000 € – 8 000 €", "living": "~7 000 € – 11 000 €", "work": "Aucune limite d'heures stricte pour les étudiants à temps plein", "gradVisa": "1 an" },
-      "australia": { "tuition": "25 000 $ AU – 45 000 $ AU", "living": "~24 000 $ AU (exigence de visa)", "work": "48 h/quinzaine en session, illimité pendant les congés", "gradVisa": "Sous-classe 485 — durée variable selon le diplôme" }
+      "australia": { "tuition": "25 000 $ AU – 45 000 $ AU", "living": "~24 000 $ AU (exigence de visa)", "work": "48 h/quinzaine en session, illimité pendant les congés", "gradVisa": "Sous-classe 485 — durée variable selon le diplôme" },
+      "china": { "tuition": "20 000 – 50 000 CNY (~2 800 $ US – 7 000 $ US)", "living": "~60 000 – 100 000 CNY/an", "work": "Limité — généralement non autorisé sans permission spéciale", "gradVisa": "Aucun permis universel — visa de travail (Z) requis" }
     }
   },
   "cta": {

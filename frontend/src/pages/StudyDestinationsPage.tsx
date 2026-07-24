@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Country, School, northAmerica, europe, oceania, comingSoon } from '../data/destinations'
+import { Country, School, northAmerica, europe, oceania, asia, comingSoon } from '../data/destinations'
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
 import PhotoHero from '../components/ui/PhotoHero'
@@ -134,7 +134,7 @@ export default function StudyDestinationsPage() {
 
   const compareHeaders = t('compare.headers', { returnObjects: true }) as string[]
   const compareRows = t('compare.rows', { returnObjects: true }) as Record<string, CompareRow>
-  const allCountries = [...northAmerica, ...europe, ...oceania]
+  const allCountries = [...northAmerica, ...europe, ...oceania, ...asia]
 
   return (
     <>
@@ -193,6 +193,19 @@ export default function StudyDestinationsPage() {
       <section className="px-6">
         <div className="max-w-6xl mx-auto divide-y divide-gray-200">
           {oceania.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} t={t} />))}
+        </div>
+      </section>
+
+      {/* Asia */}
+      <section className="pt-4 px-6">
+        <div className="max-w-6xl mx-auto border-t border-gray-200 pt-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-1">{t('region.label')}</p>
+          <h2 className="font-serif text-3xl text-navy">{t('region.asia')}</h2>
+        </div>
+      </section>
+      <section className="px-6">
+        <div className="max-w-6xl mx-auto divide-y divide-gray-200">
+          {asia.map((d) => (<CountryBlock key={d.name} d={d} onPlayVideo={setActiveVideo} t={t} />))}
         </div>
       </section>
 

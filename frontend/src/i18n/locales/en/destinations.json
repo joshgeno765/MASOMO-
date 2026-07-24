@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Study Destinations",
     "title": "Where will you study abroad?",
-    "subtitle": "We work with Francophone African students to secure admission at top institutions across six countries.",
+    "subtitle": "We work with Francophone African students to secure admission at top institutions across seven countries.",
     "quote": "He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
   },
   "video": {
@@ -14,7 +14,8 @@
     "label": "Region",
     "northAmerica": "North America",
     "europe": "Europe",
-    "oceania": "Oceania"
+    "oceania": "Oceania",
+    "asia": "Asia"
   },
   "school": {
     "visitWebsite": "Visit official website ↗",
@@ -109,6 +110,19 @@
         "English-language instruction",
         "Growing community of African students in Australia"
       ]
+    },
+    "china": {
+      "tagline": "Access to 600+ universities through one national platform",
+      "linkLabel": "Enquire About China →",
+      "factValues": ["600+", "No universal permit — requires an employer-sponsored work visa (Z visa)", "English & Mandarin-taught programs available", "Nationwide"],
+      "desc": "China offers one of the world's largest and most diverse higher education systems. Through CUCAS (China's University and College Admission System), students can apply to over 600 colleges and universities nationwide from a single platform, with access to full scholarships including the Chinese Government Scholarship and university-specific awards.",
+      "pros": [
+        "Single application platform for 600+ colleges and universities",
+        "Access to full scholarships (Chinese Government Scholarship and university awards)",
+        "English-taught program options at many institutions",
+        "Lower tuition and living costs than many Western destinations",
+        "Growing African student community, supported by our Nanjing office"
+      ]
     }
   },
   "comingSoon": {
@@ -128,7 +142,8 @@
       "ireland": { "tuition": "€9,850–28,000", "living": "€10,000", "work": "20 hrs/week term-time, 40 hrs/week holidays", "gradVisa": "2 years (Stamp 1G)" },
       "germany": { "tuition": "€7,000–15,000 (our partner schools)", "living": "€11,904 (blocked account)", "work": "140 full / 280 half days per year", "gradVisa": "18 months (Job Seeker Visa)" },
       "poland": { "tuition": "€2,000–8,000", "living": "~€7,000–11,000", "work": "No strict hour cap for full-time students", "gradVisa": "1 year" },
-      "australia": { "tuition": "AUD $25,000–45,000", "living": "AUD ~$24,000 (visa requirement)", "work": "48 hrs/fortnight during term, unlimited during breaks", "gradVisa": "Subclass 485 — duration varies by qualification" }
+      "australia": { "tuition": "AUD $25,000–45,000", "living": "AUD ~$24,000 (visa requirement)", "work": "48 hrs/fortnight during term, unlimited during breaks", "gradVisa": "Subclass 485 — duration varies by qualification" },
+      "china": { "tuition": "CNY 20,000–50,000 (~USD $2,800–7,000)", "living": "~CNY 60,000–100,000/year", "work": "Limited — generally not permitted without special permission", "gradVisa": "No universal permit — requires a Z (work) visa" }
     }
   },
   "cta": {
