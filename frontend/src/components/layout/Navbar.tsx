@@ -18,16 +18,16 @@ export default function Navbar() {
 
   return (
     <nav className="bg-navy sticky top-0 z-50 border-b border-white/10">
-      <div className="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
+      <div className="max-w-screen-2xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-3 sm:gap-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base">
+        <Link to="/" className="flex items-center gap-2.5 min-w-0">
+          <div className="w-9 h-9 bg-brand-gold rounded-lg flex items-center justify-center font-extrabold text-navy text-base flex-shrink-0">
             MN
           </div>
-          <img src="/images/elimu-logo.png" alt="ELIMU" className="h-7 w-auto flex-shrink-0" />
-          <span className="text-white font-bold text-lg whitespace-nowrap">
+          <img src="/images/elimu-logo.png" alt="ELIMU" className="hidden sm:block h-7 w-auto flex-shrink-0" />
+          <span className="text-white font-bold text-lg whitespace-nowrap truncate">
             {t('brand.name')} <span className="text-brand-gold-light">{t('brand.now')}</span>
-            <span className="ml-2 font-bold text-white">{t('brand.tagline')}</span>
+            <span className="ml-2 font-bold text-white hidden sm:inline">{t('brand.tagline')}</span>
           </span>
         </Link>
 

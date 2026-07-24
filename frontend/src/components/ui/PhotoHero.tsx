@@ -32,7 +32,11 @@ export default function PhotoHero({ image, alt, eyebrow, title, subtitle, ctaLab
           <div className="max-w-xl">
             {eyebrow && <p className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">{eyebrow}</p>}
             <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight mb-3">{title}</h1>
-            {subtitle && <p className="text-white/80 text-base md:text-lg mb-6">{subtitle}</p>}
+            {subtitle && (
+              <p className="inline-block text-white/90 text-base md:text-lg mb-6 backdrop-blur-md bg-white/10 rounded-lg px-4 py-3">
+                {subtitle}
+              </p>
+            )}
             <div className="flex flex-wrap items-center gap-4">
               {ctaLabel && ctaTo && <Button to={ctaTo} variant="primary">{ctaLabel}</Button>}
               {children}

@@ -17,6 +17,15 @@
       { "icon": "🏠", "title": "Arrival Support", "description": "Helping you settle into your new country successfully." }
     ]
   },
+  "visaAssistance": {
+    "eyebrow": "Visa Assistance",
+    "title": "Navigating your study permit, step by step",
+    "alt": "Walking families through the route from British Columbia's Northern Lights College campuses to a study permit",
+    "p1": "Most study permit and visa applications require proof that you can financially support yourself — tuition, living costs, and often a minimum balance held for a set period before you apply. The exact amount and documentation rules differ by destination, so we work through your specific requirement together, using the same cost estimates available in our Cost & Budget Calculator, and help you gather and format the financial documents your visa office expects to see.",
+    "p2": "Most applications also require biometrics — a photo and fingerprints collected at a designated visa application centre — before a decision is issued. We'll tell you exactly when this step applies to your application, help you plan your appointment, and make sure you know what to bring so there are no avoidable delays.",
+    "p3": "Some applications are decided on paper alone; others may involve an additional interview or a request for more information. Whichever applies to you, we prepare you in advance — reviewing the kinds of questions you may be asked, the documents you should have on hand, and how to present your study plans clearly and honestly.",
+    "cta": "Calculate Your Costs →"
+  },
   "process": {
     "title": "Our Process",
     "items": [

@@ -17,6 +17,15 @@
       { "icon": "🏠", "title": "Accompagnement à l'arrivée", "description": "Nous vous aidons à bien vous installer dans votre nouveau pays." }
     ]
   },
+  "visaAssistance": {
+    "eyebrow": "Assistance pour le visa",
+    "title": "Votre permis d'études, étape par étape",
+    "alt": "Accompagner des familles depuis les campus du Northern Lights College en Colombie-Britannique jusqu'à l'obtention d'un permis d'études",
+    "p1": "La plupart des demandes de permis d'études et de visa exigent une preuve que vous pouvez subvenir à vos besoins — frais de scolarité, coût de la vie, et souvent un solde minimum détenu pendant une période déterminée avant votre demande. Le montant exact et les exigences documentaires varient selon la destination, alors nous déterminons ensemble votre exigence précise, à l'aide des mêmes estimations que celles de notre calculateur de coûts, et nous vous aidons à rassembler et à présenter les documents financiers attendus par le bureau des visas.",
+    "p2": "La plupart des demandes exigent aussi la prise de données biométriques — une photo et des empreintes digitales prises dans un centre de demande de visa désigné — avant qu'une décision ne soit rendue. Nous vous indiquerons exactement quand cette étape s'applique à votre dossier, nous vous aiderons à planifier votre rendez-vous et nous nous assurerons que vous savez quoi apporter afin d'éviter tout retard évitable.",
+    "p3": "Certaines demandes sont tranchées uniquement sur dossier; d'autres peuvent comporter une entrevue supplémentaire ou une demande de renseignements additionnels. Quel que soit votre cas, nous vous préparons à l'avance — en révisant le type de questions qui pourraient vous être posées, les documents à avoir en main, et la façon de présenter votre projet d'études clairement et honnêtement.",
+    "cta": "Calculez vos coûts →"
+  },
   "process": {
     "title": "Notre processus",
     "items": [

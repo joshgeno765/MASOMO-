@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import NumberedSteps from '../components/ui/NumberedSteps'
+import TextImageSplit from '../components/ui/TextImageSplit'
 
 type ServiceItem = { icon: string; title: string; description: string }
 type ProcessStep = { title: string; description: string }
@@ -39,6 +40,19 @@ export default function ServicesPage() {
       />
 
       <IconFeatureRow title={t('whatWeHelpWith.title')} columns={3} features={services} />
+
+      {/* Visa Assistance */}
+      <TextImageSplit
+        image="/images/seminars/seminar-4.webp"
+        alt={t('visaAssistance.alt')}
+        eyebrow={t('visaAssistance.eyebrow')}
+        title={t('visaAssistance.title')}
+        cta={<Link to="/cost-calculator" className="text-sm font-bold text-navy border-b border-navy pb-0.5">{t('visaAssistance.cta')}</Link>}
+      >
+        <p>{t('visaAssistance.p1')}</p>
+        <p>{t('visaAssistance.p2')}</p>
+        <p>{t('visaAssistance.p3')}</p>
+      </TextImageSplit>
 
       {/* Our Process */}
       <NumberedSteps title={t('process.title')} steps={process} columns={4} />

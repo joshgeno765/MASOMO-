@@ -21,17 +21,17 @@ export default function ResourcesPage() {
       </section>
 
       <section className="py-16 px-6">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
           {sorted.map((article) => (
             <Link
               key={article.slug}
               to={`/resources/${article.slug}`}
-              className="border border-gray-200 rounded-xl p-6 hover:border-brand-gold/50 hover:-translate-y-0.5 transition-all block"
+              className="group block"
             >
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-2">{article.category[lang]}</p>
-              <h2 className="font-serif text-xl text-navy mb-2 leading-snug">{article.title[lang]}</h2>
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-3">{article.category[lang]}</p>
+              <h2 className="font-serif text-xl text-navy mb-2 leading-snug group-hover:text-brand-blue transition-colors">{article.title[lang]}</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">{article.excerpt[lang]}</p>
-              <div className="flex items-center justify-between text-xs text-gray-400">
+              <div className="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-100">
                 <span>{article.readTime[lang]}</span>
                 <span className="font-bold text-brand-blue">{t('readMore')}</span>
               </div>
