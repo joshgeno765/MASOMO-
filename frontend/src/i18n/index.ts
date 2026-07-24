@@ -12,9 +12,6 @@ import enServices from './locales/en/services.json'
 import enConsultation from './locales/en/consultation.json'
 import enContact from './locales/en/contact.json'
 import enLegal from './locales/en/legal.json'
-import enCalculator from './locales/en/calculator.json'
-import enPrograms from './locales/en/programs.json'
-import enBlog from './locales/en/blog.json'
 import enChatbot from './locales/en/chatbot.json'
 import enUniversities from './locales/en/universities.json'
 
@@ -28,9 +25,6 @@ import frServices from './locales/fr/services.json'
 import frConsultation from './locales/fr/consultation.json'
 import frContact from './locales/fr/contact.json'
 import frLegal from './locales/fr/legal.json'
-import frCalculator from './locales/fr/calculator.json'
-import frPrograms from './locales/fr/programs.json'
-import frBlog from './locales/fr/blog.json'
 import frChatbot from './locales/fr/chatbot.json'
 import frUniversities from './locales/fr/universities.json'
 
@@ -48,9 +42,6 @@ export const resources = {
     consultation: enConsultation,
     contact: enContact,
     legal: enLegal,
-    calculator: enCalculator,
-    programs: enPrograms,
-    blog: enBlog,
     chatbot: enChatbot,
     universities: enUniversities,
   },
@@ -65,9 +56,6 @@ export const resources = {
     consultation: frConsultation,
     contact: frContact,
     legal: frLegal,
-    calculator: frCalculator,
-    programs: frPrograms,
-    blog: frBlog,
     chatbot: frChatbot,
     universities: frUniversities,
   },

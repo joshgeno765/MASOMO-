@@ -41,9 +41,6 @@ export default function Footer() {
               <Link to="/" className="text-sm hover:text-brand-gold-light transition-colors">{t('nav.home')}</Link>
               <Link to="/about" className="text-sm hover:text-brand-gold-light transition-colors">{t('nav.about')}</Link>
               <Link to="/destinations" className="text-sm hover:text-brand-gold-light transition-colors">{t('footer.studyDestinations')}</Link>
-              <Link to="/programs" className="text-sm hover:text-brand-gold-light transition-colors">{t('footer.programSearch')}</Link>
-              <Link to="/cost-calculator" className="text-sm hover:text-brand-gold-light transition-colors">{t('footer.costCalculator')}</Link>
-              <Link to="/resources" className="text-sm hover:text-brand-gold-light transition-colors">{t('footer.resources')}</Link>
               <Link to="/services" className="text-sm hover:text-brand-gold-light transition-colors">{t('nav.services')}</Link>
               <Link to="/fmc-pilot" className="text-sm hover:text-brand-gold-light transition-colors">🇨🇦 {t('footer.fmcPilotProgram')}</Link>
               <Link to="/consultation" className="text-sm hover:text-brand-gold-light transition-colors">{t('footer.bookConsultation')}</Link>

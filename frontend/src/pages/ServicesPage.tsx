@@ -47,7 +47,7 @@ export default function ServicesPage() {
         alt={t('visaAssistance.alt')}
         eyebrow={t('visaAssistance.eyebrow')}
         title={t('visaAssistance.title')}
-        cta={<Link to="/cost-calculator" className="text-sm font-bold text-navy border-b border-navy pb-0.5">{t('visaAssistance.cta')}</Link>}
+        cta={<Link to="/consultation" className="text-sm font-bold text-navy border-b border-navy pb-0.5">{t('visaAssistance.cta')}</Link>}
       >
         <p>{t('visaAssistance.p1')}</p>
         <p>{t('visaAssistance.p2')}</p>

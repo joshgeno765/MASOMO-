@@ -15,10 +15,6 @@ const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage')
 const UniversitiesPage = lazy(() => import('./pages/UniversitiesPage'))
 const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
 const PathwayFinderPage = lazy(() => import('./pages/PathwayFinderPage'))
-const CostCalculatorPage = lazy(() => import('./pages/CostCalculatorPage'))
-const ProgramSearchPage = lazy(() => import('./pages/ProgramSearchPage'))
-const ResourcesPage = lazy(() => import('./pages/ResourcesPage'))
-const ArticlePage = lazy(() => import('./pages/ArticlePage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -76,10 +72,6 @@ export default function App() {
                 <Route path="/destinations" element={<StudyDestinationsPage />} />
                 <Route path="/fmc-pilot" element={<FMCPilotPage />} />
                 <Route path="/pathway-finder" element={<PathwayFinderPage />} />
-                <Route path="/cost-calculator" element={<CostCalculatorPage />} />
-                <Route path="/programs" element={<ProgramSearchPage />} />
-                <Route path="/resources" element={<ResourcesPage />} />
-                <Route path="/resources/:slug" element={<ArticlePage />} />
                 <Route path="/universities" element={<UniversitiesPage />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/consultation" element={<ConsultationPage />} />
