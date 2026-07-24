@@ -4,9 +4,12 @@ interface VideoEmbedProps {
   videoId: string
   title: string
   autoplay?: boolean
+  start?: number
+  end?: number
+  aspect?: 'landscape' | 'vertical'
 }
 
-export default function VideoEmbed({ videoId, title, autoplay = false }: VideoEmbedProps) {
+export default function VideoEmbed({ videoId, title, autoplay = false, start, end, aspect = 'landscape' }: VideoEmbedProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const [muted, setMuted] = useState(autoplay)
 
@@ -15,6 +18,8 @@ export default function VideoEmbed({ videoId, title, autoplay = false }: VideoEm
     modestbranding: '1',
     iv_load_policy: '3',
   })
+  if (start !== undefined) params.set('start', String(start))
+  if (end !== undefined) params.set('end', String(end))
   if (autoplay) {
     params.set('autoplay', '1')
     params.set('mute', '1')
@@ -32,7 +37,7 @@ export default function VideoEmbed({ videoId, title, autoplay = false }: VideoEm
   }
 
   return (
-    <div className="relative w-full pb-[56.25%] rounded-lg overflow-hidden bg-black">
+    <div className={`relative w-full rounded-lg overflow-hidden bg-black ${aspect === 'vertical' ? 'pb-[177.78%]' : 'pb-[56.25%]'}`}>
       <iframe
         ref={iframeRef}
         className="absolute inset-0 w-full h-full"

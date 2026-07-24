@@ -37,6 +37,7 @@ const COUNTRY_SLUGS: Record<string, string> = {
   Poland: 'poland',
   Australia: 'australia',
   China: 'china',
+  'United Arab Emirates': 'uae',
 }
 
 export default function PathwayFinderPage() {

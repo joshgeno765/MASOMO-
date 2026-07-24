@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Destinations d'études",
     "title": "Où allez-vous étudier à l'étranger?",
-    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de sept pays.",
+    "subtitle": "Nous aidons les étudiants francophones africains à obtenir une admission dans les meilleurs établissements de huit pays.",
     "quote": "Celui qui suit les autres ne peut aller que là où ils vont, mais celui qui trace sa propre voie peut aller aussi loin qu'il le souhaite."
   },
   "video": {
@@ -122,6 +122,19 @@
         "Options de programmes enseignés en anglais dans plusieurs établissements",
         "Frais de scolarité et coût de la vie inférieurs à ceux de nombreuses destinations occidentales",
         "Communauté africaine grandissante, appuyée par notre bureau de Nanjing"
+      ]
+    },
+    "uae": {
+      "tagline": "Une filière vers le Canada et un pôle de formation en gestion",
+      "linkLabel": "S'informer sur les Émirats arabes unis →",
+      "factValues": ["3", "Visa parrainé par l'employeur ou le programme (variable)", "Anglais", "Dubaï"],
+      "desc": "Les Émirats arabes unis deviennent rapidement un pôle mondial de l'éducation. Notre réseau de partenaires à Dubaï comprend une filière vers la Royal Roads University au Canada, ainsi que des collèges dédiés à la gestion et aux affaires — une base stratégique offrant un accès solide aux marchés de l'emploi internationaux.",
+      "pros": [
+        "Filière vers la Royal Roads University (Canada) via GRU (PAK)",
+        "De solides options en gestion et en affaires",
+        "Enseignement en anglais",
+        "Pôle stratégique du Golfe avec accès au marché de l'emploi international",
+        "Communauté grandissante d'étudiants africains dans la région du Golfe"
       ]
     }
   },

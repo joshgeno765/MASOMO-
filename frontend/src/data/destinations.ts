@@ -9,7 +9,7 @@ export interface School {
   type: string
   city: string
   photo: string | null
-  website: string
+  website?: string
   programTags?: ('technical' | 'business' | 'academic')[]
   costTier?: 'budget-friendly'
   pathwayCategories?: PathwayCategory[]
@@ -275,6 +275,45 @@ export const asia: Country[] = [
     ],
     link: '/consultation?destination=' + encodeURIComponent('China'),
     linkLabel: 'Enquire About China →',
+  },
+  {
+    flag: '🇦🇪',
+    name: 'United Arab Emirates',
+    slug: 'uae',
+    tagline: 'A pathway to Canada and a hub for management education',
+    region: 'Asia',
+    languages: ['English'],
+    facts: [
+      { label: 'Partner Schools', value: '3' },
+      { label: 'Post-Study Work', value: 'Employer- or program-sponsored visa (varies)' },
+      { label: 'Language', value: 'English' },
+      { label: 'Location', value: 'Dubai' },
+    ],
+    schools: [
+      {
+        name: 'GRU (PAK)', type: 'Pathway partner to Royal Roads University (Canada)', city: 'Dubai, UAE', photo: null, programTags: ['academic'],
+        pathwayCategories: ['Degrees & Diplomas'],
+      },
+      {
+        name: 'BIG Education Institute', type: 'Private Institute', city: 'Dubai, UAE', photo: null,
+        pathwayCategories: ['Degrees & Diplomas'],
+      },
+      {
+        name: 'NEST Academy of Management Education', type: 'Management College', city: 'Dubai, UAE', photo: null, programTags: ['business'],
+        pathwayCategories: ['Degrees & Diplomas'],
+        programs: ['Business & Management'],
+      },
+    ],
+    desc: 'The United Arab Emirates is fast becoming a global education hub. Our partner network in Dubai includes a pathway option into Royal Roads University in Canada, alongside dedicated business and management colleges — a strategic base with strong access to international job markets.',
+    pros: [
+      'Pathway option into Royal Roads University (Canada) via GRU (PAK)',
+      'Strong options in business and management education',
+      'English-language instruction',
+      'Strategic Gulf hub with international job market access',
+      'Growing community of African students in the Gulf region',
+    ],
+    link: '/consultation?destination=' + encodeURIComponent('United Arab Emirates'),
+    linkLabel: 'Enquire About the UAE →',
   },
 ]
 

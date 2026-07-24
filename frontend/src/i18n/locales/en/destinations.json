@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Study Destinations",
     "title": "Where will you study abroad?",
-    "subtitle": "We work with Francophone African students to secure admission at top institutions across seven countries.",
+    "subtitle": "We work with Francophone African students to secure admission at top institutions across eight countries.",
     "quote": "He who follows others can only go as far as where they are going, but he who creates his own path can go as far as he wants to."
   },
   "video": {
@@ -122,6 +122,19 @@
         "English-taught program options at many institutions",
         "Lower tuition and living costs than many Western destinations",
         "Growing African student community, supported by our Nanjing office"
+      ]
+    },
+    "uae": {
+      "tagline": "A pathway to Canada and a hub for management education",
+      "linkLabel": "Enquire About the UAE →",
+      "factValues": ["3", "Employer- or program-sponsored visa (varies)", "English", "Dubai"],
+      "desc": "The United Arab Emirates is fast becoming a global education hub. Our partner network in Dubai includes a pathway option into Royal Roads University in Canada, alongside dedicated business and management colleges — a strategic base with strong access to international job markets.",
+      "pros": [
+        "Pathway option into Royal Roads University (Canada) via GRU (PAK)",
+        "Strong options in business and management education",
+        "English-language instruction",
+        "Strategic Gulf hub with international job market access",
+        "Growing community of African students in the Gulf region"
       ]
     }
   },

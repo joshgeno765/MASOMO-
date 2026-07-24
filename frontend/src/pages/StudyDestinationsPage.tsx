@@ -28,15 +28,17 @@ function SchoolCard({ s, onPlayVideo, t }: { s: School; onPlayVideo: (v: ActiveV
         <div className="font-semibold text-white text-sm leading-tight">{s.name}</div>
         <div className="text-[11px] text-white/60 mb-1.5">{s.type} · {s.city}</div>
         <div className="flex items-center gap-3">
-          <a
-            href={s.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Visit ${s.name} official website`}
-            className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
-          >
-            {t('school.visitWebsite')}
-          </a>
+          {s.website && (
+            <a
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${s.name} official website`}
+              className="text-[11px] font-bold text-brand-gold-light w-fit border-b border-brand-gold-light/50 hover:border-brand-gold-light"
+            >
+              {t('school.visitWebsite')}
+            </a>
+          )}
           {s.videoId && (
             <button
               onClick={() => onPlayVideo({ videoId: s.videoId!, title: s.videoTitle ?? s.name })}
@@ -245,18 +247,21 @@ export default function StudyDestinationsPage() {
                 </tr>
               </thead>
               <tbody>
-                {allCountries.map((c, i) => {
-                  const row = compareRows[c.slug]
-                  return (
-                    <tr key={c.name} className={i < allCountries.length - 1 ? 'border-b border-gray-100' : ''}>
-                      <td className="px-4 py-3 font-semibold text-navy whitespace-nowrap">{c.flag} {c.name}</td>
-                      <td className="px-4 py-3 text-gray-600">{row.tuition}</td>
-                      <td className="px-4 py-3 text-gray-600">{row.living}</td>
-                      <td className="px-4 py-3 text-gray-600">{row.work}</td>
-                      <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.gradVisa}</td>
-                    </tr>
-                  )
-                })}
+                {(() => {
+                  const rowCountries = allCountries.filter((c) => compareRows[c.slug])
+                  return rowCountries.map((c, i) => {
+                    const row = compareRows[c.slug]
+                    return (
+                      <tr key={c.name} className={i < rowCountries.length - 1 ? 'border-b border-gray-100' : ''}>
+                        <td className="px-4 py-3 font-semibold text-navy whitespace-nowrap">{c.flag} {c.name}</td>
+                        <td className="px-4 py-3 text-gray-600">{row.tuition}</td>
+                        <td className="px-4 py-3 text-gray-600">{row.living}</td>
+                        <td className="px-4 py-3 text-gray-600">{row.work}</td>
+                        <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.gradVisa}</td>
+                      </tr>
+                    )
+                  })
+                })()}
               </tbody>
             </table>
           </div>
