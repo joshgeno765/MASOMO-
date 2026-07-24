@@ -16,6 +16,7 @@ import enCalculator from './locales/en/calculator.json'
 import enPrograms from './locales/en/programs.json'
 import enBlog from './locales/en/blog.json'
 import enChatbot from './locales/en/chatbot.json'
+import enUniversities from './locales/en/universities.json'
 
 import frCommon from './locales/fr/common.json'
 import frHome from './locales/fr/home.json'
@@ -31,6 +32,7 @@ import frCalculator from './locales/fr/calculator.json'
 import frPrograms from './locales/fr/programs.json'
 import frBlog from './locales/fr/blog.json'
 import frChatbot from './locales/fr/chatbot.json'
+import frUniversities from './locales/fr/universities.json'
 
 export const defaultNS = 'common'
 
@@ -50,6 +52,7 @@ export const resources = {
     programs: enPrograms,
     blog: enBlog,
     chatbot: enChatbot,
+    universities: enUniversities,
   },
   fr: {
     common: frCommon,
@@ -66,6 +69,7 @@ export const resources = {
     programs: frPrograms,
     blog: frBlog,
     chatbot: frChatbot,
+    universities: frUniversities,
   },
 } as const
 

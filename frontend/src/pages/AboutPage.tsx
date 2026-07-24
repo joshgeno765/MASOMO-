@@ -4,12 +4,11 @@ import { Trans, useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
+import BenefitGrid from '../components/ui/BenefitGrid'
 import { OFFICES } from '../data/offices'
 
 type CredentialItem = { icon: string; title: string; description: string }
 type ValueTextItem = { title: string; desc: string }
-
-const valueNums = ['01', '02', '03', '04']
 
 const seminarPhotos = [
   '/images/seminars/seminar-3.webp',
@@ -38,8 +37,7 @@ export default function AboutPage() {
 
   const credentials = t('credentials.items', { returnObjects: true }) as CredentialItem[]
 
-  const valueTexts = t('values.items', { returnObjects: true }) as ValueTextItem[]
-  const values = valueNums.map((num, i) => ({ num, title: valueTexts[i].title, desc: valueTexts[i].desc }))
+  const values = t('values.items', { returnObjects: true }) as ValueTextItem[]
 
   const seminarCaptions = t('seminars.items', { returnObjects: true }) as string[]
   const seminars = seminarPhotos.map((src, i) => ({ src, caption: seminarCaptions[i] }))
@@ -104,19 +102,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values — huge numerals */}
-      <section className="py-4">
-        <div className="grid md:grid-cols-2">
-          {values.map((v, i) => (
-            <div key={v.num} className={`relative overflow-hidden px-8 md:px-14 py-12 ${i % 2 === 0 ? 'bg-white' : 'bg-brand-gold-light/10'} border-b border-r border-gray-200`}>
-              <span className="absolute -top-4 right-4 text-8xl font-black text-navy/5 leading-none select-none">{v.num}</span>
-              <div className="relative z-10">
-                <h3 className="font-serif text-2xl text-navy mb-2">{v.title}</h3>
-                <p className="text-gray-600 leading-relaxed max-w-xs">{v.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <BenefitGrid items={values} variant="numeral" columns={2} />
 
       {/* Seminars & Events — real photo gallery */}
       <section id="seminars" className="py-20 px-6 bg-gray-50 border-t border-b border-gray-200 scroll-mt-16">

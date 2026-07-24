@@ -6,19 +6,25 @@ import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import Reveal from '../components/ui/Reveal'
 import VideoEmbed from '../components/ui/VideoEmbed'
+import FactsBand from '../components/ui/FactsBand'
+import DestinationAccentCard from '../components/ui/DestinationAccentCard'
 
 type Feature = { icon: string; title: string; description: string }
 type WhoWeHelpItem = { title: string; description: string }
 type Testimonial = { name: string; dest: string; quote?: string; video?: boolean }
+type Fact = { value: string; label: string }
 
 const FELIX_VIDEO = { videoId: '44ODe8UMdR8', start: 9, end: 11 }
 
 const destinationShowcase = [
-  { slug: 'canada', image: '/images/schools/bcit-thumb.webp' },
-  { slug: 'united-states', image: '/images/schools/lwtech-thumb.webp' },
-  { slug: 'ireland', image: '/images/schools/dcu-thumb.webp' },
-  { slug: 'germany', image: '/images/schools/cbs-thumb.webp' },
-  { slug: 'poland', image: '/images/schools/vistula-thumb.webp' },
+  { slug: 'canada' },
+  { slug: 'united-states' },
+  { slug: 'ireland' },
+  { slug: 'germany' },
+  { slug: 'poland' },
+  { slug: 'australia' },
+  { slug: 'china' },
+  { slug: 'uae' },
 ]
 
 const whoWeHelpPhotos = [
@@ -34,6 +40,9 @@ const flags: Record<string, string> = {
   ireland: '🇮🇪',
   germany: '🇩🇪',
   poland: '🇵🇱',
+  australia: '🇦🇺',
+  china: '🇨🇳',
+  uae: '🇦🇪',
 }
 
 const partnerMarquee = [
@@ -50,6 +59,7 @@ export default function HomePage() {
   const features = t('whyChooseUs.features', { returnObjects: true }) as Feature[]
   const whoWeHelp = t('whoWeHelp.items', { returnObjects: true }) as WhoWeHelpItem[]
   const testimonials = t('testimonials.items', { returnObjects: true }) as Testimonial[]
+  const facts = t('factsBand.items', { returnObjects: true }) as Fact[]
   const [showFelixVideo, setShowFelixVideo] = useState(false)
 
   return (
@@ -114,6 +124,8 @@ export default function HomePage() {
         </p>
       </div>
 
+      <FactsBand dark facts={facts} />
+
       <TextImageSplit
         image="/images/seminars/seminar-4.webp"
         alt="Masomo Now counselor presenting Northern Lights College's British Columbia campuses"
@@ -155,18 +167,16 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl text-white">{t('destinationsShowcase.title')}</h2>
               <p className="text-white/60 text-lg mt-3">{t('destinationsShowcase.subtitle')}</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
               {destinationShowcase.map((d) => (
-                <Link key={d.slug} to={`/destinations#${d.slug}`} className="group relative rounded-lg overflow-hidden h-72 block">
-                  <img src={d.image} alt={t(`destinationsShowcase.names.${d.slug}`)} loading="lazy" className="absolute inset-0 w-full h-full object-cover photo-grade group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/30 to-transparent" />
-                  <div className="absolute bottom-0 p-5">
-                    <p className="text-xs font-semibold uppercase mb-1">{flags[d.slug]}</p>
-                    <p className="text-white font-bold text-base leading-tight">{t(`destinationsShowcase.names.${d.slug}`)}</p>
-                    <p className="text-white/60 text-xs mt-1">{t(`destinationsShowcase.counts.${d.slug}`)}</p>
-                    <span className="inline-block mt-3 text-xs font-semibold text-white/90 border-b border-brand-gold-light">{t('destinationsShowcase.explore')}</span>
-                  </div>
-                </Link>
+                <DestinationAccentCard
+                  key={d.slug}
+                  flag={flags[d.slug]}
+                  name={t(`destinationsShowcase.names.${d.slug}`)}
+                  count={t(`destinationsShowcase.counts.${d.slug}`)}
+                  exploreLabel={t('destinationsShowcase.explore')}
+                  to={`/destinations#${d.slug}`}
+                />
               ))}
             </div>
           </div>
@@ -209,7 +219,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="text-center">
-          <Link to="/destinations" className="text-sm font-bold text-brand-blue hover:underline">{t('partners.viewAll')}</Link>
+          <Link to="/universities" className="text-sm font-bold text-brand-blue hover:underline">{t('partners.viewAll')}</Link>
         </p>
       </section>
 

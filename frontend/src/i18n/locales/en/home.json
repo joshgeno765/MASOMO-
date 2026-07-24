@@ -46,21 +46,27 @@
   "destinationsShowcase": {
     "eyebrow": "Study Destinations",
     "title": "Where we send our students",
-    "subtitle": "Real partner institutions across five countries — matched to your goals, budget, and language preference.",
+    "subtitle": "Real partner institutions across eight countries — matched to your goals, budget, and language preference.",
     "explore": "Explore",
     "names": {
       "canada": "Canada",
       "united-states": "United States",
       "ireland": "Ireland",
       "germany": "Germany",
-      "poland": "Poland"
+      "poland": "Poland",
+      "australia": "Australia",
+      "china": "China",
+      "uae": "United Arab Emirates"
     },
     "counts": {
       "canada": "8 partner schools",
       "united-states": "2 partner schools",
       "ireland": "2 partner schools",
       "germany": "3 partner schools",
-      "poland": "1 partner school"
+      "poland": "1 partner school",
+      "australia": "1 partner school",
+      "china": "600+ partner schools",
+      "uae": "3 partner schools"
     }
   },
   "whoWeHelp": {
@@ -72,6 +78,13 @@
       { "title": "University Transfer", "description": "Transfer credits into a university degree." },
       { "title": "Degree & Diploma", "description": "Choose from career-focused programs." },
       { "title": "Trades", "description": "Hands-on training with co-op opportunities." }
+    ]
+  },
+  "factsBand": {
+    "items": [
+      { "value": "8", "label": "Study Destinations" },
+      { "value": "21", "label": "Partner Institutions" },
+      { "value": "1:1", "label": "Personalized Advising" }
     ]
   },
   "partners": {

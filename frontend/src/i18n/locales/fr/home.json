@@ -46,21 +46,27 @@
   "destinationsShowcase": {
     "eyebrow": "Destinations d'études",
     "title": "Où nous envoyons nos étudiants",
-    "subtitle": "De véritables établissements partenaires dans cinq pays — choisis selon vos objectifs, votre budget et votre préférence linguistique.",
+    "subtitle": "De véritables établissements partenaires dans huit pays — choisis selon vos objectifs, votre budget et votre préférence linguistique.",
     "explore": "Découvrir",
     "names": {
       "canada": "Canada",
       "united-states": "États-Unis",
       "ireland": "Irlande",
       "germany": "Allemagne",
-      "poland": "Pologne"
+      "poland": "Pologne",
+      "australia": "Australie",
+      "china": "Chine",
+      "uae": "Émirats arabes unis"
     },
     "counts": {
       "canada": "8 écoles partenaires",
       "united-states": "2 écoles partenaires",
       "ireland": "2 écoles partenaires",
       "germany": "3 écoles partenaires",
-      "poland": "1 école partenaire"
+      "poland": "1 école partenaire",
+      "australia": "1 école partenaire",
+      "china": "600+ écoles partenaires",
+      "uae": "3 écoles partenaires"
     }
   },
   "whoWeHelp": {
@@ -72,6 +78,13 @@
       { "title": "Transfert universitaire", "description": "Transférez vos crédits vers un diplôme universitaire." },
       { "title": "Diplôme et certificat", "description": "Choisissez parmi des programmes axés sur la carrière." },
       { "title": "Métiers spécialisés", "description": "Formation pratique avec possibilités de stages coopératifs." }
+    ]
+  },
+  "factsBand": {
+    "items": [
+      { "value": "8", "label": "Destinations d'études" },
+      { "value": "21", "label": "Établissements partenaires" },
+      { "value": "1:1", "label": "Accompagnement personnalisé" }
     ]
   },
   "partners": {

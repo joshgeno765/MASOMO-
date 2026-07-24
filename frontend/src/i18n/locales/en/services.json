@@ -20,13 +20,13 @@
   "process": {
     "title": "Our Process",
     "items": [
-      "Consultation",
-      "Choose a School",
-      "Submit Applications",
-      "Receive Admission",
-      "Apply for Visa",
-      "Travel",
-      "Arrive"
+      { "title": "Consultation", "description": "A free, personalized session to understand your options." },
+      { "title": "Choose a School", "description": "We help you find the institution and program that fits your goals." },
+      { "title": "Submit Applications", "description": "We help you complete your application with confidence." },
+      { "title": "Receive Admission", "description": "Review your offer and confirm your program of study." },
+      { "title": "Apply for Visa", "description": "Professional guidance through every stage of your study permit application." },
+      { "title": "Travel", "description": "Prepare for travel, accommodation, banking, and student life." },
+      { "title": "Arrive", "description": "We help you settle into your new country successfully." }
     ]
   },
   "faq": {

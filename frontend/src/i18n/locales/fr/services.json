@@ -20,13 +20,13 @@
   "process": {
     "title": "Notre processus",
     "items": [
-      "Consultation",
-      "Choisir une école",
-      "Soumettre les candidatures",
-      "Recevoir l'admission",
-      "Faire une demande de visa",
-      "Voyager",
-      "Arriver"
+      { "title": "Consultation", "description": "Une séance gratuite et personnalisée pour comprendre vos options." },
+      { "title": "Choisir une école", "description": "Nous vous aidons à trouver l'établissement et le programme qui correspondent à vos objectifs." },
+      { "title": "Soumettre les candidatures", "description": "Nous vous aidons à soumettre votre candidature en toute confiance." },
+      { "title": "Recevoir l'admission", "description": "Examinez votre offre et confirmez votre programme d'études." },
+      { "title": "Faire une demande de visa", "description": "Un accompagnement professionnel à chaque étape de votre demande de permis d'études." },
+      { "title": "Voyager", "description": "Préparez votre voyage, votre logement, vos services bancaires et votre vie étudiante." },
+      { "title": "Arriver", "description": "Nous vous aidons à bien vous installer dans votre nouveau pays." }
     ]
   },
   "faq": {

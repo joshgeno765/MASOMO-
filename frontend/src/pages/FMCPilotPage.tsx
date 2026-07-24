@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { FMC_ELIGIBLE_COUNTRIES } from '../data/destinations'
 import Button from '../components/ui/Button'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
+import BenefitGrid from '../components/ui/BenefitGrid'
+import NumberedSteps from '../components/ui/NumberedSteps'
 
 type Feature = { icon: string; title: string; description: string }
 type Benefit = { title: string; desc: string }
@@ -130,36 +132,16 @@ export default function FMCPilotPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 px-6 bg-gray-50 border-t border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-10">{t('benefits.title')}</h2>
-          <div className="grid md:grid-cols-2 gap-x-14 gap-y-8">
-            {benefits.map((b) => (
-              <div key={b.title} className="border-t border-gray-200 pt-5">
-                <h3 className="font-bold text-navy mb-2">{b.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BenefitGrid title={t('benefits.title')} items={benefits} variant="rule" columns={2} wrapperBg="gray-50" />
 
       {/* Process */}
-      <section className="py-16 px-6 bg-navy">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-white mb-3">{t('process.title')}</h2>
-          <p className="text-white/60 mb-12 max-w-xl">{t('process.subtitle')}</p>
-          <div className="grid md:grid-cols-5 gap-6">
-            {steps.map((s) => (
-              <div key={s.num} className="border-t border-white/20 pt-5">
-                <div className="text-brand-gold font-bold text-sm mb-3">{t('process.step', { num: s.num })}</div>
-                <h3 className="text-white font-bold text-sm mb-2">{s.title}</h3>
-                <p className="text-white/50 text-xs leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumberedSteps
+        title={t('process.title')}
+        subtitle={t('process.subtitle')}
+        steps={steps.map((s) => ({ title: s.title, description: s.desc }))}
+        columns={5}
+        dark
+      />
 
       {/* CTA */}
       <section className="py-20 px-6">

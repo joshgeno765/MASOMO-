@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
+import NumberedSteps from '../components/ui/NumberedSteps'
 
 type ServiceItem = { icon: string; title: string; description: string }
+type ProcessStep = { title: string; description: string }
 type FaqItem = { q: string; a: string }
 
 const servicePhotos = [
@@ -15,16 +17,13 @@ const servicePhotos = [
   '/images/schools/bcit-thumb.webp',
 ]
 
-const processNums = ['1', '2', '3', '4', '5', '6', '7']
-
 export default function ServicesPage() {
   const { t } = useTranslation('services')
 
   const serviceTexts = t('whatWeHelpWith.items', { returnObjects: true }) as ServiceItem[]
   const services = servicePhotos.map((photo, i) => ({ ...serviceTexts[i], photo }))
 
-  const processTitles = t('process.items', { returnObjects: true }) as string[]
-  const process = processNums.map((num, i) => ({ num, title: processTitles[i] }))
+  const process = t('process.items', { returnObjects: true }) as ProcessStep[]
 
   const faqs = t('faq.items', { returnObjects: true }) as FaqItem[]
 
@@ -42,19 +41,7 @@ export default function ServicesPage() {
       <IconFeatureRow title={t('whatWeHelpWith.title')} columns={3} features={services} />
 
       {/* Our Process */}
-      <section className="py-16 px-6 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-navy mb-10">{t('process.title')}</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6">
-            {process.map((p) => (
-              <div key={p.num} className="border-t-2 border-brand-gold pt-4">
-                <div className="text-brand-gold-dark font-bold text-sm mb-2">{p.num}</div>
-                <div className="font-semibold text-navy text-sm">{p.title}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumberedSteps title={t('process.title')} steps={process} columns={4} />
 
       {/* FAQ */}
       <section className="py-16 px-6">

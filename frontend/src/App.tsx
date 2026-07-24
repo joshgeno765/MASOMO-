@@ -12,6 +12,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const StudyDestinationsPage = lazy(() => import('./pages/StudyDestinationsPage'))
+const UniversitiesPage = lazy(() => import('./pages/UniversitiesPage'))
 const FMCPilotPage = lazy(() => import('./pages/FMCPilotPage'))
 const PathwayFinderPage = lazy(() => import('./pages/PathwayFinderPage'))
 const CostCalculatorPage = lazy(() => import('./pages/CostCalculatorPage'))
@@ -79,7 +80,7 @@ export default function App() {
                 <Route path="/programs" element={<ProgramSearchPage />} />
                 <Route path="/resources" element={<ResourcesPage />} />
                 <Route path="/resources/:slug" element={<ArticlePage />} />
-                <Route path="/universities" element={<Navigate to="/destinations" replace />} />
+                <Route path="/universities" element={<UniversitiesPage />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/consultation" element={<ConsultationPage />} />
                 <Route path="/contact" element={<ContactPage />} />
