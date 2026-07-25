@@ -1,7 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function TermsOfUsePage() {
   const { t } = useTranslation('legal')
+  usePageMeta(t('terms.meta.title'), t('terms.meta.description'))
 
   return (
     <section className="py-16 px-6">

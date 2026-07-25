@@ -6,6 +6,7 @@ import TextImageSplit from '../components/ui/TextImageSplit'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import BenefitGrid from '../components/ui/BenefitGrid'
 import { OFFICES } from '../data/offices'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type CredentialItem = { icon: string; title: string; description: string }
 type ValueTextItem = { title: string; desc: string }
@@ -28,6 +29,7 @@ const teamPhotos = [
 export default function AboutPage() {
   const { hash } = useLocation()
   const { t } = useTranslation('about')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   useEffect(() => {
     if (!hash) return

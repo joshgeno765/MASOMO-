@@ -7,6 +7,7 @@ import Reveal from '../components/ui/Reveal'
 import VideoEmbed from '../components/ui/VideoEmbed'
 import FactsBand from '../components/ui/FactsBand'
 import DestinationAccentCard from '../components/ui/DestinationAccentCard'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type Feature = { icon: string; title: string; description: string }
 type WhoWeHelpItem = { title: string; description: string }
@@ -55,6 +56,7 @@ const partnerMarquee = [
 
 export default function HomePage() {
   const { t } = useTranslation('home')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   const features = t('whyChooseUs.features', { returnObjects: true }) as Feature[]
   const whoWeHelp = t('whoWeHelp.items', { returnObjects: true }) as WhoWeHelpItem[]

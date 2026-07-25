@@ -1,9 +1,11 @@
 import { Trans, useTranslation } from 'react-i18next'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type CollectItem = { label: string; text: string }
 
 export default function PrivacyPolicyPage() {
   const { t } = useTranslation('legal')
+  usePageMeta(t('privacy.meta.title'), t('privacy.meta.description'))
 
   const collectItems = t('privacy.whatWeCollect.items', { returnObjects: true }) as CollectItem[]
 

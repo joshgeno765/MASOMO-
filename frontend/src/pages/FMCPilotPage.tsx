@@ -5,6 +5,7 @@ import Button from '../components/ui/Button'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import BenefitGrid from '../components/ui/BenefitGrid'
 import NumberedSteps from '../components/ui/NumberedSteps'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type Feature = { icon: string; title: string; description: string }
 type Benefit = { title: string; desc: string }
@@ -12,6 +13,7 @@ type Step = { num: string; title: string; desc: string }
 
 export default function FMCPilotPage() {
   const { t } = useTranslation('fmcPilot')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   const eligibilityPoints = t('eligibility.points', { returnObjects: true }) as Feature[]
   const benefits = t('benefits.items', { returnObjects: true }) as Benefit[]

@@ -4,6 +4,7 @@ import PhotoHero from '../components/ui/PhotoHero'
 import IconFeatureRow from '../components/ui/IconFeatureRow'
 import NumberedSteps from '../components/ui/NumberedSteps'
 import TextImageSplit from '../components/ui/TextImageSplit'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type ServiceItem = { icon: string; title: string; description: string }
 type ProcessStep = { title: string; description: string }
@@ -20,6 +21,7 @@ const servicePhotos = [
 
 export default function ServicesPage() {
   const { t } = useTranslation('services')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   const serviceTexts = t('whatWeHelpWith.items', { returnObjects: true }) as ServiceItem[]
   const services = servicePhotos.map((photo, i) => ({ ...serviceTexts[i], photo }))

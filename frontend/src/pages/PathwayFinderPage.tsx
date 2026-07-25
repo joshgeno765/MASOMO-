@@ -9,6 +9,7 @@ import PathwayJourneyVisual from '../components/ui/PathwayJourneyVisual'
 import { matchPathway, PathwayMatchResult, RationaleItem } from '../lib/pathwayMatching'
 import { submitPathwayResult } from '../lib/api'
 import { PathwayQuizAnswers, PathwayFinderSubmission } from '../types'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const HOME_COUNTRIES = ['Rwanda', 'DR Congo', 'Djibouti', 'Kenya', 'Uganda', 'Tanzania', 'Cameroon', 'Senegal', "Côte d'Ivoire", 'Other']
 
@@ -42,6 +43,7 @@ const COUNTRY_SLUGS: Record<string, string> = {
 
 export default function PathwayFinderPage() {
   const { t } = useTranslation('pathwayFinder')
+  usePageMeta(t('meta.title'), t('meta.description'))
   const { t: tHome } = useTranslation('home')
   const { t: tDestinations } = useTranslation('destinations')
   const [searchParams] = useSearchParams()

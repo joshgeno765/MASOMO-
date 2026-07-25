@@ -6,6 +6,7 @@ import { bookConsultation } from '../lib/api'
 import { ConsultationFormData, Appointment } from '../types'
 import { downloadIcs, googleCalendarUrl, outlookWebUrl, CalendarEventInput } from '../lib/calendar'
 import { PRIMARY_WHATSAPP } from '../lib/contact'
+import { usePageMeta } from '../hooks/usePageMeta'
 import FloatingField from '../components/ui/FloatingField'
 import Button from '../components/ui/Button'
 import PhotoHero from '../components/ui/PhotoHero'
@@ -93,6 +94,7 @@ function isPastOrToday(d: Date): boolean {
 
 export default function ConsultationPage() {
   const { t, i18n } = useTranslation('consultation')
+  usePageMeta(t('meta.title'), t('meta.description'))
   const [searchParams] = useSearchParams()
   const [form, setForm] = useState<ConsultationFormData>(EMPTY_FORM)
   const [weekOffset, setWeekOffset] = useState(0)

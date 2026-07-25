@@ -1,5 +1,9 @@
 {
   "privacy": {
+    "meta": {
+      "title": "Privacy Policy — Masomo Now",
+      "description": "How Masomo Now collects, uses, and protects your personal information."
+    },
     "eyebrow": "Legal",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: July 2026",
@@ -46,6 +50,10 @@
     }
   },
   "terms": {
+    "meta": {
+      "title": "Terms of Use — Masomo Now",
+      "description": "Terms governing use of the Masomo Now website and services."
+    },
     "eyebrow": "Legal",
     "title": "Terms of Use",
     "lastUpdated": "Last updated: July 2026",

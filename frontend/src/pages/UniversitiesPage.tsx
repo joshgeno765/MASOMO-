@@ -2,11 +2,13 @@ import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import Button from '../components/ui/Button'
 import { northAmerica, europe, oceania, asia } from '../data/destinations'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const allCountries = [...northAmerica, ...europe, ...oceania, ...asia]
 
 export default function UniversitiesPage() {
   const { t } = useTranslation('universities')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   return (
     <>

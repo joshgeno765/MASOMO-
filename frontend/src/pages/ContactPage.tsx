@@ -2,9 +2,11 @@ import { useTranslation } from 'react-i18next'
 import PhotoHero from '../components/ui/PhotoHero'
 import Button from '../components/ui/Button'
 import { OFFICES } from '../data/offices'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function ContactPage() {
   const { t } = useTranslation('contact')
+  usePageMeta(t('meta.title'), t('meta.description'))
 
   return (
     <>

@@ -5,6 +5,7 @@ import { Country, School, northAmerica, europe, oceania, asia, comingSoon } from
 import Button from '../components/ui/Button'
 import VideoEmbed from '../components/ui/VideoEmbed'
 import PhotoHero from '../components/ui/PhotoHero'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 interface ActiveVideo {
   videoId: string
@@ -125,6 +126,7 @@ function CountryBlock({ d, onPlayVideo, t }: { d: Country; onPlayVideo: (v: Acti
 
 export default function StudyDestinationsPage() {
   const { t } = useTranslation('destinations')
+  usePageMeta(t('meta.title'), t('meta.description'))
   const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null)
   const { hash } = useLocation()
 
