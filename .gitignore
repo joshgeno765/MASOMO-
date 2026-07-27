@@ -25,6 +25,11 @@ backend/prisma/*.db
 *.log
 npm-debug.log*
 
+# Playwright
+frontend/test-results/
+frontend/playwright-report/
+frontend/blob-report/
+
 # OS
 .DS_Store
 Thumbs.db

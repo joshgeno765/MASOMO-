@@ -1,4 +1,5 @@
 import { Component, ReactNode } from 'react'
+import { captureException } from '../lib/sentry'
 
 const CHUNK_ERROR = /failed to fetch dynamically imported module|error loading dynamically imported module|importing a module script failed/i
 const RELOAD_FLAG = 'masomo_chunk_reload_attempted'
@@ -26,7 +27,9 @@ export default class ErrorBoundary extends Component<Props, State> {
     if (CHUNK_ERROR.test(error.message) && !sessionStorage.getItem(RELOAD_FLAG)) {
       sessionStorage.setItem(RELOAD_FLAG, '1')
       window.location.reload()
+      return
     }
+    captureException(error)
   }
 
   render() {

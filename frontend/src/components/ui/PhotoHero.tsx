@@ -22,7 +22,10 @@ export default function PhotoHero({ image, alt, eyebrow, title, subtitle, ctaLab
           src={image}
           alt={alt}
           loading="eager"
-          fetchPriority="high"
+          // @ts-expect-error -- lowercase is intentional: this React version only forwards
+          // fetchpriority to the DOM when spelled lowercase; the camelCase `fetchPriority`
+          // that @types/react expects gets silently dropped instead of applied.
+          fetchpriority="high"
           className="absolute inset-0 w-full h-full object-cover photo-grade"
         />
       )}

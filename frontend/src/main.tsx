@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import './i18n'
+import { initSentry } from './lib/sentry'
+
+initSentry()
 
 // Swap the preloaded Google Fonts stylesheet from print to all once it has loaded,
 // so it doesn't block initial render (kept in JS rather than an inline onload attribute

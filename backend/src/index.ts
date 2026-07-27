@@ -1,7 +1,13 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
+// Must load before any other import — see instrument.ts
+import './instrument'
+import * as Sentry from '@sentry/node'
+
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
-import dotenv from 'dotenv'
 import { rateLimit } from 'express-rate-limit'
 
 import leadsRouter from './routes/leads'
@@ -12,8 +18,6 @@ import pathwayFinderRouter from './routes/pathwayFinder'
 import adminRouter from './routes/admin'
 import chatbotRouter from './routes/chatbot'
 import { startDigestScheduler } from './lib/digest'
-
-dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -66,6 +70,9 @@ app.use('/api/chatbot', chatbotRouter)
 app.use((_req, res) => {
   res.status(404).json({ success: false, error: 'Route not found' })
 })
+
+// Must be added after all routes but before any other error-handling middleware
+if (process.env.SENTRY_DSN) Sentry.setupExpressErrorHandler(app)
 
 // Global error handler
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
