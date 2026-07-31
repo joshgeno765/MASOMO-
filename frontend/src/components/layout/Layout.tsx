@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import ChatWidget from '../ui/ChatWidget'
 import WhatsAppButton from '../ui/WhatsAppButton'
 
 export default function Layout() {
@@ -12,7 +11,6 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <ChatWidget />
       <WhatsAppButton />
     </div>
   )

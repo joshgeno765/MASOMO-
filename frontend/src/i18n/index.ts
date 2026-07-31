@@ -12,7 +12,6 @@ import enServices from './locales/en/services.json'
 import enConsultation from './locales/en/consultation.json'
 import enContact from './locales/en/contact.json'
 import enLegal from './locales/en/legal.json'
-import enChatbot from './locales/en/chatbot.json'
 import enUniversities from './locales/en/universities.json'
 
 import frCommon from './locales/fr/common.json'
@@ -25,7 +24,6 @@ import frServices from './locales/fr/services.json'
 import frConsultation from './locales/fr/consultation.json'
 import frContact from './locales/fr/contact.json'
 import frLegal from './locales/fr/legal.json'
-import frChatbot from './locales/fr/chatbot.json'
 import frUniversities from './locales/fr/universities.json'
 
 export const defaultNS = 'common'
@@ -42,7 +40,6 @@ export const resources = {
     consultation: enConsultation,
     contact: enContact,
     legal: enLegal,
-    chatbot: enChatbot,
     universities: enUniversities,
   },
   fr: {
@@ -56,7 +53,6 @@ export const resources = {
     consultation: frConsultation,
     contact: frContact,
     legal: frLegal,
-    chatbot: frChatbot,
     universities: frUniversities,
   },
 } as const
